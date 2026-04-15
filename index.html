@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的静态博客空间</title>
+    <style>
+        body, html { margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; color: #333; }
+        * { box-sizing: border-box; }
+
+        /* 顶部状态栏 */
+        .top-nav { position: sticky; top: 0; background-color: #2c3e50; color: white; display: flex; justify-content: space-between; align-items: center; padding: 0 40px; height: 60px; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .nav-logo { font-size: 1.2em; font-weight: bold; }
+        .nav-links a { color: #ecf0f1; text-decoration: none; font-size: 1em; padding: 5px 15px; border-radius: 4px; transition: background 0.3s; margin-left: 10px; }
+        .nav-links a:hover { background-color: #34495e; color: #34dbcb; }
+
+        /* 两栏布局 */
+        .layout-container { display: flex; max-width: 1200px; margin: 20px auto; gap: 20px; padding: 0 20px; align-items: flex-start; }
+
+        /* 左侧 20% */
+        .sidebar { width: 20%; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.05); position: sticky; top: 80px; }
+        .sidebar h3 { margin-top: 0; color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        .category-list { list-style: none; padding: 0; margin: 0; }
+        .category-list li { padding: 12px 10px; margin-bottom: 5px; border-radius: 4px; cursor: pointer; transition: all 0.2s; color: #555; }
+        .category-list li:hover { background-color: #f0f8ff; color: #3498db; padding-left: 15px; }
+        .category-list li.active { background-color: #3498db; color: white; }
+
+        /* 右侧 80% */
+        .main-content { width: 80%; }
+        
+        /* 文章卡片 */
+        .post-card { background: #fff; padding: 25px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.05); border-left: 5px solid #3498db; margin-bottom: 20px; transition: transform 0.2s; }
+        .post-card:hover { transform: translateY(-3px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .post-title { font-size: 1.5em; margin: 0 0 10px 0; color: #2c3e50; cursor: pointer; }
+        .post-title:hover { color: #3498db; }
+        .post-meta { color: #95a5a6; font-size: 0.85em; margin-bottom: 15px; }
+        .post-tag { background: #e8f4f8; color: #3498db; padding: 3px 10px; border-radius: 12px; font-size: 0.85em; margin-right: 10px; }
+        .post-excerpt { line-height: 1.6; color: #666; margin-bottom: 15px; }
+        .read-more { color: #3498db; text-decoration: none; font-weight: bold; cursor: pointer; }
+
+        /* 详情页样式 */
+        .btn-back { background: #34495e; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 4px; margin-bottom: 20px; font-size: 1em; }
+        .btn-back:hover { background: #2c3e50; }
+        .post-detail-content { line-height: 2; color: #333; font-size: 1.1em; white-space: pre-wrap; /* 保留文本换行符 */ }
+    </style>
+</head>
+<body>
+
+    <nav class="top-nav">
+        <div class="nav-logo">✨ 我的精神角落</div>
+        <div class="nav-links">
+            <a href="#" onclick="location.reload()">首页</a>
+            <a href="#">关于</a>
+            <a href="#">归档</a>
+            <a href="#">友链</a>
+            <a href="#">统计</a>
+        </div>
+    </nav>
+
+    <div class="layout-container">
+        <aside class="sidebar">
+            <h3>内容导航</h3>
+            <ul class="category-list" id="categoryMenu">
+                <li class="active" data-cat="全部内容">🎯 全部内容</li>
+                <li data-cat="读书分享会">📚 读书分享会</li>
+                <li data-cat="游戏专栏">🎮 游戏专栏</li>
+                <li data-cat="写作专栏">✍️ 写作专栏</li>
+                <li data-cat="日常分享">☕ 日常分享</li>
+                <li data-cat="技术小白学习">💻 技术小白学习</li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <div id="listView"></div>
+
+            <div id="detailView" style="display: none;">
+                <button class="btn-back" onclick="showList()">← 返回列表</button>
+                <div class="post-card" style="border-left: none;">
+                    <h1 id="detailTitle" style="margin-top:0;"></h1>
+                    <div class="post-meta">
+                        <span id="detailTag" class="post-tag"></span>
+                        <span id="detailDate"></span>
+                    </div>
+                    <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+                    <div id="detailContent" class="post-detail-content"></div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="data.js"></script>
+
+    <script>
+        let currentCategory = '全部内容';
+
+        // 1. 初始化渲染列表
+        function renderList() {
+            const container = document.getElementById('listView');
+            container.innerHTML = '';
+
+            // 过滤数据
+            const filteredPosts = currentCategory === '全部内容' 
+                ? blogPosts 
+                : blogPosts.filter(post => post.category === currentCategory);
+
+            if(filteredPosts.length === 0) {
+                container.innerHTML = '<div class="post-card">该分类下暂时没有内容哦~</div>';
+                return;
+            }
+
+            // 生成卡片
+            filteredPosts.forEach(post => {
+                // 截取简介 (前80个字符)
+                const excerpt = post.content.length > 80 ? post.content.substring(0, 80) + '...' : post.content;
+                
+                const card = document.createElement('div');
+                card.className = 'post-card';
+                card.innerHTML = `
+                    <h2 class="post-title" onclick="showDetail(${post.id})">${post.title}</h2>
+                    <div class="post-meta">
+                        <span class="post-tag">${post.category}</span>
+                        <span>发布于：${post.date}</span>
+                    </div>
+                    <div class="post-excerpt">${excerpt}</div>
+                    <a class="read-more" onclick="showDetail(${post.id})">阅读全文 →</a>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // 2. 分类点击切换
+        document.getElementById('categoryMenu').addEventListener('click', (e) => {
+            if (e.target.tagName === 'LI') {
+                // 移除所有激活状态
+                document.querySelectorAll('.category-list li').forEach(li => li.classList.remove('active'));
+                // 激活当前点击项
+                e.target.classList.add('active');
+                
+                currentCategory = e.target.getAttribute('data-cat');
+                showList(); // 确保切回列表视图
+                renderList();
+            }
+        });
+
+        // 3. 显示详情页
+        function showDetail(id) {
+            const post = blogPosts.find(p => p.id === id);
+            if (!post) return;
+
+            document.getElementById('listView').style.display = 'none';
+            document.getElementById('detailView').style.display = 'block';
+
+            document.getElementById('detailTitle').innerText = post.title;
+            document.getElementById('detailTag').innerText = post.category;
+            document.getElementById('detailDate').innerText = '发布于：' + post.date;
+            document.getElementById('detailContent').innerText = post.content; // 使用 innerText 防止代码注入，且保留换行
+        }
+
+        // 4. 返回列表
+        function showList() {
+            document.getElementById('detailView').style.display = 'none';
+            document.getElementById('listView').style.display = 'block';
+        }
+
+        // 页面加载完成时执行
+        window.onload = renderList;
+    </script>
+</body>
+</html>
