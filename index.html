@@ -48,12 +48,12 @@
 
     <nav class="top-nav">
         <div class="nav-logo">✨ 我的精神角落</div>
-        <div class="nav-links">
-            <a href="#" onclick="location.reload()">首页</a>
-            <a href="#">关于</a>
-            <a href="#">归档</a>
-            <a href="#">友链</a>
-            <a href="#">统计</a>
+       <div class="nav-links">
+            <a href="#" onclick="switchPage('home')">首页</a>
+            <a href="#" onclick="switchPage('archive')">归档</a>
+            <a href="#" onclick="switchPage('stats')">统计</a>
+            <a href="#" onclick="switchPage('friends')">友链</a>
+            <a href="#" onclick="switchPage('about')">关于</a>
         </div>
     </nav>
 
@@ -72,7 +72,33 @@
 
         <main class="main-content">
             <div id="listView"></div>
+            <div id="archiveView" class="post-card" style="display: none;">
+                <h2 style="margin-top:0; border-bottom: 2px solid #eee; padding-bottom: 10px;">📜 文章归档</h2>
+                <div id="archiveList" style="line-height: 2;"></div>
+            </div>
 
+            <div id="statsView" class="post-card" style="display: none;">
+                <h2 style="margin-top:0; border-bottom: 2px solid #eee; padding-bottom: 10px;">📊 博客统计</h2>
+                <div style="font-size: 1.2em; line-height: 2;">
+                    <p>📝 文章总数：<strong id="statTotal" style="color: #3498db;">0</strong> 篇</p>
+                    <p>💡 涵盖分类：<strong id="statCategories" style="color: #3498db;">0</strong> 个</p>
+                    <p>键盘敲击的每一个字，都是成长的脚印。</p>
+                </div>
+            </div>
+
+            <div id="friendsView" class="post-card" style="display: none;">
+                <h2 style="margin-top:0; border-bottom: 2px solid #eee; padding-bottom: 10px;">🤝 友情链接</h2>
+                <ul id="friendsList" style="line-height: 2; list-style-type: square;"></ul>
+            </div>
+
+            <div id="aboutView" class="post-card" style="display: none;">
+                <h2 style="margin-top:0; border-bottom: 2px solid #eee; padding-bottom: 10px;">👤 关于我</h2>
+                <div style="line-height: 1.8;">
+                    <p>你好！欢迎来到我的私人频道。</p>
+                    <p>这里是我记录学习、生活和思考的地方。热爱技术，热爱阅读，偶尔打打游戏。</p>
+                    <p>你可以通过这个页面了解我的动态，或者通过友链与我交换博客地址！</p>
+                </div>
+            </div>
             <div id="detailView" style="display: none;">
                 <button class="btn-back" onclick="showList()">← 返回列表</button>
                 <div class="post-card" style="border-left: none;">
@@ -164,6 +190,80 @@
 
         // 页面加载完成时执行
         window.onload = renderList;
-    </script>
+    		// --- 新增：页面切换逻辑 ---
+        function switchPage(pageId) {
+            // 1. 先把所有右侧的视图都隐藏
+            document.getElementById('listView').style.display = 'none';
+            document.getElementById('detailView').style.display = 'none';
+            document.getElementById('archiveView').style.display = 'none';
+            document.getElementById('statsView').style.display = 'none';
+            document.getElementById('friendsView').style.display = 'none';
+            document.getElementById('aboutView').style.display = 'none';
+
+            // 2. 根据点击的按钮，显示对应的视图
+            if (pageId === 'home') {
+                document.getElementById('listView').style.display = 'block';
+                // 切回首页时，恢复显示全部内容
+                currentCategory = '全部内容';
+                document.querySelectorAll('.category-list li').forEach(li => li.classList.remove('active'));
+                document.querySelector('[data-cat="全部内容"]').classList.add('active');
+                renderList();
+            } else if (pageId === 'archive') {
+                document.getElementById('archiveView').style.display = 'block';
+                renderArchive();
+            } else if (pageId === 'stats') {
+                document.getElementById('statsView').style.display = 'block';
+                renderStats();
+            } else if (pageId === 'friends') {
+                document.getElementById('friendsView').style.display = 'block';
+                renderFriends();
+            } else if (pageId === 'about') {
+                document.getElementById('aboutView').style.display = 'block';
+            }
+        }
+
+        // --- 新增：渲染归档页面 ---
+        function renderArchive() {
+            const container = document.getElementById('archiveList');
+            container.innerHTML = '';
+            // 简单罗列所有文章的标题和日期
+            blogPosts.forEach(post => {
+                container.innerHTML += `
+                    <div>
+                        <span style="color: #999; margin-right: 15px;">${post.date}</span>
+                        <a onclick="switchPage('home'); showDetail(${post.id})" style="color: #2c3e50; text-decoration: none; cursor: pointer; border-bottom: 1px dashed #ccc;">${post.title}</a>
+                    </div>
+                `;
+            });
+        }
+
+        // --- 新增：渲染统计页面 ---
+        function renderStats() {
+            document.getElementById('statTotal').innerText = blogPosts.length;
+            // 计算有多少个不同的分类
+            const categories = new Set(blogPosts.map(post => post.category));
+            document.getElementById('statCategories').innerText = categories.size;
+        }
+
+        // --- 新增：渲染友链页面 ---
+        function renderFriends() {
+            const container = document.getElementById('friendsList');
+            // 这里我们直接在前端写死两个演示友链，你也可以之后把它们移到 data.js 里
+            const friends = [
+                { name: "GitHub 官网", url: "https://github.com", desc: "全球最大的同性交友网站" },
+                { name: "MDN Web Docs", url: "https://developer.mozilla.org/", desc: "前端开发者的百科全书" }
+            ];
+            
+            container.innerHTML = '';
+            friends.forEach(friend => {
+                container.innerHTML += `
+                    <li>
+                        <a href="${friend.url}" target="_blank" style="color: #3498db; text-decoration: none; font-weight: bold;">${friend.name}</a>
+                        <span style="color: #666; font-size: 0.9em; margin-left: 10px;">- ${friend.desc}</span>
+                    </li>
+                `;
+            });
+        }
+     </script>
 </body>
 </html>
