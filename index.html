@@ -18,14 +18,64 @@
         /* 两栏布局 */
         .layout-container { display: flex; max-width: 1200px; margin: 20px auto; gap: 20px; padding: 0 20px; align-items: flex-start; }
 
-        /* 左侧 20% */
-        .sidebar { width: 20%; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.05); position: sticky; top: 80px; }
-        .sidebar h3 { margin-top: 0; color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
-        .category-list { list-style: none; padding: 0; margin: 0; }
-        .category-list li { padding: 12px 10px; margin-bottom: 5px; border-radius: 4px; cursor: pointer; transition: all 0.2s; color: #555; }
-        .category-list li:hover { background-color: #f0f8ff; color: #3498db; padding-left: 15px; }
-        .category-list li.active { background-color: #3498db; color: white; }
+      /* 左侧边栏基础容器 */
+	.sidebar { 
+    width: 20%; 
+    background: #fff; 
+    padding: 20px 15px; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05); 
+    position: sticky; 
+    top: 80px; 
+}
 
+.sidebar h3 { 
+    margin-top: 0; 
+    font-size: 1.1em; 
+    color: #2c3e50; 
+    margin-bottom: 15px;
+    padding-left: 5px;
+    border-left: 4px solid #3498db; /* 小装饰条代替底边线 */
+}
+
+/* 标签云容器：允许一行放多个 */
+.category-list { 
+    list-style: none; 
+    padding: 0; 
+    margin: 0; 
+    display: flex;         /* 开启弹性布局 */
+    flex-wrap: wrap;       /* 自动换行 */
+    gap: 8px;              /* 标签之间的间距 */
+}
+
+/* 蓝色圆角矩形标签样式 */
+.category-list li { 
+    padding: 4px 10px; 
+    background-color: #f0f7ff;  /* 极浅蓝背景 */
+    color: #3498db;            /* 蓝色文字 */
+    border: 1px solid #d6eaf8; /* 边框 */
+    border-radius: 4px;        /* 较小的圆角矩形 */
+    font-size: 0.85em; 
+    cursor: pointer; 
+    transition: all 0.2s ease;
+    white-space: nowrap;       /* 防止标签内部文字换行 */
+}
+
+/* 悬停效果 */
+.category-list li:hover { 
+    background-color: #3498db; 
+    color: white; 
+    border-color: #3498db;
+}
+
+/* 选中状态 */
+.category-list li.active { 
+    background-color: #3498db; 
+    color: white; 
+    border-color: #2980b9;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(52, 152, 219, 0.3);
+}
         /* 右侧 80% */
         .main-content { width: 80%; }
         
@@ -60,18 +110,17 @@
     </nav>
 
     <div class="layout-container">
-        <aside class="sidebar">
-            <h3>内容导航</h3>
-            <ul class="category-list" id="categoryMenu">
-                <li class="active" data-cat="全部内容">🎯 全部内容</li>
-                <li data-cat="读书分享会">📚 读书分享会</li>
-                <li data-cat="游戏专栏">🎮 游戏专栏</li>
-                <li data-cat="写作专栏">✍️ 写作专栏</li>
-                <li data-cat="日常分享">☕ 日常分享</li>
-                <li data-cat="技术小白学习">💻 技术小白学习</li>
-            </ul>
-        </aside>
-
+       <aside class="sidebar">
+    <h3>分类内容</h3>
+    <ul class="category-list" id="categoryMenu">
+        <li class="active" data-cat="全部内容">全部</li>
+        <li data-cat="读书">读书</li>
+        <li data-cat="游戏">游戏</li>
+        <li data-cat="写作">写作</li>
+        <li data-cat="日常">日常</li>
+        <li data-cat="技术学习">技术</li>
+    </ul>
+</aside>
         <main class="main-content">
             <div id="listView"></div>
             <div id="archiveView" class="post-card" style="display: none;">
