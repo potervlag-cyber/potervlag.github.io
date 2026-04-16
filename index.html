@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,6 +44,7 @@
         .btn-back:hover { background: #2c3e50; }
         .post-detail-content { line-height: 2; color: #333; font-size: 1.1em; white-space: pre-wrap; /* 保留文本换行符 */ }
     </style>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
 <body>
 
@@ -82,10 +84,13 @@
                 <div style="font-size: 1.2em; line-height: 2;">
                     <p>📝 文章总数：<strong id="statTotal" style="color: #3498db;">0</strong> 篇</p>
                     <p>💡 涵盖分类：<strong id="statCategories" style="color: #3498db;">0</strong> 个</p>
-                    <p>键盘敲击的每一个字，都是成长的脚印。</p>
+                    
+                    <p>👁️ 网站总浏览量：<strong id="busuanzi_container_site_pv" style="color: #e74c3c; display: none;"><span id="busuanzi_value_site_pv"></span></strong> 次</p>
+                    <p>👥 网站总访客数：<strong id="busuanzi_container_site_uv" style="color: #e74c3c; display: none;"><span id="busuanzi_value_site_uv"></span></strong> 人</p>
+                    
+                    <p style="color: #888; font-size: 0.85em; margin-top: 20px;">键盘敲击的每一个字，都是成长的脚印。</p>
                 </div>
             </div>
-
             <div id="friendsView" class="post-card" style="display: none;">
                 <h2 style="margin-top:0; border-bottom: 2px solid #eee; padding-bottom: 10px;">🤝 友情链接</h2>
                 <ul id="friendsList" style="line-height: 2; list-style-type: square;"></ul>
