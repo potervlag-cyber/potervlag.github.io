@@ -6,8 +6,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PoterVlag的博客空间</title>
     <style>
-        body, html { margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f7f6; color: #333; }
+        /* 1. 基础设置 */
+        body, html { 
+            margin: 0; 
+            padding: 0; 
+            font-family: 'Segoe UI', system-ui, sans-serif; 
+            color: #333; 
+            /* 背景设为透明，让底下的视频透出来 */
+            background-color: transparent; 
+        }
         * { box-sizing: border-box; }
+
+        /* 2. 新增：视频背景样式 */
+        .video-background {
+            position: fixed;    /* 固定定位，不随页面滚动 */
+            right: 0; 
+            bottom: 0;
+            min-width: 100%;    /* 确保视频铺满宽度 */
+            min-height: 100%;   /* 确保视频铺满高度 */
+            width: auto; 
+            height: auto;
+            z-index: -100;      /* 将视频层级设为最底层 */
+            /* 确保视频内容居中并覆盖整个区域 */
+            object-fit: cover; 
+        }
+
+        /* 3. 顶部导航栏 (深色半透明毛玻璃) */
+        .top-nav { 
+            position: sticky; top: 0; 
+            background-color: rgba(44, 62, 80, 0.85); /* 85% 不透明度 */
+            backdrop-filter: blur(10px); 
+            -webkit-backdrop-filter: blur(10px);
+            
+            color: white; display: flex; justify-content: space-between; align-items: center; 
+            padding: 0 40px; height: 60px; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+        }
+        
+        /* 4. 调整导航链接样式，增加清晰度 */
+        .nav-links a { 
+            color: #ecf0f1; text-decoration: none; font-size: 0.95em; 
+            padding: 5px 12px; border-radius: 4px; transition: background 0.3s; 
+            margin-left: 5px; 
+            background-color: rgba(255, 255, 255, 0.1); /* 增加一点底色 */
+        }
+
+        /* 5. 布局容器 */
+        .layout-container { display: flex; max-width: 1100px; margin: 25px auto; gap: 20px; padding: 0 20px; align-items: flex-start; }
+
+        /* 6. 左侧边栏 (白色半透明毛玻璃) */
+        .sidebar { 
+            width: 20%; 
+            background: rgba(255, 255, 255, 0.7); /* 白色，70% 不透明度 */
+            backdrop-filter: blur(12px); 
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5); /* 半透明边框增强质感 */
+            
+            padding: 20px 15px; border-radius: 8px; box-shadow: 0 8px 32px rgba(0,0,0,0.05); 
+            position: sticky; top: 80px; 
+        }
+
+        /* 7. 右侧文章卡片 (白色半透明毛玻璃) */
+        .post-card { 
+            background: rgba(255, 255, 255, 0.7); /* 同上 */
+            backdrop-filter: blur(12px); 
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            
+            padding: 25px; border-radius: 8px; box-shadow: 0 8px 32px rgba(0,0,0,0.05); margin-bottom: 20px; 
+        }
+        
+        /* ... 其他样式保持不变 ... */
 
         /* 顶部状态栏 */
         .top-nav { position: sticky; top: 0; background-color: #2c3e50; color: white; display: flex; justify-content: space-between; align-items: center; padding: 0 40px; height: 60px; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
@@ -97,6 +165,11 @@
 <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
 <body>
+
+    <video autoplay loop muted playsinline class="video-background">
+        <source src="blog-background.mp4" type="video/mp4">
+        你的浏览器不支持 HTML5 视频。
+    </video>
 
     <nav class="top-nav">
         <div class="nav-logo">✨ 我的精神角落</div>
