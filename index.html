@@ -1,243 +1,173 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PoterVlag的博客空间</title>
+    <title>我的静态博客空间</title>
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
     <style>
-        /* 1. 基础设置 */
+        /* 1. 基础设置：背景设为透明，让视频透出来 */
         body, html { 
-            margin: 0; 
-            padding: 0; 
+            margin: 0; padding: 0; 
             font-family: 'Segoe UI', system-ui, sans-serif; 
-            color: #333; 
-            /* 背景设为透明，让底下的视频透出来 */
-            background-color: transparent; 
+            background-color: transparent; /* 背景透明 */
         }
         * { box-sizing: border-box; }
 
-        /* 2. 新增：视频背景样式 */
+        /* 2. 视频背景样式 */
         .video-background {
-            position: fixed;    /* 固定定位，不随页面滚动 */
-            right: 0; 
-            bottom: 0;
-            min-width: 100%;    /* 确保视频铺满宽度 */
-            min-height: 100%;   /* 确保视频铺满高度 */
-            width: auto; 
-            height: auto;
-            z-index: -100;      /* 将视频层级设为最底层 */
-            /* 确保视频内容居中并覆盖整个区域 */
+            position: fixed; right: 0; bottom: 0;
+            min-width: 100%; min-height: 100%;
+            z-index: -100; /* 放在最底层 */
             object-fit: cover; 
         }
 
-        /* 3. 顶部导航栏 (深色半透明毛玻璃) */
+        /* 3. 顶部导航栏 (保持深色毛玻璃，压住页面顶部视觉) */
         .top-nav { 
             position: sticky; top: 0; 
-            background-color: rgba(44, 62, 80, 0.85); /* 85% 不透明度 */
-            backdrop-filter: blur(10px); 
-            -webkit-backdrop-filter: blur(10px);
-            
+            background-color: rgba(44, 62, 80, 0.85); 
+            backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
             color: white; display: flex; justify-content: space-between; align-items: center; 
             padding: 0 40px; height: 60px; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
         }
-        
-        /* 4. 调整导航链接样式，增加清晰度 */
-        .nav-links a { 
-            color: #ecf0f1; text-decoration: none; font-size: 0.95em; 
-            padding: 5px 12px; border-radius: 4px; transition: background 0.3s; 
-            margin-left: 5px; 
-            background-color: rgba(255, 255, 255, 0.1); /* 增加一点底色 */
-        }
-
-        /* 5. 布局容器 */
-        .layout-container { display: flex; max-width: 1100px; margin: 25px auto; gap: 20px; padding: 0 20px; align-items: flex-start; }
-
-        /* 6. 左侧边栏 (白色半透明毛玻璃) */
-        .sidebar { 
-            width: 20%; 
-            background: rgba(255, 255, 255, 0.7); /* 白色，70% 不透明度 */
-            backdrop-filter: blur(12px); 
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.5); /* 半透明边框增强质感 */
-            
-            padding: 20px 15px; border-radius: 8px; box-shadow: 0 8px 32px rgba(0,0,0,0.05); 
-            position: sticky; top: 80px; 
-        }
-
-        /* 7. 右侧文章卡片 (白色半透明毛玻璃) */
-        .post-card { 
-            background: rgba(255, 255, 255, 0.7); /* 同上 */
-            backdrop-filter: blur(12px); 
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            
-            padding: 25px; border-radius: 8px; box-shadow: 0 8px 32px rgba(0,0,0,0.05); margin-bottom: 20px; 
-        }
-        
-        /* ... 其他样式保持不变 ... */
-
-        /* 顶部状态栏 */
-        .top-nav { position: sticky; top: 0; background-color: #2c3e50; color: white; display: flex; justify-content: space-between; align-items: center; padding: 0 40px; height: 60px; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
         .nav-logo { font-size: 1.2em; font-weight: bold; }
-        .nav-links a { color: #ecf0f1; text-decoration: none; font-size: 1em; padding: 5px 15px; border-radius: 4px; transition: background 0.3s; margin-left: 10px; }
+        .nav-links a { color: #ecf0f1; text-decoration: none; font-size: 0.95em; padding: 5px 12px; border-radius: 4px; transition: background 0.3s; margin-left: 5px; background-color: rgba(255, 255, 255, 0.1); }
         .nav-links a:hover { background-color: #34495e; color: #34dbcb; }
 
-        /* 两栏布局 */
-        .layout-container { display: flex; max-width: 1200px; margin: 20px auto; gap: 20px; padding: 0 20px; align-items: flex-start; }
+        /* 4. 布局容器 */
+        .layout-container { display: flex; max-width: 1100px; margin: 25px auto; gap: 20px; padding: 0 20px; align-items: flex-start; }
 
-      /* 左侧边栏基础容器 */
-	.sidebar { 
-    width: 20%; 
-    background: #fff; 
-    padding: 20px 15px; 
-    border-radius: 8px; 
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05); 
-    position: sticky; 
-    top: 80px; 
-}
+        /* 5. 左侧边栏 (透明框架 + 半透明细边框) */
+        .sidebar { 
+            width: 20%; 
+            background: transparent;       /* 完全透明 */
+            backdrop-filter: none;         /* 取消模糊 */
+            -webkit-backdrop-filter: none;
+            box-shadow: none;              /* 取消阴影 */
+            
+            border: 1px solid rgba(0, 0, 0, 0.2); /* 0.2透明度的黑边框 */
+            color: #111;                          /* 字体加深 */
+            
+            padding: 20px 15px; border-radius: 8px; position: sticky; top: 80px; 
+        }
+        
+        /* 侧边栏标题样式：带白色泛光防止看不清 */
+        .sidebar h3 { 
+            margin-top: 0; font-size: 1.1em; color: #000; margin-bottom: 15px; 
+            padding-left: 8px; border-left: 3px solid #3498db; 
+            text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8);
+        }
 
-.sidebar h3 { 
-    margin-top: 0; 
-    font-size: 1.1em; 
-    color: #2c3e50; 
-    margin-bottom: 15px;
-    padding-left: 5px;
-    border-left: 4px solid #3498db; /* 小装饰条代替底边线 */
-}
+        /* 6. 标签云 (透明化处理) */
+        .category-list { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+        .category-list li { 
+            padding: 4px 10px; 
+            background-color: transparent; /* 标签背景透明 */
+            color: #3498db; 
+            border: 1px solid rgba(52, 152, 219, 0.6); /* 保留稍明显的蓝色边框 */
+            border-radius: 4px; font-size: 0.85em; font-weight: 600; 
+            cursor: pointer; transition: all 0.2s ease;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8); /* 增加文字发光 */
+        }
+        .category-list li:hover, .category-list li.active { 
+            background-color: #3498db; color: white; text-shadow: none; 
+        }
 
-/* 标签云容器：允许一行放多个 */
-.category-list { 
-    list-style: none; 
-    padding: 0; 
-    margin: 0; 
-    display: flex;         /* 开启弹性布局 */
-    flex-wrap: wrap;       /* 自动换行 */
-    gap: 8px;              /* 标签之间的间距 */
-}
-
-/* 蓝色圆角矩形标签样式 */
-.category-list li { 
-    padding: 4px 10px; 
-    background-color: #f0f7ff;  /* 极浅蓝背景 */
-    color: #3498db;            /* 蓝色文字 */
-    border: 1px solid #d6eaf8; /* 边框 */
-    border-radius: 4px;        /* 较小的圆角矩形 */
-    font-size: 0.85em; 
-    cursor: pointer; 
-    transition: all 0.2s ease;
-    white-space: nowrap;       /* 防止标签内部文字换行 */
-}
-
-/* 悬停效果 */
-.category-list li:hover { 
-    background-color: #3498db; 
-    color: white; 
-    border-color: #3498db;
-}
-
-/* 选中状态 */
-.category-list li.active { 
-    background-color: #3498db; 
-    color: white; 
-    border-color: #2980b9;
-    font-weight: bold;
-    box-shadow: 0 2px 4px rgba(52, 152, 219, 0.3);
-}
-        /* 右侧 80% */
+        /* 7. 右侧主内容区 */
         .main-content { width: 80%; }
         
-        /* 文章卡片 */
-        .post-card { background: #fff; padding: 25px; border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.05); border-left: 5px solid #3498db; margin-bottom: 20px; transition: transform 0.2s; }
-        .post-card:hover { transform: translateY(-3px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-        .post-title { font-size: 1.5em; margin: 0 0 10px 0; color: #2c3e50; cursor: pointer; }
+        /* 8. 通用文章卡片样式 (透明框架 + 半透明细边框) */
+        .post-card { 
+            background: transparent; 
+            backdrop-filter: none; 
+            -webkit-backdrop-filter: none;
+            box-shadow: none;
+            
+            border: 1px solid rgba(0, 0, 0, 0.2); /* 0.2透明度黑边框 */
+            color: #111; 
+            
+            padding: 25px; border-radius: 8px; margin-bottom: 20px; 
+        }
+        
+        /* 文章标题和正文：加深字体并加上细微白底阴影保护可读性 */
+        .post-title { font-size: 1.6em; margin: 0 0 10px 0; color: #000; font-weight: 600; cursor: pointer; transition: color 0.2s; text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8); }
         .post-title:hover { color: #3498db; }
-        .post-meta { color: #95a5a6; font-size: 0.85em; margin-bottom: 15px; }
-        .post-tag { background: #e8f4f8; color: #3498db; padding: 3px 10px; border-radius: 12px; font-size: 0.85em; margin-right: 10px; }
-        .post-excerpt { line-height: 1.6; color: #666; margin-bottom: 15px; }
+        .post-meta { color: #444; font-size: 0.85em; margin-bottom: 15px; font-weight: 500;  }
+        .post-tag { background: rgba(52, 152, 219, 0.1); border: 1px solid #3498db; color: #3498db; padding: 2px 8px; border-radius: 4px; font-size: 0.8em; margin-right: 10px; }
+        .post-excerpt { line-height: 1.7; color: #000; margin-bottom: 15px; font-weight: 500;  }
         .read-more { color: #3498db; text-decoration: none; font-weight: bold; cursor: pointer; }
 
-        /* 详情页样式 */
-        .btn-back { background: #34495e; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 4px; margin-bottom: 20px; font-size: 1em; }
-        .btn-back:hover { background: #2c3e50; }
-        .post-detail-content { line-height: 2; color: #333; font-size: 1.1em; white-space: pre-wrap; /* 保留文本换行符 */ }
+        .btn-back { background: #34495e; color: white; border: none; padding: 8px 16px; cursor: pointer; border-radius: 4px; margin-bottom: 20px; }
+        .post-detail-content { line-height: 1.8; color: #222; font-size: 1.05em; white-space: pre-wrap; font-weight: 500; text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8); }
     </style>
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 </head>
 <body>
 
     <video autoplay loop muted playsinline class="video-background">
         <source src="blog-background.mp4" type="video/mp4">
-        你的浏览器不支持 HTML5 视频。
     </video>
 
     <nav class="top-nav">
-        <div class="nav-logo">✨ 我的精神角落</div>
-       <div class="nav-links">
+        <div class="nav-logo">My Blog</div>
+        <div class="nav-links">
             <a href="#" onclick="switchPage('home')">首页</a>
             <a href="#" onclick="switchPage('archive')">归档</a>
             <a href="#" onclick="switchPage('stats')">统计</a>
-            <a href="#" onclick="switchPage('friends')">友链</a>
             <a href="#" onclick="switchPage('about')">关于</a>
         </div>
     </nav>
 
     <div class="layout-container">
-       <aside class="sidebar">
-    <h3>分类内容</h3>
-    <ul class="category-list" id="categoryMenu">
-        <li class="active" data-cat="全部内容">全部</li>
-        <li data-cat="读书">读书</li>
-        <li data-cat="游戏">游戏</li>
-        <li data-cat="写作">写作</li>
-        <li data-cat="日常">日常</li>
-        <li data-cat="技术学习">技术</li>
-    </ul>
-</aside>
+        
+        <aside class="sidebar" id="sidebarArea">
+            <h3>分类导航</h3>
+            <ul class="category-list" id="categoryMenu">
+                <li class="active" data-cat="全部内容">全部</li>
+                <li data-cat="读书分享会">读书</li>
+                <li data-cat="游戏专栏">游戏</li>
+                <li data-cat="日常分享">日常</li>
+                <li data-cat="技术小白学习">技术</li>
+            </ul>
+        </aside>
+
         <main class="main-content">
+            
             <div id="listView"></div>
-            <div id="archiveView" class="post-card" style="display: none;">
-                <h2 style="margin-top:0; border-bottom: 2px solid #eee; padding-bottom: 10px;">📜 文章归档</h2>
-                <div id="archiveList" style="line-height: 2;"></div>
-            </div>
-
-            <div id="statsView" class="post-card" style="display: none;">
-                <h2 style="margin-top:0; border-bottom: 2px solid #eee; padding-bottom: 10px;">📊 博客统计</h2>
-                <div style="font-size: 1.2em; line-height: 2;">
-                    <p>📝 文章总数：<strong id="statTotal" style="color: #3498db;">0</strong> 篇</p>
-                    <p>💡 涵盖分类：<strong id="statCategories" style="color: #3498db;">0</strong> 个</p>
-                    
-                    <p>👁️ 网站总浏览量：<strong id="busuanzi_container_site_pv" style="color: #e74c3c; display: none;"><span id="busuanzi_value_site_pv"></span></strong> 次</p>
-                    <p>👥 网站总访客数：<strong id="busuanzi_container_site_uv" style="color: #e74c3c; display: none;"><span id="busuanzi_value_site_uv"></span></strong> 人</p>
-                    
-                    <p style="color: #888; font-size: 0.85em; margin-top: 20px;">键盘敲击的每一个字，都是成长的脚印。</p>
-                </div>
-            </div>
-            <div id="friendsView" class="post-card" style="display: none;">
-                <h2 style="margin-top:0; border-bottom: 2px solid #eee; padding-bottom: 10px;">🤝 友情链接</h2>
-                <ul id="friendsList" style="line-height: 2; list-style-type: square;"></ul>
-            </div>
-
-            <div id="aboutView" class="post-card" style="display: none;">
-                <h2 style="margin-top:0; border-bottom: 2px solid #eee; padding-bottom: 10px;">👤 关于我</h2>
-                <div style="line-height: 1.8;">
-                    <p>你好！欢迎来到我的私人频道。</p>
-                    <p>这里是我记录学习、生活和思考的地方。热爱技术，热爱阅读，偶尔打打游戏。</p>
-                    <p>你可以通过这个页面了解我的动态，或者通过友链与我交换博客地址！</p>
-                </div>
-            </div>
+            
             <div id="detailView" style="display: none;">
-                <button class="btn-back" onclick="showList()">← 返回列表</button>
-                <div class="post-card" style="border-left: none;">
-                    <h1 id="detailTitle" style="margin-top:0;"></h1>
-                    <div class="post-meta">
-                        <span id="detailTag" class="post-tag"></span>
-                        <span id="detailDate"></span>
-                    </div>
-                    <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+                <button class="btn-back" onclick="switchPage('home')">← 返回列表</button>
+                <div class="post-card">
+                    <h1 id="detailTitle" class="post-title" style="margin-top:0;"></h1>
+                    <div class="post-meta"><span id="detailTag" class="post-tag"></span><span id="detailDate"></span></div>
+                    <hr style="border: 0; border-top: 1px dashed rgba(0,0,0,0.2); margin: 20px 0;">
                     <div id="detailContent" class="post-detail-content"></div>
                 </div>
             </div>
+            
+            <div id="archiveView" class="post-card" style="display: none;">
+                <h2 class="post-title">📜 文章归档</h2>
+                <hr style="border: 0; border-top: 1px dashed rgba(0,0,0,0.2); margin: 15px 0;">
+                <div id="archiveList" style="line-height: 2; font-weight: 500; text-shadow: 1px 1px 3px rgba(255,255,255,0.8);"></div>
+            </div>
+            
+            <div id="statsView" class="post-card" style="display: none;">
+                <h2 class="post-title">📊 博客统计</h2>
+                <hr style="border: 0; border-top: 1px dashed rgba(0,0,0,0.2); margin: 15px 0;">
+                <div style="font-size: 1.1em; line-height: 2; font-weight: 500; text-shadow: 1px 1px 3px rgba(255,255,255,0.8);">
+                    <p>📝 文章总数：<strong id="statTotal" style="color: #3498db;">0</strong> 篇</p>
+                    <p>👁️ 网站总浏览量：<strong style="color: #e74c3c;"><span id="busuanzi_value_site_pv">--</span></strong> 次</p>
+                    <p>👥 网站总访客数：<strong style="color: #e74c3c;"><span id="busuanzi_value_site_uv">--</span></strong> 人</p>
+                </div>
+            </div>
+            
+            <div id="aboutView" class="post-card" style="display: none;">
+                <h2 class="post-title">👤 关于我</h2>
+                <hr style="border: 0; border-top: 1px dashed rgba(0,0,0,0.2); margin: 15px 0;">
+                <p class="post-excerpt">欢迎来到我的个人博客。这里是我用代码亲手搭建的精神角落。</p>
+            </div>
+            
         </main>
     </div>
 
@@ -246,151 +176,67 @@
     <script>
         let currentCategory = '全部内容';
 
-        // 1. 初始化渲染列表
+        // 渲染首页列表
         function renderList() {
             const container = document.getElementById('listView');
             container.innerHTML = '';
-
-            // 过滤数据
-            const filteredPosts = currentCategory === '全部内容' 
-                ? blogPosts 
-                : blogPosts.filter(post => post.category === currentCategory);
-
-            if(filteredPosts.length === 0) {
-                container.innerHTML = '<div class="post-card">该分类下暂时没有内容哦~</div>';
-                return;
-            }
-
-            // 生成卡片
-            filteredPosts.forEach(post => {
-                // 截取简介 (前80个字符)
-                const excerpt = post.content.length > 80 ? post.content.substring(0, 80) + '...' : post.content;
-                
+            const filtered = currentCategory === '全部内容' ? blogPosts : blogPosts.filter(p => p.category === currentCategory);
+            
+            filtered.forEach(post => {
                 const card = document.createElement('div');
                 card.className = 'post-card';
                 card.innerHTML = `
                     <h2 class="post-title" onclick="showDetail(${post.id})">${post.title}</h2>
-                    <div class="post-meta">
-                        <span class="post-tag">${post.category}</span>
-                        <span>发布于：${post.date}</span>
-                    </div>
-                    <div class="post-excerpt">${excerpt}</div>
+                    <div class="post-meta"><span class="post-tag">${post.category}</span>发布于：${post.date}</div>
+                    <div class="post-excerpt">${post.content.length > 80 ? post.content.substring(0, 80) + '...' : post.content}</div>
                     <a class="read-more" onclick="showDetail(${post.id})">阅读全文 →</a>
                 `;
                 container.appendChild(card);
             });
         }
 
-        // 2. 分类点击切换
-        document.getElementById('categoryMenu').addEventListener('click', (e) => {
-            if (e.target.tagName === 'LI') {
-                // 移除所有激活状态
-                document.querySelectorAll('.category-list li').forEach(li => li.classList.remove('active'));
-                // 激活当前点击项
-                e.target.classList.add('active');
-                
-                currentCategory = e.target.getAttribute('data-cat');
-                showList(); // 确保切回列表视图
-                renderList();
+        // 顶部导航页面切换
+        function switchPage(pageId) {
+            const views = ['listView', 'detailView', 'archiveView', 'statsView', 'aboutView'];
+            views.forEach(v => document.getElementById(v).style.display = 'none');
+            
+            if(document.getElementById(pageId + 'View')) {
+                document.getElementById(pageId + 'View').style.display = 'block';
+            } else {
+                document.getElementById('listView').style.display = 'block';
             }
-        });
+            
+            if(pageId === 'home') renderList();
+            if(pageId === 'stats') document.getElementById('statTotal').innerText = blogPosts.length;
+            if(pageId === 'archive') {
+                const list = document.getElementById('archiveList');
+                list.innerHTML = blogPosts.map(p => `<div><span style="color: #666; margin-right: 15px;">${p.date}</span> <a href="#" onclick="showDetail(${p.id})" style="color: #111; text-decoration: none; border-bottom: 1px dashed #ccc;">${p.title}</a></div>`).join('');
+            }
+        }
 
-        // 3. 显示详情页
+        // 显示文章详情
         function showDetail(id) {
             const post = blogPosts.find(p => p.id === id);
             if (!post) return;
-
-            document.getElementById('listView').style.display = 'none';
-            document.getElementById('detailView').style.display = 'block';
-
+            switchPage('detail');
             document.getElementById('detailTitle').innerText = post.title;
+            document.getElementById('detailContent').innerText = post.content;
             document.getElementById('detailTag').innerText = post.category;
             document.getElementById('detailDate').innerText = '发布于：' + post.date;
-            document.getElementById('detailContent').innerText = post.content; // 使用 innerText 防止代码注入，且保留换行
         }
 
-        // 4. 返回列表
-        function showList() {
-            document.getElementById('detailView').style.display = 'none';
-            document.getElementById('listView').style.display = 'block';
-        }
-
-        // 页面加载完成时执行
-        window.onload = renderList;
-    		// --- 新增：页面切换逻辑 ---
-        function switchPage(pageId) {
-            // 1. 先把所有右侧的视图都隐藏
-            document.getElementById('listView').style.display = 'none';
-            document.getElementById('detailView').style.display = 'none';
-            document.getElementById('archiveView').style.display = 'none';
-            document.getElementById('statsView').style.display = 'none';
-            document.getElementById('friendsView').style.display = 'none';
-            document.getElementById('aboutView').style.display = 'none';
-
-            // 2. 根据点击的按钮，显示对应的视图
-            if (pageId === 'home') {
-                document.getElementById('listView').style.display = 'block';
-                // 切回首页时，恢复显示全部内容
-                currentCategory = '全部内容';
+        // 左侧标签点击筛选
+        document.getElementById('categoryMenu').addEventListener('click', (e) => {
+            if (e.target.tagName === 'LI') {
                 document.querySelectorAll('.category-list li').forEach(li => li.classList.remove('active'));
-                document.querySelector('[data-cat="全部内容"]').classList.add('active');
-                renderList();
-            } else if (pageId === 'archive') {
-                document.getElementById('archiveView').style.display = 'block';
-                renderArchive();
-            } else if (pageId === 'stats') {
-                document.getElementById('statsView').style.display = 'block';
-                renderStats();
-            } else if (pageId === 'friends') {
-                document.getElementById('friendsView').style.display = 'block';
-                renderFriends();
-            } else if (pageId === 'about') {
-                document.getElementById('aboutView').style.display = 'block';
+                e.target.classList.add('active');
+                currentCategory = e.target.getAttribute('data-cat');
+                switchPage('home'); // 切回首页并渲染过滤后的列表
             }
-        }
+        });
 
-        // --- 新增：渲染归档页面 ---
-        function renderArchive() {
-            const container = document.getElementById('archiveList');
-            container.innerHTML = '';
-            // 简单罗列所有文章的标题和日期
-            blogPosts.forEach(post => {
-                container.innerHTML += `
-                    <div>
-                        <span style="color: #999; margin-right: 15px;">${post.date}</span>
-                        <a onclick="switchPage('home'); showDetail(${post.id})" style="color: #2c3e50; text-decoration: none; cursor: pointer; border-bottom: 1px dashed #ccc;">${post.title}</a>
-                    </div>
-                `;
-            });
-        }
-
-        // --- 新增：渲染统计页面 ---
-        function renderStats() {
-            document.getElementById('statTotal').innerText = blogPosts.length;
-            // 计算有多少个不同的分类
-            const categories = new Set(blogPosts.map(post => post.category));
-            document.getElementById('statCategories').innerText = categories.size;
-        }
-
-        // --- 新增：渲染友链页面 ---
-        function renderFriends() {
-            const container = document.getElementById('friendsList');
-            // 这里我们直接在前端写死两个演示友链，你也可以之后把它们移到 data.js 里
-            const friends = [
-                { name: "GitHub 官网", url: "https://github.com", desc: "全球最大的同性交友网站" },
-                { name: "MDN Web Docs", url: "https://developer.mozilla.org/", desc: "前端开发者的百科全书" }
-            ];
-            
-            container.innerHTML = '';
-            friends.forEach(friend => {
-                container.innerHTML += `
-                    <li>
-                        <a href="${friend.url}" target="_blank" style="color: #3498db; text-decoration: none; font-weight: bold;">${friend.name}</a>
-                        <span style="color: #666; font-size: 0.9em; margin-left: 10px;">- ${friend.desc}</span>
-                    </li>
-                `;
-            });
-        }
-     </script>
+        // 初始化加载
+        window.onload = () => renderList();
+    </script>
 </body>
 </html>
