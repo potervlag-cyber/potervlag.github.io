@@ -178,6 +178,51 @@
 
         .btn-back { background: #34495e; color: white; border: none; padding: 8px 16px; cursor: pointer; border-radius: 4px; margin-bottom: 20px; }
         .post-detail-content { line-height: 1.8; color: #222; font-size: 1.05em; white-space: pre-wrap; font-weight: 500; text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8); }
+	/* --- 9. 设置面板与滑动开关样式 --- */
+        
+        /* 弹窗全屏背景（带一点变暗和模糊） */
+        .settings-modal {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+            display: flex; justify-content: center; align-items: center; z-index: 9999;
+        }
+        
+        /* 设置面板本体（毛玻璃卡片） */
+        .settings-content {
+            background: rgba(255, 255, 255, 0.65); backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.5); padding: 30px; border-radius: 12px; 
+            width: 320px; position: relative; box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            transform: translateY(0); transition: all 0.3s ease;
+        }
+        
+        /* 关闭按钮 */
+        .close-btn { 
+            position: absolute; top: 15px; right: 20px; font-size: 1.8em; 
+            cursor: pointer; color: #333; transition: color 0.2s; 
+        }
+        .close-btn:hover { color: #e74c3c; }
+        
+        .setting-item { 
+            display: flex; justify-content: space-between; align-items: center; 
+            margin-bottom: 20px; font-weight: 600; color: #222; text-shadow: 1px 1px 2px rgba(255,255,255,0.6); 
+        }
+
+        /* iOS风格滑动开关核心代码 */
+        .switch { position: relative; display: inline-block; width: 46px; height: 24px; }
+        .switch input { opacity: 0; width: 0; height: 0; }
+        .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .3s; border-radius: 24px; }
+        .slider:before { position: absolute; content: ""; height: 18px; width: 18px; left: 3px; bottom: 3px; background-color: white; transition: .3s; border-radius: 50%; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+        input:checked + .slider { background-color: #00a8ff; } /* 开启时的亮蓝色 */
+        input:checked + .slider:before { transform: translateX(22px); }
+
+        /* 用于禁用悬停动效的辅助类 */
+        body.disable-hover .post-card:hover, body.disable-hover .side-card:hover, body.disable-hover .profile-avatar:hover { 
+            transform: none !important; box-shadow: none !important; background: transparent !important; 
+            border: 1px solid rgba(0, 0, 0, 0.2) !important;
+        }
+        
+        /* 补充：当视频关闭时，给 body 一个默认的渐变背景底色防刺眼 */
+        body { background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); background-attachment: fixed; }
     </style>
 </head>
 <body>
@@ -193,6 +238,7 @@
             <a href="#" onclick="switchPage('archive')">归档</a>
             <a href="#" onclick="switchPage('stats')">统计</a>
             <a href="#" onclick="switchPage('about')">关于</a>
+	    <a href="#" onclick="openSettings()" style="margin-left: 20px;">⚙️ 设置</a>
         </div>
     </nav>
 
@@ -320,9 +366,62 @@
                 switchPage('home'); // 切回首页并渲染过滤后的列表
             }
         });
+        // --- 设置面板相关逻辑 ---
+
+        // 打开与关闭面板
+        function openSettings() { document.getElementById('settingsModal').style.display = 'flex'; }
+        function closeSettings() { document.getElementById('settingsModal').style.display = 'none'; }
+
+        // 开关 1：控制视频背景
+        function toggleBackground() {
+            const video = document.querySelector('.video-background');
+            const toggle = document.getElementById('bgToggle');
+            if (toggle.checked) {
+                video.style.display = 'block';
+                video.play(); // 恢复播放
+            } else {
+                video.style.display = 'none';
+                video.pause(); // 暂停视频，节省电脑 CPU 和内存性能
+            }
+        }
+
+        // 开关 2：控制悬停浮起动效
+        function toggleHoverEffects() {
+            const toggle = document.getElementById('hoverToggle');
+            if (toggle.checked) {
+                document.body.classList.remove('disable-hover'); // 移除禁用类，恢复动效
+            } else {
+                document.body.classList.add('disable-hover'); // 添加禁用类，强制取消动效
+            }
+        }
 
         // 初始化加载
         window.onload = () => renderList();
     </script>
+	<div id="settingsModal" class="settings-modal" style="display: none;">
+        <div class="settings-content">
+            <span class="close-btn" onclick="closeSettings()">&times;</span>
+            <h2 style="margin-top:0; color:#000; text-shadow:1px 1px 2px rgba(255,255,255,0.8);">⚙️ 偏好设置</h2>
+            <hr style="border:0; border-top:1px dashed rgba(0,0,0,0.2); margin:15px 0;">
+
+            <div class="setting-item">
+                <span>🎬 动态视频背景</span>
+                <label class="switch">
+                    <input type="checkbox" id="bgToggle" checked onchange="toggleBackground()">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+
+            <div class="setting-item">
+                <span>✨ 卡片悬停浮起</span>
+                <label class="switch">
+                    <input type="checkbox" id="hoverToggle" checked onchange="toggleHoverEffects()">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            
+            <p style="font-size: 0.8em; color: #666; margin-top: 25px; text-align: center;">设置仅在当前浏览器生效</p>
+        </div>
+    </div>
 </body>
 </html>
