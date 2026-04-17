@@ -65,35 +65,62 @@
         .nav-links a:hover { background-color: #34495e; color: #34dbcb; }
 
         /* 4. 布局容器 */
-        .layout-container { display: flex; max-width: 1100px; margin: 25px auto; gap: 20px; padding: 0 20px; align-items: flex-start; }
+        .layout-container { display: flex; max-width: 1200px; margin: 25px auto; gap: 20px; padding: 0 20px; align-items: flex-start; }
 
-        /* 5. 侧边栏 (透明框架 + 半透明细边框) */
-        .sidebar { 
-            width: 20%; 
-            background: transparent;       /* 完全透明 */
-            backdrop-filter: none;         /* 取消模糊 */
-            -webkit-backdrop-filter: none;
-            box-shadow: none;              /* 取消阴影 */
-            
-            border: 1px solid rgba(0, 0, 0, 0); /* 0透明度的黑边框 */
-            color: #111;                          /* 字体加深 */
-            
-            padding: 20px 15px; border-radius: 8px; position: sticky; top: 80px; 
-		transition: all 0.3s ease;
-        }
+     /* --- 5. 左侧栏布局与独立卡片 --- */
         
-	.sidebar:hover {
+        /* 这个只负责占据 20% 的宽度并固定在屏幕左侧，没有任何背景和边框 */
+        .sidebar-wrapper { 
+            width: 17%; 
+            position: sticky; top: 80px; 
+        }
+
+        /* 侧边栏里每一张独立卡片的通用样式 */
+        .side-card {
+            background: transparent;       
+            backdrop-filter: none;         
+            -webkit-backdrop-filter: none;
+            box-shadow: none;              
+            border: 1px solid rgba(0, 0, 0, 0.2); 
+            color: #111;                   
+            
+            padding: 20px 15px; 
+            border-radius: 8px; 
+            margin-bottom: 20px; /* 两张卡片之间留出 20px 的空隙 */
+            transition: all 0.3s ease; 
+        }
+
+        /* 独立卡片的悬停浮起效果 */
+        .side-card:hover {
             transform: translateY(-8px);
             background: rgba(255, 255, 255, 0.15);
             box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
             border: 1px solid rgba(0, 0, 0, 0.3);
         }
-        /* 侧边栏标题样式：带白色泛光防止看不清 */
-        .sidebar h3 { 
+
+        /* 侧边栏标题的泛光样式 */
+        .side-card h3 { 
             margin-top: 0; font-size: 1.1em; color: #000; margin-bottom: 15px; 
             padding-left: 8px; border-left: 3px solid #3498db; 
             text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8);
         }
+
+        /* 个人名片内部样式 (去掉了以前的虚线分割，因为已经是独立卡片了) */
+        .profile-card {
+            text-align: center;
+        }
+        
+        .profile-avatar {
+            width: 80px; height: 80px; border-radius: 50%; object-fit: cover;
+            border: 3px solid rgba(52, 152, 219, 0.3); padding: 2px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-bottom: 10px;
+            transition: transform 0.3s ease;
+        }
+        .profile-avatar:hover { transform: scale(1.08) rotate(5deg); }
+
+        .profile-name { font-size: 1.25em; color: #000; margin: 0 0 8px 0; font-weight: 800; text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8); }
+        .profile-bio { font-size: 0.85em; color: #333; line-height: 1.6; margin: 0; font-weight: 500; text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6); padding: 0 5px; }
+             /* --------------------------- */
 
         /* 6. 标签云 (透明化处理) */
         .category-list { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
@@ -121,8 +148,8 @@
             box-shadow: none;
             
             /* --- 主要是这里修改了边框 --- */
-            border: 1px solid rgba(0, 0, 0, 0);  /* 基础的透明灰边框 ，最后一个为透明度*/
-           /* border-right: 5px solid #00a8ff;  /*     /* 本次新增：右侧亮蓝色加粗提示条 */
+            border: 1px solid rgba(0, 0, 0, 0.2);  /* 基础的透明灰边框 ，最后一个为透明度*/
+            border-left: 2px solid #00a8ff;      /* 本次新增：右侧亮蓝色加粗提示条 */
             /* ------------------------ */
             
             color: #111; 
@@ -170,18 +197,27 @@
     </nav>
 
     <div class="layout-container">
-        
-        <aside class="sidebar" id="sidebarArea">
-            <h3>分类导航</h3>
-            <ul class="category-list" id="categoryMenu">
-                <li class="active" data-cat="全部内容">全部</li>
-                <li data-cat="读书分享会">读书</li>
-                <li data-cat="游戏专栏">游戏</li>
-                <li data-cat="日常分享">日常</li>
-                <li data-cat="技术小白学习">技术</li>
-            </ul>
-        </aside>
+        <aside class="sidebar-wrapper" id="sidebarArea">
+            
+            <div class="side-card profile-card">
+                <img src="avatar.jpg" alt="我的头像" class="profile-avatar">
+                <h2 class="profile-name">Potervlag</h2>
+                <p class="profile-bio">热爱代码与生活。这里是我的数字花园，记录成长的点滴。</p>
+            </div>
 
+            <div class="side-card nav-card">
+                <h3>分类导航</h3>
+                <ul class="category-list" id="categoryMenu">
+                    <li class="active" data-cat="全部内容">全部</li>
+                    <li data-cat="读书分享会">读书</li>
+                    <li data-cat="游戏专栏">游戏</li>
+                    <li data-cat="日常分享">日常</li>
+                    <li data-cat="技术小白学习">技术</li>
+                </ul>
+            </div>
+            
+        </aside>
+       
         <main class="main-content">
             
             <div id="listView"></div>
