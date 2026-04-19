@@ -579,8 +579,8 @@
             /* ⚠️ 注意：如果你首页的 id 不叫 homeView，请把它改成你真实的 id */
             #detailView,
             #listView { 
-                height: calc(100vh - 85px); /* 减去顶部导航栏的高度 */
-                margin-top: 80px;           /* 往下推，躲开导航栏 */
+                height: calc(100vh - 70px); /* 减去顶部导航栏的高度 */
+                margin-top: 15px;           /* 往下推，躲开导航栏 */
                 overflow-y: auto;           /* 核心：内容多了自动出滚动条 */
                 padding-bottom: 40px;       /* 底部留出呼吸空间 */
                 box-sizing: border-box;     /* 确保内边距不会撑破页面 */
@@ -605,6 +605,78 @@
                 background: rgba(0, 168, 255, 0.5); 
             }
         }
+	/* --- 21. 功能引导气泡 (设置提示) --- */
+        .feature-tooltip {
+            position: fixed;
+            top: 70px;          /* 悬浮在导航栏下方（如果你的导航栏比较高，可以把这个数字调大） */
+            right: 20px;        /* 靠近右侧，对准你的“⚙️ 设置”按钮 */
+            z-index: 10000;     /* 必须在最顶层 */
+            
+            /* 毛玻璃高级质感 */
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 12px;
+            padding: 12px 35px 12px 15px; /* 右边留出 35px 的空间给关闭按钮 */
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            
+            /* 文字样式 */
+            color: #333;
+            font-size: 0.9em;
+            line-height: 1.5;
+            
+            /* 入场动画 */
+            animation: tooltipFloat 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        /* 🌟 核心魔法：做气泡顶部的那个“小箭头” */
+        .feature-tooltip::before {
+            content: '';
+            position: absolute;
+            top: -6px;          /* 冒出气泡顶部一半 */
+            right: 35px;        /* 左右位置，你可以微调这个数字让它绝对对准你的“设置”两个字 */
+            width: 12px;
+            height: 12px;
+            
+            /* 让箭头也继承毛玻璃和白底色 */
+            background: rgba(255, 255, 255, 0.95);
+            transform: rotate(45deg); /* 旋转 45 度变成菱形 */
+            
+            /* 只给左上边加边框，完美融入气泡 */
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            border-left: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        /* 关闭按钮 (×) 样式 */
+        .close-tooltip {
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            font-size: 1.2em;
+            color: #999;
+            cursor: pointer;
+            transition: all 0.2s;
+            line-height: 1;
+        }
+        .close-tooltip:hover {
+            color: #ff4757;     /* 鼠标放上去变红色 */
+            transform: scale(1.1);
+        }
+
+        /* 气泡微微弹出的入场动画 */
+        @keyframes tooltipFloat {
+            0% { opacity: 0; transform: translateY(15px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 点击关闭时触发的退场类名 */
+        .tooltip-hide {
+            opacity: 0;
+            transform: translateY(-10px);
+            pointer-events: none; /* 防止点到看不见的框 */
+            transition: all 0.3s ease;
+        }
 	
    </style>
 </head>
@@ -624,6 +696,10 @@
 	    <a href="#" onclick="openSettings()" style="margin-left: 20px;">⚙️ 设置</a>
         </div>
     </nav>
+	<div id="readingModeTooltip" class="feature-tooltip">
+        <span class="close-tooltip" onclick="closeReadingTooltip()">×</span>
+        <p>💡 可在设置中开启<strong>阅读模式</strong>，享受更纯粹的体验</p>
+    </div>
 
     <div class="layout-container">
         <aside class="sidebar-wrapper" id="sidebarArea">
@@ -895,6 +971,20 @@
                 lastScrollY = currentScrollY;
             });
         });
+	// --- 关闭阅读模式提示气泡 ---
+        function closeReadingTooltip() {
+            const tooltip = document.getElementById('readingModeTooltip');
+            if (tooltip) {
+                // 第一步：加上消失的动画效果
+                tooltip.classList.add('tooltip-hide');
+                
+                // 第二步：等 300 毫秒（动画播完）后，彻底把这个框从网页上删掉
+                setTimeout(() => {
+                    tooltip.style.display = 'none';
+                }, 300);
+            }
+        }
+	
     </script>
 	<div id="settingsModal" class="settings-modal" style="display: none;">
         <div class="settings-content">
@@ -903,7 +993,7 @@
             <hr style="border:0; border-top:1px dashed rgba(0,0,0,0.2); margin:15px 0;">
 
             <div class="setting-item">
-                <span>🎬 动态视频背景</span>
+                <span>🎬 阅读模式</span>
                 <label class="switch">
                     <input type="checkbox" id="bgToggle" checked onchange="toggleBackground()">
                     <span class="slider round"></span>
