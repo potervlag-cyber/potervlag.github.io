@@ -170,12 +170,22 @@
             border: 1px solid rgba(0, 0, 0, 0.2);  /* 基础的透明灰边框 ，最后一个为透明度*/
             border-left: 2px solid #00a8ff;      /* 本次新增：右侧亮蓝色加粗提示条 */
             /* ------------------------ */
-            
+            position: relative;
             color: #111; 
             padding: 25px; border-radius: 8px; margin-bottom: 20px; 
             transition: all 0.3s ease; 
         }
-        
+        /* --- 修复卡片边缘悬停抖动问题的隐形护盾 --- */
+        .post-card::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -15px;      /* 核心：向下延伸 15 像素（只要大于你向上浮动的距离即可） */
+            width: 100%;        /* 宽度和卡片一样 */
+            height: 15px;       /* 高度 15 像素 */
+            background: transparent; /* 保持隐形，千万别加颜色！ */
+            z-index: -1;        /* 藏在卡片下面 */
+        }
         /* 鼠标悬停时的效果 */
         .post-card:hover {
             transform: translateY(-8px);
@@ -520,6 +530,21 @@
                 transform: translateY(-5px) scale(1.05); 
             }
         }
+	/* --- 18. 导航栏自动隐藏的丝滑动画 --- */
+        
+        /* 1. 确保你的导航栏本身具备过渡动画能力（请把 .navbar 换成你真实的导航栏类名或 ID） */
+        .top-nav {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important; /* 让它上下移动时有丝滑的阻尼感 */
+            will-change: transform; /* 告诉浏览器提前准备硬件加速，防止手机端卡顿 */
+        }
+
+        /* 2. 定义一个“隐藏状态”的专属类名 */
+        .nav-hidden {
+            /* 核心魔法：让它向上平移 100% 的自身高度，完美躲进屏幕顶部外面 */
+            transform: translateY(-100%) !important; 
+            box-shadow: none !important; /* 隐藏时去掉阴影更干净 */
+        }
+
    </style>
 </head>
 <body>
@@ -781,6 +806,35 @@
                 </div>
             `).join('');
         }
+	// --- 沉浸式导航栏逻辑 ---
+        
+        let lastScrollY = window.scrollY; // 记录上一次滚动的位置
+        
+        // ⚠️ 请把这里的 '.navbar' 换成你真实的导航栏选择器 (类名加 . , ID加 # )
+        const navBar = document.querySelector('.navbar'); 
+
+        window.addEventListener('scroll', () => {
+            if (!navBar) return; // 如果没找到导航栏，就什么都不做（防止报错）
+
+            const currentScrollY = window.scrollY; // 获取当前滚动到了哪里
+
+            // 判断逻辑：
+            // 1. 如果当前位置 > 上次位置，说明在往下看文章 (下滑)
+            // 2. 并且当前位置大于 80px (防止在最顶部稍微一动就触发隐藏)
+            if (currentScrollY > lastScrollY && currentScrollY > 80) {
+                // 侦测到下滑，添加隐藏类名
+                navBar.classList.add('nav-hidden'); 
+            } 
+            // 如果当前位置 < 上次位置，说明在往回看 (上滑)
+            else if (currentScrollY < lastScrollY) {
+                // 侦测到上滑，移除隐藏类名，导航栏掉下来
+                navBar.classList.remove('nav-hidden'); 
+            }
+
+            // 更新“上一次位置”为现在的位置，为下一次侦测做准备
+            lastScrollY = currentScrollY;
+        });
+
     </script>
 	<div id="settingsModal" class="settings-modal" style="display: none;">
         <div class="settings-content">
