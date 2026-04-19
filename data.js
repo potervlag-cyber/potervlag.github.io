@@ -9,12 +9,12 @@ const blogPosts = [
         date: "2026-04-19",
         content: `my brother
         
-先看看照片<br><br> <img src='my-brother1.jpg'> <br><br>又干净、又真诚、还阳光，简直太招人喜欢了！！！
-<br><br> <img src='my-brother2.jpg'> <br><br>
-<br><br> <img src='my-brother3.jpg'> <br><br>PS：另一个老弟
-<br><br> <img src='my-brother4.jpg'> <br><br>
-<br><br> <img src='my-brother5.jpg'> <br><br>
-<br><br> <img src='my-brother6.jpg'> <br><br>
+先看看照片<br><br> <img src='my-brother/my-brother1.jpg'> <br>又干净、又真诚、还阳光，简直太招人喜欢了！！！
+<br> <img src='my-brother/my-brother2.jpg'> <br>
+<br> <img src='my-brother/my-brother3.jpg'> <br>PS：左一为另一个老弟
+<br> <img src='my-brother/my-brother4.jpg'> <br>
+<br> <img src='my-brother/my-brother5.jpg'> <br>
+<br> <img src='my-brother/my-brother6.jpg'> <br>
 给他全网征集对象`
     },
 
