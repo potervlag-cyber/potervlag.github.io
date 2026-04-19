@@ -344,6 +344,17 @@
             display: block;        /* 让图片独立占据一行 */
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* 加上一点点阴影，增加立体感 */
         }
+
+	/* --- 首页卡片摘要中的图片限制 (缩略图模式) --- */
+        .post-excerpt img {
+            width: 70%;               /* 宽度撑满卡片 */
+            max-height: 250px;         /* 强制限制最大高度，不让它太高 */
+            object-fit: cover;         /* 核心魔法：保持比例自动裁剪，绝不变形 */
+            border-radius: 6px;        /* 加上一点圆角 */
+            margin: 10px 0;            /* 上下留出一点空隙 */
+            display: block;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 轻微阴影 */
+        }
    </style>
 </head>
 <body>
