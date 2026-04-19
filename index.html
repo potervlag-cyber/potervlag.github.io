@@ -335,6 +335,15 @@
             }
         }
 
+	/* --- 12. 文章正文内部的图片排版 --- */
+        .post-detail-content img {
+            max-width: 100%;       /* 核心：保证图片宽度绝对不会超过文章卡片的宽度 */
+            height: auto;          /* 高度等比例缩放，防止变形 */
+            border-radius: 8px;    /* 加上优雅的圆角 */
+            margin: 20px auto;     /* 图片上下留出空隙，并且左右居中 */
+            display: block;        /* 让图片独立占据一行 */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* 加上一点点阴影，增加立体感 */
+        }
    </style>
 </head>
 <body>
@@ -486,7 +495,7 @@
             currentPostId = id; // 记录当前文章 ID
             
             document.getElementById('detailTitle').innerText = post.title;
-            document.getElementById('detailContent').innerText = post.content;
+            document.getElementById('detailContent').innerHTML = post.content;
             document.getElementById('detailTag').innerText = post.category;
             document.getElementById('detailDate').innerText = '发布于：' + post.date;
             

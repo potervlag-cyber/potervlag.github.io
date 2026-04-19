@@ -3,6 +3,16 @@
 
 const blogPosts = [
     {
+        id: 4,
+        title: "老弟刘子豪",
+        category: "日常",
+        date: "2026-04-19",
+        content: `my brother
+        
+先看看照片<br><br> <img src='my-brother.jpg'> <br><br>又干净、又真诚、还阳光，简直太招人喜欢了！！！`
+    },
+
+   {
         id: 3,
         title: "第一次尝试在GitHub部署博客",
         category: "技术小白学习",
