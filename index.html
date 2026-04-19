@@ -196,6 +196,45 @@
 
         .btn-back { background: #34495e; color: white; border: none; padding: 8px 16px; cursor: pointer; border-radius: 4px; margin-bottom: 20px; }
         .post-detail-content { line-height: 1.8; color: #222; font-size: 1.05em; white-space: pre-wrap; font-weight: 500; text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8); }
+
+	/* --- 11. 评论区样式 (贴合高级玻璃质感) --- */
+        .comment-section { margin-top: 30px; }
+        .comment-box { display: flex; flex-direction: column; gap: 12px; margin-bottom: 30px; }
+        
+        .comment-input { 
+            background: rgba(255, 255, 255, 0.4); 
+            border: 1px solid rgba(0, 0, 0, 0.15); 
+            padding: 12px; border-radius: 8px; 
+            font-family: inherit; font-size: 0.95em; color: #111;
+            outline: none; transition: all 0.3s ease;
+            backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);
+        }
+        /* 输入框聚焦时的发光效果 */
+        .comment-input:focus { 
+            background: rgba(255, 255, 255, 0.7); 
+            border-color: #00a8ff; 
+            box-shadow: 0 0 8px rgba(0, 168, 255, 0.3); 
+        }
+        
+        .comment-btn { 
+            align-self: flex-end; background: #00a8ff; color: white; border: none; 
+            padding: 10px 24px; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0, 168, 255, 0.3);
+        }
+        .comment-btn:hover { background: #0097e6; transform: translateY(-2px); box-shadow: 0 6px 15px rgba(0, 168, 255, 0.4); }
+        
+        /* 每一条单列的评论卡片 */
+        .comment-item { 
+            background: rgba(255, 255, 255, 0.3); 
+            border-left: 4px solid #00a8ff; /* 侧边亮蓝条 */
+            padding: 15px; margin-bottom: 15px; border-radius: 0 8px 8px 0; 
+            transition: all 0.3s ease;
+        }
+        .comment-item:hover { background: rgba(255, 255, 255, 0.5); transform: translateX(5px); }
+        
+        .comment-author { font-weight: 800; color: #111; margin-bottom: 8px; font-size: 0.9em; text-shadow: 1px 1px 2px rgba(255,255,255,0.8); }
+        .comment-content { color: #222; font-size: 0.95em; line-height: 1.6; margin: 0; font-weight: 500; }
+        .comment-time { font-size: 0.8em; color: #666; margin-top: 10px; }
 	/* --- 9. 设置面板与滑动开关样式 --- */
         
         /* 弹窗全屏背景（带一点变暗和模糊） */
@@ -341,11 +380,29 @@
             
             <div id="listView"></div>
             
-            <div id="detailView" style="display: none;">
+          <div id="detailView" style="display: none;">
                 <button class="btn-back" onclick="switchPage('home')">← 返回列表</button>
                 <div class="post-card">
                     <h1 id="detailTitle" class="post-title" style="margin-top:0;"></h1>
                     <div class="post-meta"><span id="detailTag" class="post-tag"></span><span id="detailDate"></span></div>
+                    <hr style="border: 0; border-top: 1px dashed rgba(0,0,0,0.2); margin: 20px 0;">
+                    <div id="detailContent" class="post-detail-content"></div>
+                    
+                    <hr style="border: 0; border-top: 1px dashed rgba(0,0,0,0.2); margin: 40px 0 20px 0;">
+                    <div class="comment-section">
+                        <h3 style="margin-top:0; color:#111; text-shadow: 1px 1px 2px rgba(255,255,255,0.8);">📝 评论区</h3>
+                        
+                        <div class="comment-box">
+                            <input type="text" id="commentName" placeholder="你的昵称 (选填)" class="comment-input">
+                            <textarea id="commentText" placeholder="写下你的想法..." class="comment-input" rows="3"></textarea>
+                            <button onclick="submitComment()" class="comment-btn">发送评论</button>
+                        </div>
+                        
+                        <div id="commentList" class="comment-list">
+                            </div>
+                    </div>
+                    </div>
+            </div>
                     <hr style="border: 0; border-top: 1px dashed rgba(0,0,0,0.2); margin: 20px 0;">
                     <div id="detailContent" class="post-detail-content"></div>
                 </div>
@@ -380,6 +437,7 @@
 
     <script>
         let currentCategory = '全部内容';
+        let currentPostId = null;  // 👇 新加这行：记录当前打开的文章 ID
 
         // 渲染首页列表
         function renderList() {
@@ -419,15 +477,20 @@
             }
         }
 
-        // 显示文章详情
+	// 显示文章详情 (已修改)
         function showDetail(id) {
             const post = blogPosts.find(p => p.id === id);
             if (!post) return;
             switchPage('detail');
+            
+            currentPostId = id; // 记录当前文章 ID
+            
             document.getElementById('detailTitle').innerText = post.title;
             document.getElementById('detailContent').innerText = post.content;
             document.getElementById('detailTag').innerText = post.category;
             document.getElementById('detailDate').innerText = '发布于：' + post.date;
+            
+            loadComments(); // 每次打开文章时，加载这篇专属的评论
         }
 
         // 左侧标签点击筛选
@@ -472,6 +535,57 @@
 
         // 初始化加载
         window.onload = () => renderList();
+
+	// --- 评论功能逻辑 ---
+
+        // 提交评论
+        function submitComment() {
+            const nameInput = document.getElementById('commentName');
+            const textInput = document.getElementById('commentText');
+            const name = nameInput.value.trim() || '神秘访客'; // 没填名字就叫神秘访客
+            const text = textInput.value.trim();
+            
+            if (!text) {
+                alert('写点什么再发送吧！');
+                return;
+            }
+
+            // 创建一条新评论数据
+            const newComment = {
+                name: name,
+                text: text,
+                date: new Date().toLocaleString() // 获取当前时间
+            };
+
+            // 从浏览器的 LocalStorage 里取出这篇旧评论，存入新评论
+            let comments = JSON.parse(localStorage.getItem('comments_' + currentPostId)) || [];
+            comments.push(newComment);
+            localStorage.setItem('comments_' + currentPostId, JSON.stringify(comments));
+
+            // 清空输入框并刷新列表
+            textInput.value = '';
+            loadComments();
+        }
+
+        // 加载评论列表
+        function loadComments() {
+            const list = document.getElementById('commentList');
+            const comments = JSON.parse(localStorage.getItem('comments_' + currentPostId)) || [];
+            
+            if (comments.length === 0) {
+                list.innerHTML = '<p style="color:#555; font-size:0.9em; text-align:center; font-weight:500;">暂无评论，快来抢沙发吧！🛋️</p>';
+                return;
+            }
+
+            // 把所有评论数据变成 HTML 卡片
+            list.innerHTML = comments.map(c => `
+                <div class="comment-item">
+                    <div class="comment-author">👤 ${c.name}</div>
+                    <p class="comment-content">${c.text}</p>
+                    <div class="comment-time">${c.date}</div>
+                </div>
+            `).join('');
+        }
     </script>
 	<div id="settingsModal" class="settings-modal" style="display: none;">
         <div class="settings-content">
