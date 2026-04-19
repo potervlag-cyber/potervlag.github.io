@@ -64,6 +64,24 @@
         .nav-links a { color: #ecf0f1; text-decoration: none; font-size: 0.95em; padding: 5px 12px; border-radius: 4px; transition: background 0.3s; margin-left: 5px; background-color: rgba(255, 255, 255, 0.1); }
         .nav-links a:hover { background-color: #34495e; color: #34dbcb; }
 
+	/* --- 智能导航栏：关闭视频时的浅色模式样式 --- */
+        body.no-video-mode .nav-logo {
+            color: #2c3e50;         /* Logo 变成深蓝色 */
+            text-shadow: none;      /* 去掉黑色阴影 */
+        }
+        
+        body.no-video-mode .nav-links a {
+            color: #2c3e50;         /* 链接变成深蓝色 */
+            text-shadow: none;      /* 去掉黑色阴影 */
+            font-weight: 700;       /* 稍微加粗一点 */
+        }
+
+        /* 关闭视频时，鼠标悬停的底色也改成柔和的浅灰色 */
+        body.no-video-mode .nav-links a:hover {
+            background-color: rgba(0, 0, 0, 0.05); 
+            color: #3498db;         /* 悬停时变成亮蓝色 */
+        }
+
         /* 4. 布局容器 */
         .layout-container { display: flex; max-width: 1200px; margin: 25px auto; gap: 20px; padding: 0 20px; align-items: flex-start; }
 
@@ -427,16 +445,18 @@
         function openSettings() { document.getElementById('settingsModal').style.display = 'flex'; }
         function closeSettings() { document.getElementById('settingsModal').style.display = 'none'; }
 
-        // 开关 1：控制视频背景
+	// 开关 1：控制视频背景
         function toggleBackground() {
             const video = document.querySelector('.video-background');
             const toggle = document.getElementById('bgToggle');
             if (toggle.checked) {
                 video.style.display = 'block';
-                video.play(); // 恢复播放
+                video.play(); 
+                document.body.classList.remove('no-video-mode'); // 🎬 移出无视频模式
             } else {
                 video.style.display = 'none';
-                video.pause(); // 暂停视频，节省电脑 CPU 和内存性能
+                video.pause(); 
+                document.body.classList.add('no-video-mode');    // 🎬 进入无视频模式
             }
         }
 
