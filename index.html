@@ -223,11 +223,66 @@
         
         /* 补充：当视频关闭时，给 body 一个默认的渐变背景底色防刺眼 */
         body { background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); background-attachment: fixed; }
-    </style>
+ 	/* ========================================= */
+        /* --- 10. 移动端独立适配 (只在手机上生效) --- */
+        /* ========================================= */
+        @media screen and (max-width: 768px) {
+            
+            /* 1. 将“左右并排”布局强制改为“上下堆叠” */
+            .layout-container { 
+                flex-direction: column; /* 核心魔法：垂直排列 */
+                padding: 0 15px;        /* 缩小屏幕两侧的留白 */
+                margin: 15px auto;
+            }
+
+            /* 2. 左侧栏：宽度从 20% 变成 100% 撑满屏幕 */
+            .sidebar-wrapper { 
+                width: 100%; 
+                position: static; /* 取消 sticky 粘性定位，让它像普通内容一样随页面滚动 */
+                margin-bottom: 10px;
+            }
+
+            /* 3. 右侧内容区：宽度从 80% 变成 100% 撑满屏幕 */
+            .main-content { 
+                width: 100%; 
+            }
+
+            /* 4. 顶部导航栏微调：缩小字号和间距，防止换行错乱 */
+            .top-nav { 
+                padding: 0 15px; 
+            }
+            .nav-logo { 
+                font-size: 1.1em; 
+            }
+            .nav-links a { 
+                padding: 4px 6px; 
+                font-size: 0.85em; 
+                margin-left: 2px;
+            }
+
+            /* 5. 卡片瘦身：缩小手机端卡片的内边距，给文字留出更多空间 */
+            .side-card, .post-card {
+                padding: 18px 15px; 
+                margin-bottom: 15px;
+            }
+            
+            /* 6. 设置弹窗适配手机宽度 */
+            .settings-content {
+                width: 85%;
+                padding: 20px;
+            }
+            
+            /* 7. 手机端关闭卡片的悬浮动画，防止点击滑动时误触 */
+            .side-card:hover, .post-card:hover {
+                transform: none;
+            }
+        }
+
+   </style>
 </head>
 <body>
 
-    <video autoplay loop muted playsinline class="video-background">
+<video autoplay loop muted playsinline poster="bg-poster.jpg" class="video-background">
         <source src="blog-background.mp4" type="video/mp4">
     </video>
 
