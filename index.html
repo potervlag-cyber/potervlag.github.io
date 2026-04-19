@@ -539,11 +539,24 @@
             will-change: transform;
         }
 
-        /* 2. 导航栏隐藏时的状态 */
-        .nav-hidden {
-            transform: translateY(-100%) !important; 
-            box-shadow: none !important;
-        }
+       /* --- 19. 手机端导航栏专属：毛玻璃与自动隐藏 --- */
+        
+        /* 仅在屏幕宽度小于或等于 768px 时生效 */
+        @media screen and (max-width: 768px) {
+            .top-nav {
+                background: rgba(255, 255, 255, 0.85) !important; 
+                backdrop-filter: blur(12px) !important;
+                -webkit-backdrop-filter: blur(12px) !important;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05) !important;
+            }
+
+            /* 👇 核心魔法：把隐藏状态挪到了这里面 */
+            .nav-hidden {
+                transform: translateY(-100%) !important; 
+                box-shadow: none !important;
+            }
+        }	
    </style>
 </head>
 <body>
