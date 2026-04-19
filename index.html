@@ -6,6 +6,7 @@
     <title>我的静态博客空间</title>
     
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
     <style>
         /* 1. 基础设置：背景设为透明，让视频透出来 */
@@ -355,6 +356,170 @@
             display: block;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 轻微阴影 */
         }
+	/* --- 13. Markdown 专属排版样式 --- */
+        
+        /* 标题间距强化 */
+        .post-detail-content h2, .post-detail-content h3 { 
+            color: #000; margin-top: 1.5em; margin-bottom: 0.5em; font-weight: 800;
+        }
+        
+        /* 引用语录 (Blockquote) 样式 */
+        .post-detail-content blockquote {
+            border-left: 4px solid #3498db;
+            background: rgba(52, 152, 219, 0.1);
+            padding: 12px 15px;
+            margin: 0 0 20px 0;
+            border-radius: 0 8px 8px 0;
+            color: #444;
+            font-style: italic;
+        }
+        
+        /* 行内代码块 (比如 `代码`) */
+        .post-detail-content code {
+            background: rgba(0, 0, 0, 0.08);
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+            color: #e74c3c;
+            font-size: 0.9em;
+        }
+        
+        /* 多行代码高亮框 */
+        .post-detail-content pre {
+            background: rgba(30, 30, 30, 0.85); /* 深色背景更酷 */
+            backdrop-filter: blur(10px);
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            color: #f8f8f2;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+        }
+        
+        /* 清除多行代码块里面 code 的背景色冲突 */
+        .post-detail-content pre code {
+            background: transparent; color: inherit; padding: 0; font-size: 0.95em;
+        }
+        
+        /* 列表缩进优化 */
+        .post-detail-content ul, .post-detail-content ol { 
+            padding-left: 20px; margin-bottom: 20px; 
+        }
+	/* --- 修正 Markdown 文章内部的排版间距 --- */
+        
+        /* 1. 统一调整所有标题的间距 */
+        .post-detail-content h1, 
+        .post-detail-content h2, 
+        .post-detail-content h3 {
+            margin-top: 1.2em;      /* 标题上方留出适度空间，保持呼吸感 */
+            margin-bottom: 8px;     /* 核心修复：大幅缩小标题下方的距离 */
+            line-height: 1.3;       /* 防止多行标题自身行距过大 */
+        }
+
+        /* 2. 调整普通段落的间距 */
+        .post-detail-content p {
+            margin-top: 0;          /* 核心修复：彻底取消段落顶部的默认距离 */
+            margin-bottom: 16px;    /* 段落写完后，下方留出正常的换行距离 */
+            line-height: 1.7;       /* 让正文文字的上下行距更宽松，提升阅读体验 */
+        }
+        
+        /* 3. 如果标题紧挨着图片，也缩小距离 */
+        .post-detail-content h1 + img,
+        .post-detail-content h2 + img,
+        .post-detail-content p + img {
+            margin-top: 10px;
+        }
+	/* 4. 清除多余回车产生的幽灵空行 */
+        .post-detail-content p:empty {
+            display: none; /* 如果段落里没文字，直接让它消失，不占高度 */
+        }
+	/* --- 14. 美化 Markdown 的分割线 --- */
+        .post-detail-content hr {
+            border: 0;                          /* 去掉默认的丑陋边框 */
+            height: 1px;                        /* 分割线的厚度 */
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0)); /* 两头变淡的渐变效果 */
+            margin: 40px 0;                     /* 上下留出充足的呼吸空间 */
+        }
+	/* --- 15. 优化列表与段落之间的排版间距 --- */
+        
+        .post-detail-content ul, 
+        .post-detail-content ol { 
+            margin-top: 0;          /* 取消列表自己顶部的默认距离 */
+            margin-bottom: 20px;    /* 列表写完后，下方留出正常的空间 */
+            padding-left: 24px;     /* 圆点和数字的缩进距离 */
+        }
+
+        /* 🌟 核心魔法：如果列表上面紧挨着一个段落，强行把列表往上拉 */
+        .post-detail-content p + ul,
+        .post-detail-content p + ol {
+            margin-top: -16px;      /* 抵消掉段落自带的底部距离，数字越负靠得越近 */
+        }
+
+        /* 调整每一个列表项（苹果、香蕉）之间的呼吸感 */
+        .post-detail-content li {
+            margin-bottom: 6px;     /* 每一个小点之间稍微拉开一点，不至于太拥挤 */
+            line-height: 1.6;
+        }
+	/* --- 16. 详情页交互优化：取消整体卡片浮动，改为文字微动 --- */
+        
+        /* 1. 锁死详情页大卡片，鼠标悬停时保持原样 */
+        #detailView .post-card:hover {
+            transform: none !important;      /* 强制取消位移 */
+            box-shadow: none !important;     /* 强制取消新增的阴影 */
+            background: transparent !important; /* 保持原背景 */
+            border: 1px solid rgba(0, 0, 0, 0.2); /* 保持基础边框 */
+        }
+	/* --- 17. 悬浮的“返回列表”按钮 (小巧、完全脱离卡片版) --- */
+        .btn-back {
+            position: fixed;
+            top: 25px;
+            
+            /* 👈 将 480 改成了 540，强行把它往左推了 60 像素，彻底离开卡片边缘 */
+            left: max(20px, calc(50% - 480px)); 
+            
+            z-index: 9999;
+            
+            /* 👇 缩小按钮的体积 */
+            display: inline-block;
+            padding: 8px 16px;           /* 减小了上下的厚度和左右的宽度 */
+            font-size: 0.85em;           /* 减小了字体大小 */
+            
+            /* 保持高级 UI 质感 */
+            background: rgba(255, 255, 255, 0.85); 
+            backdrop-filter: blur(15px);           
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 30px;                   
+            color: #333;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* 配合小按钮，阴影也稍微改轻了一点 */
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+        }
+
+        /* 鼠标悬停动效 */
+        .btn-back:hover {
+            background: #00a8ff;
+            color: white;
+            border-color: #00a8ff;
+            transform: translateX(-3px) scale(1.05); /* 因为按钮变小了，弹出的幅度也稍微收敛一点 */
+            box-shadow: 0 8px 20px rgba(0, 168, 255, 0.3); 
+        }
+
+        /* 📱 手机与窄屏极限适配 (屏幕小于 1080px 时触发避让) */
+        /* 注意：因为按钮现在很靠左，所以稍微窄一点的屏幕就可能撞墙，我把触发避让的宽度调到了 1080px */
+        @media screen and (max-width: 1080px) {
+            .btn-back {
+                top: auto;          
+                bottom: 30px;       
+                left: auto;         
+                right: 20px;        
+                padding: 8px 16px;
+                font-size: 0.85em;
+            }
+            .btn-back:hover {
+                transform: translateY(-5px) scale(1.05); 
+            }
+        }
    </style>
 </head>
 <body>
@@ -466,12 +631,22 @@
             const filtered = currentCategory === '全部内容' ? blogPosts : blogPosts.filter(p => p.category === currentCategory);
             
             filtered.forEach(post => {
+                // 👇 本次修改：安全生成摘要 👇
+                // 1. 先把 Markdown 转成 HTML
+                const htmlContent = marked.parse(post.content);
+                // 2. 创建一个虚拟的框，把 HTML 塞进去，然后只提取纯文字（自动剥离图片和标签）
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = htmlContent;
+                const pureText = tempDiv.textContent || tempDiv.innerText || "";
+                // 3. 安全截取前 80 个字
+                const safeExcerpt = pureText.length > 80 ? pureText.substring(0, 80) + '...' : pureText;
+
                 const card = document.createElement('div');
                 card.className = 'post-card';
                 card.innerHTML = `
                     <h2 class="post-title" onclick="showDetail(${post.id})">${post.title}</h2>
                     <div class="post-meta"><span class="post-tag">${post.category}</span>发布于：${post.date}</div>
-                    <div class="post-excerpt">${post.content.length > 80 ? post.content.substring(0, 80) + '...' : post.content}</div>
+                    <div class="post-excerpt">${safeExcerpt}</div>
                     <a class="read-more" onclick="showDetail(${post.id})">阅读全文 →</a>
                 `;
                 container.appendChild(card);
@@ -506,7 +681,7 @@
             currentPostId = id; // 记录当前文章 ID
             
             document.getElementById('detailTitle').innerText = post.title;
-            document.getElementById('detailContent').innerHTML = post.content;
+            document.getElementById('detailContent').innerHTML = marked.parse(post.content);
             document.getElementById('detailTag').innerText = post.category;
             document.getElementById('detailDate').innerText = '发布于：' + post.date;
             
