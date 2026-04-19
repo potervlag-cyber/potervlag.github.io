@@ -530,21 +530,20 @@
                 transform: translateY(-5px) scale(1.05); 
             }
         }
-	/* --- 18. 导航栏自动隐藏的丝滑动画 --- */
-        
-        /* 1. 确保你的导航栏本身具备过渡动画能力（请把 .navbar 换成你真实的导航栏类名或 ID） */
+	/* 1. 在你原本的 .top-nav 样式里，补上过渡动画 */
         .top-nav {
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important; /* 让它上下移动时有丝滑的阻尼感 */
-            will-change: transform; /* 告诉浏览器提前准备硬件加速，防止手机端卡顿 */
+            /* ... 这里是你原本写好的背景色、高度等样式，不要动它们 ... */
+            
+            /* 👇 补上这两句 */
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            will-change: transform;
         }
 
-        /* 2. 定义一个“隐藏状态”的专属类名 */
+        /* 2. 导航栏隐藏时的状态 */
         .nav-hidden {
-            /* 核心魔法：让它向上平移 100% 的自身高度，完美躲进屏幕顶部外面 */
             transform: translateY(-100%) !important; 
-            box-shadow: none !important; /* 隐藏时去掉阴影更干净 */
+            box-shadow: none !important;
         }
-
    </style>
 </head>
 <body>
@@ -806,35 +805,34 @@
                 </div>
             `).join('');
         }
-	// --- 沉浸式导航栏逻辑 ---
+	// --- 沉浸式导航栏逻辑 (针对 .top-nav 定制版) ---
         
-        let lastScrollY = window.scrollY; // 记录上一次滚动的位置
-        
-        // ⚠️ 请把这里的 '.navbar' 换成你真实的导航栏选择器 (类名加 . , ID加 # )
-        const navBar = document.querySelector('.navbar'); 
+        document.addEventListener('DOMContentLoaded', () => {
+            let lastScrollY = window.scrollY; 
+            
+            // 👇 这里已经精确匹配了你的 HTML 类名
+            const navBar = document.querySelector('.top-nav'); 
 
-        window.addEventListener('scroll', () => {
-            if (!navBar) return; // 如果没找到导航栏，就什么都不做（防止报错）
-
-            const currentScrollY = window.scrollY; // 获取当前滚动到了哪里
-
-            // 判断逻辑：
-            // 1. 如果当前位置 > 上次位置，说明在往下看文章 (下滑)
-            // 2. 并且当前位置大于 80px (防止在最顶部稍微一动就触发隐藏)
-            if (currentScrollY > lastScrollY && currentScrollY > 80) {
-                // 侦测到下滑，添加隐藏类名
-                navBar.classList.add('nav-hidden'); 
-            } 
-            // 如果当前位置 < 上次位置，说明在往回看 (上滑)
-            else if (currentScrollY < lastScrollY) {
-                // 侦测到上滑，移除隐藏类名，导航栏掉下来
-                navBar.classList.remove('nav-hidden'); 
+            if (!navBar) {
+                console.error("🚨 警告：JavaScript 没找到导航栏！");
+                return;
             }
 
-            // 更新“上一次位置”为现在的位置，为下一次侦测做准备
-            lastScrollY = currentScrollY;
-        });
+            window.addEventListener('scroll', () => {
+                const currentScrollY = window.scrollY; 
 
+                // 下滑超过 80px 隐藏
+                if (currentScrollY > lastScrollY && currentScrollY > 80) {
+                    navBar.classList.add('nav-hidden'); 
+                } 
+                // 上滑立刻显示
+                else if (currentScrollY < lastScrollY) {
+                    navBar.classList.remove('nav-hidden'); 
+                }
+
+                lastScrollY = currentScrollY;
+            });
+        });
     </script>
 	<div id="settingsModal" class="settings-modal" style="display: none;">
         <div class="settings-content">
