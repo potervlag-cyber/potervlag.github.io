@@ -57,15 +57,7 @@
             text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8); /* 加上黑色阴影 */
         }
         
-        /* 鼠标悬停在按钮上的效果：出现微弱的白光背景 */
-        .nav-links a:hover { 
-            background-color: rgba(255, 255, 255, 0.2); 
-            color: #fff; 
-        }        .nav-logo { font-size: 1.2em; font-weight: bold; }
-        .nav-links a { color: #ecf0f1; text-decoration: none; font-size: 0.95em; padding: 5px 12px; border-radius: 4px; transition: background 0.3s; margin-left: 5px; background-color: rgba(255, 255, 255, 0.1); }
-        .nav-links a:hover { background-color: #34495e; color: #34dbcb; }
-
-	/* --- 智能导航栏：关闭视频时的浅色模式样式 --- */
+       
         body.no-video-mode .nav-logo {
             color: #2c3e50;         /* Logo 变成深蓝色 */
             text-shadow: none;      /* 去掉黑色阴影 */
@@ -728,15 +720,18 @@
             
             <div id="listView"></div>
             
-          <div id="detailView" style="display: none;">
+            <div id="detailView" style="display: none;">
                 <button class="btn-back" onclick="switchPage('home')">← 返回列表</button>
                 <div class="post-card">
                     <h1 id="detailTitle" class="post-title" style="margin-top:0;"></h1>
                     <div class="post-meta"><span id="detailTag" class="post-tag"></span><span id="detailDate"></span></div>
+                    
                     <hr style="border: 0; border-top: 1px dashed rgba(0,0,0,0.2); margin: 20px 0;">
+                    
                     <div id="detailContent" class="post-detail-content"></div>
                     
                     <hr style="border: 0; border-top: 1px dashed rgba(0,0,0,0.2); margin: 40px 0 20px 0;">
+                    
                     <div class="comment-section">
                         <h3 style="margin-top:0; color:#111; text-shadow: 1px 1px 2px rgba(255,255,255,0.8);">📝 评论区</h3>
                         
@@ -746,13 +741,8 @@
                             <button onclick="submitComment()" class="comment-btn">发送评论</button>
                         </div>
                         
-                        <div id="commentList" class="comment-list">
-                            </div>
+                        <div id="commentList" class="comment-list"></div>
                     </div>
-                    </div>
-            </div>
-                    <hr style="border: 0; border-top: 1px dashed rgba(0,0,0,0.2); margin: 20px 0;">
-                    <div id="detailContent" class="post-detail-content"></div>
                 </div>
             </div>
             
@@ -761,6 +751,8 @@
                 <hr style="border: 0; border-top: 1px dashed rgba(0,0,0,0.2); margin: 15px 0;">
                 <div id="archiveList" style="line-height: 2; font-weight: 500; text-shadow: 1px 1px 3px rgba(255,255,255,0.8);"></div>
             </div>
+            
+            ```
             
             <div id="statsView" class="post-card" style="display: none;">
                 <h2 class="post-title">📊 博客统计</h2>
@@ -781,8 +773,8 @@
         </main>
     </div>
 
-    <script src="data.js"></script>
-
+	<script src="data.js"></script>   
+	
     <script>
         let currentCategory = '全部内容';
         let currentPostId = null;  // 👇 新加这行：记录当前打开的文章 ID
@@ -794,21 +786,8 @@
             const filtered = currentCategory === '全部内容' ? blogPosts : blogPosts.filter(p => p.category === currentCategory);
             
            filtered.forEach(post => {
-                // 👇 本次修改：优先使用手动摘要，辅以自动截取兜底 👇
-                let safeExcerpt = "";
-
-                // 1. 检查这篇文章有没有写自定义的 summary
-                if (post.summary && post.summary.trim() !== "") {
-                    // 如果写了，直接用你写的！
-                    safeExcerpt = post.summary;
-                } else {
-                    // 如果你偷懒没写，就启动备用方案：自动提取前 80 个字
-                    const htmlContent = marked.parse(post.content);
-                    const tempDiv = document.createElement('div');
-                    tempDiv.innerHTML = htmlContent;
-                    const pureText = (tempDiv.textContent || tempDiv.innerText || "").replace(/\s+/g, ' ').trim();
-                    safeExcerpt = pureText.length > 80 ? pureText.substring(0, 80) + '...' : pureText;
-                }
+                // 直接使用你在 data.js 里写的 summary。如果没写，就显示默认文字。
+                const safeExcerpt = post.summary ? post.summary : "点击阅读全文...";
                 
                 // ... 接下来继续你原来的代码，把 safeExcerpt 塞进你的卡片 HTML 里 ...
                 const card = document.createElement('div');
@@ -842,31 +821,55 @@
             }
         }
 
-	// 显示文章详情 (已修改)
-        function showDetail(id) {
-            const post = blogPosts.find(p => p.id === id);
-            if (!post) return;
-            switchPage('detail');
-            
-            currentPostId = id; // 记录当前文章 ID
-            
-            document.getElementById('detailTitle').innerText = post.title;
-            document.getElementById('detailContent').innerHTML = marked.parse(post.content);
-            document.getElementById('detailTag').innerText = post.category;
-            document.getElementById('detailDate').innerText = '发布于：' + post.date;
-            
-            loadComments(); // 每次打开文章时，加载这篇专属的评论
-        }
+	// --- 点击打开文章详情 (动态拉取 Markdown 版) ---
+        
+       // --- 带有追踪器的终极版 showDetail ---
+        async function showDetail(postId) {
+            console.log("🚦 1. 成功收到点击指令！传进来的 ID 是:", postId);
 
-        // 左侧标签点击筛选
-        document.getElementById('categoryMenu').addEventListener('click', (e) => {
-            if (e.target.tagName === 'LI') {
-                document.querySelectorAll('.category-list li').forEach(li => li.classList.remove('active'));
-                e.target.classList.add('active');
-                currentCategory = e.target.getAttribute('data-cat');
-                switchPage('home'); // 切回首页并渲染过滤后的列表
+            // 增强版查找：不管 id 是数字还是字符串，都能找到
+            const post = blogPosts.find(p => p.id == postId);
+            console.log("🚦 2. 根据 ID 找到的文章数据是:", post);
+
+            if (!post) {
+                console.error("❌ 拦截警告：在 data.js 里没找到这篇文章，我强行下班了！");
+                return;
             }
-        });
+
+            document.getElementById('detailTitle').innerText = post.title;
+            document.getElementById('detailDate').innerText = post.date;
+            document.getElementById('detailTag').innerText = post.category;
+
+            const contentBox = document.getElementById('detailContent');
+            contentBox.innerHTML = '<p style="text-align:center; color:#999; padding: 50px;">正在加载文章...</p>';
+
+            console.log("🚦 3. 数据没问题，准备切换界面显示详情！");
+            
+            // ✅ 注意这里：一定只能是 'detail'，绝对不能带 View！
+            switchPage('detail'); 
+            
+            currentPostId = postId;
+            loadComments();
+
+            try {
+                console.log("🚦 4. 界面切换成功，开始去拉取 Markdown 文件:", post.fileUrl);
+                const response = await fetch(post.fileUrl);
+                
+                if (!response.ok) {
+                    throw new Error("找不到文件！状态码: " + response.status);
+                }
+
+                const mdText = await response.text();
+                console.log("🚦 5. 文件拉取成功！总字数:", mdText.length);
+
+                contentBox.innerHTML = marked.parse(mdText);
+                console.log("✅ 6. 完美撒花！Markdown 解析并渲染完毕！");
+
+            } catch (error) {
+                console.error("❌ 拉取文件时发生意外:", error);
+                contentBox.innerHTML = '<p style="text-align:center; color:red; padding: 50px;">⚠️ 文章加载失败，请检查网络或路径。</p>';
+            }
+        }
         // --- 设置面板相关逻辑 ---
 
         // 打开与关闭面板
@@ -900,7 +903,33 @@
 
         // 初始化加载
         window.onload = () => renderList();
+        // --- 分类标签点击功能 (带控制台追踪版) ---
+        const categoryMenu = document.getElementById('categoryMenu');
+        
+        if (categoryMenu) {
+            categoryMenu.addEventListener('click', (e) => {
+                // 如果点到的不是 <li> 标签，就不管它
+                if (e.target.tagName !== 'LI') return;
 
+                console.log("🏷️ 1. 成功点到标签！当前点击的是:", e.target.innerText);
+
+                // 1. 扒掉所有标签的高亮外套 (移除 active 类)
+                document.querySelectorAll('.category-list li').forEach(li => li.classList.remove('active'));
+                
+                // 2. 给当前点击的这个标签穿上高亮外套
+                e.target.classList.add('active');
+                
+                // 3. 拿到它身上藏着的分类名字
+                currentCategory = e.target.getAttribute('data-cat');
+                console.log("🏷️ 2. 准备筛选的分类是:", currentCategory);
+                
+                // 4. 切回首页，并触发 renderList 重新洗牌画卡片！
+                switchPage('home'); 
+                console.log("✅ 3. 首页卡片已经重新洗牌完毕！");
+            });
+        } else {
+            console.error("❌ 致命错误：HTML 里找不到 id 叫 categoryMenu 的盒子！");
+        }
 	// --- 评论功能逻辑 ---
 
         // 提交评论
