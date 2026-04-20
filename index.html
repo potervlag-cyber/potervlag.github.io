@@ -714,10 +714,11 @@
                 <h3>分类导航</h3>
                 <ul class="category-list" id="categoryMenu">
                     <li class="active" data-cat="全部内容">全部</li>
-                    <li data-cat="读书分享会">读书</li>
-                    <li data-cat="游戏专栏">游戏</li>
-                    <li data-cat="日常分享">日常</li>
-                    <li data-cat="技术小白学习">技术</li>
+                    <li data-cat="读书">读书</li>
+                    <li data-cat="游戏">游戏</li>
+                    <li data-cat="日常">日常</li>
+                    <li data-cat="Markdown">Markdown</li>
+		    <li data-cat="HTML基础">HTML基础</li>
                 </ul>
             </div>
             
@@ -792,17 +793,24 @@
             container.innerHTML = '';
             const filtered = currentCategory === '全部内容' ? blogPosts : blogPosts.filter(p => p.category === currentCategory);
             
-            filtered.forEach(post => {
-                // 👇 本次修改：安全生成摘要 👇
-                // 1. 先把 Markdown 转成 HTML
-                const htmlContent = marked.parse(post.content);
-                // 2. 创建一个虚拟的框，把 HTML 塞进去，然后只提取纯文字（自动剥离图片和标签）
-                const tempDiv = document.createElement('div');
-                tempDiv.innerHTML = htmlContent;
-                const pureText = tempDiv.textContent || tempDiv.innerText || "";
-                // 3. 安全截取前 80 个字
-                const safeExcerpt = pureText.length > 80 ? pureText.substring(0, 80) + '...' : pureText;
+           filtered.forEach(post => {
+                // 👇 本次修改：优先使用手动摘要，辅以自动截取兜底 👇
+                let safeExcerpt = "";
 
+                // 1. 检查这篇文章有没有写自定义的 summary
+                if (post.summary && post.summary.trim() !== "") {
+                    // 如果写了，直接用你写的！
+                    safeExcerpt = post.summary;
+                } else {
+                    // 如果你偷懒没写，就启动备用方案：自动提取前 80 个字
+                    const htmlContent = marked.parse(post.content);
+                    const tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = htmlContent;
+                    const pureText = (tempDiv.textContent || tempDiv.innerText || "").replace(/\s+/g, ' ').trim();
+                    safeExcerpt = pureText.length > 80 ? pureText.substring(0, 80) + '...' : pureText;
+                }
+                
+                // ... 接下来继续你原来的代码，把 safeExcerpt 塞进你的卡片 HTML 里 ...
                 const card = document.createElement('div');
                 card.className = 'post-card';
                 card.innerHTML = `
