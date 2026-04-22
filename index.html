@@ -23,7 +23,8 @@
             top: 0;          /* 从屏幕最左上角开始贴合 */
             left: 0;
             width: 100vw;    /* 强制宽度等于屏幕总宽度 */
-            height: 100vh;   /* 强制高度等于屏幕总高度 */
+            height: 100vh; 
+            height: 100dvh;  /* 强制高度等于屏幕总高度 */
             z-index: -100; 
             object-fit: cover; /* 核心魔法：保持视频原本比例，像壁纸一样裁剪铺满 */
         }        
@@ -282,11 +283,37 @@
         }
         
         /* 补充：当视频关闭时，给 body 一个默认的渐变背景底色防刺眼 */
-        body { background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); background-attachment: fixed; }
+        body { 
+            background-color: #f5f7fa; /* 给一个极简底色兜底 */
+        }
+        
+        /* 📱 修复 iOS 手机上固定背景失效的绝招：用一个隐形的玻璃板垫在最下面 */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; 
+            height: 100vh;
+            height: 100dvh;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            z-index: -101; /* 藏在视频和网页的最后面 */
+            transition: opacity 0.5s ease;
+        }
+
+        /* 配合阅读模式的切换 */
+        body.no-video-mode::before {
+            opacity: 1;
+        }
+        
  	/* ========================================= */
         /* --- 10. 移动端独立适配 (只在手机上生效) --- */
         /* ========================================= */
         @media screen and (max-width: 768px) {
+            .video-background {
+                /* object-position 默认是 50% 50% (正中间)。
+                   如果主体在左边，改成 20% 50% 甚至 left center
+                   如果主体在右边，改成 80% 50% 甚至 right center */
+                object-position: 30% 50%; /* 👈 试着调大或调小这个百分比，直到画面最美的部分露出来！ */
             
             /* 1. 将“左右并排”布局强制改为“上下堆叠” */
             .layout-container { 
@@ -336,6 +363,10 @@
             .side-card:hover, .post-card:hover {
                 transform: none;
             }
+            /* 在现有的手机适配代码里加上这段 */
+        
+            
+        }
         }
 
 	/* --- 12. 文章正文内部的图片排版 --- */

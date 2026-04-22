@@ -46,4 +46,5 @@ const blogPosts = [
         date: "2026-04-15",
         fileUrl: "./posts/06-daily.md"
     },
+
 ];
