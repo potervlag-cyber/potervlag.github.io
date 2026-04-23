@@ -468,7 +468,10 @@
 	/* 4. 清除多余回车产生的幽灵空行 */
         .post-detail-content p:empty {
             display: none; /* 如果段落里没文字，直接让它消失，不占高度 */
+            /* 彻底干掉 marked.js 产生的蓝色幽灵空行 */
         }
+       
+
 	/* --- 14. 美化 Markdown 的分割线 --- */
         .post-detail-content hr {
             border: 0;                          /* 去掉默认的丑陋边框 */
@@ -496,6 +499,7 @@
             margin-bottom: 6px;     /* 每一个小点之间稍微拉开一点，不至于太拥挤 */
             line-height: 1.6;
         }
+       
 	/* --- 16. 详情页交互优化：取消整体卡片浮动，改为文字微动 --- */
         
         /* 1. 锁死详情页大卡片，鼠标悬停时保持原样 */
@@ -786,8 +790,6 @@
                 <hr style="border: 0; border-top: 1px dashed rgba(0,0,0,0.2); margin: 15px 0;">
                 <div id="archiveList" style="line-height: 2; font-weight: 500; text-shadow: 1px 1px 3px rgba(255,255,255,0.8);"></div>
             </div>
-            
-            ```
             
             <div id="statsView" class="post-card" style="display: none;">
                 <h2 class="post-title">📊 博客统计</h2>
