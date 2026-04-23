@@ -8,6 +8,11 @@
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
     <style>
         /* 1. 基础设置：背景设为透明，让视频透出来 */
         body, html { 
@@ -24,7 +29,6 @@
             left: 0;
             width: 100vw;    /* 强制宽度等于屏幕总宽度 */
             height: 100vh; 
-            height: 100dvh;  /* 强制高度等于屏幕总高度 */
             z-index: -100; 
             object-fit: cover; /* 核心魔法：保持视频原本比例，像壁纸一样裁剪铺满 */
         }        
@@ -894,7 +898,17 @@
                 console.log("🚦 5. 文件拉取成功！总字数:", mdText.length);
 
                 contentBox.innerHTML = marked.parse(mdText);
-                console.log("✅ 6. 完美撒花！Markdown 解析并渲染完毕！");
+                
+                // 👇 新增：唤醒 KaTeX，让它扫描正文盒子里的公式
+                renderMathInElement(contentBox, {
+                    delimiters: [
+                        {left: '$$', right: '$$', display: true}, // 识别双美元符号：独立整行大公式
+                        {left: '$', right: '$', display: false}   // 识别单美元符号：夹在文字中间的小公式
+                    ],
+                    throwOnError: false // 如果公式代码写错了，只显示红字，不让整个网页崩溃
+                });
+
+                console.log("✅ 6. 完美撒花！Markdown 和 LaTeX 公式全部渲染完毕！");
 
             } catch (error) {
                 console.error("❌ 拉取文件时发生意外:", error);

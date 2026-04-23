@@ -32,6 +32,13 @@ const blogPosts = [
         fileUrl: "./posts/04-markdown.md"
     },
 {
+    id: 7,
+        title: "LaTex 入门",
+        category: "LaTex",
+        date: "2026-04-23",
+        fileUrl: "./posts/latex-01.md"
+   },
+{
      id: 5,
         title: "老弟刘子豪",
         category: "日常",
