@@ -770,17 +770,9 @@
                     <div id="detailContent" class="post-detail-content"></div>
                     
                     <hr style="border: 0; border-top: 1px dashed rgba(0,0,0,0.2); margin: 40px 0 20px 0;">
-                    
                     <div class="comment-section">
                         <h3 style="margin-top:0; color:#111; text-shadow: 1px 1px 2px rgba(255,255,255,0.8);">📝 评论区</h3>
-                        
-                        <div class="comment-box">
-                            <input type="text" id="commentName" placeholder="你的昵称 (选填)" class="comment-input">
-                            <textarea id="commentText" placeholder="写下你的想法..." class="comment-input" rows="3"></textarea>
-                            <button onclick="submitComment()" class="comment-btn">发送评论</button>
-                        </div>
-                        
-                        <div id="commentList" class="comment-list"></div>
+                        <div id="commentList" class="comment-list" style="margin-top: 20px;"></div>
                     </div>
                 </div>
             </div>
@@ -977,55 +969,43 @@
         } else {
             console.error("❌ 致命错误：HTML 里找不到 id 叫 categoryMenu 的盒子！");
         }
-	// --- 评论功能逻辑 ---
-
-        // 提交评论
-        function submitComment() {
-            const nameInput = document.getElementById('commentName');
-            const textInput = document.getElementById('commentText');
-            const name = nameInput.value.trim() || '神秘访客'; // 没填名字就叫神秘访客
-            const text = textInput.value.trim();
-            
-            if (!text) {
-                alert('写点什么再发送吧！');
-                return;
-            }
-
-            // 创建一条新评论数据
-            const newComment = {
-                name: name,
-                text: text,
-                date: new Date().toLocaleString() // 获取当前时间
-            };
-
-            // 从浏览器的 LocalStorage 里取出这篇旧评论，存入新评论
-            let comments = JSON.parse(localStorage.getItem('comments_' + currentPostId)) || [];
-            comments.push(newComment);
-            localStorage.setItem('comments_' + currentPostId, JSON.stringify(comments));
-
-            // 清空输入框并刷新列表
-            textInput.value = '';
-            loadComments();
-        }
-
-        // 加载评论列表
+	// --- 全新升级的 Giscus 云端评论系统加载器 ---
         function loadComments() {
-            const list = document.getElementById('commentList');
-            const comments = JSON.parse(localStorage.getItem('comments_' + currentPostId)) || [];
+            const commentBox = document.getElementById('commentList');
             
-            if (comments.length === 0) {
-                list.innerHTML = '<p style="color:#555; font-size:0.9em; text-align:center; font-weight:500;">暂无评论，快来抢沙发吧！🛋️</p>';
-                return;
-            }
+            // 1. 每次打开新文章，先清空上一个文章的评论
+            commentBox.innerHTML = ''; 
 
-            // 把所有评论数据变成 HTML 卡片
-            list.innerHTML = comments.map(c => `
-                <div class="comment-item">
-                    <div class="comment-author">👤 ${c.name}</div>
-                    <p class="comment-content">${c.text}</p>
-                    <div class="comment-time">${c.date}</div>
-                </div>
-            `).join('');
+            // 2. 用 JS 凭空创造一个 script 标签
+            const script = document.createElement('script');
+            script.src = "https://giscus.app/client.js";
+            
+            // 👇👇👇【警告：请把下面这 4 行换成你自己的信息！】👇👇👇
+            script.setAttribute("data-repo", "你的GitHub用户名/你的仓库名"); 
+            script.setAttribute("data-repo-id", "你刚才获取的_repo_id"); 
+            script.setAttribute("data-category", "Announcements"); // 或者 General，看你选的什么
+            script.setAttribute("data-category-id", "你刚才获取的_category_id"); 
+            // 👆👆👆--------------------------------------👆👆👆
+
+            // 核心魔法：使用文章的唯一 ID 来区分不同文章的评论区
+            script.setAttribute("data-category", "Comments"); 
+            script.setAttribute("data-category-id","DIC_kwDOSDTRHc4C7kiM");
+            script.setAttribute("data-mapping", "specific");
+            script.setAttribute("data-repo","potervlag-cyber/potervlag.github.io");
+            script.setAttribute("data-repo-id","R_kgDOSDTRHQ");
+            script.setAttribute("data-term", currentPostId); 
+            
+            script.setAttribute("data-strict", "0");
+            script.setAttribute("data-reactions-enabled", "1");
+            script.setAttribute("data-emit-metadata", "0");
+            script.setAttribute("data-input-position", "top"); // 输入框放上面
+            script.setAttribute("data-theme", "light");        // 你的博客偏浅色，选 light 最配
+            script.setAttribute("data-lang", "zh-CN");
+            script.crossOrigin = "anonymous";
+            script.async = true;
+
+            // 3. 把填好信息的 script 标签塞进网页里，召唤 Giscus！
+            commentBox.appendChild(script);
         }
 	// --- 沉浸式导航栏逻辑 (针对 .top-nav 定制版) ---
         
