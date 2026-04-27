@@ -31,20 +31,7 @@ const blogPosts = [
 	    summary: "Markdown核心语法汇集地...",
         fileUrl: "./posts/markdown-01.md"
     },
-{
-    id: 7,
-        title: "LaTex 入门",
-        category: "LaTex",
-        date: "2026-04-23",
-        fileUrl: "./posts/latex-01.md"
-   },
-   {
-    id: 8,
-        title: "学术论文LaTex ",
-        category: "LaTex",
-        date: "2026-04-23",
-        fileUrl: "./posts/latex-02.md"
-   },
+   
 {
      id: 5,
         title: "老弟刘子豪",

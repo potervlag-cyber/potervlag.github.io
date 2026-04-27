@@ -709,22 +709,6 @@
             transition: all 0.3s ease;
         }
 
-        .settings-action-btn {
-            border: none;
-            background: #00a8ff;
-            color: #fff;
-            font-weight: 700;
-            border-radius: 6px;
-            padding: 7px 14px;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0, 168, 255, 0.25);
-            transition: all 0.2s ease;
-        }
-        .settings-action-btn:hover {
-            background: #0097e6;
-            transform: translateY(-1px);
-        }
-
         .private-chat-modal {
             position: fixed;
             inset: 0;
@@ -1134,7 +1118,6 @@
         // 打开与关闭面板
         function openSettings() {
             document.getElementById('settingsModal').style.display = 'flex';
-            updatePrivateChatEntry();
         }
         function closeSettings() { document.getElementById('settingsModal').style.display = 'none'; }
 
@@ -1281,11 +1264,6 @@
             return localStorage.getItem(PRIVATE_CHAT_CONFIG.unlockStorageKey) === '1';
         }
 
-        function updatePrivateChatEntry() {
-            const entry = document.getElementById('privateChatEntry');
-            if (entry) entry.style.display = isPrivateChatUnlocked() ? 'flex' : 'none';
-        }
-
         function registerPrivateChatUnlockTap() {
             const now = Date.now();
             privateChatUnlockCount = now - privateChatLastTapAt < 1800 ? privateChatUnlockCount + 1 : 1;
@@ -1294,7 +1272,6 @@
             if (privateChatUnlockCount >= 8) {
                 privateChatUnlockCount = 0;
                 localStorage.setItem(PRIVATE_CHAT_CONFIG.unlockStorageKey, '1');
-                updatePrivateChatEntry();
                 openPrivateChatGate();
             }
         }
@@ -1542,7 +1519,6 @@
         }
 
         window.addEventListener('online', syncPrivateChatMessages);
-        document.addEventListener('DOMContentLoaded', updatePrivateChatEntry);
 
         // 初始化加载
         window.onload = () => renderList();
@@ -1706,12 +1682,6 @@
                     <span class="slider round"></span>
                 </label>
             </div>
-
-            <div class="setting-item" id="privateChatEntry" style="display: none;">
-                <span>🔒 一对一私聊</span>
-                <button type="button" class="settings-action-btn" onclick="openPrivateChatGate()">进入</button>
-            </div>
-            
             <p style="font-size: 0.8em; color: #666; margin-top: 25px; text-align: center;">设置仅在当前浏览器生效</p>
         </div>
     </div>
