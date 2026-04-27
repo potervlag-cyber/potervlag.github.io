@@ -708,6 +708,209 @@
             pointer-events: none; /* 防止点到看不见的框 */
             transition: all 0.3s ease;
         }
+
+        .settings-action-btn {
+            border: none;
+            background: #00a8ff;
+            color: #fff;
+            font-weight: 700;
+            border-radius: 6px;
+            padding: 7px 14px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 168, 255, 0.25);
+            transition: all 0.2s ease;
+        }
+        .settings-action-btn:hover {
+            background: #0097e6;
+            transform: translateY(-1px);
+        }
+
+        .private-chat-modal {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(17, 24, 39, 0.46);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            z-index: 10000;
+            padding: 18px;
+        }
+        .private-chat-panel {
+            width: min(92vw, 760px);
+            height: min(86vh, 720px);
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            border-radius: 8px;
+            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.24);
+            position: relative;
+            padding: 22px;
+            color: #111827;
+        }
+        .private-chat-panel.auth-mode {
+            width: min(92vw, 400px);
+            height: auto;
+        }
+        .private-chat-close {
+            position: absolute;
+            top: 12px;
+            right: 14px;
+            width: 32px;
+            height: 32px;
+            border: none;
+            background: transparent;
+            color: #374151;
+            font-size: 1.6em;
+            line-height: 1;
+            cursor: pointer;
+        }
+        .private-chat-close:hover { color: #ef4444; }
+        .private-chat-auth,
+        .private-chat-room {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .private-chat-auth {
+            gap: 12px;
+            justify-content: center;
+        }
+        .private-chat-title {
+            margin: 0 38px 6px 0;
+            font-size: 1.35em;
+            color: #111827;
+            text-shadow: none;
+        }
+        .private-chat-subtitle {
+            margin: 0 0 8px 0;
+            color: #4b5563;
+            line-height: 1.6;
+            font-size: 0.92em;
+        }
+        .private-chat-field {
+            width: 100%;
+            border: 1px solid rgba(17, 24, 39, 0.16);
+            border-radius: 6px;
+            padding: 11px 12px;
+            font: inherit;
+            background: rgba(255, 255, 255, 0.78);
+            color: #111827;
+            outline: none;
+        }
+        .private-chat-field:focus {
+            border-color: #00a8ff;
+            box-shadow: 0 0 0 3px rgba(0, 168, 255, 0.14);
+        }
+        .private-chat-primary {
+            border: none;
+            border-radius: 6px;
+            background: #00a8ff;
+            color: #fff;
+            font-weight: 800;
+            padding: 11px 16px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .private-chat-primary:hover { background: #0097e6; }
+        .private-chat-primary:disabled {
+            cursor: not-allowed;
+            opacity: 0.65;
+        }
+        .private-chat-error {
+            min-height: 20px;
+            margin: 0;
+            color: #dc2626;
+            font-size: 0.9em;
+        }
+        .private-chat-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 14px;
+            padding-right: 38px;
+            border-bottom: 1px dashed rgba(17, 24, 39, 0.18);
+            padding-bottom: 12px;
+        }
+        .private-chat-status {
+            margin-top: 4px;
+            color: #64748b;
+            font-size: 0.86em;
+        }
+        .private-chat-name {
+            width: 150px;
+            flex: 0 0 auto;
+        }
+        .private-chat-messages {
+            flex: 1;
+            min-height: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            overflow-y: auto;
+            padding: 16px 4px;
+        }
+        .private-chat-empty {
+            margin: auto;
+            color: #64748b;
+            text-align: center;
+            line-height: 1.7;
+        }
+        .private-chat-message {
+            width: fit-content;
+            max-width: 74%;
+            align-self: flex-start;
+            background: rgba(243, 244, 246, 0.95);
+            border: 1px solid rgba(17, 24, 39, 0.08);
+            border-left: 4px solid #94a3b8;
+            border-radius: 8px;
+            padding: 10px 12px;
+            word-break: break-word;
+        }
+        .private-chat-message.own {
+            align-self: flex-end;
+            background: rgba(232, 247, 255, 0.95);
+            border-left-color: #00a8ff;
+        }
+        .private-chat-meta {
+            color: #64748b;
+            font-size: 0.78em;
+            margin-bottom: 5px;
+        }
+        .private-chat-text {
+            white-space: pre-wrap;
+            line-height: 1.55;
+            color: #111827;
+        }
+        .private-chat-compose {
+            display: flex;
+            gap: 10px;
+            border-top: 1px dashed rgba(17, 24, 39, 0.18);
+            padding-top: 12px;
+        }
+        .private-chat-compose textarea {
+            min-height: 46px;
+            max-height: 120px;
+            resize: vertical;
+        }
+
+        @media screen and (max-width: 768px) {
+            .private-chat-panel {
+                width: 94vw;
+                height: 88dvh;
+                padding: 18px;
+            }
+            .private-chat-header,
+            .private-chat-compose {
+                flex-direction: column;
+            }
+            .private-chat-name {
+                width: 100%;
+            }
+            .private-chat-message {
+                max-width: 88%;
+            }
+        }
 	
    </style>
 </head>
@@ -807,6 +1010,23 @@
     <script>
         let currentCategory = '全部内容';
         let currentPostId = null;  // 👇 新加这行：记录当前打开的文章 ID
+        const PRIVATE_CHAT_CONFIG = {
+            databaseUrl: "", // 填入 Firebase Realtime Database URL 后即可跨设备同步
+            roomId: "potervlag-private-chat",
+            passwordHash: "2873a10ae5c07c881a511163f8a8ad97c289a6d88bce09af6315786c1a5c1271",
+            unlockStorageKey: "potervlagPrivateChatUnlockedV1",
+            messagesStorageKey: "potervlagPrivateChatMessagesV1",
+            outboxStorageKey: "potervlagPrivateChatOutboxV1",
+            nicknameStorageKey: "potervlagPrivateChatNicknameV1",
+            clientStorageKey: "potervlagPrivateChatClientV1",
+            pollMs: 4000
+        };
+        let privateChatUnlockCount = 0;
+        let privateChatLastTapAt = 0;
+        let privateChatKey = null;
+        let privateChatMessages = [];
+        let privateChatPollingTimer = null;
+        let privateChatRenderId = 0;
 
         // 渲染首页列表
         function renderList() {
@@ -912,10 +1132,18 @@
         // --- 设置面板相关逻辑 ---
 
         // 打开与关闭面板
-        function openSettings() { document.getElementById('settingsModal').style.display = 'flex'; }
+        function openSettings() {
+            document.getElementById('settingsModal').style.display = 'flex';
+            updatePrivateChatEntry();
+        }
         function closeSettings() { document.getElementById('settingsModal').style.display = 'none'; }
 
 	// 开关 1：控制视频背景
+        function handleReadingModeToggle() {
+            toggleBackground();
+            registerPrivateChatUnlockTap();
+        }
+
         function toggleBackground() {
             const video = document.querySelector('.video-background');
             const toggle = document.getElementById('bgToggle');
@@ -939,6 +1167,382 @@
                 document.body.classList.add('disable-hover'); // 添加禁用类，强制取消动效
             }
         }
+
+        function getPrivateChatDbUrl() {
+            return (PRIVATE_CHAT_CONFIG.databaseUrl || '').trim().replace(/\/$/, '');
+        }
+
+        function getPrivateChatRoomPath() {
+            return PRIVATE_CHAT_CONFIG.roomId.replace(/[.#$\[\]\/]/g, '-');
+        }
+
+        function getPrivateChatMessagesUrl() {
+            return `${getPrivateChatDbUrl()}/privateChat/${getPrivateChatRoomPath()}/messages`;
+        }
+
+        function readPrivateChatArray(key) {
+            try {
+                const value = localStorage.getItem(key);
+                const parsed = value ? JSON.parse(value) : [];
+                return Array.isArray(parsed) ? parsed : [];
+            } catch (error) {
+                console.warn('私聊缓存读取失败:', error);
+                return [];
+            }
+        }
+
+        function writePrivateChatArray(key, value) {
+            localStorage.setItem(key, JSON.stringify(value));
+        }
+
+        function bytesToHex(buffer) {
+            return Array.from(new Uint8Array(buffer))
+                .map(byte => byte.toString(16).padStart(2, '0'))
+                .join('');
+        }
+
+        function hexToBytes(hex) {
+            const bytes = new Uint8Array(hex.length / 2);
+            for (let i = 0; i < bytes.length; i++) {
+                bytes[i] = parseInt(hex.slice(i * 2, i * 2 + 2), 16);
+            }
+            return bytes;
+        }
+
+        function bytesToBase64(bytes) {
+            let binary = '';
+            bytes.forEach(byte => binary += String.fromCharCode(byte));
+            return btoa(binary);
+        }
+
+        function base64ToBytes(value) {
+            const binary = atob(value);
+            const bytes = new Uint8Array(binary.length);
+            for (let i = 0; i < binary.length; i++) {
+                bytes[i] = binary.charCodeAt(i);
+            }
+            return bytes;
+        }
+
+        async function sha256Text(text) {
+            const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
+            return bytesToHex(digest);
+        }
+
+        async function createPrivateChatKey(hashHex) {
+            return crypto.subtle.importKey('raw', hexToBytes(hashHex), 'AES-GCM', false, ['encrypt', 'decrypt']);
+        }
+
+        async function encryptPrivateChatText(text) {
+            const iv = crypto.getRandomValues(new Uint8Array(12));
+            const encoded = new TextEncoder().encode(text);
+            const encrypted = await crypto.subtle.encrypt({ name: 'AES-GCM', iv }, privateChatKey, encoded);
+            return `${bytesToBase64(iv)}.${bytesToBase64(new Uint8Array(encrypted))}`;
+        }
+
+        async function decryptPrivateChatText(payload) {
+            const [ivText, encryptedText] = String(payload || '').split('.');
+            if (!ivText || !encryptedText) return '[消息格式无法识别]';
+            try {
+                const decrypted = await crypto.subtle.decrypt(
+                    { name: 'AES-GCM', iv: base64ToBytes(ivText) },
+                    privateChatKey,
+                    base64ToBytes(encryptedText)
+                );
+                return new TextDecoder().decode(decrypted);
+            } catch (error) {
+                return '[密码不匹配，无法解密这条消息]';
+            }
+        }
+
+        function getPrivateChatClientId() {
+            let clientId = localStorage.getItem(PRIVATE_CHAT_CONFIG.clientStorageKey);
+            if (!clientId) {
+                clientId = `client-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+                localStorage.setItem(PRIVATE_CHAT_CONFIG.clientStorageKey, clientId);
+            }
+            return clientId;
+        }
+
+        function createPrivateChatMessageId() {
+            const randomBytes = crypto.getRandomValues(new Uint8Array(8));
+            return `${Date.now()}-${bytesToHex(randomBytes)}`;
+        }
+
+        function mergePrivateChatMessages(...messageLists) {
+            const byId = new Map();
+            messageLists.flat().forEach(message => {
+                if (message && message.id) byId.set(message.id, message);
+            });
+            return Array.from(byId.values()).sort((a, b) => (a.createdAt || 0) - (b.createdAt || 0));
+        }
+
+        function isPrivateChatUnlocked() {
+            return localStorage.getItem(PRIVATE_CHAT_CONFIG.unlockStorageKey) === '1';
+        }
+
+        function updatePrivateChatEntry() {
+            const entry = document.getElementById('privateChatEntry');
+            if (entry) entry.style.display = isPrivateChatUnlocked() ? 'flex' : 'none';
+        }
+
+        function registerPrivateChatUnlockTap() {
+            const now = Date.now();
+            privateChatUnlockCount = now - privateChatLastTapAt < 1800 ? privateChatUnlockCount + 1 : 1;
+            privateChatLastTapAt = now;
+
+            if (privateChatUnlockCount >= 8) {
+                privateChatUnlockCount = 0;
+                localStorage.setItem(PRIVATE_CHAT_CONFIG.unlockStorageKey, '1');
+                updatePrivateChatEntry();
+                openPrivateChatGate();
+            }
+        }
+
+        function openPrivateChatGate() {
+            if (!isPrivateChatUnlocked()) return;
+
+            closeSettings();
+            const modal = document.getElementById('privateChatModal');
+            const panel = document.getElementById('privateChatPanel');
+            const loginView = document.getElementById('chatLoginView');
+            const roomView = document.getElementById('chatRoomView');
+            const passwordInput = document.getElementById('privateChatPassword');
+            const hasKey = Boolean(privateChatKey);
+
+            modal.style.display = 'flex';
+            panel.classList.toggle('auth-mode', !hasKey);
+            loginView.style.display = hasKey ? 'none' : 'flex';
+            roomView.style.display = hasKey ? 'flex' : 'none';
+            document.getElementById('privateChatLoginError').innerText = '';
+
+            if (hasKey) {
+                initializePrivateChatRoom();
+            } else {
+                passwordInput.value = '';
+                setTimeout(() => passwordInput.focus(), 80);
+            }
+        }
+
+        function closePrivateChat() {
+            document.getElementById('privateChatModal').style.display = 'none';
+        }
+
+        function setPrivateChatStatus(text) {
+            const status = document.getElementById('privateChatStatus');
+            if (status) status.innerText = text;
+        }
+
+        function updatePrivateChatNickname() {
+            const input = document.getElementById('privateChatNickname');
+            const nickname = input.value.trim() || '我';
+            localStorage.setItem(PRIVATE_CHAT_CONFIG.nicknameStorageKey, nickname);
+        }
+
+        function getPrivateChatNickname() {
+            return localStorage.getItem(PRIVATE_CHAT_CONFIG.nicknameStorageKey) || '我';
+        }
+
+        async function enterPrivateChat() {
+            const errorBox = document.getElementById('privateChatLoginError');
+            const passwordInput = document.getElementById('privateChatPassword');
+            const password = passwordInput.value;
+
+            if (!window.crypto || !crypto.subtle) {
+                errorBox.innerText = '当前浏览器不支持加密能力，请使用 HTTPS 页面打开。';
+                return;
+            }
+
+            if (!password) {
+                errorBox.innerText = '请输入密码。';
+                return;
+            }
+
+            const hash = await sha256Text(password);
+            if (hash !== PRIVATE_CHAT_CONFIG.passwordHash.toLowerCase()) {
+                errorBox.innerText = '密码不正确。';
+                passwordInput.select();
+                return;
+            }
+
+            privateChatKey = await createPrivateChatKey(hash);
+            document.getElementById('privateChatPanel').classList.remove('auth-mode');
+            document.getElementById('chatLoginView').style.display = 'none';
+            document.getElementById('chatRoomView').style.display = 'flex';
+            await initializePrivateChatRoom();
+        }
+
+        function handlePrivateChatPasswordKey(event) {
+            if (event.key === 'Enter') enterPrivateChat();
+        }
+
+        async function initializePrivateChatRoom() {
+            document.getElementById('privateChatNickname').value = getPrivateChatNickname();
+            privateChatMessages = readPrivateChatArray(PRIVATE_CHAT_CONFIG.messagesStorageKey);
+            await renderPrivateChatMessages();
+            await syncPrivateChatMessages();
+
+            if (!privateChatPollingTimer) {
+                privateChatPollingTimer = setInterval(syncPrivateChatMessages, PRIVATE_CHAT_CONFIG.pollMs);
+            }
+        }
+
+        async function renderPrivateChatMessages() {
+            const renderId = ++privateChatRenderId;
+            const list = document.getElementById('privateChatMessages');
+            const messages = [...privateChatMessages].sort((a, b) => (a.createdAt || 0) - (b.createdAt || 0));
+            list.innerHTML = '';
+
+            if (!messages.length) {
+                const empty = document.createElement('div');
+                empty.className = 'private-chat-empty';
+                empty.innerText = '还没有聊天记录。';
+                list.appendChild(empty);
+                return;
+            }
+
+            for (const message of messages) {
+                const text = await decryptPrivateChatText(message.body);
+                if (renderId !== privateChatRenderId) return;
+
+                const item = document.createElement('div');
+                item.className = `private-chat-message${message.clientId === getPrivateChatClientId() ? ' own' : ''}`;
+
+                const meta = document.createElement('div');
+                meta.className = 'private-chat-meta';
+                meta.innerText = `${message.author || '匿名'} · ${formatPrivateChatTime(message.createdAt)}`;
+
+                const body = document.createElement('div');
+                body.className = 'private-chat-text';
+                body.innerText = text;
+
+                item.appendChild(meta);
+                item.appendChild(body);
+                list.appendChild(item);
+            }
+
+            list.scrollTop = list.scrollHeight;
+        }
+
+        function formatPrivateChatTime(timestamp) {
+            if (!timestamp) return '';
+            return new Intl.DateTimeFormat('zh-CN', {
+                month: '2-digit',
+                day: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit'
+            }).format(new Date(timestamp));
+        }
+
+        async function sendPrivateChatMessage() {
+            const input = document.getElementById('privateChatInput');
+            const sendButton = document.getElementById('privateChatSendButton');
+            const text = input.value.trim();
+            if (!text || !privateChatKey) return;
+
+            sendButton.disabled = true;
+            updatePrivateChatNickname();
+
+            const message = {
+                id: createPrivateChatMessageId(),
+                body: await encryptPrivateChatText(text),
+                author: getPrivateChatNickname(),
+                clientId: getPrivateChatClientId(),
+                createdAt: Date.now()
+            };
+
+            privateChatMessages = mergePrivateChatMessages(privateChatMessages, [message]);
+            writePrivateChatArray(PRIVATE_CHAT_CONFIG.messagesStorageKey, privateChatMessages);
+            input.value = '';
+            await renderPrivateChatMessages();
+
+            try {
+                await uploadPrivateChatMessage(message);
+                setPrivateChatStatus(getPrivateChatDbUrl() ? '已同步' : '已保存在当前设备');
+            } catch (error) {
+                queuePrivateChatOutbox(message);
+                setPrivateChatStatus('网络暂时不可用，消息已排队。');
+            } finally {
+                sendButton.disabled = false;
+                input.focus();
+            }
+        }
+
+        function handlePrivateChatInputKey(event) {
+            if (event.key === 'Enter' && !event.shiftKey) {
+                event.preventDefault();
+                sendPrivateChatMessage();
+            }
+        }
+
+        async function uploadPrivateChatMessage(message) {
+            const dbUrl = getPrivateChatDbUrl();
+            if (!dbUrl) return;
+
+            const response = await fetch(`${getPrivateChatMessagesUrl()}/${message.id}.json`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(message)
+            });
+
+            if (!response.ok) throw new Error(`同步失败: ${response.status}`);
+        }
+
+        function queuePrivateChatOutbox(message) {
+            const outbox = mergePrivateChatMessages(
+                readPrivateChatArray(PRIVATE_CHAT_CONFIG.outboxStorageKey),
+                [message]
+            );
+            writePrivateChatArray(PRIVATE_CHAT_CONFIG.outboxStorageKey, outbox);
+        }
+
+        async function flushPrivateChatOutbox() {
+            const outbox = readPrivateChatArray(PRIVATE_CHAT_CONFIG.outboxStorageKey);
+            if (!outbox.length || !getPrivateChatDbUrl()) return;
+
+            const remaining = [];
+            for (const message of outbox) {
+                try {
+                    await uploadPrivateChatMessage(message);
+                } catch (error) {
+                    remaining.push(message);
+                }
+            }
+            writePrivateChatArray(PRIVATE_CHAT_CONFIG.outboxStorageKey, remaining);
+        }
+
+        async function syncPrivateChatMessages() {
+            if (!privateChatKey) return;
+
+            const dbUrl = getPrivateChatDbUrl();
+            if (!dbUrl) {
+                setPrivateChatStatus('当前为本机保存：填入 Firebase URL 后可跨设备同步。');
+                return;
+            }
+
+            try {
+                setPrivateChatStatus('同步中...');
+                await flushPrivateChatOutbox();
+
+                const response = await fetch(`${getPrivateChatMessagesUrl()}.json`, { cache: 'no-store' });
+                if (!response.ok) throw new Error(`读取失败: ${response.status}`);
+
+                const data = await response.json();
+                const cloudMessages = data ? Object.values(data) : [];
+                privateChatMessages = mergePrivateChatMessages(privateChatMessages, cloudMessages);
+                writePrivateChatArray(PRIVATE_CHAT_CONFIG.messagesStorageKey, privateChatMessages);
+                await renderPrivateChatMessages();
+
+                const outbox = readPrivateChatArray(PRIVATE_CHAT_CONFIG.outboxStorageKey);
+                setPrivateChatStatus(outbox.length ? '部分消息等待同步' : '已同步');
+            } catch (error) {
+                console.warn('私聊同步失败:', error);
+                setPrivateChatStatus('同步失败，稍后会自动重试。');
+            }
+        }
+
+        window.addEventListener('online', syncPrivateChatMessages);
+        document.addEventListener('DOMContentLoaded', updatePrivateChatEntry);
 
         // 初始化加载
         window.onload = () => renderList();
@@ -1050,6 +1654,37 @@
         }
 	
     </script>
+	<div id="privateChatModal" class="private-chat-modal" style="display: none;">
+        <div id="privateChatPanel" class="private-chat-panel auth-mode">
+            <button type="button" class="private-chat-close" onclick="closePrivateChat()" aria-label="关闭">×</button>
+
+            <div id="chatLoginView" class="private-chat-auth">
+                <h2 class="private-chat-title">一对一私聊</h2>
+                <p class="private-chat-subtitle">输入密码后进入，消息会用密码加密保存。</p>
+                <input id="privateChatPassword" class="private-chat-field" type="password" placeholder="请输入密码" autocomplete="current-password" onkeydown="handlePrivateChatPasswordKey(event)">
+                <button type="button" class="private-chat-primary" onclick="enterPrivateChat()">进入聊天</button>
+                <p id="privateChatLoginError" class="private-chat-error"></p>
+            </div>
+
+            <div id="chatRoomView" class="private-chat-room" style="display: none;">
+                <div class="private-chat-header">
+                    <div>
+                        <h2 class="private-chat-title">一对一私聊</h2>
+                        <div id="privateChatStatus" class="private-chat-status">准备同步...</div>
+                    </div>
+                    <input id="privateChatNickname" class="private-chat-field private-chat-name" type="text" maxlength="16" placeholder="你的昵称" oninput="updatePrivateChatNickname()">
+                </div>
+
+                <div id="privateChatMessages" class="private-chat-messages"></div>
+
+                <div class="private-chat-compose">
+                    <textarea id="privateChatInput" class="private-chat-field" placeholder="写点什么..." onkeydown="handlePrivateChatInputKey(event)"></textarea>
+                    <button id="privateChatSendButton" type="button" class="private-chat-primary" onclick="sendPrivateChatMessage()">发送</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 	<div id="settingsModal" class="settings-modal" style="display: none;">
         <div class="settings-content">
             <span class="close-btn" onclick="closeSettings()">&times;</span>
@@ -1059,7 +1694,7 @@
             <div class="setting-item">
                 <span>🎬 阅读模式</span>
                 <label class="switch">
-                    <input type="checkbox" id="bgToggle" checked onchange="toggleBackground()">
+                    <input type="checkbox" id="bgToggle" checked onchange="handleReadingModeToggle()">
                     <span class="slider round"></span>
                 </label>
             </div>
@@ -1070,6 +1705,11 @@
                     <input type="checkbox" id="hoverToggle" checked onchange="toggleHoverEffects()">
                     <span class="slider round"></span>
                 </label>
+            </div>
+
+            <div class="setting-item" id="privateChatEntry" style="display: none;">
+                <span>🔒 一对一私聊</span>
+                <button type="button" class="settings-action-btn" onclick="openPrivateChatGate()">进入</button>
             </div>
             
             <p style="font-size: 0.8em; color: #666; margin-top: 25px; text-align: center;">设置仅在当前浏览器生效</p>
