@@ -1206,6 +1206,7 @@
         let privateChatMessages = [];
         let privateChatPollingTimer = null;
         let privateChatRenderId = 0;
+        let privateChatRenderedSignature = null;
         let privateChatSelectedAttachment = null;
         let privateChatAttachmentReading = false;
 
@@ -1514,6 +1515,13 @@
             return Array.from(byId.values()).sort((a, b) => (a.createdAt || 0) - (b.createdAt || 0));
         }
 
+        function getPrivateChatMessageSignature(messageList) {
+            return [...messageList]
+                .sort((a, b) => (a.createdAt || 0) - (b.createdAt || 0))
+                .map(message => `${message.id}:${message.createdAt || 0}`)
+                .join('|');
+        }
+
         function isPrivateChatUnlocked() {
             return localStorage.getItem(PRIVATE_CHAT_CONFIG.unlockStorageKey) === '1';
         }
@@ -1561,7 +1569,7 @@
 
         function setPrivateChatStatus(text) {
             const status = document.getElementById('privateChatStatus');
-            if (status) status.innerText = text;
+            if (status && status.innerText !== text) status.innerText = text;
         }
 
         function updatePrivateChatNickname() {
@@ -1824,17 +1832,21 @@
             document.getElementById('privateChatNickname').value = getPrivateChatNickname();
             privateChatMessages = readPrivateChatArray(PRIVATE_CHAT_CONFIG.messagesStorageKey);
             await renderPrivateChatMessages();
-            await syncPrivateChatMessages();
+            await syncPrivateChatMessages(true);
 
             if (!privateChatPollingTimer) {
                 privateChatPollingTimer = setInterval(syncPrivateChatMessages, PRIVATE_CHAT_CONFIG.pollMs);
             }
         }
 
-        async function renderPrivateChatMessages() {
-            const renderId = ++privateChatRenderId;
+        async function renderPrivateChatMessages(force = false) {
             const list = document.getElementById('privateChatMessages');
             const messages = [...privateChatMessages].sort((a, b) => (a.createdAt || 0) - (b.createdAt || 0));
+            const signature = getPrivateChatMessageSignature(messages);
+            if (!force && signature === privateChatRenderedSignature) return;
+
+            const renderId = ++privateChatRenderId;
+            privateChatRenderedSignature = signature;
             list.innerHTML = '';
 
             if (!messages.length) {
@@ -1965,7 +1977,7 @@
             writePrivateChatArray(PRIVATE_CHAT_CONFIG.outboxStorageKey, remaining);
         }
 
-        async function syncPrivateChatMessages() {
+        async function syncPrivateChatMessages(showProgress = false) {
             if (!privateChatKey) return;
 
             const dbUrl = getPrivateChatDbUrl();
@@ -1975,7 +1987,7 @@
             }
 
             try {
-                setPrivateChatStatus('同步中...');
+                if (showProgress === true) setPrivateChatStatus('同步中...');
                 await flushPrivateChatOutbox();
 
                 const response = await fetch(`${getPrivateChatMessagesUrl()}.json`, { cache: 'no-store' });
@@ -1983,9 +1995,14 @@
 
                 const data = await response.json();
                 const cloudMessages = data ? Object.values(data) : [];
-                privateChatMessages = mergePrivateChatMessages(privateChatMessages, cloudMessages);
-                writePrivateChatArray(PRIVATE_CHAT_CONFIG.messagesStorageKey, privateChatMessages);
-                await renderPrivateChatMessages();
+                const mergedMessages = mergePrivateChatMessages(privateChatMessages, cloudMessages);
+                const hasMessageChanges = getPrivateChatMessageSignature(mergedMessages) !== getPrivateChatMessageSignature(privateChatMessages);
+                privateChatMessages = mergedMessages;
+
+                if (hasMessageChanges) {
+                    writePrivateChatArray(PRIVATE_CHAT_CONFIG.messagesStorageKey, privateChatMessages);
+                    await renderPrivateChatMessages();
+                }
 
                 const outbox = readPrivateChatArray(PRIVATE_CHAT_CONFIG.outboxStorageKey);
                 setPrivateChatStatus(outbox.length ? '部分消息等待同步' : '已同步');
