@@ -866,16 +866,200 @@
             line-height: 1.55;
             color: #111827;
         }
-        .private-chat-compose {
+        .private-chat-content {
             display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .private-chat-image-button {
+            display: block;
+            width: min(280px, 100%);
+            padding: 0;
+            border: none;
+            background: transparent;
+            cursor: zoom-in;
+            text-align: left;
+        }
+        .private-chat-image {
+            display: block;
+            width: 100%;
+            max-height: 240px;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 1px solid rgba(17, 24, 39, 0.1);
+            background: rgba(255, 255, 255, 0.85);
+        }
+        .private-chat-file-card {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: min(300px, 100%);
+            padding: 9px 10px;
+            border: 1px solid rgba(17, 24, 39, 0.1);
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.72);
+        }
+        .private-chat-file-icon {
+            width: 36px;
+            height: 36px;
+            flex: 0 0 auto;
+            display: grid;
+            place-items: center;
+            border-radius: 6px;
+            background: rgba(0, 168, 255, 0.14);
+            color: #0369a1;
+            font-weight: 800;
+            font-size: 0.78em;
+        }
+        .private-chat-file-info {
+            min-width: 0;
+            flex: 1;
+        }
+        .private-chat-file-name {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            color: #111827;
+            font-weight: 700;
+        }
+        .private-chat-file-size {
+            margin-top: 2px;
+            color: #64748b;
+            font-size: 0.78em;
+        }
+        .private-chat-file-download {
+            color: #0284c7;
+            font-weight: 800;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .private-chat-file-download:hover {
+            text-decoration: underline;
+        }
+        .private-chat-compose {
+            display: grid;
+            grid-template-columns: auto minmax(0, 1fr) auto;
+            align-items: end;
             gap: 10px;
             border-top: 1px dashed rgba(17, 24, 39, 0.18);
             padding-top: 12px;
+        }
+        .private-chat-file-input {
+            display: none;
+        }
+        .private-chat-attach-button {
+            width: 46px;
+            height: 46px;
+            border: 1px solid rgba(17, 24, 39, 0.16);
+            border-radius: 6px;
+            background: rgba(255, 255, 255, 0.78);
+            color: #0369a1;
+            font-size: 1.6em;
+            line-height: 1;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .private-chat-attach-button:hover {
+            border-color: #00a8ff;
+            background: rgba(224, 242, 254, 0.86);
+        }
+        .private-chat-attach-button:disabled {
+            cursor: not-allowed;
+            opacity: 0.65;
+        }
+        .private-chat-input-area {
+            min-width: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
         }
         .private-chat-compose textarea {
             min-height: 46px;
             max-height: 120px;
             resize: vertical;
+        }
+        .private-chat-attachment-preview {
+            display: none;
+            align-items: center;
+            gap: 8px;
+            min-height: 34px;
+            padding: 7px 8px;
+            border: 1px dashed rgba(14, 116, 144, 0.34);
+            border-radius: 6px;
+            background: rgba(236, 254, 255, 0.76);
+            color: #0f172a;
+            font-size: 0.86em;
+        }
+        .private-chat-attachment-preview.visible {
+            display: flex;
+        }
+        .private-chat-preview-name {
+            min-width: 0;
+            flex: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .private-chat-preview-remove {
+            width: 24px;
+            height: 24px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(15, 23, 42, 0.08);
+            color: #475569;
+            line-height: 1;
+            cursor: pointer;
+        }
+        .private-chat-preview-remove:hover {
+            background: rgba(239, 68, 68, 0.12);
+            color: #dc2626;
+        }
+        .private-chat-viewer {
+            position: fixed;
+            inset: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10001;
+            padding: 24px;
+            background: rgba(15, 23, 42, 0.86);
+        }
+        .private-chat-viewer.visible {
+            display: flex;
+        }
+        .private-chat-viewer img {
+            max-width: min(96vw, 1100px);
+            max-height: 84vh;
+            object-fit: contain;
+            border-radius: 8px;
+            background: #fff;
+            box-shadow: 0 18px 60px rgba(0, 0, 0, 0.42);
+        }
+        .private-chat-viewer-close {
+            position: fixed;
+            top: 18px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.16);
+            color: #fff;
+            font-size: 1.8em;
+            line-height: 1;
+            cursor: pointer;
+        }
+        .private-chat-viewer-caption {
+            position: fixed;
+            left: 24px;
+            right: 24px;
+            bottom: 18px;
+            color: rgba(255, 255, 255, 0.86);
+            text-align: center;
+            font-size: 0.92em;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
 
         @media screen and (max-width: 768px) {
@@ -887,6 +1071,12 @@
             .private-chat-header,
             .private-chat-compose {
                 flex-direction: column;
+            }
+            .private-chat-compose {
+                grid-template-columns: 46px 1fr;
+            }
+            .private-chat-compose .private-chat-primary {
+                grid-column: 1 / -1;
             }
             .private-chat-name {
                 width: 100%;
@@ -1003,7 +1193,12 @@
             outboxStorageKey: "potervlagPrivateChatOutboxV1",
             nicknameStorageKey: "potervlagPrivateChatNicknameV1",
             clientStorageKey: "potervlagPrivateChatClientV1",
-            pollMs: 4000
+            pollMs: 4000,
+            attachmentMaxBytes: 1024 * 1024
+        };
+        const DEVICE_SETTINGS_CONFIG = {
+            backgroundStorageKey: "potervlagSettingBackgroundVideoV1",
+            hoverStorageKey: "potervlagSettingHoverEffectsV1"
         };
         let privateChatUnlockCount = 0;
         let privateChatLastTapAt = 0;
@@ -1011,6 +1206,8 @@
         let privateChatMessages = [];
         let privateChatPollingTimer = null;
         let privateChatRenderId = 0;
+        let privateChatSelectedAttachment = null;
+        let privateChatAttachmentReading = false;
 
         // 渲染首页列表
         function renderList() {
@@ -1121,18 +1318,46 @@
         }
         function closeSettings() { document.getElementById('settingsModal').style.display = 'none'; }
 
+        function readDeviceSetting(key, fallback) {
+            const value = localStorage.getItem(key);
+            if (value === null) return fallback;
+            return value === '1';
+        }
+
+        function writeDeviceSetting(key, enabled) {
+            localStorage.setItem(key, enabled ? '1' : '0');
+        }
+
+        function initializeDeviceSettings() {
+            const backgroundToggle = document.getElementById('bgToggle');
+            const hoverToggle = document.getElementById('hoverToggle');
+
+            if (backgroundToggle) {
+                backgroundToggle.checked = readDeviceSetting(DEVICE_SETTINGS_CONFIG.backgroundStorageKey, true);
+                toggleBackground(false);
+            }
+
+            if (hoverToggle) {
+                hoverToggle.checked = readDeviceSetting(DEVICE_SETTINGS_CONFIG.hoverStorageKey, true);
+                toggleHoverEffects(false);
+            }
+        }
+
 	// 开关 1：控制视频背景
         function handleReadingModeToggle() {
             toggleBackground();
             registerPrivateChatUnlockTap();
         }
 
-        function toggleBackground() {
+        function toggleBackground(shouldSave = true) {
             const video = document.querySelector('.video-background');
             const toggle = document.getElementById('bgToggle');
+            if (!video || !toggle) return;
+            if (shouldSave) writeDeviceSetting(DEVICE_SETTINGS_CONFIG.backgroundStorageKey, toggle.checked);
+
             if (toggle.checked) {
                 video.style.display = 'block';
-                video.play(); 
+                video.play().catch(() => {}); 
                 document.body.classList.remove('no-video-mode'); // 🎬 移出无视频模式
             } else {
                 video.style.display = 'none';
@@ -1142,8 +1367,11 @@
         }
 
         // 开关 2：控制悬停浮起动效
-        function toggleHoverEffects() {
+        function toggleHoverEffects(shouldSave = true) {
             const toggle = document.getElementById('hoverToggle');
+            if (!toggle) return;
+            if (shouldSave) writeDeviceSetting(DEVICE_SETTINGS_CONFIG.hoverStorageKey, toggle.checked);
+
             if (toggle.checked) {
                 document.body.classList.remove('disable-hover'); // 移除禁用类，恢复动效
             } else {
@@ -1238,6 +1466,32 @@
             }
         }
 
+        async function encryptPrivateChatPayload(payload) {
+            return encryptPrivateChatText(JSON.stringify({
+                kind: 'private-chat-message',
+                version: 2,
+                ...payload
+            }));
+        }
+
+        async function decryptPrivateChatPayload(payload) {
+            const text = await decryptPrivateChatText(payload);
+
+            try {
+                const parsed = JSON.parse(text);
+                if (parsed && parsed.kind === 'private-chat-message') {
+                    return {
+                        text: typeof parsed.text === 'string' ? parsed.text : '',
+                        attachment: parsed.attachment || null
+                    };
+                }
+            } catch (error) {
+                // 旧消息是纯文本密文，解析失败时按文本消息展示。
+            }
+
+            return { text, attachment: null };
+        }
+
         function getPrivateChatClientId() {
             let clientId = localStorage.getItem(PRIVATE_CHAT_CONFIG.clientStorageKey);
             if (!clientId) {
@@ -1320,6 +1574,219 @@
             return localStorage.getItem(PRIVATE_CHAT_CONFIG.nicknameStorageKey) || '我';
         }
 
+        function formatPrivateChatFileSize(size) {
+            const value = Number(size) || 0;
+            if (value >= 1024 * 1024) return `${(value / 1024 / 1024).toFixed(1)} MB`;
+            if (value >= 1024) return `${Math.ceil(value / 1024)} KB`;
+            return `${value} B`;
+        }
+
+        function inferPrivateChatImageType(fileName) {
+            const extension = String(fileName || '').split('.').pop().toLowerCase();
+            const imageTypes = {
+                avif: 'image/avif',
+                bmp: 'image/bmp',
+                gif: 'image/gif',
+                jpg: 'image/jpeg',
+                jpeg: 'image/jpeg',
+                png: 'image/png',
+                svg: 'image/svg+xml',
+                webp: 'image/webp'
+            };
+            return imageTypes[extension] || '';
+        }
+
+        function normalizePrivateChatDataUrl(dataUrl, mimeType) {
+            if (!mimeType || !dataUrl.startsWith('data:')) return dataUrl;
+            return dataUrl
+                .replace(/^data:;/, `data:${mimeType};`)
+                .replace(/^data:application\/octet-stream;/, `data:${mimeType};`);
+        }
+
+        function createPrivateChatTextElement(text) {
+            const body = document.createElement('div');
+            body.className = 'private-chat-text';
+            body.innerText = text;
+            return body;
+        }
+
+        function createPrivateChatAttachmentElement(attachment) {
+            const safeName = attachment.name || '附件';
+            const safeType = attachment.type || '';
+            const dataUrl = attachment.dataUrl || '';
+            const isImage = (attachment.isImage || safeType.startsWith('image/')) && dataUrl.startsWith('data:image/');
+
+            if (isImage) {
+                const content = document.createElement('div');
+                content.className = 'private-chat-content';
+
+                const imageButton = document.createElement('button');
+                imageButton.type = 'button';
+                imageButton.className = 'private-chat-image-button';
+                imageButton.title = safeName;
+                imageButton.onclick = () => openPrivateChatImage(dataUrl, safeName);
+
+                const image = document.createElement('img');
+                image.className = 'private-chat-image';
+                image.src = dataUrl;
+                image.alt = safeName;
+                image.loading = 'lazy';
+
+                imageButton.appendChild(image);
+                content.appendChild(imageButton);
+                content.appendChild(createPrivateChatFileCard(attachment, true));
+                return content;
+            }
+
+            return createPrivateChatFileCard(attachment, false);
+        }
+
+        function createPrivateChatFileCard(attachment, compact) {
+            const safeName = attachment.name || '附件';
+            const card = document.createElement('div');
+            card.className = 'private-chat-file-card';
+
+            const icon = document.createElement('div');
+            icon.className = 'private-chat-file-icon';
+            icon.innerText = (attachment.isImage || String(attachment.type || '').startsWith('image/')) ? 'IMG' : 'FILE';
+
+            const info = document.createElement('div');
+            info.className = 'private-chat-file-info';
+
+            const name = document.createElement('div');
+            name.className = 'private-chat-file-name';
+            name.innerText = safeName;
+
+            const size = document.createElement('div');
+            size.className = 'private-chat-file-size';
+            size.innerText = formatPrivateChatFileSize(attachment.size);
+
+            const download = document.createElement('a');
+            download.className = 'private-chat-file-download';
+            download.href = attachment.dataUrl || '#';
+            download.download = safeName;
+            download.innerText = compact ? '保存' : '下载';
+
+            info.appendChild(name);
+            info.appendChild(size);
+            card.appendChild(icon);
+            card.appendChild(info);
+            card.appendChild(download);
+            return card;
+        }
+
+        function createPrivateChatMessageBody(payload) {
+            const content = document.createElement('div');
+            content.className = 'private-chat-content';
+
+            if (payload.text) {
+                content.appendChild(createPrivateChatTextElement(payload.text));
+            }
+
+            if (payload.attachment) {
+                content.appendChild(createPrivateChatAttachmentElement(payload.attachment));
+            }
+
+            if (!payload.text && !payload.attachment) {
+                content.appendChild(createPrivateChatTextElement('[空消息]'));
+            }
+
+            return content;
+        }
+
+        function clearPrivateChatAttachment() {
+            privateChatSelectedAttachment = null;
+            privateChatAttachmentReading = false;
+
+            const input = document.getElementById('privateChatAttachmentInput');
+            const preview = document.getElementById('privateChatAttachmentPreview');
+            const name = document.getElementById('privateChatAttachmentName');
+
+            if (input) input.value = '';
+            if (preview) preview.classList.remove('visible');
+            if (name) name.innerText = '';
+        }
+
+        function renderPrivateChatAttachmentPreview() {
+            const preview = document.getElementById('privateChatAttachmentPreview');
+            const name = document.getElementById('privateChatAttachmentName');
+            if (!preview || !name) return;
+
+            if (!privateChatSelectedAttachment) {
+                preview.classList.remove('visible');
+                name.innerText = '';
+                return;
+            }
+
+            name.innerText = `${privateChatSelectedAttachment.name} · ${formatPrivateChatFileSize(privateChatSelectedAttachment.size)}`;
+            preview.classList.add('visible');
+        }
+
+        function handlePrivateChatAttachmentChange(event) {
+            const file = event.target.files && event.target.files[0];
+            if (!file) return;
+
+            if (file.size > PRIVATE_CHAT_CONFIG.attachmentMaxBytes) {
+                clearPrivateChatAttachment();
+                setPrivateChatStatus(`附件不能超过 ${formatPrivateChatFileSize(PRIVATE_CHAT_CONFIG.attachmentMaxBytes)}。`);
+                return;
+            }
+
+            privateChatAttachmentReading = true;
+            setPrivateChatStatus('正在读取附件...');
+
+            const reader = new FileReader();
+            reader.onload = () => {
+                const fallbackType = inferPrivateChatImageType(file.name);
+                const fileType = file.type || fallbackType || 'application/octet-stream';
+                privateChatSelectedAttachment = {
+                    name: file.name || '附件',
+                    type: fileType,
+                    size: file.size,
+                    dataUrl: normalizePrivateChatDataUrl(String(reader.result || ''), fileType),
+                    isImage: fileType.startsWith('image/')
+                };
+                privateChatAttachmentReading = false;
+                renderPrivateChatAttachmentPreview();
+                setPrivateChatStatus('附件已添加');
+            };
+            reader.onerror = () => {
+                privateChatAttachmentReading = false;
+                clearPrivateChatAttachment();
+                setPrivateChatStatus('附件读取失败，请重新选择。');
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function openPrivateChatImage(src, name) {
+            const viewer = document.getElementById('privateChatImageViewer');
+            const image = document.getElementById('privateChatViewerImage');
+            const caption = document.getElementById('privateChatViewerCaption');
+            if (!viewer || !image) return;
+
+            image.src = src;
+            image.alt = name || '图片附件';
+            if (caption) caption.innerText = name || '图片附件';
+            viewer.classList.add('visible');
+            viewer.setAttribute('aria-hidden', 'false');
+        }
+
+        function closePrivateChatImage() {
+            const viewer = document.getElementById('privateChatImageViewer');
+            const image = document.getElementById('privateChatViewerImage');
+            if (!viewer) return;
+
+            viewer.classList.remove('visible');
+            viewer.setAttribute('aria-hidden', 'true');
+            if (image) image.src = '';
+        }
+
+        function handlePrivateChatViewerClick(event) {
+            if (event.target && event.target.id === 'privateChatImageViewer') {
+                closePrivateChatImage();
+            }
+        }
+
         async function enterPrivateChat() {
             const errorBox = document.getElementById('privateChatLoginError');
             const passwordInput = document.getElementById('privateChatPassword');
@@ -1379,7 +1846,7 @@
             }
 
             for (const message of messages) {
-                const text = await decryptPrivateChatText(message.body);
+                const payload = await decryptPrivateChatPayload(message.body);
                 if (renderId !== privateChatRenderId) return;
 
                 const item = document.createElement('div');
@@ -1389,12 +1856,8 @@
                 meta.className = 'private-chat-meta';
                 meta.innerText = `${message.author || '匿名'} · ${formatPrivateChatTime(message.createdAt)}`;
 
-                const body = document.createElement('div');
-                body.className = 'private-chat-text';
-                body.innerText = text;
-
                 item.appendChild(meta);
-                item.appendChild(body);
+                item.appendChild(createPrivateChatMessageBody(payload));
                 list.appendChild(item);
             }
 
@@ -1414,33 +1877,47 @@
         async function sendPrivateChatMessage() {
             const input = document.getElementById('privateChatInput');
             const sendButton = document.getElementById('privateChatSendButton');
+            const attachButton = document.getElementById('privateChatAttachButton');
             const text = input.value.trim();
-            if (!text || !privateChatKey) return;
+            const attachment = privateChatSelectedAttachment;
+            if (privateChatAttachmentReading) {
+                setPrivateChatStatus('附件还在读取中...');
+                return;
+            }
+            if ((!text && !attachment) || !privateChatKey) return;
 
             sendButton.disabled = true;
+            if (attachButton) attachButton.disabled = true;
             updatePrivateChatNickname();
 
-            const message = {
-                id: createPrivateChatMessageId(),
-                body: await encryptPrivateChatText(text),
-                author: getPrivateChatNickname(),
-                clientId: getPrivateChatClientId(),
-                createdAt: Date.now()
-            };
-
-            privateChatMessages = mergePrivateChatMessages(privateChatMessages, [message]);
-            writePrivateChatArray(PRIVATE_CHAT_CONFIG.messagesStorageKey, privateChatMessages);
-            input.value = '';
-            await renderPrivateChatMessages();
-
             try {
-                await uploadPrivateChatMessage(message);
-                setPrivateChatStatus(getPrivateChatDbUrl() ? '已同步' : '已保存在当前设备');
+                const message = {
+                    id: createPrivateChatMessageId(),
+                    body: await encryptPrivateChatPayload({ text, attachment }),
+                    author: getPrivateChatNickname(),
+                    clientId: getPrivateChatClientId(),
+                    createdAt: Date.now()
+                };
+
+                privateChatMessages = mergePrivateChatMessages(privateChatMessages, [message]);
+                writePrivateChatArray(PRIVATE_CHAT_CONFIG.messagesStorageKey, privateChatMessages);
+                input.value = '';
+                clearPrivateChatAttachment();
+                await renderPrivateChatMessages();
+
+                try {
+                    await uploadPrivateChatMessage(message);
+                    setPrivateChatStatus(getPrivateChatDbUrl() ? '已同步' : '已保存在当前设备');
+                } catch (error) {
+                    queuePrivateChatOutbox(message);
+                    setPrivateChatStatus('网络暂时不可用，消息已排队。');
+                }
             } catch (error) {
-                queuePrivateChatOutbox(message);
-                setPrivateChatStatus('网络暂时不可用，消息已排队。');
+                console.warn('私聊发送失败:', error);
+                setPrivateChatStatus('发送失败，请缩小附件或稍后重试。');
             } finally {
                 sendButton.disabled = false;
+                if (attachButton) attachButton.disabled = false;
                 input.focus();
             }
         }
@@ -1519,9 +1996,15 @@
         }
 
         window.addEventListener('online', syncPrivateChatMessages);
+        window.addEventListener('keydown', event => {
+            if (event.key === 'Escape') closePrivateChatImage();
+        });
 
         // 初始化加载
-        window.onload = () => renderList();
+        window.onload = () => {
+            initializeDeviceSettings();
+            renderList();
+        };
         // --- 分类标签点击功能 (带控制台追踪版) ---
         const categoryMenu = document.getElementById('categoryMenu');
         
@@ -1654,11 +2137,25 @@
                 <div id="privateChatMessages" class="private-chat-messages"></div>
 
                 <div class="private-chat-compose">
-                    <textarea id="privateChatInput" class="private-chat-field" placeholder="写点什么..." onkeydown="handlePrivateChatInputKey(event)"></textarea>
+                    <input id="privateChatAttachmentInput" class="private-chat-file-input" type="file" onchange="handlePrivateChatAttachmentChange(event)">
+                    <button id="privateChatAttachButton" type="button" class="private-chat-attach-button" onclick="document.getElementById('privateChatAttachmentInput').click()" aria-label="添加图片或文件" title="添加图片或文件">＋</button>
+                    <div class="private-chat-input-area">
+                        <textarea id="privateChatInput" class="private-chat-field" placeholder="写点什么..." onkeydown="handlePrivateChatInputKey(event)"></textarea>
+                        <div id="privateChatAttachmentPreview" class="private-chat-attachment-preview">
+                            <span id="privateChatAttachmentName" class="private-chat-preview-name"></span>
+                            <button type="button" class="private-chat-preview-remove" onclick="clearPrivateChatAttachment()" aria-label="移除附件">×</button>
+                        </div>
+                    </div>
                     <button id="privateChatSendButton" type="button" class="private-chat-primary" onclick="sendPrivateChatMessage()">发送</button>
                 </div>
             </div>
         </div>
+    </div>
+
+    <div id="privateChatImageViewer" class="private-chat-viewer" role="dialog" aria-modal="true" aria-hidden="true" onclick="handlePrivateChatViewerClick(event)">
+        <button type="button" class="private-chat-viewer-close" onclick="closePrivateChatImage()" aria-label="关闭图片">×</button>
+        <img id="privateChatViewerImage" alt="">
+        <div id="privateChatViewerCaption" class="private-chat-viewer-caption"></div>
     </div>
 
 	<div id="settingsModal" class="settings-modal" style="display: none;">
