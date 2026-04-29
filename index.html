@@ -1197,7 +1197,7 @@
             attachmentMaxBytes: 1024 * 1024
         };
         const DEVICE_SETTINGS_CONFIG = {
-            backgroundStorageKey: "potervlagSettingBackgroundVideoV1",
+            readingModeStorageKey: "potervlagSettingReadingModeV1",
             hoverStorageKey: "potervlagSettingHoverEffectsV1"
         };
         let privateChatUnlockCount = 0;
@@ -1334,8 +1334,8 @@
             const hoverToggle = document.getElementById('hoverToggle');
 
             if (backgroundToggle) {
-                backgroundToggle.checked = readDeviceSetting(DEVICE_SETTINGS_CONFIG.backgroundStorageKey, true);
-                toggleBackground(false);
+                backgroundToggle.checked = readDeviceSetting(DEVICE_SETTINGS_CONFIG.readingModeStorageKey, false);
+                toggleReadingMode(false);
             }
 
             if (hoverToggle) {
@@ -1344,26 +1344,26 @@
             }
         }
 
-	// 开关 1：控制视频背景
+	// 开关 1：控制阅读模式
         function handleReadingModeToggle() {
-            toggleBackground();
+            toggleReadingMode();
             registerPrivateChatUnlockTap();
         }
 
-        function toggleBackground(shouldSave = true) {
+        function toggleReadingMode(shouldSave = true) {
             const video = document.querySelector('.video-background');
             const toggle = document.getElementById('bgToggle');
             if (!video || !toggle) return;
-            if (shouldSave) writeDeviceSetting(DEVICE_SETTINGS_CONFIG.backgroundStorageKey, toggle.checked);
+            if (shouldSave) writeDeviceSetting(DEVICE_SETTINGS_CONFIG.readingModeStorageKey, toggle.checked);
 
             if (toggle.checked) {
-                video.style.display = 'block';
-                video.play().catch(() => {}); 
-                document.body.classList.remove('no-video-mode'); // 🎬 移出无视频模式
-            } else {
                 video.style.display = 'none';
                 video.pause(); 
                 document.body.classList.add('no-video-mode');    // 🎬 进入无视频模式
+            } else {
+                video.style.display = 'block';
+                video.play().catch(() => {}); 
+                document.body.classList.remove('no-video-mode'); // 🎬 移出无视频模式
             }
         }
 
@@ -2182,9 +2182,9 @@
             <hr style="border:0; border-top:1px dashed rgba(0,0,0,0.2); margin:15px 0;">
 
             <div class="setting-item">
-                <span>🎬 阅读模式</span>
+                <span>📖 阅读模式</span>
                 <label class="switch">
-                    <input type="checkbox" id="bgToggle" checked onchange="handleReadingModeToggle()">
+                    <input type="checkbox" id="bgToggle" onchange="handleReadingModeToggle()">
                     <span class="slider round"></span>
                 </label>
             </div>

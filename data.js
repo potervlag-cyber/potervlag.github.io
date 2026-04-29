@@ -31,7 +31,14 @@ const blogPosts = [
 	    summary: "Markdown核心语法汇集地...",
         fileUrl: "./posts/markdown-01.md"
     },
-   
+{
+     id: 7,
+        title: "vb教程",
+        category: "vb",
+        summary:"vb基础简单教程",
+        date: "2026-04-29",
+        fileUrl: "./posts/vb-01.md" 
+    },
 {
      id: 5,
         title: "老弟刘子豪",
