@@ -8,6 +8,14 @@ const blogPosts = [
     fileUrl: "./posts/html-01.md"
 },
 {
+    id: 6,
+    title: "HTML 第二课：页面结构与表单进阶",
+    category: "HTML基础",
+    summary: "继续学习 head 元信息、资源路径、id 与 class、媒体标签、表单进阶、可访问性和完整作品集页面结构。",
+    date: "2026-05-01",
+    fileUrl: "./posts/html-02.md"
+},
+{
     id: 2,
     title: "Markdown 核心语法",
     category: "Markdown",
