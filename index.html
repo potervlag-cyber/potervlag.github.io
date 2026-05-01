@@ -33,6 +33,90 @@
             object-fit: cover; /* 核心魔法：保持视频原本比例，像壁纸一样裁剪铺满 */
         }        
 
+        body.intro-mode {
+            overflow: hidden;
+            background: #000;
+        }
+
+        body.intro-mode::before {
+            opacity: 0;
+        }
+
+        body.intro-mode .video-background {
+            z-index: 20;
+            cursor: pointer;
+            display: block !important;
+        }
+
+        .intro-title {
+            display: none;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            z-index: 30;
+            width: min(88vw, 920px);
+            padding: 0 18px;
+            transform: translate(-50%, -35%);
+            color: #fff8f3;
+            font-family: "HYShouJinTi", "汉仪手书宋", "STXingkai", "华文行楷", "KaiTi", "楷体", serif;
+            font-size: clamp(1.55rem, 4.2vw, 4.1rem);
+            font-weight: 500;
+            line-height: 1.08;
+            letter-spacing: 0;
+            text-align: center;
+            text-shadow:
+                0 0 8px rgba(255, 255, 255, 0.82),
+                0 0 22px rgba(255, 139, 164, 0.68),
+                0 8px 24px rgba(91, 24, 52, 0.38);
+            pointer-events: none;
+        }
+
+        .intro-main {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.34em;
+        }
+
+        .intro-main::before,
+        .intro-main::after {
+            content: "✦";
+            color: rgba(255, 250, 245, 0.9);
+            font-family: "Microsoft YaHei", sans-serif;
+            font-size: clamp(0.75rem, 1.35vw, 1.25rem);
+            text-shadow: 0 0 14px rgba(255, 155, 175, 0.9);
+        }
+
+        .intro-subtitle {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            margin-top: clamp(0.45rem, 1.1vw, 0.9rem);
+            padding: 0 clamp(1.5rem, 5vw, 4rem);
+            color: rgba(255, 250, 245, 0.92);
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+            font-size: clamp(0.58rem, 1.35vw, 1.1rem);
+            font-weight: 600;
+            line-height: 1.5;
+            letter-spacing: 0.22em;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.62), 0 0 18px rgba(255, 139, 164, 0.54);
+            border-top: 1px solid rgba(255, 244, 234, 0.46);
+            border-bottom: 1px solid rgba(255, 244, 234, 0.34);
+        }
+
+        body.intro-mode .intro-title {
+            display: block;
+        }
+
+        body.intro-mode .top-nav,
+        body.intro-mode .layout-container,
+        body.intro-mode .settings-modal,
+        body.intro-mode .private-chat-modal,
+        body.intro-mode .private-chat-viewer {
+            display: none !important;
+        }
+
        
 /* 3. 顶部导航栏 (完全透明) */
         .top-nav { 
@@ -635,79 +719,6 @@
                 background: rgba(0, 168, 255, 0.5); 
             }
         }
-	/* --- 21. 功能引导气泡 (设置提示) --- */
-        .feature-tooltip {
-            position: fixed;
-            top: 70px;          /* 悬浮在导航栏下方（如果你的导航栏比较高，可以把这个数字调大） */
-            right: 20px;        /* 靠近右侧，对准你的“⚙️ 设置”按钮 */
-            z-index: 10000;     /* 必须在最顶层 */
-            
-            /* 毛玻璃高级质感 */
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            border-radius: 12px;
-            padding: 12px 35px 12px 15px; /* 右边留出 35px 的空间给关闭按钮 */
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            
-            /* 文字样式 */
-            color: #333;
-            font-size: 0.9em;
-            line-height: 1.5;
-            
-            /* 入场动画 */
-            animation: tooltipFloat 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-        }
-
-        /* 🌟 核心魔法：做气泡顶部的那个“小箭头” */
-        .feature-tooltip::before {
-            content: '';
-            position: absolute;
-            top: -6px;          /* 冒出气泡顶部一半 */
-            right: 35px;        /* 左右位置，你可以微调这个数字让它绝对对准你的“设置”两个字 */
-            width: 12px;
-            height: 12px;
-            
-            /* 让箭头也继承毛玻璃和白底色 */
-            background: rgba(255, 255, 255, 0.95);
-            transform: rotate(45deg); /* 旋转 45 度变成菱形 */
-            
-            /* 只给左上边加边框，完美融入气泡 */
-            border-top: 1px solid rgba(0, 0, 0, 0.08);
-            border-left: 1px solid rgba(0, 0, 0, 0.08);
-        }
-
-        /* 关闭按钮 (×) 样式 */
-        .close-tooltip {
-            position: absolute;
-            top: 8px;
-            right: 12px;
-            font-size: 1.2em;
-            color: #999;
-            cursor: pointer;
-            transition: all 0.2s;
-            line-height: 1;
-        }
-        .close-tooltip:hover {
-            color: #ff4757;     /* 鼠标放上去变红色 */
-            transform: scale(1.1);
-        }
-
-        /* 气泡微微弹出的入场动画 */
-        @keyframes tooltipFloat {
-            0% { opacity: 0; transform: translateY(15px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        /* 点击关闭时触发的退场类名 */
-        .tooltip-hide {
-            opacity: 0;
-            transform: translateY(-10px);
-            pointer-events: none; /* 防止点到看不见的框 */
-            transition: all 0.3s ease;
-        }
-
         .private-chat-modal {
             position: fixed;
             inset: 0;
@@ -1087,11 +1098,15 @@
 	
    </style>
 </head>
-<body>
+<body class="intro-mode">
 
-<video autoplay loop muted playsinline poster="bg-poster.jpg" class="video-background">
+<video autoplay loop muted playsinline poster="bg-poster.jpg" class="video-background" onclick="enterBlogExperience()" title="点击进入">
         <source src="blog-background.mp4" type="video/mp4">
     </video>
+    <div class="intro-title">
+        <span class="intro-main">欢迎来到我的博客空间</span>
+        <span class="intro-subtitle">记录生活 · 分享热爱 · 发现美好</span>
+    </div>
 
     <nav class="top-nav">
         <div class="nav-logo">My Blog</div>
@@ -1103,11 +1118,6 @@
 	    <a href="javascript:void(0);" onclick="openSettings()" style="margin-left: 20px;">⚙️ 设置</a>
         </div>
     </nav>
-	<div id="readingModeTooltip" class="feature-tooltip">
-        <span class="close-tooltip" onclick="closeReadingTooltip()">×</span>
-        <p>💡 可在设置中开启<strong>阅读模式</strong>，享受更纯粹的体验</p>
-    </div>
-
     <div class="layout-container">
         <aside class="sidebar-wrapper" id="sidebarArea">
             
@@ -1196,7 +1206,6 @@
             attachmentMaxBytes: 1024 * 1024
         };
         const DEVICE_SETTINGS_CONFIG = {
-            readingModeStorageKey: "potervlagSettingReadingModeV1",
             hoverStorageKey: "potervlagSettingHoverEffectsV1"
         };
         let privateChatUnlockCount = 0;
@@ -1329,13 +1338,7 @@
         }
 
         function initializeDeviceSettings() {
-            const backgroundToggle = document.getElementById('bgToggle');
             const hoverToggle = document.getElementById('hoverToggle');
-
-            if (backgroundToggle) {
-                backgroundToggle.checked = readDeviceSetting(DEVICE_SETTINGS_CONFIG.readingModeStorageKey, false);
-                toggleReadingMode(false);
-            }
 
             if (hoverToggle) {
                 hoverToggle.checked = readDeviceSetting(DEVICE_SETTINGS_CONFIG.hoverStorageKey, true);
@@ -1343,34 +1346,32 @@
             }
         }
 
-	// 开关 1：控制阅读模式
-        function handleReadingModeToggle() {
-            toggleReadingMode();
-            registerPrivateChatUnlockTap();
+        function enterBlogExperience() {
+            document.body.classList.remove('intro-mode');
+            enableReadingMode();
         }
 
-        function toggleReadingMode(shouldSave = true) {
+        function enableReadingMode() {
             const video = document.querySelector('.video-background');
-            const toggle = document.getElementById('bgToggle');
-            if (!video || !toggle) return;
-            if (shouldSave) writeDeviceSetting(DEVICE_SETTINGS_CONFIG.readingModeStorageKey, toggle.checked);
-
-            if (toggle.checked) {
+            if (video) {
                 video.style.display = 'none';
                 video.pause(); 
-                document.body.classList.add('no-video-mode');    // 🎬 进入无视频模式
-            } else {
-                video.style.display = 'block';
-                video.play().catch(() => {}); 
-                document.body.classList.remove('no-video-mode'); // 🎬 移出无视频模式
             }
+            document.body.classList.add('no-video-mode');    // 🎬 进入无视频阅读模式
         }
 
-        // 开关 2：控制悬停浮起动效
+        function toggleReadingMode() {
+            enableReadingMode();
+        }
+
+        // 设置开关：控制悬停浮起动效
         function toggleHoverEffects(shouldSave = true) {
             const toggle = document.getElementById('hoverToggle');
             if (!toggle) return;
-            if (shouldSave) writeDeviceSetting(DEVICE_SETTINGS_CONFIG.hoverStorageKey, toggle.checked);
+            if (shouldSave) {
+                writeDeviceSetting(DEVICE_SETTINGS_CONFIG.hoverStorageKey, toggle.checked);
+                registerPrivateChatUnlockTap();
+            }
 
             if (toggle.checked) {
                 document.body.classList.remove('disable-hover'); // 移除禁用类，恢复动效
@@ -2114,20 +2115,6 @@
                 lastScrollY = currentScrollY;
             });
         });
-	// --- 关闭阅读模式提示气泡 ---
-        function closeReadingTooltip() {
-            const tooltip = document.getElementById('readingModeTooltip');
-            if (tooltip) {
-                // 第一步：加上消失的动画效果
-                tooltip.classList.add('tooltip-hide');
-                
-                // 第二步：等 300 毫秒（动画播完）后，彻底把这个框从网页上删掉
-                setTimeout(() => {
-                    tooltip.style.display = 'none';
-                }, 300);
-            }
-        }
-	
     </script>
 	<div id="privateChatModal" class="private-chat-modal" style="display: none;">
         <div id="privateChatPanel" class="private-chat-panel auth-mode">
@@ -2179,14 +2166,6 @@
             <span class="close-btn" onclick="closeSettings()">&times;</span>
             <h2 style="margin-top:0; color:#000; text-shadow:1px 1px 2px rgba(255,255,255,0.8);">⚙️ 偏好设置</h2>
             <hr style="border:0; border-top:1px dashed rgba(0,0,0,0.2); margin:15px 0;">
-
-            <div class="setting-item">
-                <span>📖 阅读模式</span>
-                <label class="switch">
-                    <input type="checkbox" id="bgToggle" onchange="handleReadingModeToggle()">
-                    <span class="slider round"></span>
-                </label>
-            </div>
 
             <div class="setting-item">
                 <span>✨ 卡片悬停浮起</span>
