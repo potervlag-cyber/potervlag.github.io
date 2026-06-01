@@ -288,6 +288,7 @@
 
         .btn-back { background: #34495e; color: white; border: none; padding: 8px 16px; cursor: pointer; border-radius: 4px; margin-bottom: 20px; }
         .post-detail-content { line-height: 1.8; color: #222; font-size: 1.05em; white-space: pre-wrap; font-weight: 500; text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8); }
+        .post-detail-content [id] { scroll-margin-top: 80px; }
 
 	/* --- 11. 评论区样式 (贴合高级玻璃质感) --- */
         .comment-section { margin-top: 30px; }
@@ -1260,6 +1261,74 @@
             }
         }
 
+        function slugifyHeadingText(text) {
+            return text
+                .trim()
+                .toLowerCase()
+                .replace(/[^\w\s\u3400-\u9fff\u3040-\u30ff\uac00-\ud7af-]/g, '')
+                .replace(/\s+/g, '-')
+                .replace(/-+/g, '-')
+                .replace(/^-|-$/g, '');
+        }
+
+        function assignPostHeadingAnchors(container) {
+            const usedIds = new Map();
+
+            container.querySelectorAll('h1, h2, h3, h4, h5, h6').forEach((heading, index) => {
+                const baseId = slugifyHeadingText(heading.textContent) || `section-${index + 1}`;
+                const count = usedIds.get(baseId) || 0;
+                const headingId = count === 0 ? baseId : `${baseId}-${count}`;
+                usedIds.set(baseId, count + 1);
+
+                if (!heading.id) {
+                    heading.id = headingId;
+                }
+
+                heading.dataset.generatedAnchor = headingId;
+            });
+        }
+
+        function decodeAnchorId(anchorId) {
+            try {
+                return decodeURIComponent(anchorId);
+            } catch (error) {
+                return anchorId;
+            }
+        }
+
+        function findPostAnchorTarget(container, anchorId) {
+            const decodedId = decodeAnchorId(anchorId);
+            const byId = Array.from(container.querySelectorAll('[id]')).find(element => element.id === decodedId);
+
+            if (byId) return byId;
+
+            return Array.from(container.querySelectorAll('h1, h2, h3, h4, h5, h6')).find(heading => {
+                return heading.dataset.generatedAnchor === decodedId || slugifyHeadingText(heading.textContent) === decodedId;
+            });
+        }
+
+        function setupPostAnchorNavigation(container) {
+            if (container.dataset.anchorNavigationReady === '1') return;
+            container.dataset.anchorNavigationReady = '1';
+
+            container.addEventListener('click', event => {
+                const link = event.target.closest('a[href^="#"]');
+                if (!link || !container.contains(link)) return;
+
+                const rawHash = link.getAttribute('href').slice(1);
+                if (!rawHash) return;
+
+                const target = findPostAnchorTarget(container, rawHash);
+                if (!target) return;
+
+                event.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+                const decodedHash = decodeAnchorId(rawHash);
+                history.replaceState(null, '', `${location.pathname}${location.search}#${encodeURIComponent(decodedHash)}`);
+            });
+        }
+
 	// --- 点击打开文章详情 (动态拉取 Markdown 版) ---
         
        // --- 带有追踪器的终极版 showDetail ---
@@ -1302,6 +1371,8 @@
                 console.log("🚦 5. 文件拉取成功！总字数:", mdText.length);
 
                 contentBox.innerHTML = marked.parse(mdText);
+                assignPostHeadingAnchors(contentBox);
+                setupPostAnchorNavigation(contentBox);
                 
                 // 👇 新增：唤醒 KaTeX，让它扫描正文盒子里的公式
                 renderMathInElement(contentBox, {
