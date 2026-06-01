@@ -1,5 +1,13 @@
 const blogPosts = [
 {
+    id: 7,
+    title: "Python 基础第一课：从零开始真正理解一门编程语言",
+    category: "Python基础",
+    summary: "面向初学者的 Python 入门教程，从环境准备、第一个程序、变量、数据类型、输入输出、条件、循环、容器、函数、模块、文件读写和调试方法开始系统学习。",
+    date: "2026-06-01",
+    fileUrl: "./posts/python-01.md"
+},
+{
     id: 1,
     title: "HTML 入门完整指南",
     category: "HTML基础",
