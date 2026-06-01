@@ -1,5 +1,13 @@
 const blogPosts = [
 {
+    id: 8,
+    title: "Python 基础第二课：函数、数据结构与小项目实战",
+    category: "Python基础",
+    summary: "承接 Python 第一课，讲解学完基础语法后应该继续学习函数进阶、列表字典组合、增删改查、输入校验、异常处理、JSON 文件保存，并通过学生成绩管理系统完成小项目实战。",
+    date: "2026-06-01",
+    fileUrl: "./posts/python-02.md"
+},
+{
     id: 7,
     title: "Python 基础第一课：从零开始真正理解一门编程语言",
     category: "Python基础",
