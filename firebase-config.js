@@ -4,17 +4,17 @@
  * 在 Firebase 控制台打开：
  * 项目设置 → 常规 → 你的应用 → SDK 设置和配置 → 配置
  *
- * 将其中的 apiKey 填到下方。其余项目地址已按当前 Realtime Database
- * 项目 potervlag-a3f74 预填；如果控制台给出的值不同，请以控制台为准。
+ * 当前已连接项目 potervlag-denglu 及其 Realtime Database。
  *
  * Firebase Web 配置会公开在浏览器端，不能把服务账号私钥放在这里。
  */
 window.POTERVLAG_FIREBASE_CONFIG = Object.freeze({
-    apiKey: "",
-    authDomain: "potervlag-a3f74.firebaseapp.com",
-    databaseURL: "https://potervlag-a3f74-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "potervlag-a3f74",
-    storageBucket: "potervlag-a3f74.firebasestorage.app",
-    messagingSenderId: "",
-    appId: ""
+    apiKey: "AIzaSyDEXdtflBnkIGBBwaY4XVY33Q_yrucm85Y",
+    authDomain: "potervlag-denglu.firebaseapp.com",
+    databaseURL: "https://potervlag-denglu-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "potervlag-denglu",
+    storageBucket: "potervlag-denglu.firebasestorage.app",
+    messagingSenderId: "469504799422",
+    appId: "1:469504799422:web:488b4023e98acdd40624ef",
+    measurementId: "G-NDDSM50C09"
 });

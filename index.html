@@ -1746,7 +1746,11 @@
         }
 
         function getPrivateChatDbUrl() {
-            return (PRIVATE_CHAT_CONFIG.databaseUrl || 'https://potervlag-a3f74-default-rtdb.asia-southeast1.firebasedatabase.app/').trim().replace(/\/$/, '');
+            return (
+                PRIVATE_CHAT_CONFIG.databaseUrl ||
+                window.POTERVLAG_FIREBASE_CONFIG?.databaseURL ||
+                ''
+            ).trim().replace(/\/$/, '');
         }
 
         function getPrivateChatRoomPath() {
