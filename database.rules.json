@@ -1,0 +1,24 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "internalUsers": {
+      "$uid": {
+        ".read": "auth != null && auth.uid === $uid",
+        ".write": false
+      }
+    },
+    "privateChat": {
+      "$roomId": {
+        ".read": "auth != null && root.child('internalUsers').child(auth.uid).child('enabled').val() === true",
+        ".write": false,
+        "messages": {
+          "$messageId": {
+            ".write": "auth != null && root.child('internalUsers').child(auth.uid).child('enabled').val() === true && newData.exists()",
+            ".validate": "newData.hasChildren(['id', 'body', 'author', 'clientId', 'createdAt']) && newData.child('id').isString() && newData.child('id').val() === $messageId && newData.child('body').isString() && newData.child('author').isString() && newData.child('author').val().length <= 16 && newData.child('clientId').isString() && newData.child('createdAt').isNumber()"
+          }
+        }
+      }
+    }
+  }
+}
