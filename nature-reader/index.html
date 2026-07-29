@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script src="../firebase-config.js"></script>
+  <style id="natureAuthGuard">html { visibility: hidden; }</style>
+  <script type="module" src="../nature-auth.js"></script>
+  <meta name="description" content="动力电池项目关键文献中英对照阅读库">
+  <title>动力电池关键文献 · Nature Reader</title>
+  <style>
+:root {
+  color-scheme: light;
+  --bg: #f5f6f2;
+  --panel: rgba(255,255,255,.88);
+  --paper: #fffefb;
+  --ink: #18201d;
+  --muted: #65706a;
+  --line: #dce1dc;
+  --accent: #0c725f;
+  --accent-soft: #dff2ec;
+  --warm: #b9643b;
+  --shadow: 0 18px 55px rgba(34,49,43,.09);
+  --font-size: 17px;
+  --split: 50%;
+  --sidebar-w: 288px;
+}
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #111613;
+  --panel: rgba(25,32,28,.92);
+  --paper: #171d1a;
+  --ink: #e8eee9;
+  --muted: #9caaa2;
+  --line: #303a34;
+  --accent: #6fd2b6;
+  --accent-soft: #173b32;
+  --warm: #e5a47e;
+  --shadow: 0 18px 55px rgba(0,0,0,.26);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 82% -10%, color-mix(in srgb, var(--accent) 9%, transparent), transparent 36rem),
+    var(--bg);
+  font-family: Inter, "Segoe UI", "Noto Sans SC", system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
+}
+button, input { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.icon-btn, .segmented button {
+  border: 1px solid var(--line);
+  color: var(--ink);
+  background: var(--panel);
+  border-radius: 10px;
+  min-height: 38px;
+  cursor: pointer;
+}
+.icon-btn:hover, .segmented button:hover { border-color: var(--accent); }
+.segmented { display: inline-flex; gap: 4px; }
+.segmented button { padding: 7px 11px; }
+.segmented button.active {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.muted { color: var(--muted); }
+.eyebrow {
+  color: var(--accent);
+  font-size: .76rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.library {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 42px 0 72px;
+}
+.library-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 22px;
+  align-items: end;
+  margin-bottom: 28px;
+}
+.library h1 {
+  margin: 8px 0 10px;
+  font: 750 clamp(2.4rem, 6vw, 5.3rem)/.98 Georgia, "Noto Serif SC", serif;
+  letter-spacing: -.045em;
+}
+.library-intro { max-width: 760px; color: var(--muted); line-height: 1.7; }
+.header-actions { display: flex; gap: 8px; }
+.summary {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 24px 0 26px;
+}
+.metric {
+  padding: 17px 18px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--panel);
+}
+.metric strong { display: block; font: 750 1.75rem Georgia, serif; }
+.metric span { color: var(--muted); font-size: .8rem; }
+.filter-row { display: flex; gap: 10px; margin-bottom: 18px; }
+.filter {
+  flex: 1;
+  min-height: 46px;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  color: var(--ink);
+  background: var(--paper);
+  outline: 0;
+}
+.filter:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 270px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  color: var(--ink);
+  background: var(--paper);
+  box-shadow: 0 12px 40px rgba(31,47,39,.05);
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.card:hover {
+  transform: translateY(-3px);
+  border-color: color-mix(in srgb, var(--accent) 55%, var(--line));
+  box-shadow: var(--shadow);
+  text-decoration: none;
+}
+.card-number {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  margin-bottom: 28px;
+  border-radius: 12px;
+  color: var(--accent);
+  background: var(--accent-soft);
+  font-weight: 800;
+}
+.card h2 { margin: 0 0 10px; font: 700 1.35rem/1.25 Georgia, "Noto Serif SC", serif; }
+.card-meta { color: var(--muted); font-size: .84rem; line-height: 1.65; }
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 22px;
+}
+.read-progress { flex: 1; height: 5px; overflow: hidden; border-radius: 99px; background: var(--line); }
+.read-progress span { display: block; width: 0; height: 100%; background: var(--accent); }
+.open-label { color: var(--accent); font-size: .82rem; font-weight: 750; }
+.empty { display: none; padding: 36px; color: var(--muted); text-align: center; }
+.empty.show { display: block; }
+@media (max-width: 760px) {
+  .library { padding-top: 28px; }
+  .library-header { grid-template-columns: 1fr; align-items: start; }
+  .summary { grid-template-columns: repeat(2, 1fr); }
+  .grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<main class="library">
+  <header class="library-header">
+    <div>
+      <div class="eyebrow">Nature Reader Library</div>
+      <h1>动力电池<br>关键文献库</h1>
+      <p class="library-intro">围绕消费者回收行为、闭环供应链与多目标优化建立的中英对照阅读库。每个内容块均保留源页码与稳定锚点，方便论文写作时回到原文核查。</p>
+    </div>
+    <div class="header-actions">
+      <a class="icon-btn" style="padding:8px 12px" href="README.md">说明</a>
+      <button class="icon-btn" style="padding:8px 12px" id="themeButton">◐ 系统</button>
+    </div>
+  </header>
+  <section class="summary" aria-label="文献库统计">
+    <div class="metric"><strong>7</strong><span>篇关键文献</span></div>
+    <div class="metric"><strong>118</strong><span>页原始论文</span></div>
+    <div class="metric"><strong>1592</strong><span>个双语文本块</span></div>
+    <div class="metric"><strong>44</strong><span>个图表资产</span></div>
+  </section>
+  <div class="filter-row">
+    <label class="sr-only" for="filter">筛选文献</label>
+    <input class="filter" id="filter" type="search" placeholder="按作者、题名、期刊或研究方法筛选…">
+  </div>
+  <section class="grid">
+<a class="card" href="01_Ajzen_TPB_1991/reader.html" data-key="01_Ajzen_TPB_1991"
+   data-height="65280" data-search="Ajzen：计划行为理论（TPB） Organizational Behavior and Human Decision Processes 1991 theory/review">
+  <div class="card-number">01</div>
+  <h2>Ajzen：计划行为理论（TPB）</h2>
+  <div class="card-meta">Organizational Behavior and Human Decision Processes · 1991<br>
+  33 页 · 272 个双语块 · 1 个图表</div>
+  <div class="card-footer">
+    <div class="read-progress" title="上次阅读进度"><span></span></div>
+    <span class="open-label">开始阅读 →</span>
+  </div>
+</a>
+
+<a class="card" href="02_Guo_Huang_WBEV_2023/reader.html" data-key="02_Guo_Huang_WBEV_2023"
+   data-height="61680" data-search="Guo–Huang：废旧电动汽车电池回收意愿 Sustainability 2023 empirical/PLS-SEM">
+  <div class="card-number">02</div>
+  <h2>Guo–Huang：废旧电动汽车电池回收意愿</h2>
+  <div class="card-meta">Sustainability · 2023<br>
+  20 页 · 257 个双语块 · 8 个图表</div>
+  <div class="card-footer">
+    <div class="read-progress" title="上次阅读进度"><span></span></div>
+    <span class="open-label">开始阅读 →</span>
+  </div>
+</a>
+
+<a class="card" href="03_Huang_DCE_2024/reader.html" data-key="03_Huang_DCE_2024"
+   data-height="66480" data-search="Huang 等：正规回收偏好与支付意愿 Journal of Environmental Management 2024 empirical/discrete-choice experiment">
+  <div class="card-number">03</div>
+  <h2>Huang 等：正规回收偏好与支付意愿</h2>
+  <div class="card-meta">Journal of Environmental Management · 2024<br>
+  12 页 · 277 个双语块 · 7 个图表</div>
+  <div class="card-footer">
+    <div class="read-progress" title="上次阅读进度"><span></span></div>
+    <span class="open-label">开始阅读 →</span>
+  </div>
+</a>
+
+<a class="card" href="04_Lee_Kim_Collection_2025/reader.html" data-key="04_Lee_Kim_Collection_2025"
+   data-height="35040" data-search="Lee–Kim：促进消费者参与退役电池回收 Journal of Environmental Management 2025 empirical/choice experiment">
+  <div class="card-number">04</div>
+  <h2>Lee–Kim：促进消费者参与退役电池回收</h2>
+  <div class="card-meta">Journal of Environmental Management · 2025<br>
+  8 页 · 146 个双语块 · 4 个图表</div>
+  <div class="card-footer">
+    <div class="read-progress" title="上次阅读进度"><span></span></div>
+    <span class="open-label">开始阅读 →</span>
+  </div>
+</a>
+
+<a class="card" href="05_Savaskan_CLSC_2004/reader.html" data-key="05_Savaskan_CLSC_2004"
+   data-height="67200" data-search="Savaskan 等：产品再制造闭环供应链模型 Management Science 2004 analytical/modeling">
+  <div class="card-number">05</div>
+  <h2>Savaskan 等：产品再制造闭环供应链模型</h2>
+  <div class="card-meta">Management Science · 2004<br>
+  15 页 · 280 个双语块 · 1 个图表</div>
+  <div class="card-footer">
+    <div class="read-progress" title="上次阅读进度"><span></span></div>
+    <span class="open-label">开始阅读 →</span>
+  </div>
+</a>
+
+<a class="card" href="06_Atasu_Reverse_Channel_2013/reader.html" data-key="06_Atasu_Reverse_Channel_2013"
+   data-height="24000" data-search="Atasu 等：回收成本结构与逆向渠道选择 Production and Operations Management 2013 analytical/modeling">
+  <div class="card-number">06</div>
+  <h2>Atasu 等：回收成本结构与逆向渠道选择</h2>
+  <div class="card-meta">Production and Operations Management · 2013<br>
+  14 页 · 100 个双语块 · 9 个图表</div>
+  <div class="card-footer">
+    <div class="read-progress" title="上次阅读进度"><span></span></div>
+    <span class="open-label">开始阅读 →</span>
+  </div>
+</a>
+
+<a class="card" href="07_Deb_NSGAII_2002/reader.html" data-key="07_Deb_NSGAII_2002"
+   data-height="62400" data-search="Deb 等：NSGA-II 多目标遗传算法 IEEE Transactions on Evolutionary Computation 2002 methods/algorithm">
+  <div class="card-number">07</div>
+  <h2>Deb 等：NSGA-II 多目标遗传算法</h2>
+  <div class="card-meta">IEEE Transactions on Evolutionary Computation · 2002<br>
+  16 页 · 260 个双语块 · 14 个图表</div>
+  <div class="card-footer">
+    <div class="read-progress" title="上次阅读进度"><span></span></div>
+    <span class="open-label">开始阅读 →</span>
+  </div>
+</a>
+</section>
+  <div class="empty" id="empty">没有找到匹配文献。</div>
+</main>
+<script>
+(() => {
+  const root = document.documentElement;
+  let themeMode = localStorage.getItem('nr-theme') || 'system';
+  const resolveTheme = value => value === 'system'
+    ? (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+    : value;
+  const applyTheme = () => {
+    root.dataset.theme = resolveTheme(themeMode);
+    document.querySelector('#themeButton').textContent =
+      themeMode === 'system' ? '◐ 系统' : themeMode === 'dark' ? '☾ 深色' : '☀ 浅色';
+  };
+  applyTheme();
+  document.querySelector('#themeButton').addEventListener('click', () => {
+    themeMode = themeMode === 'system' ? 'light' : themeMode === 'light' ? 'dark' : 'system';
+    localStorage.setItem('nr-theme', themeMode);
+    applyTheme();
+  });
+  const cards = [...document.querySelectorAll('.card')];
+  cards.forEach(card => {
+    const saved = Number(localStorage.getItem(`nr-progress-${card.dataset.key}`) || 0);
+    const height = Number(card.dataset.height || 1);
+    card.querySelector('.read-progress span').style.width = `${Math.min(100, saved / height * 100)}%`;
+  });
+  const input = document.querySelector('#filter');
+  const empty = document.querySelector('#empty');
+  input.addEventListener('input', () => {
+    const query = input.value.trim().toLocaleLowerCase();
+    let visible = 0;
+    cards.forEach(card => {
+      const hit = !query || card.textContent.toLocaleLowerCase().includes(query);
+      card.hidden = !hit;
+      if (hit) visible++;
+    });
+    empty.classList.toggle('show', visible === 0);
+  });
+})();
+</script>
+</body>
+</html>

@@ -14,7 +14,6 @@
     
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
     <script src="firebase-config.js"></script>
-    <script type="module" src="firebase-auth.js"></script>
     <style>
         /* 1. 基础设置：背景设为透明，让视频透出来 */
         body, html { 
@@ -181,32 +180,6 @@
         .auth-submit:disabled {
             cursor: wait;
             opacity: 0.68;
-        }
-
-        .auth-blog-link {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 50px;
-            margin-top: 16px;
-            border: 1px solid rgba(255, 213, 128, 0.72);
-            border-radius: 12px;
-            color: #fff7df;
-            font-size: 0.95rem;
-            font-weight: 800;
-            text-align: center;
-            text-decoration: none;
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.34), rgba(234, 88, 12, 0.28));
-            box-shadow: 0 12px 28px rgba(234, 88, 12, 0.18);
-            transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
-        }
-
-        .auth-blog-link:hover,
-        .auth-blog-link:focus-visible {
-            transform: translateY(-2px);
-            border-color: #ffd580;
-            box-shadow: 0 16px 34px rgba(234, 88, 12, 0.26);
-            outline: none;
         }
 
         .auth-error {
@@ -1379,19 +1352,19 @@
 	
    </style>
 </head>
-<body class="auth-pending intro-mode">
-    <section id="authGate" class="auth-gate" aria-labelledby="authTitle" aria-describedby="authDescription">
+<body class="intro-mode">
+    <section id="authGate" class="auth-gate" aria-labelledby="authTitle" aria-describedby="authDescription" hidden>
         <div class="auth-card">
             <div class="auth-brand">
                 <div class="auth-brand-mark" aria-hidden="true">P</div>
                 <div class="auth-brand-copy">
-                    <strong>Nature Reader</strong>
-                    <span>INTERNAL RESEARCH LIBRARY</span>
+                    <strong>Potervlag Space</strong>
+                    <span>INTERNAL ACCESS</span>
                 </div>
             </div>
 
-            <h1 id="authTitle">登录文献库</h1>
-            <p id="authDescription" class="auth-description">使用内部账号登录后，将进入动力电池关键文献 Nature Reader。</p>
+            <h1 id="authTitle">欢迎回来</h1>
+            <p id="authDescription" class="auth-description">这是内部访问空间，请使用已分配的账号登录。</p>
 
             <div id="authChecking" class="auth-checking" role="status">
                 <span class="auth-spinner" aria-hidden="true"></span>
@@ -1408,15 +1381,14 @@
                     <input id="authPassword" name="password" type="password" autocomplete="current-password" placeholder="请输入密码" required>
                 </div>
                 <p id="authError" class="auth-error" role="alert" aria-live="polite"></p>
-                <button id="authSubmit" class="auth-submit" type="submit">登录并进入文献库</button>
+                <button id="authSubmit" class="auth-submit" type="submit">进入空间</button>
             </form>
 
-            <a class="auth-blog-link" href="blog.html">点击此处访问博客 →</a>
             <p class="auth-notice">仅限内部账号。账号由管理员统一创建，本页面不提供注册入口。</p>
         </div>
     </section>
 
-    <div id="protectedContent" class="protected-content" hidden inert aria-hidden="true">
+    <div id="protectedContent" class="protected-content" aria-hidden="false">
 
 <video autoplay loop muted playsinline poster="bg-poster.jpg" class="video-background" onclick="enterBlogExperience()" title="点击进入">
         <source src="blog-background.mp4" type="video/mp4">
@@ -1434,7 +1406,7 @@
             <a href="#" onclick="switchPage('stats')">统计</a>
             <a href="#" onclick="switchPage('about')">关于</a>
 	    <a href="javascript:void(0);" onclick="openSettings()" style="margin-left: 20px;">⚙️ 设置</a>
-            <span class="auth-account">
+            <span class="auth-account" hidden>
                 <span id="authUserEmail" class="auth-account-email"></span>
                 <button id="authSignOut" class="auth-signout" type="button">退出登录</button>
             </span>

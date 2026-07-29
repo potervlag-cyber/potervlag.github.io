@@ -1,0 +1,79 @@
+[
+  {
+    "slug": "01_Ajzen_TPB_1991",
+    "title": "Ajzen：计划行为理论（TPB）",
+    "pages": 33,
+    "pairs": 495,
+    "blocks": 272,
+    "assets": 1,
+    "high": 36,
+    "medium": 8,
+    "low": 228
+  },
+  {
+    "slug": "02_Guo_Huang_WBEV_2023",
+    "title": "Guo–Huang：废旧电动汽车电池回收意愿",
+    "pages": 20,
+    "pairs": 526,
+    "blocks": 257,
+    "assets": 8,
+    "high": 56,
+    "medium": 3,
+    "low": 198
+  },
+  {
+    "slug": "03_Huang_DCE_2024",
+    "title": "Huang 等：正规回收偏好与支付意愿",
+    "pages": 12,
+    "pairs": 521,
+    "blocks": 277,
+    "assets": 7,
+    "high": 17,
+    "medium": 6,
+    "low": 254
+  },
+  {
+    "slug": "04_Lee_Kim_Collection_2025",
+    "title": "Lee–Kim：促进消费者参与退役电池回收",
+    "pages": 8,
+    "pairs": 298,
+    "blocks": 146,
+    "assets": 4,
+    "high": 13,
+    "medium": 2,
+    "low": 131
+  },
+  {
+    "slug": "05_Savaskan_CLSC_2004",
+    "title": "Savaskan 等：产品再制造闭环供应链模型",
+    "pages": 15,
+    "pairs": 825,
+    "blocks": 280,
+    "assets": 1,
+    "high": 33,
+    "medium": 13,
+    "low": 234
+  },
+  {
+    "slug": "06_Atasu_Reverse_Channel_2013",
+    "title": "Atasu 等：回收成本结构与逆向渠道选择",
+    "pages": 14,
+    "pairs": 102,
+    "blocks": 100,
+    "assets": 9,
+    "high": 10,
+    "medium": 0,
+    "low": 90
+  },
+  {
+    "slug": "07_Deb_NSGAII_2002",
+    "title": "Deb 等：NSGA-II 多目标遗传算法",
+    "pages": 16,
+    "pairs": 585,
+    "blocks": 260,
+    "assets": 14,
+    "high": 18,
+    "medium": 11,
+    "low": 231
+  }
+]

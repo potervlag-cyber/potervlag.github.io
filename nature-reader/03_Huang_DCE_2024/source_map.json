@@ -1,0 +1,5245 @@
+{
+  "paper": {
+    "title": "Consumer Preference and Willingness-to-Pay for Formal Recycling of Electric Vehicle Batteries: A Discrete Choice Experiment in China",
+    "venue": "Journal of Environmental Management",
+    "year": 2024,
+    "paper_type": "empirical/discrete-choice experiment",
+    "source_type": "pdf",
+    "language": "en",
+    "source_path": "C:\\Users\\1\\Desktop\\大创\\消费者回收行为与意愿\\Consumer preference and willingness-to-pay for formal recycling of electric .pdf",
+    "reader_status": "structured-draft-machine-translation-not-human-verified"
+  },
+  "blocks": [
+    {
+      "id": "S001",
+      "page": 1,
+      "type": "paragraph",
+      "order": 1,
+      "original_text": "Consumer preference and willingness-to-pay for formal recycling of electric vehicle batteries: A discrete choice experiment in China Xingjun Huang a,b , Song Lei c,* , Feng Liu d , Yan Li e , Fuli Zhou f,g , Ming K.",
+      "translation": "消费者对电动汽车电池正规回收的偏好和支付意愿：中国的离散选择实验 Xingjun Huang a,b , Song Lei c,* , Feng Liu d , Yan Li e , Fuli Zhou f,g , Ming K.",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S001"
+    },
+    {
+      "id": "S002",
+      "page": 1,
+      "type": "paragraph",
+      "order": 2,
+      "original_text": "Lim h,i a School of Modern Posts, Chongqing University of Posts and Telecommunication, Chongqing, PR China b Department of Land Surveying and Geo-Informatics, The Hong Kong Polytechnic University, Hung Hom, Kowloon, Hong Kong, China c School of Management Science and Engineering, Chongqing Technology and Business University, Chongqing, PR China d School of Economics and Business Administration, Chongqing University, Chongqing, PR China e Chongqing Changan Minsheng APLL Logistics Co., Ltd, Chongqing, PR China f School of Automation Science and Engineering, South China University of Technology, Guangzhou, PR China g College of Economics and Management, Zhengzhou University of Light Industry, Zhengzhou, PR China h Adam Smith Business School, University of Glasgow, Glasgow, United Kingdom i Department of Industrial Engineering Department, Khon Kaen University, Thailand",
+      "translation": "Lim h,i a 重庆邮电大学现代邮政学院，中国重庆 b 香港理工大学土地测量与地理信息学系，中国香港九龙红磡 c 重庆工商大学管理科学与工程学院，中国重庆 d 重庆大学经济与工商管理学院，中国重庆 e 重庆长安民生 APLL 物流有限公司，中国重庆 f 华南理工大学自动化科学与工程学院，中国广州 g 郑州轻工业大学经济与管理学院，中国中国郑州 h 英国格拉斯哥大学亚当斯密商学院 i 泰国孔敬大学工业工程系",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S002"
+    },
+    {
+      "id": "S003",
+      "page": 1,
+      "type": "heading",
+      "order": 3,
+      "original_text": "Keywords:",
+      "translation": "关键词：",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S003"
+    },
+    {
+      "id": "S004",
+      "page": 1,
+      "type": "paragraph",
+      "order": 4,
+      "original_text": "Electric vehicle battery recycling Discrete choice model Recycling market preferences Recycling policies Consumer behavior A B S T R A C T The burgeoning electric vehicle (EV) market poses a substantial challenge to battery recycling systems, yet understanding EV battery recycling behavior from the demand side remains limited.",
+      "translation": "电动汽车电池回收 离散选择模型 回收市场偏好 回收政策 消费者行为 摘要 蓬勃发展的电动汽车 (EV) 市场对电池回收系统提出了重大挑战，但从需求方了解电动汽车电池回收行为仍然有限。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S004"
+    },
+    {
+      "id": "S005",
+      "page": 1,
+      "type": "paragraph",
+      "order": 5,
+      "original_text": "Previous studies have analyzed perceptual or attitudinal factors, neglecting the observable attributes of EV battery recycling. To this end, we proposed a discrete choice model to investigate the differences between formal and informal recycling behaviors, identifying consumer preferences and willingness to pay.",
+      "translation": "先前的研究分析了感知或态度因素，忽略了电动汽车电池回收的可观察属性。 为此，我们提出了一个离散选择模型来研究正式和非正式回收之间的差异 行为，识别消费者偏好和支付意愿。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S005"
+    },
+    {
+      "id": "S006",
+      "page": 1,
+      "type": "paragraph",
+      "order": 6,
+      "original_text": "By analyzing 1190 sample data collected from Chongqing, China, we find that: (1) The formal recycling market exhibits greater sensitivity to prices compared to the informal recycling market.",
+      "translation": "通过分析来自中国重庆的 1190 个样本数据，我们发现：（1）与非正规回收市场相比，正规回收市场对价格的敏感性更高。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S006"
+    },
+    {
+      "id": "S007",
+      "page": 1,
+      "type": "paragraph",
+      "order": 7,
+      "original_text": "(2) The formal recycling market favors recycling by EV battery producers, whereas the informal recycling market shows the least preference for recycling by automobile pro ducers.",
+      "translation": "（2）正规回收市场有利于电动汽车电池生产商的回收，而非正式回收市场则最不偏好汽车生产商的回收。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S007"
+    },
+    {
+      "id": "S008",
+      "page": 1,
+      "type": "paragraph",
+      "order": 8,
+      "original_text": "(3) Door-to-door recycling services are the most effective in facilitating the transition from informal to formal recycling markets for EV batteries. (4) Capacity subsidy policies outperform one-time fixed subsidy policies in incentivizing formal recycling.",
+      "translation": "(3) 上门回收服务对于促进从非正式到非正式的转变最为有效。 正式的电动汽车电池回收市场。 （4）容量补贴政策在激励正规回收方面优于一次性固定补贴政策。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S008"
+    },
+    {
+      "id": "S009",
+      "page": 1,
+      "type": "paragraph",
+      "order": 9,
+      "original_text": "(5) The formal recycling market for EV batteries necessitates \"trace ability to the recycling outlet\", as opposed to being untraceable. (6) The high-awareness group exhibits greater sensitivity to government policies compared to those with lower environmental concerns and less knowledge of EV battery recycling.",
+      "translation": "（5）正规的电动汽车电池回收市场需要“可追溯至回收出口”，而不是无法追踪。 （6）与环境关注度较低且对电动汽车电池回收知识较少的群体相比，高认知群体对政府政策表现出更高的敏感性。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S009"
+    },
+    {
+      "id": "S010",
+      "page": 1,
+      "type": "heading",
+      "order": 10,
+      "original_text": "1. Introduction",
+      "translation": "一、简介",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S010"
+    },
+    {
+      "id": "S011",
+      "page": 1,
+      "type": "paragraph",
+      "order": 11,
+      "original_text": "The increasing numbers of electric vehicles (EVs) are posing a severe waste management challenge for recycling systems at end-of-life (Harper et al., 2019, p. 75; Ding et al., 2020; Dong and Ge, 2022; Li et al., 2023).",
+      "translation": "电动汽车 (EV) 数量的不断增加给报废回收系统带来了严峻的废物管理挑战（Harper 等人，2019 年，第 7 页）。 75；丁等人，2020；董和葛，2022；李等人，2023）。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S011"
+    },
+    {
+      "id": "S012",
+      "page": 1,
+      "type": "paragraph",
+      "order": 12,
+      "original_text": "Although EV lithium-ion batteries can theoretically last 8–10 years, their capacity drop to 80% or less after 5–6 years, making them unsuitable for powering EVs in fact (Plato Yip, 2022).",
+      "translation": "虽然电动汽车锂离子电池理论上可以持续 8-10年，5-6年后其容量下降至80%或更低，使得 事实上，它们不适合为电动汽车提供动力（Plato Yip，2022）。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S012"
+    },
+    {
+      "id": "S013",
+      "page": 1,
+      "type": "paragraph",
+      "order": 13,
+      "original_text": "Globally, many EV batteries are being scrapped, and by 2035, approximately 10 million will be unable to use (Plato Yip, 2022). The global EV battery recycling market is forecast to increase from a market value of $26.9 billion in 2023 to $54.3 billion in 2030, a growth of 10.5% (MarketsandMarkets, 2023).",
+      "translation": "在全球范围内，许多电动汽车电池正在报废，到 2035 年，大约 1000 万块电池将无法使用（Plato Yip，2022）。 全球电动汽车电池回收市场预计将从 2023 年的 269 亿美元市场价值增长到 2030 年的 543 亿美元，增长 10.5%（MarketsandMarkets，2023 年）。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "medium",
+      "refs": [],
+      "insert_after": "S013"
+    },
+    {
+      "id": "S014",
+      "page": 1,
+      "type": "paragraph",
+      "order": 14,
+      "original_text": "Of these, China is the largest market for EV battery recycling, handling around 500,000 metric tons followed by the United States and Europe with 200,000 metric tons each (Bruna Alves, 2024). However, about 80% of decommissioned batteries went to the black market in China resulting in severe environmental pollution (Xinhuanet, 2021).",
+      "translation": "其中，中国是最大的电动汽车电池回收市场，处理量约为 50 万吨，其次是美国和欧洲，各为 20 万吨（Bruna Alves， 2024）。然而，大约 80% 的退役电池被送往 中国黑市造成严重环境污染（新华网，2021）。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S014"
+    },
+    {
+      "id": "S015",
+      "page": 1,
+      "type": "paragraph",
+      "order": 15,
+      "original_text": "Such a market is also known as \"informal recycling\", where small workshops without recycling qualifications and unprofes sional dismantling practices profit through high-priced recycling and lower-priced disposal (Tang et al., 2023; Tian et al., 2024).",
+      "translation": "这样的市场也被称为“非正规回收”，没有回收资质的小作坊和不专业的拆解行为，通过高价回收和低价处置获利（唐等，2023；田等，2024）。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S015"
+    },
+    {
+      "id": "S016",
+      "page": 1,
+      "type": "paragraph",
+      "order": 16,
+      "original_text": "The coun terpart is \"formal recycling, \" carried out by government-issued EV battery recycling white-listed companies and regulated by the govern ment. Improving formal recycling of retired EV batteries has therefore * Corresponding author.",
+      "translation": "对应的是“正规回收”，由政府颁发的电动汽车电池回收白名单公司进行，并受政府监管。 因此，改善退役电动汽车电池的正式回收已经 * 通讯作者。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S016"
+    },
+    {
+      "id": "S017",
+      "page": 1,
+      "type": "paragraph",
+      "order": 17,
+      "original_text": "School of Management Science and Engineering, Chongqing Technology and Business University, Chongqing, PR China. E-mail addresses: xjhuang@cqupt.edu.cn (X. Huang), leisong@ctbu.edu.cn (S.",
+      "translation": "重庆工商大学管理科学与工程学院，中国重庆。 电子邮箱地址：xj Huang@cqupt.edu.cn (X. 黄), leisong@ctbu.edu.cn (S.",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S017"
+    },
+    {
+      "id": "S018",
+      "page": 1,
+      "type": "paragraph",
+      "order": 18,
+      "original_text": "Lei), liufengcqu@163.com (F. Liu), 2514691564@qq.com (Y. Li), deepbreath329@ outlook.com (F. Zhou), ming.lim@glasgow.ac.uk (M.K. Lim). Contents lists available at ScienceDirect Journal of Environmental Management journal homepage: www.elsevier.com/locate/jenvman Received 7 March 2024; Received in revised form 3 August 2024; Accepted 8 August 2024 Journal of Environmental Management 370 (2024) 122180 Available online 9 September 2024 0301-4797/© 2024 Elsevier Ltd.",
+      "translation": "雷), liufengcqu@163.com (F. 刘), 2514691564@qq.com (Y. Li），deepbreath329@outlook.com（F. 周), ming.lim@glasgow.ac.uk (M.K. 林）。 内容列表可在《ScienceDirect Journal of Environmental Management》期刊主页上找到：www.elsevier.com/locate/jenvman 2024 年 3 月 7 日收到； 2024 年 8 月 3 日收到修订版； 2024 年 8 月 8 日接受 Journal of Environmental Management 370 (2024) 122180 2024 年 9 月 9 日在线发布 0301-4797/© 2024 Elsevier Ltd.",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "medium",
+      "refs": [],
+      "insert_after": "S018"
+    },
+    {
+      "id": "S019",
+      "page": 2,
+      "type": "paragraph",
+      "order": 19,
+      "original_text": "All rights are reserved, including those for text and data mining, AI training, and similar technologies. become ever more pressing. Policy development is also accelerating globally, aiming to stimulate the development of the EV battery recycling industry and regulate the market.",
+      "translation": "保留所有权利，包括文本和数据挖掘、人工智能培训和类似技术的权利。 变得更加紧迫。 全球范围内也正在加速制定政策，旨在刺激电动汽车电池回收行业的发展并规范市场。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S019"
+    },
+    {
+      "id": "S020",
+      "page": 2,
+      "type": "paragraph",
+      "order": 20,
+      "original_text": "For example, the California Lithium Ion Battery Recycling Advisory Group has launched a support program for the disposal of endof-life EV batteries and the recycling of critical materials for clean en ergy vehicle batteries (Plato Yip, 2022).",
+      "translation": "例如，加州锂离子电池回收咨询小组启动了一项支持计划，用于处理报废电动汽车电池和回收清洁能源汽车电池的关键材料（Plato Yip，2022）。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S020"
+    },
+    {
+      "id": "S021",
+      "page": 2,
+      "type": "paragraph",
+      "order": 21,
+      "original_text": "China has also issued four policies for EV battery recycling (Huang et al., 2022b). However, aca demic research on EV battery recycling is relatively limited, especially in understanding formal and informal recycling behavior.",
+      "translation": "中国还发布了四项电动汽车电池回收政策（Huang et al., 2022b）。 然而，阿卡 关于电动汽车电池回收的流行研究相对有限，特别是在了解正式和非正式回收行为方面。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S021"
+    },
+    {
+      "id": "S022",
+      "page": 2,
+      "type": "paragraph",
+      "order": 22,
+      "original_text": "Existing studies mainly concentrate on the supply chain management of EV battery recycling, which includes aspects like recycling pricing (Ding et al., 2020; Wang et al., 2022; Zhang et al., 2023) and recycling outlet se lection (Zhu et al., 2020; Zhang et al., 2021; Lin et al., 2023).",
+      "translation": "现有的研究主要集中在电动汽车电池回收的供应链管理，其中包括回收定价等方面（Ding等人， 2020；王等人，2022；张等人，2023）和回收出口se （Zhu et al., 2020；Zhang et al., 2021；Lin et al., 2023）。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S022"
+    },
+    {
+      "id": "S023",
+      "page": 2,
+      "type": "paragraph",
+      "order": 23,
+      "original_text": "A few studies empirically explore the underlying mechanism of EV battery recycling behavior (Tripathy et al., 2022; Li et al., 2023; Tang et al., 2023), but these studies revolve latent variables (such as consumer perceptions of ambiguity), lacking quantitative analysis of observed attributes.",
+      "translation": "一些研究实证探索了电动汽车电池回收行为的潜在机制（Tripathy 等人，2022；Li 等人，2023；Tang 等人， 2023），但这些研究涉及潜在变量（例如消费者 模糊性的看法），缺乏对观察到的属性的定量分析。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S023"
+    },
+    {
+      "id": "S024",
+      "page": 2,
+      "type": "paragraph",
+      "order": 24,
+      "original_text": "In response, our study proposes a discrete choice model to identify the differences between formal and informal recycling behaviors and their significant influencing factors.",
+      "translation": "为此，我们的研究提出了一个离散选择模型，以识别正式和非正式回收行为之间的差异及其重要影响因素。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S024"
+    },
+    {
+      "id": "S025",
+      "page": 2,
+      "type": "paragraph",
+      "order": 25,
+      "original_text": "The model includes nine observed attributes that have never been empirically analyzed before, such as recycling price, market penetration rate of formal recycling outlets, trade-in policy, carbon credit reward policy, recycling subsidy policy, traceability of recycling information, recycling entity, and recycling",
+      "translation": "该模型包括回收价格、正规回收网点市场渗透率、以旧换新政策、碳信用奖励政策、回收补贴政策、回收信息可追溯性、回收实体、回收等九个此前从未实证分析过的观察属性。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S025"
+    },
+    {
+      "id": "S026",
+      "page": 2,
+      "type": "heading",
+      "order": 26,
+      "original_text": "method. We collected 1190 samples in Chongqing to validate the",
+      "translation": "方法。我们在重庆采集了1190个样本来验证",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S026"
+    },
+    {
+      "id": "S027",
+      "page": 2,
+      "type": "paragraph",
+      "order": 27,
+      "original_text": "feasibility of our framework. To the best of our knowledge, our study is the first to employ the discrete choice model to investigate formal and informal recycling preferences for EV batteries.",
+      "translation": "我们的框架的可行性。 据我们所知，我们的研究首次采用离散选择模型来调查电动汽车电池的正式和非正式回收偏好。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S027"
+    },
+    {
+      "id": "S028",
+      "page": 2,
+      "type": "paragraph",
+      "order": 28,
+      "original_text": "The proposed frame work complements existing literature on understanding EV battery recycling behavior. Additionally, our study addresses the following questions: (1) What factors affect formal and informal recycling for EV batteries, especially policy preferences?",
+      "translation": "所提出的框架补充了有关了解电动汽车电池回收行为的现有文献。 此外，我们的研究还解决了以下问题：（1）哪些因素影响电动汽车电池的正式和非正式回收，特别是政策偏好？",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S028"
+    },
+    {
+      "id": "S029",
+      "page": 2,
+      "type": "paragraph",
+      "order": 29,
+      "original_text": "(2) How does consumer het erogeneity impact their recycling behaviors? (3) How can we facilitate the transition of the EV battery recycling market from informal to formal recycling?",
+      "translation": "(2)消费者的异质性如何影响他们的回收行为？ (3) 我们如何促进 电动汽车电池回收市场从非正式回收到正式回收的转变？",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S029"
+    },
+    {
+      "id": "S030",
+      "page": 2,
+      "type": "heading",
+      "order": 30,
+      "original_text": "2. Literature review",
+      "translation": "2.文献综述",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S030"
+    },
+    {
+      "id": "S031",
+      "page": 2,
+      "type": "paragraph",
+      "order": 31,
+      "original_text": "Our study is related to two main areas: the public's recycling pref erences for EV batteries and existing recycling policies, which identify potential research gaps.",
+      "translation": "我们的研究涉及两个主要领域：公众对电动汽车电池的回收偏好和现有的回收政策，这些政策确定了潜在的研究空白。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S031"
+    },
+    {
+      "id": "S032",
+      "page": 2,
+      "type": "heading",
+      "order": 32,
+      "original_text": "2.1. Public recycling preferences for EV batteries",
+      "translation": "2.1.公众对电动汽车电池的回收偏好",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S032"
+    },
+    {
+      "id": "S033",
+      "page": 2,
+      "type": "paragraph",
+      "order": 33,
+      "original_text": "Many factors usually influence public choice behavior, and factor identification is the basis for revealing behavioral mechanisms and a prerequisite for consumer demand guidance or behavior intervention.",
+      "translation": "通常影响公共选择行为的因素很多，因素识别是揭示行为机制的基础，也是消费者需求引导或行为干预的前提。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S033"
+    },
+    {
+      "id": "S034",
+      "page": 2,
+      "type": "paragraph",
+      "order": 34,
+      "original_text": "Factors influencing choice behavior could be divided into perceptual (attitudinal) indicators, socio-demographic characteristics, and observ able attributes (Swait, 1994).",
+      "translation": "影响选择行为的因素可分为感知（态度）指标、社会人口特征和可观察属性（Swait，1994）。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S034"
+    },
+    {
+      "id": "S035",
+      "page": 2,
+      "type": "paragraph",
+      "order": 35,
+      "original_text": "In this section, we focus on perceptual indicators and observable attributes, but after a literature review, we found that existing research on EV battery recycling mainly focuses on perceptual factors, lacking research on observable attributes.",
+      "translation": "本节我们主要关注感性指标和可观测属性，但经过文献回顾，我们发现现有的电动汽车电池回收研究主要集中在感性因素，缺乏对可观测属性的研究。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S035"
+    },
+    {
+      "id": "S036",
+      "page": 2,
+      "type": "paragraph",
+      "order": 36,
+      "original_text": "Therefore, EV battery recycling behavior research is in dire need of identifying and quantifying observable attributes. The recycling field has extensive literature on the impact of perceptual indicators on recycling behavior.",
+      "translation": "因此，电动汽车电池回收行为研究迫切需要识别和 量化可观察的属性。 回收领域有大量关于感知指标对回收行为影响的文献。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S036"
+    },
+    {
+      "id": "S037",
+      "page": 2,
+      "type": "paragraph",
+      "order": 37,
+      "original_text": "For example, Hage et al. (2009) found that facility convenience and moral norms matter in driving Swedish households to recycle packaging waste like paper, glass, plastic and metal.",
+      "translation": "例如，哈格等人。 (2009) 发现设施的便利性和道德规范对于推动瑞典家庭回收纸张、玻璃、塑料和金属等包装废物很重要。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "medium",
+      "refs": [],
+      "insert_after": "S037"
+    },
+    {
+      "id": "S038",
+      "page": 2,
+      "type": "paragraph",
+      "order": 38,
+      "original_text": "Izagirre-Olaizola et al. (2015) argued that perceived consumer effectiveness significantly improves recycling behavior by university students, followed by environmental knowledge.",
+      "translation": "伊扎吉尔-奥莱佐拉等人。 （2015）认为，感知到的消费者有效性显着改善了大学生的回收行为，其次是环境知识。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S038"
+    },
+    {
+      "id": "S039",
+      "page": 2,
+      "type": "paragraph",
+      "order": 39,
+      "original_text": "Geiger et al. (2019) indicated that recycling self-identity, personal norms towards recycling and perceived recycling behavioral control are significant predictors of recycling behavior.",
+      "translation": "盖革等人。 （2019）指出，回收自我认同、回收的个人规范和感知的回收行为控制是回收行为的重要预测因素。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S039"
+    },
+    {
+      "id": "S040",
+      "page": 2,
+      "type": "paragraph",
+      "order": 40,
+      "original_text": "Bai and Lin (2022) found that classified knowledge and publicity help the public pay more for waste recycling. Chao et al. (2023) indicated that environmental concern (EC) has a significant positive impact on recycling behavior among university students.",
+      "translation": "Bai和Lin（2022）发现分类知识和宣传有助于公众为废物回收支付更多费用。 曹等人。 （2023）指出，环境关注（EC）对大学生的回收行为有显着的积极影响。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S040"
+    },
+    {
+      "id": "S041",
+      "page": 2,
+      "type": "paragraph",
+      "order": 41,
+      "original_text": "Chang et al. (2023) found that EC and information security risk perception significantly impact consumers' recycling of old phones. For retired EV battery recycling, factors influencing recycling behavior in other areas also have similar effects.",
+      "translation": "张等人。 (2023)发现EC和信息安全风险认知显着影响消费者对旧手机的回收。 对于报废电动汽车电池回收来说，影响其他领域回收行为的因素也有类似的影响。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S041"
+    },
+    {
+      "id": "S042",
+      "page": 2,
+      "type": "paragraph",
+      "order": 42,
+      "original_text": "For instance, Dong and Ge (2022) suggested that perceived behavioral control, subjective norms and value-belief-norm causal chains are the most significant positive facilitators among EV battery recycling behavior.",
+      "translation": "例如，Dong和Ge（2022）提出，感知行为控制、主观规范和价值信念规范因果链是电动汽车电池回收行为中最重要的积极促进因素。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S042"
+    },
+    {
+      "id": "S043",
+      "page": 2,
+      "type": "paragraph",
+      "order": 43,
+      "original_text": "Li et al. (2023) found that perceived convenience, policy incentives, environmental con sciousness, and subjective norms are essential drivers influencing young consumers to choose formal EV battery recycling.",
+      "translation": "李等人。 （2023）发现，感知便利性、政策激励、环境意识和主观规范是影响年轻消费者选择正规电动汽车电池回收的重要驱动因素。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S043"
+    },
+    {
+      "id": "S044",
+      "page": 2,
+      "type": "paragraph",
+      "order": 44,
+      "original_text": "Tang et al. (2023) identified economic incentive, subjective norm, perceived behavior control and self-identity as the main antecedent variables predicting users' EV battery recycling behavior.",
+      "translation": "唐等人。 (2023) 将经济激励、主观规范、感知行为控制和自我认同确定为预测用户电动汽车电池回收行为的主要先行变量。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S044"
+    },
+    {
+      "id": "S045",
+      "page": 2,
+      "type": "paragraph",
+      "order": 45,
+      "original_text": "On the other hand, Tripathy et al. (2022) used a hybrid Delphi method to define perceptual indicators of EV battery recycling in terms of technology, organization and environment.",
+      "translation": "另一方面，Tripathy 等人。 (2022)采用混合德尔菲法从技术、组织和环境方面定义了电动汽车电池回收的感知指标。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S045"
+    },
+    {
+      "id": "S046",
+      "page": 2,
+      "type": "heading",
+      "order": 46,
+      "original_text": "2.2. Existing recycling policies related to EV batteries",
+      "translation": "2.2.现有与电动汽车电池相关的回收政策",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S046"
+    },
+    {
+      "id": "S047",
+      "page": 2,
+      "type": "paragraph",
+      "order": 47,
+      "original_text": "Policy attributes refer to \"market conditions and constraints\" (Swait, 1994), and are often effective tools used by governments to incentivize pro-environmental behavior (Huang et al., 2022b).",
+      "translation": "政策属性是指“市场条件和约束”（Swait， 1994），并且通常是政府用来激励的有效工具 亲环境行为（Huang 等人，2022b）。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S047"
+    },
+    {
+      "id": "S048",
+      "page": 2,
+      "type": "paragraph",
+      "order": 48,
+      "original_text": "Regarding recycling behavior, policy incentives can encourage active participation in waste recycling by reducing prices or increasing recycling convenience, thereby improving recycling rates (Mak et al., 2019; Tang et al., 2023).",
+      "translation": "对于回收行为，政策激励可以通过降低价格或增加回收便利性来鼓励积极参与废物回收，从而提高回收率（Mak等，2019；Tang等，2023）。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S048"
+    },
+    {
+      "id": "S049",
+      "page": 2,
+      "type": "paragraph",
+      "order": 49,
+      "original_text": "At a broader level, Taghipour et al. (2022) indicated that in a circular economy, governments can support recycling companies in four areas: facilities, barriers, enablers and EC.",
+      "translation": "在更广泛的层面上，Taghipour 等人。 (2022)指出，在循环经济中，政府可以在四个领域支持回收公司：设施、障碍、推动者和EC。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S049"
+    },
+    {
+      "id": "S050",
+      "page": 3,
+      "type": "paragraph",
+      "order": 50,
+      "original_text": "These supports include investing directly or indirectly in facilities, providing funds for new technologies or processes for companies, providing facilities or financial support for logistics and so on for companies, and setting targets for environmental development for companies.",
+      "translation": "这些支持包括直接或间接投资设施、为企业新技术或新工艺提供资金、为企业物流等提供设施或资金支持、为企业设定环境发展目标等。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S050"
+    },
+    {
+      "id": "S051",
+      "page": 3,
+      "type": "paragraph",
+      "order": 51,
+      "original_text": "For example, Dou et al. (2023) mentioned that the widespread application of the scrappage subsidy policy can promote product recycling. Zhou et al. (2021) suggested that govern ment subsidies help businesses and individuals recycle agricultural waste.",
+      "translation": "例如，窦等人。 （2023）提到 报废补贴政策的广泛应用可以促进产品的回收利用。 周等人。 （2021）建议政府补贴帮助企业和个人回收农业废物。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S051"
+    },
+    {
+      "id": "S052",
+      "page": 3,
+      "type": "paragraph",
+      "order": 52,
+      "original_text": "Similar to other recycling policies, EV battery recycling policies also focus on the impact of recycling subsidies. For example, Li et al. (2023) found that subsidy incentives are a notable factor driving young con sumers to choose formal recycling outlets for EV batteries.",
+      "translation": "与其他回收政策类似，电动汽车电池回收政策也重点关注回收补贴的影响。 例如，李等人。 （2023）发现补贴激励是推动年轻消费者选择正规电动汽车电池回收渠道的一个显着因素。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S052"
+    },
+    {
+      "id": "S053",
+      "page": 3,
+      "type": "paragraph",
+      "order": 53,
+      "original_text": "Tang et al. (2023) also suggested that economic incentives, such as cash rewards, bonuses, subsidies, and tax exemptions, could encourage widespread participation in EV battery recycling.",
+      "translation": "唐等人。 （2023）还建议，现金奖励、奖金、补贴和免税等经济激励措施可以鼓励广泛参与电动汽车电池回收。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S053"
+    },
+    {
+      "id": "S054",
+      "page": 3,
+      "type": "paragraph",
+      "order": 54,
+      "original_text": "Liu and Wang (2021) analyzed the impact of subsidizing different players in the EV supply chain on EV battery recycling. In addition to recycling subsidies, EV battery recycling involves many other policies.",
+      "translation": "Liu和Wang（2021）分析了补贴电动汽车供应链中不同参与者对电动汽车电池回收的影响。 除了回收补贴外，电动汽车电池回收还涉及许多其他政策。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S054"
+    },
+    {
+      "id": "S055",
+      "page": 3,
+      "type": "paragraph",
+      "order": 55,
+      "original_text": "For instance, Huang et al. (2022b) pro posed a recycling information traceability policy and a trade-in policy, in which the recycling information traceability policy is divided into four stages: destination untraceable, traceable to the recycler, traceable to the battery dismantling stage, and traceable to the battery cascade utilization stage.",
+      "translation": "例如，黄等人。 (2022b)提出了回收信息追溯政策和以旧换新政策，其中回收信息追溯政策分为 四个阶段：目的地不可追溯、可追溯至回收商、可追溯至电池拆解阶段、可追溯至电池梯级利用阶段。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S055"
+    },
+    {
+      "id": "S056",
+      "page": 3,
+      "type": "paragraph",
+      "order": 56,
+      "original_text": "Their study demonstrated that such policies affect EV adoption, but it remains unclear whether they impact EV battery recycling.",
+      "translation": "他们的研究表明，此类政策会影响电动汽车的采用，但尚不清楚它们是否会影响电动汽车电池的回收。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S056"
+    },
+    {
+      "id": "S057",
+      "page": 3,
+      "type": "heading",
+      "order": 57,
+      "original_text": "2.3. Aims and gaps",
+      "translation": "2.3.目标和差距",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S057"
+    },
+    {
+      "id": "S058",
+      "page": 3,
+      "type": "paragraph",
+      "order": 58,
+      "original_text": "Our study addresses gaps in the existing literature by investigating public preferences for formal and informal recycling of EV batteries. Despite the growing importance of EV battery recycling, previous studies have primarily neglected quantitative assessments of observable attributes, focusing instead on perceptual indicators.",
+      "translation": "我们的研究通过调查公众对正式和非正式电动汽车电池回收的偏好，弥补了现有文献中的空白。 尽管电动汽车电池回收的重要性日益增加，但之前的研究主要忽略了可观察属性的定量评估，而是侧重于感知指标。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S058"
+    },
+    {
+      "id": "S059",
+      "page": 3,
+      "type": "paragraph",
+      "order": 59,
+      "original_text": "Additionally, the potential application of discrete choice models has been overlooked in X. Huang et al. Journal of Environmental Management 370 (2024) 122180 this field. To address this, our study proposes a discrete choice model, integrating nine observable attributes to analyze public recycling pref erences comprehensively.",
+      "translation": "此外，离散选择模型的潜在应用在 X 中被忽视了。 黄等人。环境管理学报370(2024)122180本领域。 为了解决这个问题，我们的研究提出了一个离散选择模型， 整合九个可观察的属性来全面分析公众的回收偏好。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S059"
+    },
+    {
+      "id": "S060",
+      "page": 3,
+      "type": "paragraph",
+      "order": 60,
+      "original_text": "To the best of our knowledge, our study is the first to apply the discrete choice model to elucidate the public's pref erence for formal versus informal recycling options for EV batteries, contributing novel insights to the literature.",
+      "translation": "据我们所知，我们的研究首次应用离散选择模型来阐明公众对电动汽车电池正式和非正式回收方案的偏好，为文献提供了新颖的见解。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S060"
+    },
+    {
+      "id": "S061",
+      "page": 3,
+      "type": "paragraph",
+      "order": 61,
+      "original_text": "In addition, existing studies predominantly focus on recycling subsidy policies, with limited analysis of other potential policy impacts. In response, our study extends the scope of analysis to include trade-in policy, carbon credit incentive policy, and recycling information traceability policy.",
+      "translation": "此外，现有研究主要集中在回收补贴政策上，对其他潜在政策影响的分析有限。 作为回应，我们的研究扩展了 分析范围包括以旧换新政策、碳信用激励政策和回收信息追溯政策。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S061"
+    },
+    {
+      "id": "S062",
+      "page": 3,
+      "type": "paragraph",
+      "order": 62,
+      "original_text": "By exploring these additional policy dimensions, we aim to provide new insights into government policy implications for EV battery recycling.",
+      "translation": "通过探索这些额外的政策维度，我们的目标是为电动汽车电池回收的政府政策影响提供新的见解。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S062"
+    },
+    {
+      "id": "S063",
+      "page": 3,
+      "type": "heading",
+      "order": 63,
+      "original_text": "3. Methodology",
+      "translation": "3. 方法论",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S063"
+    },
+    {
+      "id": "S064",
+      "page": 3,
+      "type": "paragraph",
+      "order": 64,
+      "original_text": "In this section, we will focus on the design of the choice experiment, the choice model specification, and the data collection process utilizing the method flowchart depicted in Fig. 1.",
+      "translation": "在本节中，我们将重点介绍选择实验的设计、选择模型规范以及利用图 1 所示的方法流程图的数据收集过程。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [
+        "F001"
+      ],
+      "insert_after": "S064"
+    },
+    {
+      "id": "S065",
+      "page": 3,
+      "type": "heading",
+      "order": 65,
+      "original_text": "3.1. Discrete choice experiment assumptions",
+      "translation": "3.1.离散选择实验假设",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S065"
+    },
+    {
+      "id": "S066",
+      "page": 3,
+      "type": "paragraph",
+      "order": 66,
+      "original_text": "Random utility theory underpins discrete choice experiments, assuming that decision-makers latent preferences, or latent utilities, are associated with all considered options and are present in all individuals (Louviere et al., 2010).",
+      "translation": "随机效用理论支持离散选择实验，假设决策者的潜在偏好或潜在效用与所有考虑的选项相关，并且存在于所有个体中（Louviere 等，2010）。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S066"
+    },
+    {
+      "id": "S067",
+      "page": 3,
+      "type": "paragraph",
+      "order": 67,
+      "original_text": "These preferences consist of an observed component and a random component. The observed component en compasses all observable factors influencing the decision-maker's choices, such as covariates (e.g., age and income) and attributes (e.g., recycling cost and convenience).",
+      "translation": "这些偏好由观察成分和随机成分组成。 观察到的成分包括影响决策者选择的所有可观察因素，例如协变量（例如年龄和收入）和属性（例如回收成本和便利性）。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S067"
+    },
+    {
+      "id": "S068",
+      "page": 3,
+      "type": "paragraph",
+      "order": 68,
+      "original_text": "The random component includes all unobserved variables affecting the decision-maker choices but are not observable to the researcher, such as unobserved attributes, measure ment errors, or instrumental variables (Louviere et al., 2010; Lerusse and van de Walle, 2021).",
+      "translation": "随机分量包括所有 影响决策者选择但研究人员无法观察到的未观察变量，例如未观察属性、测量误差或工具变量（Louviere 等，2010；Lerusse 和 van de Walle，2021）。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S068"
+    },
+    {
+      "id": "S069",
+      "page": 4,
+      "type": "paragraph",
+      "order": 69,
+      "original_text": "Although discrete choice experiments are well suited to the analysis of individual behavior, they have certain inherent limitations of their own. One significant limitation is that participants evaluate a restricted number of attributes.",
+      "translation": "尽管离散选择实验非常适合分析个体行为，但它们本身也有某些固有的局限性。 一个重要的限制是参与者评估的属性数量有限。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S069"
+    },
+    {
+      "id": "S070",
+      "page": 4,
+      "type": "paragraph",
+      "order": 70,
+      "original_text": "Some participants might base their assessments on an additional set of \"unseen\" factors, leading to potential endogeneity issues. To address this, we instructed participants to assume that any unmentioned characteristics were identical for both recycling outlets before making their evaluations.",
+      "translation": "一些参与者可能会根据一组额外的“看不见的”因素进行评估，从而导致潜在的内生性问题。 为了解决这个问题，我们指示参与者在进行评估之前假设两个回收站的任何未提及的特征都是相同的。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S070"
+    },
+    {
+      "id": "S071",
+      "page": 4,
+      "type": "paragraph",
+      "order": 71,
+      "original_text": "Although this method does not completely eradicate the potential endogeneity problem caused by un mentioned attributes, it effectively reduces the risk of omitted variable bias (Lancsar and Louviere, 2006; Lerusse and van de Walle, 2021).",
+      "translation": "虽然这个方法不 彻底杜绝未提及属性带来的潜在内生性问题，有效降低了遗漏变量偏差的风险（Lancsar and Louviere，2006；Lerusse and van de Walle，2021）。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S071"
+    },
+    {
+      "id": "S072",
+      "page": 4,
+      "type": "paragraph",
+      "order": 72,
+      "original_text": "Secondly, participants may exhibit social desirability bias when evaluating choice tasks, selecting the socially preferred alternative rather than the option they would choose in real life (Lerusse and van de Walle, 2021).",
+      "translation": "其次，参与者在评估选择任务时可能会表现出社会期望偏差，选择社会偏好的替代方案而不是他们在现实生活中会选择的选项（Lerusse 和 van de Walle，2021）。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S072"
+    },
+    {
+      "id": "S073",
+      "page": 4,
+      "type": "paragraph",
+      "order": 73,
+      "original_text": "This social desirability bias can lead to inflated coefficient estimates. Given this inherent limitation of discrete choice experiments, we emphasize that our research focuses on stated preferences rather than actual behavior.",
+      "translation": "这种社会期望偏差可能导致系数估计夸大。 鉴于离散选择实验的固有局限性，我们强调我们的研究重点是陈述的偏好而不是实际行为。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S073"
+    },
+    {
+      "id": "S074",
+      "page": 4,
+      "type": "paragraph",
+      "order": 74,
+      "original_text": "Therefore, we interpret our conclusions with caution.",
+      "translation": "因此，我们谨慎解释我们的结论。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S074"
+    },
+    {
+      "id": "S075",
+      "page": 4,
+      "type": "heading",
+      "order": 75,
+      "original_text": "3.2. Choice experiments design",
+      "translation": "3.2.选择实验设计",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S075"
+    },
+    {
+      "id": "S076",
+      "page": 4,
+      "type": "heading",
+      "order": 76,
+      "original_text": "3.2.1. Attributes and attributes levels",
+      "translation": "3.2.1.属性和属性等级",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S076"
+    },
+    {
+      "id": "S077",
+      "page": 4,
+      "type": "paragraph",
+      "order": 77,
+      "original_text": "Our study considers nine attributes to reveal the public's preferences for formal and informal recycling of EV batteries. Table 1 illustrates all the variables and their encoding methods used in this study through linear, dummy, and label encoding.",
+      "translation": "我们的研究考虑了九个属性，以揭示公众对正式和非正式电动汽车电池回收的偏好。 表 1 通过线性、虚拟和标签编码说明了本研究中使用的所有变量及其编码方法。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S077"
+    },
+    {
+      "id": "S078",
+      "page": 4,
+      "type": "paragraph",
+      "order": 78,
+      "original_text": "Linear encoding is employed for continuous variables, dummy encoding for non-ordered categorical variables, and label encoding for ordered variables. Regarding the service attributes of EV battery recycling, we include recycling price, the market penetration rate of formal outlets, recycling entity, and recycling method.",
+      "translation": "线性编码用于连续变量，虚拟编码用于无序分类变量，标签编码用于有序变量。 关于电动汽车电池回收的服务属性，我们包括回收价格、正规网点的市场渗透率、回收主体和回收方式。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S078"
+    },
+    {
+      "id": "S079",
+      "page": 4,
+      "type": "paragraph",
+      "order": 79,
+      "original_text": "Recycling pricing significantly impacts the return that EV owners receive when recycling end-of-life EV batteries and is regarded as the primary factor affecting recycling behavior.",
+      "translation": "回收定价显着影响电动汽车车主在回收报废电动汽车电池时获得的回报，并被视为影响回收行为的主要因素。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S079"
+    },
+    {
+      "id": "S080",
+      "page": 4,
+      "type": "paragraph",
+      "order": 80,
+      "original_text": "In the Chinese EV market, the recycling price for a retired EV battery generally ranges between 7500 and 20,000 RMB, depending on the recycling outlet and the battery's weight.",
+      "translation": "在中国电动汽车市场，报废电动汽车电池的回收价格一般在7500至2万元人民币之间，具体取决于回收地点和电池的重量。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S080"
+    },
+    {
+      "id": "S081",
+      "page": 4,
+      "type": "paragraph",
+      "order": 81,
+      "original_text": "Prices at informal recycling outlets are usually higher than those at formal outlets (Huang et al., 2022b; Li et al., 2023; Su et al., 2024). Therefore, we set the recycling price levels of formal outlets as 7500 and 10,000 RMB, and prices at informal outlets are set as 15,000 and 20,000 RMB.",
+      "translation": "非正式回收站的价格为 通常高于正规网点（Huang et al., 2022b；Li et al., 2023；苏等人，2024）。因此，我们设定的回收价格水平为 正规网点价格为7500元、10000元，非正规网点价格为15000元、20000元。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S081"
+    },
+    {
+      "id": "S082",
+      "page": 4,
+      "type": "paragraph",
+      "order": 82,
+      "original_text": "Some studies have found there exists a strong link between the number of recycling facilities and the distance EV owners are willing to Fig. 1.",
+      "translation": "一些研究发现，回收设施的数量与电动汽车车主愿意行驶的距离之间存在密切联系（图 1）。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S082"
+    },
+    {
+      "id": "S083",
+      "page": 4,
+      "type": "heading",
+      "order": 83,
+      "original_text": "Method flow chart.",
+      "translation": "方法流程图。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S083"
+    },
+    {
+      "id": "S084",
+      "page": 4,
+      "type": "paragraph",
+      "order": 84,
+      "original_text": "Huang et al. Journal of Environmental Management 370 (2024) 122180 travel to reach them; the more facilities there are, the more willing EV owners are to recycle (Hage et al., 2009; Geiger et al., 2019).",
+      "translation": "黄等人。环境管理杂志 370 (2024) 122180 前往到达他们；设施越多，电动汽车车主就越愿意回收（Hage 等，2009；Geiger 等，2019）。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "medium",
+      "refs": [],
+      "insert_after": "S084"
+    },
+    {
+      "id": "S085",
+      "page": 4,
+      "type": "paragraph",
+      "order": 85,
+      "original_text": "In our study, the formal outlet market penetration rate, defined as the pro portion of formal recycling outlets to the total number of recycling outlets in the market, indicates the distribution of formal recycling outlets within the market.",
+      "translation": "在我们的研究中，正规回收网点市场渗透率定义为正规回收网点占市场回收网点总数的比例，反映了正规回收网点在市场内的分布情况。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S085"
+    },
+    {
+      "id": "S086",
+      "page": 4,
+      "type": "paragraph",
+      "order": 86,
+      "original_text": "An increase in market penetration rate im plies an increase in formal recycling outlets, thereby reducing the travel distance to reach recycling facilities. Therefore, we believe that the formal outlet market penetration rate may influence EV owners' de cisions to choose formal outlets for recycling.",
+      "translation": "市场渗透率的提高意味着正规回收网点的增加，从而减少出行 到达回收设施的距离。 因此，我们认为正规网点的市场渗透率可能会影响电动车车主选择正规网点进行回收的决定。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S086"
+    },
+    {
+      "id": "S087",
+      "page": 4,
+      "type": "paragraph",
+      "order": 87,
+      "original_text": "Safety has been explicitly identified as a major factor influencing the recycling of EV batteries. Safety responsibilities are primarily borne by the entity responsible for recycling, making the recycling entity a crucial factor affecting battery recycling (Thompson et al., 2020).",
+      "translation": "安全性已被明确确定为影响电动汽车电池回收的主要因素。 安全责任主要由负责回收的实体承担，这使得回收实体成为影响电池回收的关键因素（Thompson et al., 2020）。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S087"
+    },
+    {
+      "id": "S088",
+      "page": 4,
+      "type": "paragraph",
+      "order": 88,
+      "original_text": "Following the classification by Zhang et al. (2021), we categorize the recycling entities into three types: battery manufacturers, automobile manufacturers, and third-party recycling companies.",
+      "translation": "按照Zhang等人的分类。 （2021），我们将回收主体分为三类：电池制造商、汽车制造商和第三方回收公司。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "medium",
+      "refs": [],
+      "insert_after": "S088"
+    },
+    {
+      "id": "S089",
+      "page": 4,
+      "type": "paragraph",
+      "order": 89,
+      "original_text": "In the battery recycling process, con venience and privacy are factors that EV owners commonly consider, and different recycling entities have varying practicality in these aspects (Wang et al., 2011; Miliute-Plepiene et al., 2016; Cai et al., 2023; Chang et al., 2023).",
+      "translation": "在电池回收过程中， 便利性和隐私性是电动汽车车主普遍考虑的因素，不同的回收主体在这些方面的实用性也有所不同（Wang et al., 2011; Miliute-Plepiene et al., 2016; Cai et al., 2023; Chang et al., 2023）。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S089"
+    },
+    {
+      "id": "S090",
+      "page": 4,
+      "type": "paragraph",
+      "order": 90,
+      "original_text": "Inspired by Wang et al. (2018) on the emerging door-to-door recycling method, we combine this new method with the traditional methods of postal delivery and self-delivery to recycling designated outlets.",
+      "translation": "受到王等人的启发。 (2018)关于新兴的上门回收方法，我们将这种新方法与传统的邮寄和自送至指定回收网点的方法相结合。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S090"
+    },
+    {
+      "id": "S091",
+      "page": 4,
+      "type": "paragraph",
+      "order": 91,
+      "original_text": "We consider these three recycling methods as factors influencing retired EV battery recycling and incorporate them into our study. Regarding policy attributes, we examine carbon credits, end-of-life, and subsidy policies.",
+      "translation": "我们将这三种回收方法视为影响退役电动汽车电池回收的因素，并将其纳入我们的回收计划中。 研究。 关于政策属性，我们研究了碳信用额、报废政策和补贴政策。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S091"
+    },
+    {
+      "id": "S092",
+      "page": 4,
+      "type": "paragraph",
+      "order": 92,
+      "original_text": "Carbon emission trading is a specialized approach aimed at maximizing the reduction of carbon emissions (Li et al., 2020). Carbon credits are a form of individual carbon trading scheme that requires governments to establish a market based on carbon credits and set trading rules, including setting initial credits and asso ciated penalties, to ensure that each offset their energy consumption in each compliance period (Starkey, 2012).",
+      "translation": "碳排放交易是一种旨在最大限度减少碳排放的专门方法（Li et al., 2020）。 碳信用额是个人碳交易计划的一种形式，要求政府建立基于碳信用额的市场并制定交易规则，包括设定初始信用额和相关处罚，以确保各方在每个合规期内抵消其能源消耗（Starkey，2012）。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S092"
+    },
+    {
+      "id": "S093",
+      "page": 4,
+      "type": "paragraph",
+      "order": 93,
+      "original_text": "The impact of individual car bon trading schemes on the adoption of EVs has been verified, with findings suggesting that, in some cases, this policy can be a substitute for subsidized car purchases (Li et al., 2019, 2020).",
+      "translation": "个别汽车的影响 关于采用电动汽车的优惠交易计划已经得到验证，研究结果表明，在某些情况下，该政策可以替代汽车购买补贴（Li et al., 2019, 2020）。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S093"
+    },
+    {
+      "id": "S094",
+      "page": 4,
+      "type": "paragraph",
+      "order": 94,
+      "original_text": "Therefore, we seek to understand whether carbon credits impact the recycling of retired EV batteries, hence including carbon credits in the scope of policy attribute examination.",
+      "translation": "因此，我们试图了解碳信用额是否会影响退役电动汽车电池的回收，从而将碳信用额纳入政策属性审查范围。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S094"
+    },
+    {
+      "id": "S095",
+      "page": 4,
+      "type": "paragraph",
+      "order": 95,
+      "original_text": "Our study introduces carbon credit policies, assuming one carbon credit equals 5 RMB, and incorporates 100, 300 and 500 carbon credits into the discrete choice experiment to explore the impact of different carbon credit levels on retired EV battery recycling at autho rized recycling outlets.",
+      "translation": "我们的研究引入了碳信用政策，假设1个碳信用额等于5元人民币，并将100、300和500个碳信用额纳入离散选择实验，以探讨碳信用额的影响。 在授权回收点回收报废电动汽车电池的不同碳信用额水平。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S095"
+    },
+    {
+      "id": "S096",
+      "page": 4,
+      "type": "paragraph",
+      "order": 96,
+      "original_text": "The trade-in policy is a method for recycling EV batteries. This approach has been widely adopted in the mobile phone and computer fields but is rarely implemented in EV manufacturers in China.",
+      "translation": "以旧换新政策是回收电动汽车电池的一种方法。 这种方法已在手机和计算机领域广泛采用，但在中国的电动汽车制造商中很少实施。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S096"
+    },
+    {
+      "id": "S097",
+      "page": 5,
+      "type": "paragraph",
+      "order": 97,
+      "original_text": "The classified levels of the trade-in policy for each EV battery are 10%, 20% and 40% of the cost of a new battery (Huang et al., 2022b). Regarding the traceability of recycling information policy, Huang et al. (2022b) categorized the traceability of batteries into four stages: no recycling information traceability, traceable to the battery cascade utilization stage, traceable to the outlet stage and traceable to the battery dismantling stage, where this study also leverages the same categorizations.",
+      "translation": "每个电动汽车电池的以旧换新政策的分类级别为新电池成本的 10%、20% 和 40%（Huang 等，2022b）。 关于回收信息政策的可追溯性，Huang等人。 (2022b) 将电池的追溯分为四个阶段：无回收信息追溯、电池梯级利用阶段追溯、出口阶段追溯和电池拆解阶段追溯，本研究也采用同样的分类方式。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S097"
+    },
+    {
+      "id": "S098",
+      "page": 5,
+      "type": "paragraph",
+      "order": 98,
+      "original_text": "Subsidy policies have effectively promoted mass recycling behavior (Mak et al., 2019; Tang et al., 2023). The Chinese government has enacted subsidy policies to stimulate the formal recycling industry.",
+      "translation": "补贴政策有效促进了大规模回收行为（Mak等，2019；Tang等，2023）。 中国政府制定了补贴政策来刺激正规回收行业。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S098"
+    },
+    {
+      "id": "S099",
+      "page": 5,
+      "type": "paragraph",
+      "order": 99,
+      "original_text": "Standard subsidy policies include subsidies based on the remaining ca pacity of the battery and one-time fixed subsidies (Chen et al., 2022). The current subsidy standard for battery remaining capacity in the Guangxi region is approximately 20 RMB/kWh.",
+      "translation": "标准补贴政策包括按电池剩余容量补贴和一次性固定补贴（Chen et al., 2022）。 目前广西地区电池剩余电量补贴标准约为20元/kWh。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S099"
+    },
+    {
+      "id": "S100",
+      "page": 5,
+      "type": "paragraph",
+      "order": 100,
+      "original_text": "Therefore, our study considers three subsidy levels: 10 RMB/kWh, 20 RMB/kWh, and 30 RMB/kWh (Huang et al., 2022b). Regarding one-time fixed subsidies, the standard in Shanghai is approximately 1000 RMB per vehicle, pro vided to recycling companies, and the actual subsidy amount given to EV owners may be correspondingly reduced.",
+      "translation": "因此，我们的研究考虑了三个补贴水平：10 元/kWh、20 元/kWh 和 30 元/kWh（Huang 等，2022b）。 对于一次性固定补贴，上海的标准为每辆车1000元左右，向回收企业提供，实际补贴金额为 电动汽车拥有者可能会相应减少。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S100"
+    },
+    {
+      "id": "S101",
+      "page": 5,
+      "type": "paragraph",
+      "order": 101,
+      "original_text": "Hence, our study considers three one-time fixed subsidy values: 500 RMB, 600 RMB, and 700 RMB.",
+      "translation": "因此，我们的研究考虑了三种一次性固定补贴金额：500元、600元和700元。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S101"
+    },
+    {
+      "id": "S102",
+      "page": 5,
+      "type": "heading",
+      "order": 102,
+      "original_text": "3.2.2. Choice task generation",
+      "translation": "3.2.2.选择任务生成",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S102"
+    },
+    {
+      "id": "S103",
+      "page": 5,
+      "type": "paragraph",
+      "order": 103,
+      "original_text": "Using a complete factorial design would require generating 34,992 virtual selection tasks. However, handling many virtual tasks is impractical in practice, so an orthogonal factorial design is recom mended (Hidrue and Parsons, 2015).",
+      "translation": "使用完整的因子设计需要生成 34,992 个虚拟选择任务。 然而，处理许多虚拟任务在实践中是不切实际的，因此建议采用正交因子设计（Hidrue 和 Parsons，2015）。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S103"
+    },
+    {
+      "id": "S104",
+      "page": 5,
+      "type": "paragraph",
+      "order": 104,
+      "original_text": "Our study utilized this method to reduce the complexity of the choice task, resulting in the generation of 53 profiles. These profiles were divided into 20 blocks, each containing six choice tasks.",
+      "translation": "我们的研究利用这种方法来降低选择任务的复杂性，从而产生 53 个配置文件。这些配置文件被分为 20 个块，每个块包含 六项选择任务。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S104"
+    },
+    {
+      "id": "S105",
+      "page": 5,
+      "type": "paragraph",
+      "order": 105,
+      "original_text": "Upon consenting to participate in the survey, partici pants were randomly assigned to one of these blocks. Each choice task included two hypothetical recycling center profiles and a \"None\" option.",
+      "translation": "在同意参与调查后，参与者被随机分配到这些区块之一。 每个选择任务包括两个假设的回收中心配置文件和一个“无”选项。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S105"
+    },
+    {
+      "id": "S106",
+      "page": 5,
+      "type": "paragraph",
+      "order": 106,
+      "original_text": "Fig. 2 illustrates an example of a choice task.",
+      "translation": "图 2 说明了选择任务的示例。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S106"
+    },
+    {
+      "id": "S107",
+      "page": 5,
+      "type": "heading",
+      "order": 107,
+      "original_text": "3.3. Model specification",
+      "translation": "3.3.型号规格",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S107"
+    },
+    {
+      "id": "S108",
+      "page": 5,
+      "type": "paragraph",
+      "order": 108,
+      "original_text": "Our study conducted a discrete choice experimental survey in which respondents were required to choose the optimal option among multiple virtual retired EV battery outlets based on their preferences.",
+      "translation": "我们的研究进行了一项离散选择实验调查，要求受访者根据自己的喜好在多个虚拟退役电动汽车电池插座中选择最佳选项。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S108"
+    },
+    {
+      "id": "S109",
+      "page": 5,
+      "type": "paragraph",
+      "order": 109,
+      "original_text": "During this process, respondents were portrayed as rational individuals who maxi mize their utilities by carefully evaluating preferences for various recycling attributes.",
+      "translation": "在此过程中，受访者被描述为理性的个体，他们通过仔细评估对各种回收属性的偏好来最大化其效用。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S109"
+    },
+    {
+      "id": "S110",
+      "page": 5,
+      "type": "paragraph",
+      "order": 110,
+      "original_text": "Our survey aids us in better understanding public behaviors in recycling choices within a simulated scenario (Li et al., 2020; Huang et al., 2022b). Specifically, within the given choice set (C),",
+      "translation": "我们的调查有助于我们更好地了解模拟场景中回收选择中的公众行为（Li 等人， 2020；黄等人，2022b)。具体来说，在给定的选择集 (C) 内，",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S110"
+    },
+    {
+      "id": "S111",
+      "page": 5,
+      "type": "caption",
+      "order": 111,
+      "original_text": "Table 1 Variable descriptions and assignment.",
+      "translation": "表 1 变量描述和分配。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [
+        "T001"
+      ],
+      "insert_after": "S111"
+    },
+    {
+      "id": "S112",
+      "page": 5,
+      "type": "paragraph",
+      "order": 112,
+      "original_text": "Variables Encoding type Variable assignment Recycling price (RMB Linear 0.75, 1, 1.5, 2 Market penetration rate of formal recycling outlets Linear 10%, 20%, 30% Carbon credits Linear 100, 300, 500 Retired EV battery trade-in policy (X% of new battery price) Linear 10%, 20%, 40% One-time fixed subsidy (RMB) Linear 500, 600, 700 Capacity subsidy (RMB/ kWh) Linear 10, 20, 30 Traceability of recycling information level Dummy Destination untraceable = (0,0,0); Traceable to recycling outlets = (1,0,0); Traceable to battery dismantling = (0,1,0); Traceable to battery cascade utilization = (0,0,1) Recycling entity Dummy EV battery producers = (1,0,0); Automotive manufacturers = (0,1,0); Third-party recycling companies = (0,0,1) Recycling method Dummy Individuals personally delivering the batteries to recycling outlets = (1,0,0); Individuals mailing the batteries to recycling outlets = (0,1,0); Recycling outlets offering doorstep battery collection = (0,0,1) Gender Dummy Male = 1; Female = 0 Age Label [18, 25) = 1; [25,35) = 2; [35,45) = 3; [45,55) = 4; [55,65) = 5; [65, +∞) = Monthly income Label (0, 3000] = 1; (3000, 6000] = 2;",
+      "translation": "变量 编码类型 变量赋值 回收价格（元） 线性 0.75、1、1.5、2 正规回收网点市场渗透率 线性 10%、20%、30% 碳信用额 线性 100、300、500 报废电池以旧换新政策（新电池价格的 X%） 线性 10%、20%、40% 一次性固定补贴（人民币） 线性 500、600、700 容量补贴金额（元/千瓦时） 线性 10、20、30 回收信息级别可追溯性 虚拟目的地不可追溯=（0,0,0）；可追溯至回收站 = (1,0,0)；可溯源至电池拆解=(0,1,0)；可追溯到电池级联利用率 = (0,0,1) 回收实体虚拟电动汽车电池生产商=（1,0,0）；汽车制造商 = (0,1,0);第三方回收公司=（0,0,1） 回收方式 假人亲自将电池送到回收网点=（1,0,0）；将电池邮寄到回收站的个人=（0,1,0）；提供上门电池收集的回收站 = (0,0,1) 性别假人 男性 = 1；女性 = 0 年龄标签 [18, 25) = 1; [25,35) = 2; [35,45) = 3; [45,55) = 4; [55,65) = 5; [65, +∞) = 月收入标签 (0, 3000] = 1; (3000, 6000] = 2;",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S112"
+    },
+    {
+      "id": "S113",
+      "page": 5,
+      "type": "paragraph",
+      "order": 113,
+      "original_text": "Commuting cost Label (0, 300] = 1; (300, 600] = 2; (600, Education Label Senior middle school or lower = 1; Bachelor degree or Associate degree = 2; Master's degree = 3; Doctoral degree = 4 Household car ownership Label 0 = 0; 1 = 1; 2 = 2; 3 or more = 3 Driver's license Label Yes = 1; No = 0 X.",
+      "translation": "通勤成本标签 (0, 300] = 1; (300, 600] = 2; (600, 教育标签高中及以下=1；学士学位或副学士学位=2；硕士学位=3；博士学位=4 家庭拥有汽车 标签0=0； 1 = 1； 2 = 2； 3 个或更多 = 3 个驾驶执照标签 是 = 1；否 = 0 X。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S113"
+    },
+    {
+      "id": "S114",
+      "page": 8,
+      "type": "paragraph",
+      "order": 114,
+      "original_text": "Huang et al. Journal of Environmental Management 370 (2024) 122180 the selected option has the highest utility. For respondent (n), the utility of option (Uin) encompasses an observable or systematic explanatory variable component (βXin) and an unobservable random component or error term (εin), as expressed in Equation (1).",
+      "translation": "黄等人。 Journal of Environmental Management 370 (2024) 122180 所选选项实用性最高。 对于受访者 (n)，选项的效用 (Uin) 包含可观察的或系统的解释变量分量 (βXin) 和不可观察的随机分量或 误差项 (εin)，如方程 (1) 所示。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "medium",
+      "refs": [],
+      "insert_after": "S114"
+    },
+    {
+      "id": "S115",
+      "page": 8,
+      "type": "paragraph",
+      "order": 115,
+      "original_text": "Uin = βXin + εin (1) Equation (2) represents the probability, denoted as Pi, of choosing alternative i over alternative j within the choice set C. Pi = Pr ( Vi + εi≥ Vj + εj, i ∈ C, i ∕ = j ) = Pr ( Vi − Vj ≥ εj − εi ) (2) Concerning willingness-to-pay (WTP), when the utility Uin is repre sented by equation (2), the partial derivatives of utility for the k-th attribute Xkn and the cost attribute Xcn can be formulated as dUin = βkdXkn + βcdXcn.",
+      "translation": "Uin = βXin + εin (1) 方程 (2) 表示在选择集 C 中选择替代方案 i 而非替代方案 j 的概率，表示为 Pi。 Pi = Pr ( Vi + εi≥ Vj + εj, i ∈ C, i ∕ = j ) = Pr ( Vi − Vj ≥ εj − εi ) (2) 对于支付意愿 (WTP)，当效用 Uin 用方程 (2) 表示时，第 k 个属性 Xkn 和成本属性 Xcn 的效用偏导数可表示为 dUin = βkdXkn + βcdXcn。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S115"
+    },
+    {
+      "id": "S116",
+      "page": 8,
+      "type": "paragraph",
+      "order": 116,
+      "original_text": "Setting this expression to 0 and solving for y results in equation (3). dXcn dXkn = WTPk = − βk βc (3)",
+      "translation": "将此表达式设置为 0 并求解 y 可得出方程 (3)。 dXcn dXkn = WTPk = − βk βc (3)",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S116"
+    },
+    {
+      "id": "S117",
+      "page": 8,
+      "type": "heading",
+      "order": 117,
+      "original_text": "3.4. Data collection",
+      "translation": "3.4.数据收集",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S117"
+    },
+    {
+      "id": "S118",
+      "page": 8,
+      "type": "paragraph",
+      "order": 118,
+      "original_text": "Our study takes Chongqing, China, as the study area due to its pio neering role in EV promotion and major status in EV production base (Huang et al., 2021, 2022a, 2022b).",
+      "translation": "我们的研究以中国重庆为研究区域，因为该地区在电动汽车推广中的先行作用和电动汽车生产基地的主要地位（Huang et al., 2021, 2022a, 2022b）。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S118"
+    },
+    {
+      "id": "S119",
+      "page": 8,
+      "type": "paragraph",
+      "order": 119,
+      "original_text": "In 2022, Chongqing experienced a remarkable surge in EV production, manufacturing 365,200 units - a 140% increase from the previous year. This surge also resulted in an installed capacity of approximately 8.6 GWh for EV batteries.",
+      "translation": "2022年，重庆电动汽车产量大幅增长，产量达到36.52万辆—— 比上年增长140%。这次激增也导致了 电动汽车电池装机容量约为8.6 GWh。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S119"
+    },
+    {
+      "id": "S120",
+      "page": 8,
+      "type": "paragraph",
+      "order": 120,
+      "original_text": "Pro jections suggest that by 2030, the retired volume of EV batteries in Chongqing will exceed 50,000 tons, with a capacity of 5 GWh, making the city as a key for studying EV battery recycling.",
+      "translation": "预计到2030年，重庆电动车电池报废量将超过5万吨，容量达到5GWh，成为研究电动车电池回收利用的重点城市。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S120"
+    },
+    {
+      "id": "S121",
+      "page": 8,
+      "type": "paragraph",
+      "order": 121,
+      "original_text": "The stated preference questionnaire consisted of three parts: an",
+      "translation": "陈述偏好调查问卷由三部分组成：",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S121"
+    },
+    {
+      "id": "S122",
+      "page": 8,
+      "type": "heading",
+      "order": 122,
+      "original_text": "introduction to the background of EV battery recycling and some atti",
+      "translation": "介绍电动汽车电池回收的背景和一些注意事项",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S122"
+    },
+    {
+      "id": "S123",
+      "page": 8,
+      "type": "paragraph",
+      "order": 123,
+      "original_text": "tudinal indicator questions, a discrete choice experimental part, and demographic characteristics. To ensure questionnaire validity, we also set six filter rules: (1) only residents living in Chongqing could complete the study.",
+      "translation": "趋势指标问题、离散选择实验部分和人口统计特征。 为了保证问卷的有效性，我们还设置了六项过滤规则：（1）只有居住在重庆的居民才能完成研究。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S123"
+    },
+    {
+      "id": "S124",
+      "page": 8,
+      "type": "paragraph",
+      "order": 124,
+      "original_text": "(2) Participants could participate only once using the same device or IP address. (3) \"The number of cars owned\" was placed at the beginning and end to detect logical errors, while inconsistent responses were flagged as invalid.",
+      "translation": "(2) 参赛者使用同一设备或IP地址只能参加一次。 （3）“拥有汽车数量”放在开头和结尾，以检测逻辑错误，不一致的回答被标记为无效。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S124"
+    },
+    {
+      "id": "S125",
+      "page": 8,
+      "type": "paragraph",
+      "order": 125,
+      "original_text": "(4) Participants unfamiliar with retired EV battery recycling or the establishment rules for formal recycling outlets after reading the introduction were considered invalid responses.",
+      "translation": "（4）参与者不熟悉报废电动汽车电池回收或正规回收网点设立规则 阅读完介绍后视为无效回复。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S125"
+    },
+    {
+      "id": "S126",
+      "page": 8,
+      "type": "paragraph",
+      "order": 126,
+      "original_text": "(5) Participants without a driver's license were deemed invalid. (6) Those who select \"None\" for all tasks are invalid responses. As for the data collection itself, we executed two steps: (1) set six filtering rules to identify valid questionnaires; (2) mobilized all members of the team to collect data by distributing questionnaires using an online platform.",
+      "translation": "（5）无驾驶证参加者视为无效。 (6) 所有任务均选择“无”的为无效回答。 对于数据收集本身，我们执行了两个步骤：（1）设置六种过滤规则来识别有效问卷； （2）动员全体团队成员利用网络平台发放问卷收集数据。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S126"
+    },
+    {
+      "id": "S127",
+      "page": 8,
+      "type": "paragraph",
+      "order": 127,
+      "original_text": "Note that in order to ensure the randomness of the sample and try to remove the influence of convenience samples, we prioritized distrib uting the questionnaires on platforms without social networks, such as Weibo, TikTok, Xiaohongshu, and forums, followed by WeChat.",
+      "translation": "需要注意的是，为了保证样本的随机性并尽量消除便利样本的影响，我们优先将调查问卷分发到微博、抖音、小红书、论坛等非社交网络平台，其次是微信。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S127"
+    },
+    {
+      "id": "S128",
+      "page": 8,
+      "type": "paragraph",
+      "order": 128,
+      "original_text": "As an incentive, those who provided valid responses would receive a reward in the form of a WeChat red envelope (5 yuan, about $0.69). Following the outlined steps, we surveyed Chongqing from May 8, 2023, to May 15, 2023, utilizing the Sojump platform. Finally, we collected 1190 valid questionnaires.",
+      "translation": "作为奖励，那些提供有效回复的人将获得微信红包形式的奖励（5元，约0.69美元）。 按照上述步骤，我们于 2023 年 5 月 8 日至 5 月 15 日对重庆进行了调查， 2023 年，利用 Sojump 平台。最终我们收集到1190条有效 问卷调查。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S128"
+    },
+    {
+      "id": "S129",
+      "page": 8,
+      "type": "paragraph",
+      "order": 129,
+      "original_text": "Their spatial and geographical distribution is shown in Fig. 3.",
+      "translation": "其空间和地理分布如图3所示。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [
+        "F003"
+      ],
+      "insert_after": "S129"
+    },
+    {
+      "id": "S130",
+      "page": 8,
+      "type": "heading",
+      "order": 130,
+      "original_text": "4. Result",
+      "translation": "4. 结果",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S130"
+    },
+    {
+      "id": "S131",
+      "page": 8,
+      "type": "paragraph",
+      "order": 131,
+      "original_text": "In this section, we present a sample descriptive analysis, model estimation and WTP, with model estimation results including analysis of formal versus informal recycling behaviors, multi-group analysis, and comparisons of the two behaviors.",
+      "translation": "在本节中，我们提出了示例描述性分析、模型估计和支付意愿，模型估计结果包括正式与非正式回收行为的分析、多组分析以及两种行为的比较。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S131"
+    },
+    {
+      "id": "S132",
+      "page": 8,
+      "type": "heading",
+      "order": 132,
+      "original_text": "4.1. Sample description and analysis",
+      "translation": "4.1.样本描述与分析",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S132"
+    },
+    {
+      "id": "S133",
+      "page": 8,
+      "type": "paragraph",
+      "order": 133,
+      "original_text": "The description and analysis of the data involve three steps: 1) sta tistical description of the overall data; 2) employing Exploratory Factor Analysis (EFA) to identify latent variables; 3) using the k-means clus tering technique to group responses based on the concavity of latent variables.",
+      "translation": "数据的描述和分析涉及三个步骤：1）总体数据的统计描述； 2）采用探索性因素分析（EFA）来识别潜在变量； 3）使用k-means聚类技术根据潜在变量的凹性对响应进行分组。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S133"
+    },
+    {
+      "id": "S134",
+      "page": 8,
+      "type": "heading",
+      "order": 134,
+      "original_text": "4.1.1. Sample description",
+      "translation": "4.1.1.样品描述",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S134"
+    },
+    {
+      "id": "S135",
+      "page": 8,
+      "type": "paragraph",
+      "order": 135,
+      "original_text": "The demographic characteristics of the respondents are presented in Table 2. In our sample, males slightly outnumber females, constituting 55%, while females account for 45%. The age distribution is predomi nantly between 18 and 64 years old, which is similar to the gender distribution in the actual census for Chongqing (49.27% males, 50.73% females).",
+      "translation": "受访者的人口统计特征如表 2 所示。 在我们的样本中，男性人数略多于女性，构成 55%，女性占45%。年龄分布较多 年龄集中在18岁至64岁之间，与重庆实际人口普查的性别分布相似（男性49.27%，女性50.73%）。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S135"
+    },
+    {
+      "id": "S136",
+      "page": 8,
+      "type": "paragraph",
+      "order": 136,
+      "original_text": "Specifically, 41% of the respondents were aged between 18 and 34, 48.7% were between 35 and 44, and the remaining 10.3% were between 45 and 64. In terms of education, 75.5% have a bachelor's degree, 12.6% have a graduate degree, and the remaining respondents have a high school education or lower.",
+      "translation": "具体来说，41%的受访者年龄在18岁至34岁之间，48.7%的受访者年龄在35岁至44岁之间，其余10.3%的受访者年龄在45岁至64岁之间。 从学历来看，本科学历占75.5%，研究生学历占12.6%，其余受访者高中及以下学历。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S136"
+    },
+    {
+      "id": "S137",
+      "page": 8,
+      "type": "paragraph",
+      "order": 137,
+      "original_text": "Regarding monthly income, 60.6% of respondents earn below 10,000 RMB, 35.6% earn between 10,000 and 20,000 RMB, and the remainder earn more than 20,000",
+      "translation": "就月收入而言， 60.6%的受访者收入低于1万元，35.6%的受访者收入在1万元以下 1万、2万，其余收入2万以上",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S137"
+    },
+    {
+      "id": "S138",
+      "page": 8,
+      "type": "heading",
+      "order": 138,
+      "original_text": "RMB.",
+      "translation": "人民币。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S138"
+    },
+    {
+      "id": "S139",
+      "page": 8,
+      "type": "paragraph",
+      "order": 139,
+      "original_text": "Among respondents with cars at home, 78.7% of households have one car, and only 1.1% of respondents' households have three or more cars. Additionally, 68.9% of respondents report spending between 300 and 900 RMB on commuting each month.",
+      "translation": "家中拥有汽车的受访者中，78.7%的家庭拥有一辆汽车，只有1.1%的受访者家庭拥有三辆及以上汽车。 此外，68.9%的受访者表示每月的通勤支出在300至900元之间。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S139"
+    },
+    {
+      "id": "S140",
+      "page": 8,
+      "type": "paragraph",
+      "order": 140,
+      "original_text": "Approximately 91.4% of re spondents are willing to choose formal retired EV battery recycling outlets, whereas only 55.3% are prepared to choose informal retired EV battery recycling outlets.",
+      "translation": "约91.4%的受访者愿意选择正规的报废电动车电池回收网点，而只有55.3%的受访者愿意选择非正式的报废电动车电池回收网点。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S140"
+    },
+    {
+      "id": "S141",
+      "page": 8,
+      "type": "paragraph",
+      "order": 141,
+      "original_text": "This trend aligns with the development di rection of formal recycling outlets for discarded EV batteries. Overall, the demographic characteristics of our sample correspond with the usage of EVs in the Chongqing region.",
+      "translation": "这一趋势与废旧电动汽车电池正规回收渠道的发展方向不谋而合。 总体而言， 我们样本的人口统计特征与重庆地区电动汽车的使用情况相对应。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S141"
+    },
+    {
+      "id": "S142",
+      "page": 8,
+      "type": "heading",
+      "order": 142,
+      "original_text": "4.1.2. Cluster analysis",
+      "translation": "4.1.2.聚类分析",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S142"
+    },
+    {
+      "id": "S143",
+      "page": 8,
+      "type": "paragraph",
+      "order": 143,
+      "original_text": "K-means clustering is an iterative algorithm that divides a dataset into several groups based on specific features of its samples. This method aims to identify subgroups with high similarity within each subgroup while ensuring significant differences between groups (Hastie et al., 2009; Hifinger et al., 2017). In model selection, clustering was per formed first, followed by regression analysis to reveal differences in influencing factors between groups (Hifinger et al., 2017; Shoabjareh et al., 2021).",
+      "translation": "K-means 聚类是一种迭代算法，它根据样本的特定特征将数据集分为多个组。 该方法旨在识别每个子组内具有高度相似性的子组，同时确保组之间存在显着差异（Hastie 等人， 2009年； Hifinger 等人，2017）。在模型选择中，聚类是按 首先形成模型，然后进行回归分析以揭示组间影响因素的差异（Hfinger et al., 2017; Shoabjareh et al., 2021）。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S143"
+    },
+    {
+      "id": "S144",
+      "page": 8,
+      "type": "paragraph",
+      "order": 144,
+      "original_text": "In K-means clustering, the researcher typically undertakes Fig. 2. Example task used in the survey (translated from the Chinese questionnaire). Huang et al. Journal of Environmental Management 370 (2024) 122180 the task of determining the number of clusters.",
+      "translation": "在 K 均值聚类中，研究人员通常采用图 2。 调查中使用的示例任务（翻译自中文问卷）。 黄等人。环境管理学报370(2024)122180确定集群数量的任务。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [
+        "F002"
+      ],
+      "insert_after": "S144"
+    },
+    {
+      "id": "S145",
+      "page": 8,
+      "type": "paragraph",
+      "order": 145,
+      "original_text": "According to the vali dation results from the literature (Lezhnina and Kismihók, 2022), the Bayesian Information Criterion (BIC) elbow value and the maximum Average Silhouette Width (ASW) value were found to be more accurate than determining the number of clusters based on the minimum BIC values alone.",
+      "translation": "根据文献（Lezhnina 和 Kismihók，2022）的验证结果，发现贝叶斯信息准则（BIC）肘值和最大平均轮廓宽度（ASW）值比单独根据最小 BIC 值确定簇的数量更准确。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S145"
+    },
+    {
+      "id": "S146",
+      "page": 8,
+      "type": "paragraph",
+      "order": 146,
+      "original_text": "Our study used EC and retired EV battery recycling knowledge (REVBRK) as the primary latent factors influencing EV owners' recycling behavior (Geiger et al., 2019; Chang et al., 2023; Li et al., 2023).",
+      "translation": "我们的研究使用 EC 和退役电动汽车电池回收知识 (REVBRK) 作为影响电动汽车的主要潜在因素 业主的回收行为（Geiger等，2019；Chang等，2023；Li等，2023）。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S146"
+    },
+    {
+      "id": "S147",
+      "page": 8,
+      "type": "paragraph",
+      "order": 147,
+      "original_text": "A seven-point Likert scale was employed to measure re spondents' EC and REVBRK (for detailed information on measurement issues, refer to Table A.1 in Appendix A1). We conducted the EFA, and the results are presented in Table 3.",
+      "translation": "采用七点李克特量表来测量受访者的 EC 和 REVBRK（有关测量问题的详细信息，请参阅附录 A1 中的表 A.1）。 我们进行了 EFA，结果如表 3 所示。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S147"
+    },
+    {
+      "id": "S148",
+      "page": 8,
+      "type": "paragraph",
+      "order": 148,
+      "original_text": "These dimensions collectively ac count for 59.477% of the total variance. We utilized the Keiser-Meyer-Olkin (KMO) test to assess the adequacy of principal component analysis.",
+      "translation": "这些维度总共占总方差的 59.477%。 我们利用 Keiser-Meyer-Olkin (KMO) 检验来评估主成分分析的充分性。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S148"
+    },
+    {
+      "id": "S149",
+      "page": 8,
+      "type": "paragraph",
+      "order": 149,
+      "original_text": "The KMO value (0.879) indicates excellent sample adequacy (Kaiser, 1974). Furthermore, Bartlett's sphericity test yielded a statistic of 20731.687 (degrees of freedom = 36, p = 0.00 < 0.005), confirming the data's factorability.",
+      "translation": "KMO 值 (0.879) 表明样品非常好 充分性（Kaiser，1974）。 此外，Bartlett 的球形度检验得出的统计量为 20731.687（自由度 = 36，p = 0.00 < 0.005），证实了数据的可分解性。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S149"
+    },
+    {
+      "id": "S150",
+      "page": 8,
+      "type": "paragraph",
+      "order": 150,
+      "original_text": "The formulas for the BIC and ASW are given by Equations (4) and (5), respectively: BIC = − 2logL + plogn (4) where p represents the number of free parameters in the model, n de notes the number of observations, and L represents the maximum like lihood function of the model.",
+      "translation": "BIC 和 ASW 的公式分别由方程 (4) 和 (5) 给出： BIC = − 2logL + plogn (4) 其中 p 表示模型中自由参数的数量，n de 表示观测值的数量，L 表示模型的最大似然函数。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S150"
+    },
+    {
+      "id": "S151",
+      "page": 8,
+      "type": "paragraph",
+      "order": 151,
+      "original_text": "When the number of observations n is large, minimizing the BIC is equivalent to maximizing the posterior probability of the model. S(i) = b(i) − a(i) max{a(i), b(i)} (5) where, a(i) represents the average dissimilarity between observation ii Fig. 3.",
+      "translation": "当观察数n很大时，最小化BIC相当于最大化后验 模型的概率。 S(i) = b(i) − a(i) max{a(i), b(i)} (5) 其中，a(i) 表示观测值 ii 之间的平均相异度，如图 3 所示。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S151"
+    },
+    {
+      "id": "S152",
+      "page": 8,
+      "type": "paragraph",
+      "order": 152,
+      "original_text": "Map of the spatial and geographical distribution of the sample.",
+      "translation": "样本的空间和地理分布图。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S152"
+    },
+    {
+      "id": "S153",
+      "page": 8,
+      "type": "caption",
+      "order": 153,
+      "original_text": "Table 2 Demographic characteristics.",
+      "translation": "表 2 人口统计特征。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S153"
+    },
+    {
+      "id": "S154",
+      "page": 8,
+      "type": "paragraph",
+      "order": 154,
+      "original_text": "Variables Categories Total Sample Count Percentage Gender Male 654 55% Female 536 45% Age 18–25 47 3.9% 55 or older 7 0.6% Education Senior middle school or lower Bachelor's degree or Associate degree Master's degree 137 11.5% Doctoral degree 13 1.1% Monthly income Under 3000 RMB 49 4.1% 3001-6000 RMB 187 19.8% 6001-10000 RMB 485 40.8% 10001-20000 RMB 424 35.6% Over 20000 RMB 45 3.8% Total monthly weekday commuting costs Under 300 RMB 236 19.8% 300-600 RMB 504 42.4% 600-900 RMB 315 26.5% Over 900 RMB 135 11.3% Total number of family cars 0 49 0.7% 3 or more 13 1.1% Willingness to choose formal EV recycling outlets Very unlikely 4 0.3% Unlikely 99 8.3% Likely 334 28.1% Very likely 753 63.3% Willingness to choose informal EV recycling outlets Very unlikely 363 30.5% Unlikely 168 14.1% Likely 229 19.2% Very likely 430 36.1% Driver's license Owned 1190 100% Table 3 Indicator and rotated factor loadings.",
+      "translation": "变量类别 样本总数 百分比 性别 男性 654 55% 女性 536 45% 年龄 18–25 47 3.9% 55 岁或以上 7 0.6% 教育程度 高中及以下 学士学位或副学士学位 硕士 137 11.5% 博士 13 1.1% 月收入3000元以下 49 4.1% 3001-6000元 187 19.8% 6001-10000元 485 40.8% 10001-20000元 424 35.6% 20000 元以上 45 3.8% 每月工作日通勤费用合计 300 元以下 236 19.8% 300-600元 504 42.4% 600-900元 315 26.5% 900元以上 135 11.3% 家庭轿车总数 0 49 0.7% 3个或以上 13 1.1% 愿意选择正规电动汽车回收网点 极不可能 4 0.3% 不太可能 99 8.3% 可能 334 28.1% 很有可能 753 63.3% 愿意选择非正式电动车回收网点 极不可能 363 30.5% 不太可能 168 14.1% 可能 229 19.2% 很有可能 430 36.1% 有驾照拥有 1190 100% 表 3 指标和旋转因子载荷。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S154"
+    },
+    {
+      "id": "S155",
+      "page": 8,
+      "type": "paragraph",
+      "order": 155,
+      "original_text": "Indicators REVBRK EC REVBRK01 0.748 REVBRK02 0.795 REVBRK03 0.751 REVBRK04 0.795 REVBRK05 0.783 EC01 0.719 EC02 0.743 EC03 0.776 EC04 0.819 X. Huang et al. Journal of Environmental Management 370 (2024) 122180 and the other points within its cluster, while b(i) denotes the average dissimilarity between observation ii and all observations in the nearest but different cluster.",
+      "translation": "指标 REVBRK EC REVBRK01 0.748 REVBRK02 0.795 REVBRK03 0.751 REVBRK04 0.795 REVBRK05 0.783 EC01 0.719 EC02 0.743 EC03 0.776 EC04 0.819 X. 黄等人。 Journal of Environmental Management 370 (2024) 122180 及其簇内的其他点，而 b(i) 表示观测值 ii 与最近但不同簇中的所有观测值之间的平均差异。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S155"
+    },
+    {
+      "id": "S156",
+      "page": 8,
+      "type": "paragraph",
+      "order": 156,
+      "original_text": "The ASW value ranges from − 1 to 1, where higher positive values indicate well-defined clusters characterized by intracluster cohesion and inter-cluster separation. Conversely, ASW values close to 0 or negative suggest insufficient clarity in the separation be tween clusters.",
+      "translation": "ASW 值的范围为 - 1 到 1，其中较高的正值表示以簇内凝聚力和簇间分离为特征的明确簇。 相反，ASW 值 接近 0 或负值表明簇之间的分离不够清晰。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S156"
+    },
+    {
+      "id": "S157",
+      "page": 8,
+      "type": "paragraph",
+      "order": 157,
+      "original_text": "Table 4 shows the settlement results of BIC and AWS.",
+      "translation": "BIC和AWS的结算结果如表4所示。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [
+        "F004"
+      ],
+      "insert_after": "S157"
+    },
+    {
+      "id": "S158",
+      "page": 8,
+      "type": "caption",
+      "order": 158,
+      "original_text": "Fig. 4 illus trates the relationship between BIC, ASW, and the number of clusters, with the vertical line indicating the optimal number of clusters (Lezhnina and Kismihók, 2022).",
+      "translation": "图 4 说明了 BIC、ASW 和簇数之间的关系，其中垂直线表示最佳簇数（Lezhnina 和 Kismihók，2022）。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S158"
+    },
+    {
+      "id": "S159",
+      "page": 8,
+      "type": "paragraph",
+      "order": 159,
+      "original_text": "It can be observed that the optimal number of clusters is 2. Finally, two groups were obtained using the k-means method and the optimal number of clusters, as shown in Table 5.",
+      "translation": "可以看出，最佳簇数为2。 最后，利用k-means方法和最佳聚类数得到两组，如表5所示。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S159"
+    },
+    {
+      "id": "S160",
+      "page": 8,
+      "type": "paragraph",
+      "order": 160,
+      "original_text": "The first group comprises respondents with high EC and a high",
+      "translation": "第一组包括具有高 EC 和高",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S160"
+    },
+    {
+      "id": "S161",
+      "page": 8,
+      "type": "heading",
+      "order": 161,
+      "original_text": "REVBRK.",
+      "translation": "雷布克。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S161"
+    },
+    {
+      "id": "S162",
+      "page": 8,
+      "type": "paragraph",
+      "order": 162,
+      "original_text": "The second group of respondents has a lower EC and a lower REVBRK.",
+      "translation": "第二组受访者的 EC 和 REVBRK 较低。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S162"
+    },
+    {
+      "id": "S163",
+      "page": 8,
+      "type": "heading",
+      "order": 163,
+      "original_text": "4.2. Model estimation",
+      "translation": "4.2.模型估计",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S163"
+    },
+    {
+      "id": "S164",
+      "page": 8,
+      "type": "paragraph",
+      "order": 164,
+      "original_text": "This section employs the multinomial logit model (MNL) for the sample data. The model estimation process utilized Biogeme for model construction and result estimation (Bierlaire and Ortelli, 2023).",
+      "translation": "本节对样本数据采用多项 Logit 模型 (MNL)。 模型估计过程利用 Biogeme 进行模型构建和结果估计（Bierlaire 和 Ortelli，2023）。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S164"
+    },
+    {
+      "id": "S165",
+      "page": 8,
+      "type": "paragraph",
+      "order": 165,
+      "original_text": "Tables 6 and 7 present the estimated coefficients of the variables for selecting formal versus informal recycling outlets, for both the two groups and the total sample, respectively.",
+      "translation": "表 6 和表 7 分别列出了两组和总样本的用于选择正式与非正式回收出口的变量的估计系数。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S165"
+    },
+    {
+      "id": "S166",
+      "page": 8,
+      "type": "heading",
+      "order": 166,
+      "original_text": "4.2.1. Formal recycling estimation result",
+      "translation": "4.2.1.正式回收估算结果",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S166"
+    },
+    {
+      "id": "S167",
+      "page": 8,
+      "type": "paragraph",
+      "order": 167,
+      "original_text": "Regarding formal outlet service attributes, the MNL results (see Table 6) indicate that the coefficients of recycling price, formal outlet market penetration rate, recycling entity, and recycling method exhibit positive effects at a significance level of 1%.",
+      "translation": "对于正规网点服务属性，MNL结果（见表6）表明，回收价格、正规网点市场渗透率、回收实体和回收方式的系数在1%的显着性水平上表现出正向影响。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S167"
+    },
+    {
+      "id": "S168",
+      "page": 8,
+      "type": "paragraph",
+      "order": 168,
+      "original_text": "Specifically, the first two attributes (recycling price and formal outlet market penetration rate) positively influence respondents' choices to recycle retired EV batteries at formal outlets.",
+      "translation": "具体来说，前两个属性（回收价格和正规网点市场渗透率）对受访者在正规网点回收报废电动汽车电池的选择产生积极影响。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S168"
+    },
+    {
+      "id": "S169",
+      "page": 8,
+      "type": "paragraph",
+      "order": 169,
+      "original_text": "Regarding preferences for recycling entities, with third-party recycling companies as the reference, respondents expressed a greater inclination to choose EV battery manufacturers over automo bile manufacturers or third-party recycling companies.",
+      "translation": "关于回收实体的偏好， 以第三方回收公司为参考，受访者表示更倾向于选择电动汽车电池制造商，而不是汽车制造商或第三方回收公司。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S169"
+    },
+    {
+      "id": "S170",
+      "page": 8,
+      "type": "paragraph",
+      "order": 170,
+      "original_text": "Concerning preferences for recycling methods, our study finds that, compared to delivering items to designated outlets or mailing them to specified lo cations, potential EV owners are more inclined to choose recycling outlets that offer doorstep collection services.",
+      "translation": "关于回收方式的偏好，我们的研究发现，与将物品运送到指定网点或邮寄到指定地点相比，潜在电动车车主更倾向于选择提供上门回收服务的回收网点。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S170"
+    },
+    {
+      "id": "S171",
+      "page": 8,
+      "type": "paragraph",
+      "order": 171,
+      "original_text": "Our study indicates that two of the three policy incentives (trade-in and two types of subsidy policies) significantly and effectively promote potential EV owners' choices to recycle retired EV batteries at formal outlets at a 1% significance level.",
+      "translation": "我们的研究表明，三项政策激励措施中的两项（以旧换新和两类补贴政策）显着且有效地促进了潜在电动汽车车主选择在正规网点回收退役电动汽车电池，显着性水平为1%。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S171"
+    },
+    {
+      "id": "S172",
+      "page": 8,
+      "type": "paragraph",
+      "order": 172,
+      "original_text": "However, the carbon credit policy does not significantly impact the adoption of formal outlets for recycling retired EV batteries. Finally, regarding socio-demographic characteris tics, only age and gender exhibit significant associations at a 1% level, indicating that as age increases, potential EV owners are more willing to recycle retired EV batteries at formal outlets.",
+      "translation": "然而，碳信用政策并没有显着影响采用正规渠道回收退役电动汽车电池。 最后，关于社会人口特征，只有年龄和性别在 1% 的水平上表现出显着的关联， 表明随着年龄的增长，潜在的电动汽车车主更愿意在正规网点回收报废的电动汽车电池。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S172"
+    },
+    {
+      "id": "S173",
+      "page": 8,
+      "type": "paragraph",
+      "order": 173,
+      "original_text": "However, individuals with higher education levels are less inclined to engage in EV battery recycling.",
+      "translation": "然而，受教育程度较高的人不太愿意从事电动汽车电池回收。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S173"
+    },
+    {
+      "id": "S174",
+      "page": 8,
+      "type": "heading",
+      "order": 174,
+      "original_text": "4.2.2. Informal recycling estimation result",
+      "translation": "4.2.2.非正式回收估算结果",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S174"
+    },
+    {
+      "id": "S175",
+      "page": 8,
+      "type": "paragraph",
+      "order": 175,
+      "original_text": "Regarding informal outlet service attributes, the MNL estimation",
+      "translation": "关于非正式网点服务属性，MNL 估计",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S175"
+    },
+    {
+      "id": "S176",
+      "page": 8,
+      "type": "heading",
+      "order": 176,
+      "original_text": "results (see Table 7) indicate that the coefficients of recycling price,",
+      "translation": "结果（见表7）表明回收价格系数，",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S176"
+    },
+    {
+      "id": "S177",
+      "page": 8,
+      "type": "paragraph",
+      "order": 177,
+      "original_text": "recycling entity, and recycling method mostly exhibit positive effects at a 1% significance level. Specifically, recycling price positively impacts consumers' choices to recycle retired EV batteries at informal outlets.",
+      "translation": "回收实体和回收方法大多在1%的显着性水平上表现出正效应。 具体而言，回收价格对消费者在非正规渠道回收退役电动汽车电池的选择产生积极影响。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S177"
+    },
+    {
+      "id": "S178",
+      "page": 8,
+      "type": "paragraph",
+      "order": 178,
+      "original_text": "Concerning consumers' preferences for recycling entities, with thirdparty recycling companies as the reference, respondents expressed a greater inclination to choose third-party recycling companies over automobile manufacturers or EV battery manufacturers.",
+      "translation": "在消费者对回收实体的偏好方面，以第三方回收公司为参考，受访者表示更倾向于选择第三方回收公司，而不是汽车制造商或电动汽车电池制造商。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S178"
+    },
+    {
+      "id": "S179",
+      "page": 8,
+      "type": "paragraph",
+      "order": 179,
+      "original_text": "As for con sumers' preferences for recycling methods, our study found that, compared to providing doorstep collection services or mailing items to specified locations, potential EV owners are more willing to choose selfdelivery to designated outlets as a recycling method.",
+      "translation": "至于消费者对回收方式的偏好，我们的研究发现，与提供上门回收服务或邮寄物品到指定地点相比，潜在电动汽车车主更愿意选择自送至指定网点作为回收方式。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S179"
+    },
+    {
+      "id": "S180",
+      "page": 9,
+      "type": "paragraph",
+      "order": 180,
+      "original_text": "Regarding sociodemographic characteristics, our findings indicate that older in dividuals hold a positive attitude toward informal outlet recycling of retired EV batteries, while individuals with higher education levels ex press a negative attitude.",
+      "translation": "关于社会从人口特征来看，我们的研究结果表明，老年人对退役电动汽车电池的非正式回收持积极态度，而受教育程度较高的人则持消极态度。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S180"
+    },
+    {
+      "id": "S181",
+      "page": 9,
+      "type": "heading",
+      "order": 181,
+      "original_text": "4.2.3. Multi-group analysis results",
+      "translation": "4.2.3.多组分析结果",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S181"
+    },
+    {
+      "id": "S182",
+      "page": 9,
+      "type": "paragraph",
+      "order": 182,
+      "original_text": "Through cluster analysis, we categorized the entire sample into two groups based on two latent variables, EC and REVBRK. The first group comprises individuals with high EC and REVBRK, while the second group comprises those with relatively lower EC and REVBRK.",
+      "translation": "通过聚类分析，我们根据两个潜在变量 EC 和 REVBRK 将整个样本分为两组。 第一组包括具有高 EC 和 REVBRK 的个体，而第二组包括具有相对较低 EC 和 REVBRK 的个体。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S182"
+    },
+    {
+      "id": "S183",
+      "page": 9,
+      "type": "paragraph",
+      "order": 183,
+      "original_text": "These groups exhibit differences in the utility coefficient for selecting EV battery recycling outlets, reflecting distinct attitudes toward recycling outlet preferences.",
+      "translation": "这些群体在选择电动汽车电池回收网点的效用系数上存在差异，反映出对回收网点偏好的不同态度。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S183"
+    },
+    {
+      "id": "S184",
+      "page": 9,
+      "type": "paragraph",
+      "order": 184,
+      "original_text": "Concerning formal recycling outlet attributes (see Table 6), both groups share the same preferences for recycling price and type of sub sidy policy, showing acceptance of higher recycling prices and a pref erence for capacity subsidies over one-time fixed subsidies.",
+      "translation": "就正式的回收渠道属性而言（见表6），两组群体对回收价格和补贴政策类型的偏好相同，显示出接受较高的回收价格并且偏好容量补贴而非一次性固定补贴。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S184"
+    },
+    {
+      "id": "S185",
+      "page": 9,
+      "type": "paragraph",
+      "order": 185,
+      "original_text": "Other than that, Group 1 has more choice preferences, and Group 2 has very few. Specifically, market penetration and trade-in policies can incentivize Group 1 to opt for formal recycling, while Group 2 remains indifferent.",
+      "translation": "除此之外，第一组的选择偏好较多，第二组的选择偏好很少。 具体来说，市场渗透和以旧换新政策可以激励第一组选择正规回收，而第二组则保持冷漠。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S185"
+    },
+    {
+      "id": "S186",
+      "page": 9,
+      "type": "paragraph",
+      "order": 186,
+      "original_text": "Regarding the recycling entity, both groups are more likely to choose EV battery manufacturer recycling for formal recycling than third-party recycling companies. However, Group 1 is less likely to choose formal recycling if the car manufacturer recycles, and Group 2 doesn't care.",
+      "translation": "在回收主体方面，两类群体都更倾向于选择电动汽车电池制造商回收进行正规回收，而不是第三方回收公司。 不过，如果汽车制造商回收的话，第一组不太可能选择正规回收，而第二组则不在乎。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S186"
+    },
+    {
+      "id": "S187",
+      "page": 9,
+      "type": "paragraph",
+      "order": 187,
+      "original_text": "In terms of the recycling method, if it was mailed to the designated outlet, Group 1 would be less inclined to choose formal recycling, and Group 2 would not care. As for the information traceability policy, if it is trace able to the battery cascade utilization stage, Group 1 will be less inclined to opt for formal recycling, and Group 2 will not care.",
+      "translation": "在回收方式上，如果邮寄到指定网点， 第一组不太愿意选择正规回收，第二组则不在乎。 至于信息追溯政策，如果能追溯到电池梯次利用阶段，第一组就不太愿意选择正规回收，第二组则不会在意。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S187"
+    },
+    {
+      "id": "S188",
+      "page": 9,
+      "type": "paragraph",
+      "order": 188,
+      "original_text": "Regarding de mographic characteristics, age is a significant factor influencing the choice of formal recycling for Group 1 but not for Group 2. As for informal recycling outlet attributes (see Table 7), both groups still share the same preferences for recycling price and type of subsidy policy.",
+      "translation": "关于人口特征，年龄是影响第 1 组选择正规回收的重要因素，但对于第 2 组则不是。 至于非正式回收网点属性（见表7），两个群体对回收价格和补贴政策类型的偏好仍然相同。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S188"
+    },
+    {
+      "id": "S189",
+      "page": 9,
+      "type": "paragraph",
+      "order": 189,
+      "original_text": "Regarding recycling entities, Group 2 is less likely to choose informal recycling if it is EV battery recycling, and Group 1 is not Table 4 The cluster results of the individuals.",
+      "translation": "对于回收实体，如果是电动汽车电池回收，组2不太可能选择非正式回收，而组1则不是表4中个体的聚类结果。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [
+        "T003"
+      ],
+      "insert_after": "S189"
+    },
+    {
+      "id": "S190",
+      "page": 9,
+      "type": "paragraph",
+      "order": 190,
+      "original_text": "Cluster BIC ASW Fig. 4. Graphical output of BIC and ASW results. Huang et al. Journal of Environmental Management 370 (2024) 122180 concerned. Regarding the recycling method, Group 1 is less inclined to select informal recycling if it involves mailing to the designated outlet, while Group 2 is not significant.",
+      "translation": "集群 BIC ASW 图 4. BIC 和 ASW 结果的图形输出。 黄等人。环境管理学报370(2024)122180有关。 在回收方式上，如果涉及邮寄到指定网点，第一组不太倾向于选择非正式回收，而第二组则不那么重要。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S190"
+    },
+    {
+      "id": "S191",
+      "page": 9,
+      "type": "paragraph",
+      "order": 191,
+      "original_text": "Regarding demographic characteristics, age and education influence the informal recycling choices of Group 1 but not Group 2.",
+      "translation": "关于人口特征，年龄和教育程度影响第一组的非正式回收选择，但不影响第二组。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S191"
+    },
+    {
+      "id": "S192",
+      "page": 9,
+      "type": "heading",
+      "order": 192,
+      "original_text": "4.2.4. Comparison of formal and informal recycling behavior",
+      "translation": "4.2.4.正式和非正式回收行为的比较",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S192"
+    },
+    {
+      "id": "S193",
+      "page": 9,
+      "type": "paragraph",
+      "order": 193,
+      "original_text": "There are significant differences between potential EV users' preferences for formal versus informal recycling of vehicle batteries, and in this section, we focus more on the differences and how to facilitate the conversion of the user market from informal to formal recycling.",
+      "translation": "潜在电动汽车用户对正规和非正规汽车电池回收的偏好存在显着差异，在本节中，我们将更多地关注这些差异以及如何促进用户市场从非正规回收向正规回收的转变。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S193"
+    },
+    {
+      "id": "S194",
+      "page": 9,
+      "type": "paragraph",
+      "order": 194,
+      "original_text": "Regarding recycling service attributes, the price of recycling is a sig nificant factor. The recycling price coefficient of formal recycling (1.99, see Table 6) is greater than that for informal recycling (1.32, see Table 7), and an increase in the recycling price is more conducive to facilitating the conversion of informal recycling to formal recycling.",
+      "translation": "就回收服务属性而言，回收价格是一个重要因素。 正规回收的回收价格系数（1.99，见表6）大于非正规回收的回收价格系数（1.32，见表7），回收价格的提高更有利于促进非正规回收向正规回收转化。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S194"
+    },
+    {
+      "id": "S195",
+      "page": 9,
+      "type": "caption",
+      "order": 195,
+      "original_text": "Table 5 The cluster results of the individuals.",
+      "translation": "表5 个体聚类结果。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [
+        "T002"
+      ],
+      "insert_after": "S195"
+    },
+    {
+      "id": "S196",
+      "page": 9,
+      "type": "paragraph",
+      "order": 196,
+      "original_text": "Cluster Label Group1 (High EC and high REVBRK) Group2 (Low EC and low REVBRK) Size Item Value Item Value Average index of latent variable attributes REVBRK 01 6.59 REVBRK 01 5.54 REVBRK 02 6.42 REVBRK 02 4.85 REVBRK 03 6.51 REVBRK 03 5.41 REVBRK 04 6.46 REVBRK 04 5.06 REVBRK 05 6.47 REVBRK 05 5.26 EC01 6.65 EC01 5.99 EC02 6.56 EC02 5.84 EC03 6.59 EC03 5.56 EC04 6.65 EC04 5.84 Table 6 The model estimation results of selecting formal outlets for groups.",
+      "translation": "聚类标签 Group1（高 EC 和高 REVBRK） Group2（低 EC 和低 REVBRK） 大小 项目 值 项目 值 潜在变量属性的平均索引 REVBRK 01 6.59 REVBRK 01 5.54 REVBRK 02 6.42 REVBRK 02 4.85 REVBRK 03 6.51 REVBRK 03 5.41 REVBRK 04 6.46 REVBRK 04 5.06 REVBRK 05 6.47 REVBRK 05 5.26 EC01 6.65 EC01 5.99 EC02 6.56 EC02 5.84 EC03 6.59 EC03 5.56 EC04 6.65 EC04 5.84 表6 群体选择正式网点的模型估计结果。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S196"
+    },
+    {
+      "id": "S197",
+      "page": 10,
+      "type": "paragraph",
+      "order": 197,
+      "original_text": "Variables MNL Cluster analysis-MNL Estimate Std. Err (t-test) G1 G2 Estimate Std. Err (t-test) Estimate Std. Err (t-test) Recycling outlet attribute Rrecycling price 1.99a Market penetration 0.477a Recycling entity EV battery producers 0.228a Automotive manufacturers − 0.148b Third-party recycling companies Based Based Based Based Based Based Recycling method Recycling outlets offering doorstep battery collection 0.325a Mail to the designated outlets − 0.171a Self-deliver to the designated outlets Based Based Based Based Based Based Policy attribute Trade-in policy 0.628a Carbon credit 0.000146 0.000154 (0.948) 0.000171 0.000183 (0.938) 9.38e-05 0.00029 (0.324) Subsidy based on remaining battery capacity 0.0195a",
+      "translation": "变量 MNL 聚类分析 - MNL 估计标准。 Err（t 检验）G1 G2 估计标准。 错误（t 检验）估计标准。 Err (t 检验) 回收网点属性 R 回收价格 1.99a 市场渗透率 0.477a 回收实体电动汽车电池生产商 0.228a 汽车制造商 - 0.148b 第三方回收公司 回收方式 上门回收电池 0.325a 邮寄至指定网点 - 0.171a 自送至指定网点 基础 基础 基础 基础 基础 基础 政策属性 以旧换新政策 0.628a 碳信用额 0.000146 0.000154 (0.948) 0.000171 0.000183 (0.938) 9.38e-05 0.00029 (0.324) 根据剩余电池容量进行补贴 0.0195a",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S197"
+    },
+    {
+      "id": "S198",
+      "page": 10,
+      "type": "paragraph",
+      "order": 198,
+      "original_text": "One-time fixed subsidy 0.000473a Information traceability policy Traceable to the battery dismantling stage − 0.105 0.0743 (− 1.41) − 0.101 0.0882 (− 1.14) − 0.107 0.14 (− 0.764) Traceable to the outlet stage 0.329a Traceable to the battery cascade utilization stage − 0.175b No recycling information traceability Based Based Based Based Based Based Demographic attributes Gender − 0.109 0.183 (− 0.598) − 0.173 0.236 (− 0.733) 0.0487 0.3 (0.162) Age 0.27b Education − 0.37b Commuting cost 0.00281 0.101 (− 0.0279) − 0.0279 0.126 (− 0.221) 0.0241 0.18 (0.134) Monthly income − 0.0643 0.109 (− 0.589) − 0.0202 0.141 (− 0.144) − 0.0992 0.179 (− 0.544) Number of cars 0.117 0.2 (0.583) 0.257 0.281 (0.915) 0.0473 0.306 (0.151) Constants Formal recycling outlet 0.851 0.665 (1.28) 0.19 0.898 (0.212) 1.05 1.04 (1) None Based Based Based Based Based Based Number of observations 6873 4848 2025 Log-likelihood − 4960.287 − 3454.47 − 1466.488 Rho-square 0.0757 0.205 0.000131 Adjusted rho-square 0.343 0.351 0.341",
+      "translation": "一次性固定补助0.000473a 信息追溯政策 可追溯至电池拆解阶段 − 0.105 0.0743 (− 1.41) − 0.101 0.0882 (− 1.14) − 0.107 0.14 (− 0.764) 可追溯至出口阶段 0.329a 可追溯到电池级联利用阶段 - 0.175b 无回收信息可追溯性 基于 基于 基于 基于 基于 人口统计属性 性别 − 0.109 0.183 (− 0.598) − 0.173 0.236 (− 0.733) 0.0487 0.3 (0.162) 年龄 0.27b 教育程度 - 0.37b 交通费 0.00281 0.101 (− 0.0279) − 0.0279 0.126 (− 0.221) 0.0241 0.18 (0.134) 月收入 − 0.0643 0.109 (− 0.589) − 0.0202 0.141 (− 0.144) − 0.0992 0.179 (− 0.544) 汽车数量 0.117 0.2 (0.583) 0.257 0.281 (0.915) 0.0473 0.306 (0.151) 常数 正式回收出口 0.851 0.665 (1.28) 0.19 0.898 (0.212) 1.05 1.04 (1) 无 基于 基于 基于 基于 基于 基于 观测数量 6873 4848 2025 对数似然 − 4960.287 − 3454.47 − 1466.488 Rho 平方 0.0757 0.205 0.000131 调整后的 rho 平方0.343 0.351 0.341",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S198"
+    },
+    {
+      "id": "S199",
+      "page": 10,
+      "type": "paragraph",
+      "order": 199,
+      "original_text": "Standard errors are in parentheses. a p < 0.01. b p < 0.05. c p < 0.1. Huang et al. Journal of Environmental Management 370 (2024) 122180 Regarding the recycling entity, users who choose informal recycling prefer third-party companies to recycle EV batteries, while those who choose formal recycling prefer EV battery companies to recycle.",
+      "translation": "标准误差在括号内。 p < 0.01。 b p < 0.05。 cp < 0.1。 黄等人。环境管理学报370(2024)122180 从回收主体来看，选择非正式回收的用户更倾向于第三方公司回收电动汽车电池，而选择正规回收的用户则更倾向于电动汽车电池公司回收。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S199"
+    },
+    {
+      "id": "S200",
+      "page": 10,
+      "type": "paragraph",
+      "order": 200,
+      "original_text": "Therefore, recycling of EV batteries by EV battery companies is signifi cantly better than recycling by EV manufacturers and recycling by thirdparty companies and is more conducive to facilitating the trans formation of the market from informal to formal recycling.",
+      "translation": "因此，电动汽车电池企业对电动汽车电池的回收明显优于电动汽车制造商回收和第三方公司回收，更有利于促进市场从非正式回收向正式回收的转变。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S200"
+    },
+    {
+      "id": "S201",
+      "page": 10,
+      "type": "paragraph",
+      "order": 201,
+      "original_text": "In terms of recycling methods, users who chose informal recycling preferred to selfdeliver their batteries to designated recycling outlets, while those who chose formal recycling preferred door-to-door collection.",
+      "translation": "从回收方式来看，选择非正规回收的用户更倾向于将电池自行送到指定回收网点，而选择正规回收的用户则更倾向于上门回收。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S201"
+    },
+    {
+      "id": "S202",
+      "page": 10,
+      "type": "paragraph",
+      "order": 202,
+      "original_text": "Therefore, door-to-door recycling is essential in stimulating the formal recycling market for EV batteries.",
+      "translation": "因此，上门回收对于促进正规回收至关重要。 电动汽车电池市场。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S202"
+    },
+    {
+      "id": "S203",
+      "page": 10,
+      "type": "heading",
+      "order": 203,
+      "original_text": "4.3. Willingness to pay",
+      "translation": "4.3.支付意愿",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S203"
+    },
+    {
+      "id": "S204",
+      "page": 10,
+      "type": "paragraph",
+      "order": 204,
+      "original_text": "Table 8 presents the WTP for recycling outlet and policy attributes, calculated based on the coefficients obtained from Tables 6 and 7. These WTP values are determined by the ratio of the respective attribute co efficients to the purchase price coefficient.",
+      "translation": "表 8 列出了回收渠道和政策属性的 WTP，根据表 6 和表 7 获得的系数计算。 这些WTP值由各自属性系数与购买价格系数的比率确定。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S204"
+    },
+    {
+      "id": "S205",
+      "page": 10,
+      "type": "paragraph",
+      "order": 205,
+      "original_text": "First, it is observed that in dividuals exhibit a higher WTP for policy attributes, while the WTP for recycling outlet attributes is relatively lower, as detailed in Table 8.",
+      "translation": "首先，观察到个人对政策属性表现出较高的WTP，而对回收出口属性的WTP相对较低，如表8所示。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S205"
+    },
+    {
+      "id": "S206",
+      "page": 10,
+      "type": "paragraph",
+      "order": 206,
+      "original_text": "When selecting formal recycling outlets, individuals demonstrate the highest WTP for the trade-in policy. An increase of 10% in the trade-in policy incentive leads individuals to accept a reduction of 3156 RMB in recycling returns.",
+      "translation": "在选择正规回收网点时，个人对以旧换新政策表现出最高的支付意愿。 以旧换新政策激励增加10%，个人可以接受回收退货减少3156元。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S206"
+    },
+    {
+      "id": "S207",
+      "page": 10,
+      "type": "paragraph",
+      "order": 207,
+      "original_text": "Second, regarding recycling methods, Individuals are willing to accept a 1633 RMB reduction in recycling returns for the convenience of doorstep collection by recycling merchants compared to self-delivery to designated outlets.",
+      "translation": "其次，在回收方式上，与自行送到指定网点相比，为了方便回收商上门回收，个人愿意接受回收退货减少1633元。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S207"
+    },
+    {
+      "id": "S208",
+      "page": 10,
+      "type": "paragraph",
+      "order": 208,
+      "original_text": "Third, the market penetration rate of formal outlets is one of the crucial factors individuals consider. Ac cording to Table 7 with every 10% increase in the market penetration rate of formal outlets, individuals are willing to accept a decrease of",
+      "translation": "第三，正规网点的市场渗透率是个人考虑的关键因素之一。 乙酰胆碱 根据表7，正规网点市场渗透率每提高10%，个人愿意接受的",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S208"
+    },
+    {
+      "id": "S209",
+      "page": 10,
+      "type": "heading",
+      "order": 209,
+      "original_text": "2397 RMB in recycling returns.",
+      "translation": "回收收益2397元。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S209"
+    },
+    {
+      "id": "S210",
+      "page": 10,
+      "type": "paragraph",
+      "order": 210,
+      "original_text": "When choosing informal recycling outlets, individuals exhibit a significantly higher WTP for the trade-in policy than other attributes. An increase of 10% in the trade-in policy incentive leads individuals to accept a reduction of 8939 RMB in recycling returns.",
+      "translation": "在选择非正式回收渠道时，个人对以旧换新政策的支付意愿明显高于其他属性。 以旧换新政策激励增加10%，个人可以接受回收退货减少8939元。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S210"
+    },
+    {
+      "id": "S211",
+      "page": 10,
+      "type": "paragraph",
+      "order": 211,
+      "original_text": "Secondly, con cerning the recycling entity, choosing automotive manufacturers over third-party recycling companies increases the recycling returns by 3038 RMB, indicating that individuals are more willing to pay for the service provided by third-party recycling companies.",
+      "translation": "其次，就回收主体而言，选择汽车制造商而非第三方回收公司，回收收益增加了3038元，表明个人更愿意为第三方回收公司提供的服务付费。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S211"
+    },
+    {
+      "id": "S212",
+      "page": 10,
+      "type": "paragraph",
+      "order": 212,
+      "original_text": "Finally, regarding recy cling methods, selecting recycling outlets offering doorstep battery collection over self-delivering to designated outlets increases the acceptable recycling returns by 3416 RMB.",
+      "translation": "最后，关于回收 坚持方法，选择提供上门电池收集的回收网点而不是自行运送到指定网点，使可接受的回收收益增加了 3416 元。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S212"
+    },
+    {
+      "id": "S213",
+      "page": 10,
+      "type": "caption",
+      "order": 213,
+      "original_text": "Table 7 The model estimation results of selecting informal outlets for groups.",
+      "translation": "表7 群体选择非正式渠道的模型估计结果。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S213"
+    },
+    {
+      "id": "S214",
+      "page": 10,
+      "type": "paragraph",
+      "order": 214,
+      "original_text": "Variables MNL Cluster analysis-MNL Estimate Std. Err (t-test) G1 G2 Estimate Std. Err (t-test) Estimate Std. Err (t-test) Recycling outlet attribute Recycling price 1.32a Recycling entity EV battery producers − 0.111c Automotive manufacturers − 0.401a Third-party recycling companies Based Based Based Based Based Based Recycling method Recycling outlets offering doorstep battery collection − 0.451a Mail to the designated outlets − 0.178a Self-deliver to the designated outlets Based Based Based Based Based Based Policy attribute Trade-in policy 1.18a Demographic Factors attribute Gender 0.164 0.182 (0.9) 0.222 0.236 (0.943) 0.0286 0.289 (0.096) Age 0.229c",
+      "translation": "变量 MNL 聚类分析 - MNL 估计标准。 Err（t 检验）G1 G2 估计标准。 错误（t 检验）估计标准。 Err (t 检验) 回收网点属性 回收价格 1.32a 回收实体电动汽车电池生产商 - 0.111c 汽车制造商 − 0.401a 第三方回收公司 依据 依据 依据 依据 回收方法 提供上门电池收集的回收网点 − 0.451a 邮寄至指定网点 - 0.178a 自送货到指定网点 基础 基础 基础 基础 基础 基础 政策属性 以旧换新政策 1.18a 人口因素属性 性别 0.164 0.182 (0.9) 0.222 0.236 (0.943) 0.0286 0.289 (0.096) 年龄 0.229c",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S214"
+    },
+    {
+      "id": "S215",
+      "page": 10,
+      "type": "paragraph",
+      "order": 215,
+      "original_text": "Education − 0.385b Commuting cost 0.0278 0.101 (0.277) − 0.0273 0.126 (− 0.217) 0.0943 0.178 (0.529) Monthly income 0.0169 0.109 (0.155) 0.0803 0.14 (0.572) − 0.0567 0.178 (− 0.319) Number of cars − 0.00736 0.2 (− 0.0368) 0.131 0.281 (0.462) − 0.0897 0.304 (− 0.295) Constants Informal recycling outlet 1.22c None Based Based Based Based Based Based Number of observations 6873 4848 2025 Log-likelihood − 4960.287 − 3454.47 − 1466.488 Rho-square 0.0757 0.205 0.000131 Adjusted rho-square 0.343 0.351 0.341 Standard errors are in parentheses.",
+      "translation": "教育程度 - 0.385b 通勤费用 0.0278 0.101 (0.277) − 0.0273 0.126 (− 0.217) 0.0943 0.178 (0.529) 月收入 0.0169 0.109 (0.155) 0.0803 0.14 (0.572) − 0.0567 0.178 (− 0.319) 汽车数量 − 0.00736 0.2 (− 0.0368) 0.131 0.281 (0.462) − 0.0897 0.304 (− 0.295) 常数 非正式回收出口 1.22c 无 基于 基于 基于 基于 基于 观测数 6873 4848 2025 对数似然 − 4960.287 − 3454.47 − 1466.488 Rho 平方 0.0757 0.205 0.000131 调整后的 rho 平方 0.343 0.351 0.341 标准误差在括号中。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S215"
+    },
+    {
+      "id": "S216",
+      "page": 10,
+      "type": "caption",
+      "order": 216,
+      "original_text": "Table 8 Marginal WTP for changes in vehicle and policy attributes.",
+      "translation": "表 8 车辆和保单属性变化的边际支付意愿。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S216"
+    },
+    {
+      "id": "S217",
+      "page": 10,
+      "type": "paragraph",
+      "order": 217,
+      "original_text": "Recycling outlets type FMRO (RMB) IFMRO (RMB) Recycling outlet attribute Market penetration − 2397 – Recycling entity EV battery producers − 1146 841 Automotive manufacturers 744 3038 Third-party recycling companies Based Based Recycling method Recycling outlets offering doorstep battery collection − 1633 3416 Mail to the designated outlets 859 1348 Self-deliver to the designated outlets Based Based Policy attribute Trade-in policy − 3156 − 8939 Subsidy policy Capacity subsidy − 98 – One-time fixed subsidy − 2 – Information traceability policy Traceable to the outlet stage − 1653 – Traceable to the battery cascade utilization stage 884 – No recycling information traceability Based – X.",
+      "translation": "回收网点类型 FMRO（人民币） IFMRO（人民币） 回收网点属性 市场渗透率 − 2397 – 回收实体电动车电池生产商 − 1146 841 汽车制造商 744 3038 第三方回收公司 基于 基础 回收方式 提供上门电池回收的回收网点 − 1633 3416 邮寄到指定网点 859 1348 自送至指定基于网点 基于 政策属性 以旧换新政策 − 3156 − 8939 补贴政策 容量补贴 − 98 – 一次性定额补贴 − 2 – 信息追溯政策 可追溯至出口阶段 − 1653 – 可追溯至电池梯级利用阶段 884 – 无回收信息追溯 基于 – X.",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S217"
+    },
+    {
+      "id": "S218",
+      "page": 10,
+      "type": "paragraph",
+      "order": 218,
+      "original_text": "Huang et al. Journal of Environmental Management 370 (2024) 122180",
+      "translation": "黄等人。环境管理学报370(2024)122180",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S218"
+    },
+    {
+      "id": "S219",
+      "page": 10,
+      "type": "heading",
+      "order": 219,
+      "original_text": "5. Discussion",
+      "translation": "5. 讨论",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S219"
+    },
+    {
+      "id": "S220",
+      "page": 10,
+      "type": "heading",
+      "order": 220,
+      "original_text": "5.1. Theoretical contributions",
+      "translation": "5.1.理论贡献",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S220"
+    },
+    {
+      "id": "S221",
+      "page": 10,
+      "type": "paragraph",
+      "order": 221,
+      "original_text": "Our study contributes to the existing knowledge base in three main aspects. First, our study proposes a discrete choice model to identify the choice preferences of formal and informal recycling for EV battery recycling.",
+      "translation": "我们的研究在三个主要方面对现有知识库做出了贡献。 首先，我们的研究提出了一个离散选择模型来确定电动汽车电池回收的正式和非正式回收的选择偏好。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S221"
+    },
+    {
+      "id": "S222",
+      "page": 10,
+      "type": "paragraph",
+      "order": 222,
+      "original_text": "To the best of our knowledge, our study is the first to be used to reveal observable attribute preferences for EV battery recycling. Second, we introduce new attributes from the recycling service and policy perspectives, such as recycling entities, recycling methods, tradein policies, carbon credit policies, subsidy policies, and information traceability policies, to quantify the market's choice preferences and policy influence.",
+      "translation": "据我们所知，我们的研究是第一个用于揭示电动汽车电池回收可观察属性偏好的研究。 其次，我们从回收服务和政策角度引入新的属性，如回收主体、回收方式、以旧换新政策、碳信用政策、补贴政策、信息追溯政策等，量化市场的选择偏好和政策影响。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S222"
+    },
+    {
+      "id": "S223",
+      "page": 10,
+      "type": "paragraph",
+      "order": 223,
+      "original_text": "These attributes have not been analyzed in existing studies, yet they are essential for an in-depth understanding of the EV battery recycling market. Finally, we reveal consumer heterogeneity in the EV battery recycling market by using multi-group analysis and comparing the differences.",
+      "translation": "现有研究尚未分析这些属性，但它们对于深入了解电动汽车电池回收市场至关重要。 最后，我们通过多组分析和分析揭示了电动汽车电池回收市场中消费者的异质性 比较差异。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S223"
+    },
+    {
+      "id": "S224",
+      "page": 10,
+      "type": "paragraph",
+      "order": 224,
+      "original_text": "Finally, our results show that most of the proposed attributes are significant for formal recycling options for EV batteries, except for carbon credit policies, which are not significant.",
+      "translation": "最后，我们的结果表明，大多数提出的属性对于电动汽车电池的正式回收选择都很重要，但碳信用政策除外，后者并不重要。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S224"
+    },
+    {
+      "id": "S225",
+      "page": 10,
+      "type": "paragraph",
+      "order": 225,
+      "original_text": "Regarding demographic variables, we found that only age and education affect EV battery recycling.",
+      "translation": "关于人口变量，我们发现只有年龄和教育程度会影响电动汽车电池的回收。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S225"
+    },
+    {
+      "id": "S226",
+      "page": 10,
+      "type": "heading",
+      "order": 226,
+      "original_text": "5.2. Managerial implications",
+      "translation": "5.2.管理影响",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "high",
+      "refs": [],
+      "insert_after": "S226"
+    },
+    {
+      "id": "S227",
+      "page": 11,
+      "type": "paragraph",
+      "order": 227,
+      "original_text": "Our study also provides valuable management insights for govern ment policy-making and demand guidance for the EV battery recycling industry. The market penetration of formal recycling outlets is essential for the formal recycling of EV batteries, especially for potential EV users with high EC and REVBRK.",
+      "translation": "我们的研究还为政府决策和电动汽车电池回收行业的需求指导提供了宝贵的管理见解。 正规回收网点的市场渗透对于电动汽车电池的正规回收至关重要，特别是对于具有高 EC 和 REVBRK 的潜在电动汽车用户。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S227"
+    },
+    {
+      "id": "S228",
+      "page": 11,
+      "type": "paragraph",
+      "order": 228,
+      "original_text": "A higher market penetration implies that formal recycling outlets are more widely available, allowing consumers to choose them for battery recycling conveniently. The shortage of formal recycling outlets has consistently been a significant obstacle to the recycling of retired EV batteries in China, with statistics indicating that the market share of formal recycling outlets is currently less than 25% (Li et al., 2023). Therefore, the government and enterprises should focus on promoting more formal recycling outlets and, simultaneously, publicizing Group 1 users to increase the amount of recycling from formal recycling outlets.",
+      "translation": "市场渗透率越高，意味着正规回收网点越广泛，消费者可以方便地选择正规回收网点进行电池回收。 缺乏正规的回收网点一直是一个重大障碍 我国报废电动汽车电池回收情况，统计数据显示，目前正规回收网点市场占有率不足 25%（Li 等人，2023）。因此，政府和企业应该 重点推广正规回收网点，同时宣传1类用户增加正规回收网点的回收量。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S228"
+    },
+    {
+      "id": "S229",
+      "page": 11,
+      "type": "paragraph",
+      "order": 229,
+      "original_text": "Regarding the recycling entity, the formal EV battery recycling market favors recycling by EV battery manufacturers over third-party recyclers, while recycling by car manufacturers is the least effective",
+      "translation": "从回收主体来看，正规的电动车电池回收市场更倾向于电动车电池制造商的回收而不是第三方回收商的回收，而汽车制造商的回收效率最低",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S229"
+    },
+    {
+      "id": "S230",
+      "page": 11,
+      "type": "heading",
+      "order": 230,
+      "original_text": "method. This finding may be because EV battery manufacturers are",
+      "translation": "方法。这一发现可能是因为电动汽车电池制造商",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S230"
+    },
+    {
+      "id": "S231",
+      "page": 11,
+      "type": "paragraph",
+      "order": 231,
+      "original_text": "more specialized in battery handling and are more likely to be trusted by the market, whereas many car manufacturers are not responsible for producing batteries and therefore do not enjoy the same level of trust.",
+      "translation": "更专业于电池处理，更容易受到市场的信任，而许多汽车制造商不负责生产电池，因此不享有同等程度的信任。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S231"
+    },
+    {
+      "id": "S232",
+      "page": 11,
+      "type": "paragraph",
+      "order": 232,
+      "original_text": "Therefore, supporting EV battery companies to recycle should be the priority in promoting the formal recycling industry. On the other hand, for the informal recycling market, it is their least favorite that car manufacturers are responsible for recycling decommissioned batteries.",
+      "translation": "因此，支持电动汽车电池企业回收应成为推动正规回收产业发展的重点。 另一方面，对于非正规回收市场来说，他们最不喜欢的是汽车制造商负责回收退役电池。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S232"
+    },
+    {
+      "id": "S233",
+      "page": 11,
+      "type": "paragraph",
+      "order": 233,
+      "original_text": "This phenomenon may be because recycling networks dominated by car manufacturers are more developed and offer greater convenience, reducing the likelihood of informal recycling.",
+      "translation": "这种现象可能是因为以汽车制造商为主的回收网络更加发达，提供了更大的便利，减少了非正规回收的可能性。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S233"
+    },
+    {
+      "id": "S234",
+      "page": 11,
+      "type": "paragraph",
+      "order": 234,
+      "original_text": "Therefore, supporting vehicle manufacturers in recycling EV batteries is more advantageous in curbing the informal recycling industry. Regarding the recycling",
+      "translation": "因此，支持汽车制造商回收电动汽车电池更有利于遏制非正规回收行业。 关于回收",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S234"
+    },
+    {
+      "id": "S235",
+      "page": 11,
+      "type": "heading",
+      "order": 235,
+      "original_text": "method, door-to-door recycling of EV batteries is the favorite of formal",
+      "translation": "上门回收电动汽车电池是正规机构的最爱",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S235"
+    },
+    {
+      "id": "S236",
+      "page": 11,
+      "type": "paragraph",
+      "order": 236,
+      "original_text": "recycling users and, simultaneously, the least preferred way by informal recycling users. Door-to-door recycling offers the greatest convenience and facilitates the transition of the EV battery market from informal to formal recycling.",
+      "translation": "回收用户，同时也是非正规回收用户最不喜欢的方式。 上门回收提供了最大的便利，并促进了电动汽车电池市场从非正式回收到正式回收的转变。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S236"
+    },
+    {
+      "id": "S237",
+      "page": 11,
+      "type": "paragraph",
+      "order": 237,
+      "original_text": "Therefore, companies should prioritize the promotion of door-to-door recycling services. As for the recycling policies, the trade-in and subsidy policies are conducive to promoting the formal recycling market for EV batteries.",
+      "translation": "因此，企业应优先推广上门回收服务。 在回收政策方面，以旧换新和补贴政策有利于推动电动汽车电池正规回收市场的形成。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S237"
+    },
+    {
+      "id": "S238",
+      "page": 11,
+      "type": "paragraph",
+      "order": 238,
+      "original_text": "In particular, the EV battery recycling market has a much higher WTP for the trade-in policy than for the subsidy policy (see Table 8). This phe nomenon suggests that the essence of battery recycling for potential EV users is to renew and reduce battery replacement costs, not to obtain a subsidy.",
+      "translation": "特别是，电动汽车电池回收市场对以旧换新政策的支付意愿远高于对补贴政策的支付意愿（见表8）。 这一现象表明，对于潜在的电动汽车用户来说，电池回收的本质是更新和降低电池更换成本，而不是获得补贴。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S238"
+    },
+    {
+      "id": "S239",
+      "page": 11,
+      "type": "paragraph",
+      "order": 239,
+      "original_text": "Therefore, actively promoting trade-in policies may have a vast stimulating effect on the recycling market. Certainly, subsidy policies are still effective for the pro-environmental behavior of EV battery recycling, and this conclusion is also consistent with the existing liter ature (Chen et al., 2022; Tang et al., 2023).",
+      "translation": "因此，积极推动以旧换新政策可能会对回收市场产生巨大的刺激作用。 当然还有补贴政策 对于电动汽车电池回收的环保行为仍然有效，这一结论也与现有文献一致（Chen等，2022；Tang等，2023）。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S239"
+    },
+    {
+      "id": "S240",
+      "page": 11,
+      "type": "paragraph",
+      "order": 240,
+      "original_text": "We also find that the recy cling market is more interested in capacity subsidy policies than one-off subsidy policies (see Table 8). Therefore, the Government should consider a capacity subsidy policy, which can give the market the most significant stimulus, rather than a one-off subsidy policy across the board.",
+      "translation": "我们还发现，回收市场对产能补贴政策比一次性补贴政策更感兴趣（见表8）。 因此，政府应该考虑实行产能补贴政策，这样能够给市场带来最显着的刺激，而不是一刀切的一次性补贴政策。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S240"
+    },
+    {
+      "id": "S241",
+      "page": 11,
+      "type": "paragraph",
+      "order": 241,
+      "original_text": "While capable of promoting the formal recycling market, the recy cling information traceability policy's influence is relatively weak, and the carbon credit policy does not show a significant effect.",
+      "translation": "虽然能够促进正规的回收市场，但回收信息追溯政策的影响力相对较弱，碳信用政策也没有表现出显着的效果。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S241"
+    },
+    {
+      "id": "S242",
+      "page": 11,
+      "type": "paragraph",
+      "order": 242,
+      "original_text": "Specifically, battery traceability in the recycling market is limited to ensuring that batteries are delivered to recycling outlets, with minor concern for the subsequent flow of batteries for laddering.",
+      "translation": "具体来说，回收市场的电池溯源仅限于确保电池被运送到回收网点，很少关注电池后续的梯次流动。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S242"
+    },
+    {
+      "id": "S243",
+      "page": 11,
+      "type": "paragraph",
+      "order": 243,
+      "original_text": "This makes sense as ensuring that batteries go to the correct recycling outlets is enough to meet the needs of most users, especially those with a high level of EC and REVBRK.",
+      "translation": "这是有道理的，因为确保电池到达正确的回收站就足以满足 大多数用户的需求，尤其是那些 EC 和 REVBRK 级别较高的用户。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S243"
+    },
+    {
+      "id": "S244",
+      "page": 11,
+      "type": "paragraph",
+      "order": 244,
+      "original_text": "Therefore, it is necessary to build a traceability system for retired batteries, but it is enough to only record the flow of batteries to recycling outlets. Regarding demographic characteristics, age positively impacts the formal recycling market for EV batteries, while education level exhibits a negative influence.",
+      "translation": "因此，有必要建立退役电池的追溯系统，但仅记录电池流向回收网点就足够了。 就人口特征而言，年龄对电动汽车电池的正规回收市场产生积极影响，而教育水平则表现出负面影响。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S244"
+    },
+    {
+      "id": "S245",
+      "page": 11,
+      "type": "paragraph",
+      "order": 245,
+      "original_text": "This finding may be because older users care more about the battery recycling itself than the final desti nation of the battery, stemming from a sense of self-risk aversion, whereas those with a higher level of education tend not to recycle, which may be related to the imperfections of the current recycling system.",
+      "translation": "这一发现可能是因为老年用户更关心电池回收本身而不是电池的最终去向，源于自我风险厌恶感， 而受教育程度较高的人往往不进行回收，这可能与目前回收体系的不完善有关。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S245"
+    },
+    {
+      "id": "S246",
+      "page": 11,
+      "type": "paragraph",
+      "order": 246,
+      "original_text": "Both behavioral tendencies are influenced by biases, so the government and industry should actively promote and educate individuals in the recy cling market to formally increase their motivation to recycle EV batteries.",
+      "translation": "这两种行为倾向都受到偏见的影响，因此政府和行业应积极宣传和教育回收市场中的个人，以正式提高他们回收电动汽车电池的积极性。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S246"
+    },
+    {
+      "id": "S247",
+      "page": 11,
+      "type": "heading",
+      "order": 247,
+      "original_text": "6. Conclusion and policy implications",
+      "translation": "六、结论和政策含义",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S247"
+    },
+    {
+      "id": "S248",
+      "page": 11,
+      "type": "paragraph",
+      "order": 248,
+      "original_text": "The surging EV market is giving the EV battery recycling market a huge challenge. Existing studies on the understanding of EV battery recycling behavior have been limited to latent variable analysis, neglecting the analysis of observable attributes and the assessment of related policy impacts.",
+      "translation": "蓬勃发展的电动汽车市场给电动汽车电池回收市场带来了巨大的挑战。 现有对电动汽车电池回收行为理解的研究仅限于潜变量分析，忽视了可观察属性的分析和相关政策影响的评估。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S248"
+    },
+    {
+      "id": "S249",
+      "page": 11,
+      "type": "paragraph",
+      "order": 249,
+      "original_text": "To address this gap, our study proposes a new discrete choice model including nine observable attributes and validates the feasibility of the proposed framework using a sample of 1190 con sumers from Chongqing, China, contributing knowledge to the existing literature.",
+      "translation": "为了解决这一差距，我们的研究提出了一个新的离散选择模型，包括九个可观察的属性，并使用来自中国重庆的 1190 名消费者样本验证了所提出框架的可行性，为现有的模型贡献了知识。 文学。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S249"
+    },
+    {
+      "id": "S250",
+      "page": 12,
+      "type": "paragraph",
+      "order": 250,
+      "original_text": "Additionally, we classified consumers into two groups based on potential variables (EC and REVBRK) to identify priority areas for recycling policies and outlet services and quantify their impact on formal outlet adoption.",
+      "translation": "此外，我们根据潜在变量（EC 和 REVBRK）将消费者分为两组，以确定回收政策和奥特莱斯服务的优先领域，并量化其对正式奥特莱斯采用的影响。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S250"
+    },
+    {
+      "id": "S251",
+      "page": 12,
+      "type": "paragraph",
+      "order": 251,
+      "original_text": "To our knowledge, this study is the first to employ a discrete choice model to investigate preferences for formal versus informal recycling options for EV batteries. Our study obtains several important findings.",
+      "translation": "据我们所知，这项研究首次采用离散选择模型来调查电动汽车电池的正式与非正式回收方案的偏好。 我们的研究获得了几个重要的发现。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S251"
+    },
+    {
+      "id": "S252",
+      "page": 12,
+      "type": "paragraph",
+      "order": 252,
+      "original_text": "Recycling prices significantly affect the EV battery recycling market, both for formal and informal recycling users, and the recycling price impact coefficient for formal recycling (1.99, see Table 6) is greater than that for informal recycling (1.32, see Table 7).",
+      "translation": "回收价格显着影响电动汽车电池回收市场，无论是正规还是非正规回收用户，正规回收的回收价格影响系数（1.99，见表6）大于非正规回收的回收价格影响系数（1.32，见表7）。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S252"
+    },
+    {
+      "id": "S253",
+      "page": 12,
+      "type": "paragraph",
+      "order": 253,
+      "original_text": "For the formal recycling market, the tradein policy and market penetration have the highest WTPs (− 3156 for trade-in policy and − 2397 for market penetration, see Table 8), which is the favorite of formal recycling users.",
+      "translation": "对于正规回收市场，以旧换新政策和市场渗透率的支付意愿最高（以旧换新政策−3156，市场渗透率−2397，见表8），这是正规回收用户的最爱。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S253"
+    },
+    {
+      "id": "S254",
+      "page": 12,
+      "type": "paragraph",
+      "order": 254,
+      "original_text": "The recycling entity is also important in determining the EV battery recycling business model. Specifically, formal recycling users prefer EV battery producers to recycle, while the informal recycling market is least likely to be subject to the responsibility of vehicle producers for recycling.",
+      "translation": "回收单位也是 对于确定电动汽车电池回收业务模式非常重要。 具体来说，正规回收用户更喜欢电动汽车电池生产商进行回收，而非正规回收市场则最不可能承担汽车生产商的回收责任。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S254"
+    },
+    {
+      "id": "S255",
+      "page": 12,
+      "type": "paragraph",
+      "order": 255,
+      "original_text": "In terms of recycling methods, informal recycling users prefer to self-deliver to designated recycling outlets. Regarding the recycling subsidies, the ca pacity subsidy policy is preferred to the one-time fixed subsidy policy (− 98 for the capacity subsidy and − 2 for the one-off fixed subsidy; see Table 8).",
+      "translation": "在回收方式上，非正规回收用户更倾向于自行送到指定回收网点。 关于回收补贴，容量补贴政策优先于一次性固定补贴政策（容量补贴-98，一次性固定补贴-2；见 表 8）。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S255"
+    },
+    {
+      "id": "S256",
+      "page": 12,
+      "type": "paragraph",
+      "order": 256,
+      "original_text": "As for the information traceability policy, traceability to the X. Huang et al. Journal of Environmental Management 370 (2024) 122180 outlet stage is necessary and sufficient compared to non-retroactivity, whereas traceability to the battery cascade utilization stage is unnec essary.",
+      "translation": "至于信息追溯政策，可追溯至X. 黄等人。 Journal of Environmental Management 370 (2024) 122180 与非追溯性相比，出口阶段是必要且充分的，而电池梯级利用阶段的可追溯性是不必要的。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S256"
+    },
+    {
+      "id": "S257",
+      "page": 12,
+      "type": "paragraph",
+      "order": 257,
+      "original_text": "Finally, older people are more inclined to support recycling, while those with more education tend not to participate. Our study also provides several important implications.",
+      "translation": "最后，老年人更倾向于支持回收，而受教育程度较高的人往往不参与。 我们的研究还提供了几个重要的启示。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S257"
+    },
+    {
+      "id": "S258",
+      "page": 12,
+      "type": "paragraph",
+      "order": 258,
+      "original_text": "Recycling subsidies are essential for the government policy side, where capacity subsidies should be prioritized over one-time fixed subsidies. The gov ernment should also pay active attention to the density of formal recy cling outlets for EV batteries and construct a recycling traceability system, especially the traceability stage for recycling outlets.",
+      "translation": "回收补贴对于政府政策面至关重要，容量补贴应优先于一次性固定补贴。 政府还应积极关注电动汽车电池正规回收网点的密度，构建回收追溯体系，特别是回收网点的可追溯阶段。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S258"
+    },
+    {
+      "id": "S259",
+      "page": 12,
+      "type": "paragraph",
+      "order": 259,
+      "original_text": "They should intervene and incentivize EV formal recycling market develop ment effectively. Increasing the recycling price is an important step for companies to effectively increase the amounts of batteries recycled by formal companies, especially to capture the recycling demand from some informal recycling options.",
+      "translation": "他们应该有效干预和激励电动汽车正规回收市场的发展。 提高回收价格是重要一步 企业要有效增加正规企业回收电池的数量，特别是要抓住一些非正规回收方案的回收需求。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S259"
+    },
+    {
+      "id": "S260",
+      "page": 12,
+      "type": "paragraph",
+      "order": 260,
+      "original_text": "EV battery recyclers should be actively involved in EV battery recycling, which can capture more formal recy cling demand, and automakers should be actively engaged in EV battery recycling, which can capture more informal recycling demand.",
+      "translation": "电动汽车电池回收商应积极参与电动汽车电池回收，这样可以捕获更多正规回收需求，汽车制造商应该积极参与电动汽车电池回收，这样可以捕获更多非正式回收需求。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S260"
+    },
+    {
+      "id": "S261",
+      "page": 12,
+      "type": "paragraph",
+      "order": 261,
+      "original_text": "In terms of recycling methods, promoting door-to-door services is important for businesses to increase the demand for formal recycling and block the informal recycling market.",
+      "translation": "在回收方式方面，推广上门服务对于商家增加正规回收需求、阻断垃圾回收具有重要意义。 非正式的回收市场。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S261"
+    },
+    {
+      "id": "S262",
+      "page": 12,
+      "type": "paragraph",
+      "order": 262,
+      "original_text": "Several limitations are also involved in our study. First, our study only considered a sample of four policies and may have overlooked other relevant legislation. Future studies could attempt to examine the policy framework more comprehensively.",
+      "translation": "我们的研究也存在一些局限性。 首先，我们的研究仅考虑了四项政策的样本，可能忽略了其他相关立法。 未来的研究可以尝试更全面地审查政策框架。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S262"
+    },
+    {
+      "id": "S263",
+      "page": 12,
+      "type": "paragraph",
+      "order": 263,
+      "original_text": "Secondly, despite our efforts to mitigate endogeneity issues in the experiment, it is impossible to completely eliminate the potential presence of measurement errors and residual endogeneity.",
+      "translation": "其次，尽管我们努力减轻实验中的内生性问题，但不可能完全消除潜在存在的测量误差和残余内生性。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S263"
+    },
+    {
+      "id": "S264",
+      "page": 12,
+      "type": "paragraph",
+      "order": 264,
+      "original_text": "Future research could try to suggest better ways to address endogeneity. Thirdly, our study focuses primarily on observable variables, and it is unclear how latent and observable variables jointly affect the EV battery recycling market.",
+      "translation": "未来的研究可能会尝试提出更好的方法 解决内生性问题。 第三，我们的研究主要关注可观察变量，尚不清楚潜在变量和可观察变量如何共同影响电动汽车电池回收市场。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S264"
+    },
+    {
+      "id": "S265",
+      "page": 12,
+      "type": "paragraph",
+      "order": 265,
+      "original_text": "Future research could construct hybrid discrete choice models to analyze this further. Finally, how these policies and service attributes affect the evolution of the recycling market is also an important research question.",
+      "translation": "未来的研究可以构建混合离散选择模型来进一步分析这一点。 最后，这些政策和服务属性如何影响回收市场的演变也是一个重要的研究问题。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S265"
+    },
+    {
+      "id": "S266",
+      "page": 12,
+      "type": "paragraph",
+      "order": 266,
+      "original_text": "Future research could try to construct an agent-based simulation model for further analysis. CRediT authorship contribution statement Xingjun Huang: Writing – original draft, Visualization, Investiga tion, Conceptualization.",
+      "translation": "未来的研究可以尝试构建基于代理的模拟模型以进行进一步分析。 CRediT 作者贡献声明 Xingjun Huang：写作 - 初稿、可视化、调查、概念化。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S266"
+    },
+    {
+      "id": "S267",
+      "page": 12,
+      "type": "paragraph",
+      "order": 267,
+      "original_text": "Song Lei: Methodology, Formal analysis, Conceptualization. Feng Liu: Visualization, Investigation. Yan Li: Software, Resources, Funding acquisition. Fuli Zhou: Writing – review & editing, Supervision, Funding acquisition.",
+      "translation": "宋雷：方法论、形式分析、概念化。 刘峰：可视化、调查。 李岩：软件、资源、资金获取。 Fuli Zhou：写作-审稿和编辑、监督、资金获取。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S267"
+    },
+    {
+      "id": "S268",
+      "page": 12,
+      "type": "paragraph",
+      "order": 268,
+      "original_text": "Ming K. Lim: Writing – review & editing, Investigation, Conceptualization. Declaration of competing interest The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.",
+      "translation": "明K. Lim：写作——评论和编辑、调查、概念化。 竞争利益声明 作者声明，他们没有已知的可能影响本文报告工作的竞争经济利益或个人关系。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S268"
+    },
+    {
+      "id": "S269",
+      "page": 12,
+      "type": "heading",
+      "order": 269,
+      "original_text": "Data availability Data will be made available on request.",
+      "translation": "数据可用性 数据将根据要求提供。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S269"
+    },
+    {
+      "id": "S270",
+      "page": 12,
+      "type": "paragraph",
+      "order": 270,
+      "original_text": "Acknowledgements This study is supported by the Natural Science Foundation of Chongqing (grant no. CSTB2023NSCQBHX0084), the China Post doctoral Science Foundation (grant no.",
+      "translation": "致谢本研究得到重庆市自然科学基金项目（批准号：2017）的资助。 CSTB2023NSCQBHX0084），中国博士后科学基金（批准号：",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S270"
+    },
+    {
+      "id": "S271",
+      "page": 12,
+      "type": "paragraph",
+      "order": 271,
+      "original_text": "2023M732389), and the Hu manities & Social Sciences Project from the Ministry of Education in PRC (grant no.",
+      "translation": "2023M732389），以及中华人民共和国教育部人文社会科学项目（批准号：2023M732389）。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S271"
+    },
+    {
+      "id": "S272",
+      "page": 12,
+      "type": "heading",
+      "order": 272,
+      "original_text": "22YJC630220).",
+      "translation": "22YJC630220）。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S272"
+    },
+    {
+      "id": "S273",
+      "page": 12,
+      "type": "heading",
+      "order": 273,
+      "original_text": "Appendix Table A.1 Measures of Constructs.",
+      "translation": "附录表 A.1 构造措施。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S273"
+    },
+    {
+      "id": "S274",
+      "page": 12,
+      "type": "paragraph",
+      "order": 274,
+      "original_text": "Construct Adapted Items References Environmental concern (EC) (EC1) I disagree that protecting the environment is everyone's responsibility. Acemoglu et al. (2022) (EC2) I don't think we should use clean energy more daily.",
+      "translation": "构建改编项目 参考文献 环境问题 (EC) (EC1) 我不同意保护环境是每个人的责任。 阿塞莫格鲁等人。 (2022) (EC2) 我认为我们不应该每天更多地使用清洁能源。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S274"
+    },
+    {
+      "id": "S275",
+      "page": 12,
+      "type": "paragraph",
+      "order": 275,
+      "original_text": "(EC3) I won't consider saving electricity or reducing carbon dioxide emissions. (EC4) I am not willing to contribute to improving environmental issues. Retired EV battery recycling knowledge (REVBRK) (REVBRK1) I am aware that there are various recycling entities for retired EV batteries.",
+      "translation": "(EC3) 我不会考虑节省电力或减少二氧化碳排放。 (EC4) 我不愿意为改善环境问题做出贡献。 报废电动汽车电池回收知识（REVBRK）（REVBRK1） 我知道有各种回收报废电动汽车电池的实体。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S275"
+    },
+    {
+      "id": "S276",
+      "page": 12,
+      "type": "paragraph",
+      "order": 276,
+      "original_text": "Geiger et al. (2019) (REVBRK2) I am familiar with the retired EV battery recycling process, including cascaded utilization and disassembly. (REVBRK3) I know that China is entering a \"retirement wave\" of power batteries, indicating a substantial scale in the recycling market.",
+      "translation": "盖革等人。 (2019) (REVBRK2) 我熟悉退役电动车电池的回收流程，包括梯级利用和拆解。 （REVBRK3）据我所知，中国正在进入动力电池的“退役浪潮”，这表明回收市场已经形成了可观的规模。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S276"
+    },
+    {
+      "id": "S277",
+      "page": 12,
+      "type": "paragraph",
+      "order": 277,
+      "original_text": "(REVBRK4) I understand the scale and prospects of the retired EV battery recycling market. (REVBRK5) I know that China is improving its battery recycling system, including establishing a diversified recycling network and a traceability platform for recycling and utilizing power batteries.",
+      "translation": "(REVBRK4) 我了解退役电动汽车电池回收市场的规模和前景。 （REVBRK5）我知道中国正在完善电池回收体系，包括建立多元化的回收网络和动力电池回收利用的追溯平台。",
+      "bbox": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "confidence": "low",
+      "refs": [],
+      "insert_after": "S277"
+    }
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "block_ids": [
+        "S001",
+        "S002",
+        "S003",
+        "S004",
+        "S005",
+        "S006",
+        "S007",
+        "S008",
+        "S009",
+        "S010",
+        "S011",
+        "S012",
+        "S013",
+        "S014",
+        "S015",
+        "S016",
+        "S017",
+        "S018"
+      ]
+    },
+    {
+      "page": 2,
+      "block_ids": [
+        "S019",
+        "S020",
+        "S021",
+        "S022",
+        "S023",
+        "S024",
+        "S025",
+        "S026",
+        "S027",
+        "S028",
+        "S029",
+        "S030",
+        "S031",
+        "S032",
+        "S033",
+        "S034",
+        "S035",
+        "S036",
+        "S037",
+        "S038",
+        "S039",
+        "S040",
+        "S041",
+        "S042",
+        "S043",
+        "S044",
+        "S045",
+        "S046",
+        "S047",
+        "S048",
+        "S049"
+      ]
+    },
+    {
+      "page": 3,
+      "block_ids": [
+        "S050",
+        "S051",
+        "S052",
+        "S053",
+        "S054",
+        "S055",
+        "S056",
+        "S057",
+        "S058",
+        "S059",
+        "S060",
+        "S061",
+        "S062",
+        "S063",
+        "S064",
+        "S065",
+        "S066",
+        "S067",
+        "S068"
+      ]
+    },
+    {
+      "page": 4,
+      "block_ids": [
+        "S069",
+        "S070",
+        "S071",
+        "S072",
+        "S073",
+        "S074",
+        "S075",
+        "S076",
+        "S077",
+        "S078",
+        "S079",
+        "S080",
+        "S081",
+        "S082",
+        "S083",
+        "S084",
+        "S085",
+        "S086",
+        "S087",
+        "S088",
+        "S089",
+        "S090",
+        "S091",
+        "S092",
+        "S093",
+        "S094",
+        "S095",
+        "S096"
+      ]
+    },
+    {
+      "page": 5,
+      "block_ids": [
+        "S097",
+        "S098",
+        "S099",
+        "S100",
+        "S101",
+        "S102",
+        "S103",
+        "S104",
+        "S105",
+        "S106",
+        "S107",
+        "S108",
+        "S109",
+        "S110",
+        "S111",
+        "S112",
+        "S113"
+      ]
+    },
+    {
+      "page": 6,
+      "block_ids": []
+    },
+    {
+      "page": 7,
+      "block_ids": []
+    },
+    {
+      "page": 8,
+      "block_ids": [
+        "S114",
+        "S115",
+        "S116",
+        "S117",
+        "S118",
+        "S119",
+        "S120",
+        "S121",
+        "S122",
+        "S123",
+        "S124",
+        "S125",
+        "S126",
+        "S127",
+        "S128",
+        "S129",
+        "S130",
+        "S131",
+        "S132",
+        "S133",
+        "S134",
+        "S135",
+        "S136",
+        "S137",
+        "S138",
+        "S139",
+        "S140",
+        "S141",
+        "S142",
+        "S143",
+        "S144",
+        "S145",
+        "S146",
+        "S147",
+        "S148",
+        "S149",
+        "S150",
+        "S151",
+        "S152",
+        "S153",
+        "S154",
+        "S155",
+        "S156",
+        "S157",
+        "S158",
+        "S159",
+        "S160",
+        "S161",
+        "S162",
+        "S163",
+        "S164",
+        "S165",
+        "S166",
+        "S167",
+        "S168",
+        "S169",
+        "S170",
+        "S171",
+        "S172",
+        "S173",
+        "S174",
+        "S175",
+        "S176",
+        "S177",
+        "S178",
+        "S179"
+      ]
+    },
+    {
+      "page": 9,
+      "block_ids": [
+        "S180",
+        "S181",
+        "S182",
+        "S183",
+        "S184",
+        "S185",
+        "S186",
+        "S187",
+        "S188",
+        "S189",
+        "S190",
+        "S191",
+        "S192",
+        "S193",
+        "S194",
+        "S195",
+        "S196"
+      ]
+    },
+    {
+      "page": 10,
+      "block_ids": [
+        "S197",
+        "S198",
+        "S199",
+        "S200",
+        "S201",
+        "S202",
+        "S203",
+        "S204",
+        "S205",
+        "S206",
+        "S207",
+        "S208",
+        "S209",
+        "S210",
+        "S211",
+        "S212",
+        "S213",
+        "S214",
+        "S215",
+        "S216",
+        "S217",
+        "S218",
+        "S219",
+        "S220",
+        "S221",
+        "S222",
+        "S223",
+        "S224",
+        "S225",
+        "S226"
+      ]
+    },
+    {
+      "page": 11,
+      "block_ids": [
+        "S227",
+        "S228",
+        "S229",
+        "S230",
+        "S231",
+        "S232",
+        "S233",
+        "S234",
+        "S235",
+        "S236",
+        "S237",
+        "S238",
+        "S239",
+        "S240",
+        "S241",
+        "S242",
+        "S243",
+        "S244",
+        "S245",
+        "S246",
+        "S247",
+        "S248",
+        "S249"
+      ]
+    },
+    {
+      "page": 12,
+      "block_ids": [
+        "S250",
+        "S251",
+        "S252",
+        "S253",
+        "S254",
+        "S255",
+        "S256",
+        "S257",
+        "S258",
+        "S259",
+        "S260",
+        "S261",
+        "S262",
+        "S263",
+        "S264",
+        "S265",
+        "S266",
+        "S267",
+        "S268",
+        "S269",
+        "S270",
+        "S271",
+        "S272",
+        "S273",
+        "S274",
+        "S275",
+        "S276",
+        "S277"
+      ]
+    }
+  ],
+  "figures": [
+    {
+      "id": "F001",
+      "kind": "figure",
+      "number": "1",
+      "page": 3,
+      "caption_id": "S064",
+      "caption_original": "Fig. 1. Method flow chart.",
+      "caption_translation": "在本节中，我们将重点介绍选择实验的设计、选择模型规范以及利用图 1 所示的方法流程图的数据收集过程。",
+      "image_path": "assets/fig_001_p003.png",
+      "bbox": [
+        98.94,
+        450.8,
+        496.36,
+        734.35
+      ],
+      "placement_hint": "near_first_detected_textual_mention",
+      "placed_after": "S064",
+      "alt_text": "Figure 1 from Huang 等：正规回收偏好与支付意愿",
+      "crop_confidence": "approximate-object-bounded"
+    },
+    {
+      "id": "F002",
+      "kind": "figure",
+      "number": "2",
+      "page": 5,
+      "caption_id": "S144",
+      "caption_original": "Fig. 2. Example task used in the survey (translated from the Chinese comparisons of the two behaviors.",
+      "caption_translation": "在 K 均值聚类中，研究人员通常采用图 2。 调查中使用的示例任务（翻译自中文问卷）。 黄等人。环境管理学报370(2024)122180确定集群数量的任务。",
+      "image_path": "assets/fig_002_p005.png",
+      "bbox": [
+        11.63,
+        33.42,
+        279.78,
+        286.3
+      ],
+      "placement_hint": "near_first_detected_textual_mention",
+      "placed_after": "S144",
+      "alt_text": "Figure 2 from Huang 等：正规回收偏好与支付意愿",
+      "crop_confidence": "approximate-object-bounded"
+    },
+    {
+      "id": "F003",
+      "kind": "figure",
+      "number": "3",
+      "page": 6,
+      "caption_id": "S129",
+      "caption_original": "Fig. 3. Map of the spatial and geographical distribution of the sample.",
+      "caption_translation": "其空间和地理分布如图3所示。",
+      "image_path": "assets/fig_003_p006.png",
+      "bbox": [
+        98.99,
+        33.39,
+        496.27,
+        297.42
+      ],
+      "placement_hint": "near_first_detected_textual_mention",
+      "placed_after": "S129",
+      "alt_text": "Figure 3 from Huang 等：正规回收偏好与支付意愿",
+      "crop_confidence": "approximate-object-bounded"
+    },
+    {
+      "id": "F004",
+      "kind": "figure",
+      "number": "4",
+      "page": 7,
+      "caption_id": "S157",
+      "caption_original": "Fig. 4. Graphical output of BIC and ASW results.",
+      "caption_translation": "BIC和AWS的结算结果如表4所示。",
+      "image_path": "assets/fig_004_p007.png",
+      "bbox": [
+        315.5,
+        33.44,
+        584.4,
+        206.25
+      ],
+      "placement_hint": "near_first_detected_textual_mention",
+      "placed_after": "S157",
+      "alt_text": "Figure 4 from Huang 等：正规回收偏好与支付意愿",
+      "crop_confidence": "approximate-object-bounded"
+    }
+  ],
+  "tables": [
+    {
+      "id": "T001",
+      "kind": "table",
+      "number": "1",
+      "page": 4,
+      "caption_id": "S111",
+      "caption_original": "Table 1 study.",
+      "caption_translation": "表 1 变量描述和分配。",
+      "image_path": "assets/table_001_p004.png",
+      "bbox": [
+        29.61,
+        68.67,
+        296.67,
+        467.42
+      ],
+      "placement_hint": "near_first_detected_textual_mention",
+      "placed_after": "S111",
+      "alt_text": "Table 1 from Huang 等：正规回收偏好与支付意愿",
+      "crop_confidence": "approximate-object-bounded"
+    },
+    {
+      "id": "T002",
+      "kind": "table",
+      "number": "5",
+      "page": 7,
+      "caption_id": "S195",
+      "caption_original": "Table 5. The first group comprises respondents with high EC and a high",
+      "caption_translation": "表5 个体聚类结果。",
+      "image_path": "assets/table_002_p007.png",
+      "bbox": [
+        29.61,
+        631.39,
+        296.67,
+        747.4
+      ],
+      "placement_hint": "near_first_detected_textual_mention",
+      "placed_after": "S195",
+      "alt_text": "Table 5 from Huang 等：正规回收偏好与支付意愿",
+      "crop_confidence": "approximate-object-bounded"
+    },
+    {
+      "id": "T003",
+      "kind": "table",
+      "number": "4",
+      "page": 7,
+      "caption_id": "S189",
+      "caption_original": "Table 4 recycling if the car manufacturer recycles, and Group 2 doesn’t care. In",
+      "caption_translation": "对于回收实体，如果是电动汽车电池回收，组2不太可能选择非正式回收，而组1则不是表4中个体的聚类结果。",
+      "image_path": "assets/table_003_p007.png",
+      "bbox": [
+        29.61,
+        631.39,
+        296.67,
+        747.4
+      ],
+      "placement_hint": "near_first_detected_textual_mention",
+      "placed_after": "S189",
+      "alt_text": "Table 4 from Huang 等：正规回收偏好与支付意愿",
+      "crop_confidence": "approximate-object-bounded"
+    }
+  ],
+  "glossary": [
+    {
+      "term": "discrete choice experiment (DCE)",
+      "translation": "离散选择实验（DCE）",
+      "note": "用于估计属性偏好"
+    },
+    {
+      "term": "willingness to pay (WTP)",
+      "translation": "支付意愿（WTP）",
+      "note": "保留货币单位与符号"
+    },
+    {
+      "term": "formal recycling",
+      "translation": "正规回收",
+      "note": "与非正规回收区分"
+    },
+    {
+      "term": "random parameter logit model",
+      "translation": "随机参数 Logit 模型",
+      "note": "模型名保持一致"
+    },
+    {
+      "term": "traceability",
+      "translation": "可追溯性",
+      "note": "政策与渠道属性"
+    }
+  ]
+}

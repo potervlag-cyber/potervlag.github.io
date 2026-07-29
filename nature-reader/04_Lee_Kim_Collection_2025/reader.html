@@ -1,0 +1,2436 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <script src="../../firebase-config.js"></script>
+  <style id="natureAuthGuard">html { visibility: hidden; }</style>
+  <script type="module" src="../../nature-auth.js"></script>
+  <meta name="description" content="Strategies for Promoting Consumer Participation in the Collection of Retired Electric Vehicle Batteries 中英对照 Nature Reader">
+  <title>Strategies for Promoting Consumer Participation in the Collection of Retired Electric Vehicle Batteries · Nature Reader</title>
+  <style>
+:root {
+  color-scheme: light;
+  --bg: #f5f6f2;
+  --panel: rgba(255,255,255,.88);
+  --paper: #fffefb;
+  --ink: #18201d;
+  --muted: #65706a;
+  --line: #dce1dc;
+  --accent: #0c725f;
+  --accent-soft: #dff2ec;
+  --warm: #b9643b;
+  --shadow: 0 18px 55px rgba(34,49,43,.09);
+  --font-size: 17px;
+  --split: 50%;
+  --sidebar-w: 288px;
+}
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #111613;
+  --panel: rgba(25,32,28,.92);
+  --paper: #171d1a;
+  --ink: #e8eee9;
+  --muted: #9caaa2;
+  --line: #303a34;
+  --accent: #6fd2b6;
+  --accent-soft: #173b32;
+  --warm: #e5a47e;
+  --shadow: 0 18px 55px rgba(0,0,0,.26);
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 82% -10%, color-mix(in srgb, var(--accent) 9%, transparent), transparent 36rem),
+    var(--bg);
+  font-family: Inter, "Segoe UI", "Noto Sans SC", system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
+}
+button, input { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.icon-btn, .segmented button {
+  border: 1px solid var(--line);
+  color: var(--ink);
+  background: var(--panel);
+  border-radius: 10px;
+  min-height: 38px;
+  cursor: pointer;
+}
+.icon-btn:hover, .segmented button:hover { border-color: var(--accent); }
+.segmented { display: inline-flex; gap: 4px; }
+.segmented button { padding: 7px 11px; }
+.segmented button.active {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+.muted { color: var(--muted); }
+.eyebrow {
+  color: var(--accent);
+  font-size: .76rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.app { min-height: 100vh; }
+.sidebar {
+  position: fixed;
+  inset: 0 auto 0 0;
+  z-index: 20;
+  width: var(--sidebar-w);
+  overflow: auto;
+  border-right: 1px solid var(--line);
+  background: color-mix(in srgb, var(--panel) 96%, transparent);
+  backdrop-filter: blur(18px);
+  padding: 22px 18px 28px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-bottom: 20px;
+  color: var(--ink);
+}
+.brand:hover { text-decoration: none; }
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  color: #fff;
+  background: linear-gradient(145deg, #087865, #36a488);
+  font-family: Georgia, serif;
+  font-weight: 800;
+  box-shadow: 0 9px 25px rgba(12,114,95,.24);
+}
+.brand strong { display: block; font-family: Georgia, "Noto Serif SC", serif; }
+.brand small { color: var(--muted); }
+.progress-shell {
+  height: 5px;
+  overflow: hidden;
+  background: var(--line);
+  border-radius: 99px;
+  margin: 0 0 18px;
+}
+.progress-bar {
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), #54b89d);
+}
+.search {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  color: var(--ink);
+  background: var(--paper);
+  padding: 10px 12px;
+  outline: none;
+}
+.search:focus { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.search-status { min-height: 25px; padding: 7px 2px 0; font-size: .78rem; color: var(--muted); }
+.sidebar-title {
+  margin: 18px 4px 8px;
+  color: var(--muted);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.page-nav { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+.page-nav a {
+  display: grid;
+  place-items: center;
+  min-height: 34px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  color: var(--muted);
+  font-size: .78rem;
+}
+.page-nav a:hover, .page-nav a.active {
+  color: var(--accent);
+  border-color: var(--line);
+  background: var(--accent-soft);
+  text-decoration: none;
+}
+.sidebar-links { display: grid; gap: 6px; margin-top: 18px; }
+.sidebar-links a { padding: 8px 10px; border-radius: 9px; color: var(--muted); font-size: .84rem; }
+.sidebar-links a:hover { color: var(--accent); background: var(--accent-soft); text-decoration: none; }
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 15;
+  margin-left: var(--sidebar-w);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 64px;
+  padding: 10px clamp(18px, 3vw, 42px);
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(16px);
+}
+.topbar-left, .topbar-right { display: flex; align-items: center; gap: 9px; flex-wrap: wrap; }
+.control-label { display: flex; align-items: center; gap: 7px; color: var(--muted); font-size: .78rem; }
+input[type="range"] { width: 92px; accent-color: var(--accent); }
+.menu-button { display: none; padding: 7px 11px; }
+.main {
+  margin-left: var(--sidebar-w);
+  padding: clamp(24px, 4vw, 58px);
+}
+.paper {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(28px, 5vw, 62px);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: var(--paper);
+  box-shadow: var(--shadow);
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  right: -110px;
+  top: -140px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+}
+h1 {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 10px 0 18px;
+  font: 700 clamp(2rem, 4.4vw, 4.2rem)/1.05 Georgia, "Noto Serif SC", serif;
+  letter-spacing: -.035em;
+}
+.meta { display: flex; flex-wrap: wrap; gap: 8px; }
+.meta span {
+  padding: 7px 10px;
+  border: 1px solid var(--line);
+  border-radius: 99px;
+  color: var(--muted);
+  font-size: .82rem;
+}
+.draft-note {
+  margin-top: 20px;
+  padding: 12px 14px;
+  border-left: 3px solid var(--warm);
+  border-radius: 0 10px 10px 0;
+  color: var(--muted);
+  background: color-mix(in srgb, var(--warm) 8%, transparent);
+  font-size: .9rem;
+}
+.glossary-card {
+  margin: 24px 0 42px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--panel);
+}
+.glossary-card summary { cursor: pointer; font-weight: 750; }
+.table-wrap { overflow-x: auto; margin-top: 14px; }
+table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+th, td { padding: 10px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+th { color: var(--muted); font-size: .76rem; letter-spacing: .04em; text-transform: uppercase; }
+.page-section { scroll-margin-top: 86px; margin: 0 0 46px; }
+.page-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: .8rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.page-heading::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+.reading-block {
+  scroll-margin-top: 92px;
+  margin: 0 0 16px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--paper);
+  box-shadow: 0 8px 28px rgba(31,47,39,.035);
+}
+.block-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 13px;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-size: .72rem;
+}
+.anchor-link { color: var(--muted); }
+.anchor-link:hover { color: var(--accent); text-decoration: none; }
+.confidence-high { color: var(--accent); }
+.confidence-medium { color: #a36b15; }
+.confidence-low { color: var(--muted); }
+.pair {
+  display: grid;
+  grid-template-columns: minmax(0, var(--split)) minmax(0, calc(100% - var(--split)));
+  font-size: var(--font-size);
+}
+.column {
+  min-width: 0;
+  padding: clamp(18px, 2.4vw, 30px);
+  line-height: 1.78;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.column + .column { border-left: 1px solid var(--line); }
+.column-label {
+  display: block;
+  margin-bottom: 9px;
+  color: var(--muted);
+  font-family: Inter, "Segoe UI", sans-serif;
+  font-size: .7rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.original { font-family: Georgia, "Times New Roman", serif; }
+.translation { font-family: "Noto Serif SC", "Songti SC", "SimSun", serif; }
+body[data-view="original"] .translation { display: none; }
+body[data-view="original"] .pair { grid-template-columns: 1fr; }
+body[data-view="chinese"] .original { display: none; }
+body[data-view="chinese"] .pair { grid-template-columns: 1fr; }
+body[data-view="chinese"] .column + .column { border-left: 0; }
+.figure-card {
+  margin: 20px 0 26px;
+  padding: clamp(16px, 2vw, 25px);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--paper);
+  box-shadow: var(--shadow);
+}
+.figure-card h3 { margin: 0 0 12px; font: 700 1.1rem/1.35 Georgia, "Noto Serif SC", serif; }
+.figure-image {
+  display: block;
+  max-width: 100%;
+  max-height: 72vh;
+  margin: 0 auto;
+  border-radius: 8px;
+  cursor: zoom-in;
+}
+.caption-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: .85rem;
+  line-height: 1.6;
+}
+.caption-pair p { margin: 0; }
+.figure-meta { margin-top: 10px; color: var(--muted); font-size: .72rem; }
+.search-hidden { display: none !important; }
+.search-hit { outline: 2px solid color-mix(in srgb, var(--accent) 50%, transparent); }
+.empty-search {
+  display: none;
+  margin: 30px 0;
+  padding: 28px;
+  border: 1px dashed var(--line);
+  border-radius: 16px;
+  color: var(--muted);
+  text-align: center;
+}
+.empty-search.show { display: block; }
+.lightbox {
+  width: min(94vw, 1400px);
+  max-height: 94vh;
+  border: 0;
+  border-radius: 16px;
+  padding: 12px;
+  background: var(--paper);
+  box-shadow: 0 30px 100px rgba(0,0,0,.35);
+}
+.lightbox::backdrop { background: rgba(5,10,8,.78); backdrop-filter: blur(4px); }
+.lightbox img { display: block; max-width: 100%; max-height: calc(94vh - 24px); margin: auto; }
+.lightbox button { position: fixed; right: 22px; top: 18px; padding: 8px 11px; }
+.to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 12;
+  width: 44px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s;
+}
+.to-top.show { opacity: 1; pointer-events: auto; }
+@media (max-width: 980px) {
+  .sidebar { transform: translateX(-102%); transition: transform .22s ease; box-shadow: var(--shadow); }
+  body.sidebar-open .sidebar { transform: translateX(0); }
+  .topbar, .main { margin-left: 0; }
+  .menu-button { display: inline-block; }
+  .control-split { display: none; }
+}
+@media (max-width: 720px) {
+  .topbar { align-items: flex-start; padding: 9px 12px; }
+  .topbar-right { justify-content: flex-end; }
+  .main { padding: 18px 12px 44px; }
+  .hero { border-radius: 18px; padding: 26px 20px; }
+  .pair, .caption-pair { grid-template-columns: 1fr; }
+  .column + .column { border-left: 0; border-top: 1px solid var(--line); }
+  .control-font { display: none; }
+  .segmented button { padding: 7px 8px; font-size: .76rem; }
+}
+@media print {
+  .sidebar, .topbar, .to-top, .lightbox { display: none !important; }
+  .main { margin: 0; padding: 0; }
+  .hero, .reading-block, .figure-card { box-shadow: none; break-inside: avoid; }
+  .pair { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body data-paper-key="04_Lee_Kim_Collection_2025" data-view="bilingual">
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="../index.html">
+      <span class="brand-mark">N</span>
+      <span><strong>Nature Reader</strong><small>动力电池关键文献库</small></span>
+    </a>
+    <div class="progress-shell" title="阅读进度"><div class="progress-bar" id="progressBar"></div></div>
+    <label class="sr-only" for="searchInput">全文搜索</label>
+    <input class="search" id="searchInput" type="search" placeholder="搜索本篇…  快捷键 /">
+    <div class="search-status" id="searchStatus"></div>
+    <div class="sidebar-title">页码导航</div>
+    <nav class="page-nav" aria-label="页码导航"><a href="#page-1" title="Page 1">p1</a>
+<a href="#page-2" title="Page 2">p2</a>
+<a href="#page-3" title="Page 3">p3</a>
+<a href="#page-4" title="Page 4">p4</a>
+<a href="#page-5" title="Page 5">p5</a>
+<a href="#page-6" title="Page 6">p6</a>
+<a href="#page-7" title="Page 7">p7</a>
+<a href="#page-8" title="Page 8">p8</a></nav>
+    <div class="sidebar-links">
+      <span class="muted">原始 PDF 未随站点发布</span>
+      <a href="translation_notes.md">翻译与提取说明</a>
+      <a href="source_map.json">Source map JSON</a>
+      <a href="paper.md">Markdown 原稿</a>
+    </div>
+  </aside>
+  <header class="topbar">
+    <div class="topbar-left">
+      <button class="icon-btn menu-button" id="menuButton" aria-label="打开目录">☰ 目录</button>
+      <div class="segmented" aria-label="阅读模式">
+        <button class="view-button" data-view="bilingual">中英对照</button>
+        <button class="view-button" data-view="original">仅原文</button>
+        <button class="view-button" data-view="chinese">仅中文</button>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <label class="control-label control-font">字号 <input id="fontRange" type="range" min="14" max="24" step="1"></label>
+      <label class="control-label control-split">栏宽 <input id="splitRange" type="range" min="36" max="64" step="1"></label>
+      <button class="icon-btn" id="themeButton">◐ 系统</button>
+    </div>
+  </header>
+  <main class="main">
+    <div class="paper">
+      <header class="hero">
+        <div class="eyebrow">Bilingual source-grounded reader</div>
+        <h1>Strategies for Promoting Consumer Participation in the Collection of Retired Electric Vehicle Batteries</h1>
+        <div class="meta">
+          <span>Journal of Environmental Management</span><span>2025</span><span>empirical/choice experiment</span>
+          <span>8 pages</span><span>146 blocks</span><span>4 visuals</span>
+        </div>
+        <div class="draft-note">结构化重建稿：中文沿用项目既有机器翻译底稿，精确引用前请根据页码和块编号回看原 PDF。</div>
+      </header>
+      <details class="glossary-card">
+        <summary>术语表 · Terminology ledger</summary>
+        <div class="table-wrap">
+          <table><thead><tr><th>Canonical term</th><th>中文</th><th>统一规则</th></tr></thead>
+          <tbody><tr><td>retired electric vehicle battery</td><td>退役电动汽车电池</td><td>不用“报废电池”替换</td></tr>
+<tr><td>collection program</td><td>回收方案</td><td>指项目属性组合</td></tr>
+<tr><td>conjoint analysis</td><td>联合分析</td><td>作者采用的偏好分析方法</td></tr>
+<tr><td>willingness to accept (WTA)</td><td>接受补偿意愿（WTA）</td><td>与 WTP 区分</td></tr>
+<tr><td>pickup service</td><td>上门回收服务</td><td>回收便利性属性</td></tr></tbody></table>
+        </div>
+      </details>
+      <div class="empty-search" id="emptySearch">没有找到匹配内容。按 Esc 清除搜索。</div>
+      <section class="page-section" id="page-1">
+<h2 class="page-heading">Page 1</h2>
+
+<article class="reading-block" id="S001" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S001">p.1 · S001</a>
+    <span class="confidence-high">high confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Strategies for promoting consumer participation in the collection of retired electric vehicle batteries Hwarang Lee a , Jongdae Kim b,* a Korea Energy Economics Institute, 405-11 Jongga-ro, Jung-gu, Ulsan, 44543, Republic of Korea b School of Business Administration, Chonnam National University, 77 Yongbong-ro, Buk-gu, Gwangju, 61186, Republic of Korea</div>
+    <div class="column translation"><span class="column-label">中文</span>促进消费者参与废弃电动汽车电池回收的策略 Hwarang Lee a , Jongdae Kim b,* a 韩国能源经济研究所，405-11 Jongga-ro, Jung-gu, Ulsan, 44543, Republic of Korea b School of Business Administration, Chonnam National University, 77 Yongbong-ro, Buk-gu, Gwangju, 61186, Republic of China</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S002" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S002">p.1 · S002</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Keywords:</div>
+    <div class="column translation"><span class="column-label">中文</span>关键词：</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S003" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S003">p.1 · S003</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Electric vehicle battery Battery collection Battery recycling Battery reuse Waste management Conjoint analysis A B S T R A C T As leading countries in the battery market implement regulations on electric vehicle battery recycling and reuse, value chains for these processes are being developed.</div>
+    <div class="column translation"><span class="column-label">中文</span>电动汽车电池 电池收集 电池回收 电池再利用 废物管理 联合分析 摘要 随着电池市场领先国家实施电动汽车电池回收和再利用法规，这些流程的价值链正在开发。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S004" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S004">p.1 · S004</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>In particular, the operation of recycling and reuse businesses begins with the collection of electric vehicle batteries, which is currently left to the free market. This study explored the design of electric vehicle battery collection programs, focusing on the growing number of retired electric vehicle batteries.</div>
+    <div class="column translation"><span class="column-label">中文</span>特别是，回收和再利用业务的运营始于电动汽车电池的收集，目前由自由市场进行。 本研究探讨了电动汽车电池收集方案的设计，重点关注日益增长的退休人员 电动汽车电池。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S005" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S005">p.1 · S005</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>A choice experiment was conducted to analyze consumer preferences for six program attributes: return method, program operator, obligatory contract, information provision, battery usage period, and reward.</div>
+    <div class="column translation"><span class="column-label">中文</span>通过选择实验，分析了消费者对退货方式、程序运营商、义务合同、信息提供、电池使用期限和奖励六种程序属性的偏好。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S006" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S006">p.1 · S006</a>
+    <span class="confidence-high">high confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>This study found that consumers have a strong preference for programs that provide a pickup service and information regarding the programs and emissions reduction from recycling and reusing electric vehicle batteries.</div>
+    <div class="column translation"><span class="column-label">中文</span>这项研究发现，消费者非常青睐提供接送服务的计划以及有关该计划以及回收和再利用电动汽车电池的减排信息的计划。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S007" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S007">p.1 · S007</a>
+    <span class="confidence-high">high confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Notably, respondents were willing to accept lower rewards for a pickup service (USD 0.571/kWh) and for information provision (USD 0.649/kWh). This study offers practical implications for companies seeking to develop profitable battery collection programs.</div>
+    <div class="column translation"><span class="column-label">中文</span>值得注意的是，受访者愿意接受较低的接机服务奖励（0.571 美元/千瓦时） 信息提供（0.649 美元/kWh）。 这项研究为寻求开发有利可图的电池收集项目的公司提供了实际意义。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S008" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S008">p.1 · S008</a>
+    <span class="confidence-high">high confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>The findings also provide valuable insights for designing such programs and enhancing consumer participation in the battery collection.</div>
+    <div class="column translation"><span class="column-label">中文</span>研究结果还为设计此类计划和增强消费者参与电池收集提供了宝贵的见解。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S009" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S009">p.1 · S009</a>
+    <span class="confidence-high">high confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>1. Introduction</div>
+    <div class="column translation"><span class="column-label">中文</span>一、简介</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S010" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S010">p.1 · S010</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>In recent years, the global adoption of electric vehicles (EVs) has surged, leading to a significant increase in the number of retired EV batteries (Tan et al., 2022; Lee and Kim, 2024).</div>
+    <div class="column translation"><span class="column-label">中文</span>近年来，全球电动汽车 (EV) 的普及率激增，导致退役电动汽车电池数量大幅增加（Tan 等人，2022 年；Lee 和 Kim，2024 年）。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S011" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S011">p.1 · S011</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>This trend has raised growing theoretical and practical interest in exploring sustainable</div>
+    <div class="column translation"><span class="column-label">中文</span>这一趋势引起了人们对探索可持续发展的理论和实践兴趣。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S012" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S012">p.1 · S012</a>
+    <span class="confidence-high">high confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>methods for recycling and reusing these batteries, particularly within on</div>
+    <div class="column translation"><span class="column-label">中文</span>回收和再利用这些电池的方法，特别是在</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S013" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S013">p.1 · S013</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>the framework of the circular economy (Hu et al., 2024) and Environmental, Social, Governance management. Businesses in this field are expected to grow from two perspectives.</div>
+    <div class="column translation"><span class="column-label">中文</span>循环经济框架（Hu et al., 2024）和环境、社会、治理管理。 该领域的企业预计将从两个角度实现增长。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S014" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S014">p.1 · S014</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>First, processing retired EV batteries offers both economic opportunities and environmental benefits by reducing waste and emissions. Second, as the demand for key minerals for EVs, such as lithium, nickel, cobalt, and manganese, continues to rise, recycling or reusing of these batteries offer a viable approach to alleviating resource shortages (Wang et al., 2020; Yu et al., 2021) and enhancing resource security.</div>
+    <div class="column translation"><span class="column-label">中文</span>首先，处理报废的电动汽车电池可以通过减少废物和排放来提供经济机会和环境效益。 其次，随着电动汽车对锂、镍、钴和锰等关键矿物的需求持续增长，这些电池的回收或再利用为缓解资源短缺提供了一种可行的方法（Wang et al., 2020； Yu et al., 2021）并增强资源安全。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S015" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S015">p.1 · S015</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Therefore, as one of the initial stages of waste recycling and reuse, as well as a preliminary step in waste preprocessing (Darko et al., 2023), the collection of retired EV batteries has become increasingly significant.</div>
+    <div class="column translation"><span class="column-label">中文</span>因此，作为废物回收和再利用的初始阶段之一，以及废物预处理的初步步骤（Darko等人，2023），退役电动汽车电池的收集变得越来越重要。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S016" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S016">p.1 · S016</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Given this trend, theoretical interest in the collection of electronic waste (e-waste), including retired EV batteries, has also continued to develop. E-waste is defined as waste generated from discarded electronic products (Robinson, 2009).</div>
+    <div class="column translation"><span class="column-label">中文</span>鉴于这一趋势，理论上对收集电子废物（包括退役电动汽车电池）的兴趣也在不断发展。 电子废物被定义为废弃电子产品产生的废物（Robinson，2009）。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S017" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S017">p.1 · S017</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>The improper disposal of e-waste, driven by a massive global increase in consumption, can release hazardous materials such as lead and cadmium, posing serious risks to both the environment and human health (Luo et al., 2011; Qu et al., 2019; Islam et al., 2021; Tutton et al., 2022; Cai et al., 2023).</div>
+    <div class="column translation"><span class="column-label">中文</span>全球消费量大幅增加导致电子垃圾处理不当，会释放出铅、镉等有害物质，对环境和人类健康构成严重风险（Luo等，2011；Qu等，2019；Islam等，2021；Tutton等，2022；Cai等，2023）。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S018" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S018">p.1 · S018</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>As one of the fastest-growing waste segments, many studies have been conducted with attention to designing effective e-waste collection programs (Chi et al., 2014; Qu et al., 2019; Arain et al., 2020; Cai et al., 2023; Wang et al., 2023a).</div>
+    <div class="column translation"><span class="column-label">中文</span>作为其中之一 由于电子废物增长最快，因此开展了许多研究，重点关注设计有效的电子废物收集计划（Chi 等人，2014 年；Qu 等人，2019 年；Arain 等人，2020 年；Cai 等人，2023 年；Wang 等人，2023a）。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S019" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S019">p.1 · S019</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Regarding retired EV batteries, Yu et al. (2021) examined the environmental effects of recycling EV lithium-ion batteries, focusing on the life-cycle greenhouse gas emissions, water consumption, and remanufacturing cost associated with different recycling methods.</div>
+    <div class="column translation"><span class="column-label">中文</span>关于退役的电动汽车电池，Yu 等人。 (2021)研究了回收电动汽车锂离子电池的环境影响，重点关注与不同回收方法相关的生命周期温室气体排放、水消耗和再制造成本。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S020" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S020">p.1 · S020</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>The</div>
+    <div class="column translation"><span class="column-label">中文</span>的</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S021" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S021">p.1 · S021</a>
+    <span class="confidence-high">high confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>results showed that remanufacturing batteries through direct physical</div>
+    <div class="column translation"><span class="column-label">中文</span>结果表明，通过直接物理再制造电池</div>
+  </div>
+</article>
+
+</section><section class="page-section" id="page-2">
+<h2 class="page-heading">Page 2</h2>
+
+<article class="reading-block" id="S022" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S022">p.2 · S022</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>recycling has the greatest potentials for environmental impact. Wang et al. (2020) developed an analytical model to optimize the recycling network for lithium-ion batteries, demonstrating that the proposed model could effectively reduce both costs and carbon dioxide emissions.</div>
+    <div class="column translation"><span class="column-label">中文</span>回收对环境影响的潜力最大。 王等人。 （2020）开发了一个分析模型来优化锂离子电池的回收网络，证明该模型可以有效降低成本和二氧化碳排放。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S023" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S023">p.2 · S023</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>This study explored how to design retired EV battery collection * Corresponding author. E-mail addresses: idu8819@snu.ac.kr (H. Lee), kim915@jnu.ac.kr (J. Kim). Contents lists available at ScienceDirect Journal of Environmental Management journal homepage: www.elsevier.com/locate/jenvman Received 19 August 2024; Received in revised form 27 February 2025; Accepted 4 March 2025 Journal of Environmental Management 380 (2025) 124853 Available online 13 March 2025 0301-4797/© 2025 Elsevier Ltd.</div>
+    <div class="column translation"><span class="column-label">中文</span>本研究探讨了如何设计退役电动汽车电池系列*通讯作者。 电子邮件地址：idu8819@snu.ac.kr (H. 李), kim915@jnu.ac.kr (J. 金）。 目录列表可在《ScienceDirect Journal of Environmental Management》期刊主页上找到：www.elsevier.com/locate/jenvman 收稿日期：2024 年 8 月 19 日； 2025 年 2 月 27 日收到修订版； 2025 年 3 月 4 日接受 Journal of Environmental Management 380 (2025) 124853 在线发布 2025 年 3 月 13 日 0301-4797/© 2025 Elsevier Ltd.</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S024" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S024">p.2 · S024</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>All rights are reserved, including those for text and data mining, AI training, and similar technologies. programs as the first major step towards the industrialization of recycling and reusing retired EV batteries.</div>
+    <div class="column translation"><span class="column-label">中文</span>保留所有权利，包括文本和数据挖掘、人工智能培训和类似技术的权利。 该项目是退役电动汽车电池回收和再利用工业化的第一步。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S025" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S025">p.2 · S025</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>In particular, we investigated how such programs should be designed in the South Korean market, which we highlighted as it is not exempt from the growing concern over processing of retired EV batteries.</div>
+    <div class="column translation"><span class="column-label">中文</span>我们特别调查了如何在韩国市场设计此类计划，我们强调了这一点，因为它也不能免除对退役电动汽车电池处理日益增长的担忧。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S026" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S026">p.2 · S026</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Furthermore, South Korea recently abolished the regulatory requirement for EV owners to return retired batteries to local governments (Ministries of the South Korean Government, 2024), thereby paving the way for industrialization by transferring battery ownership to EV owners.</div>
+    <div class="column translation"><span class="column-label">中文</span>此外，韩国最近废除了电动汽车车主将退役电池返还给地方政府的监管要求（韩国政府部委，2024），从而为跨行业的工业化铺平了道路。 将电池所有权交给电动汽车车主。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S027" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S027">p.2 · S027</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>In response to this regulatory shift, leading South Korean corporations, such as Hyundai and SK, are actively advocating for the establishment of a relevant regulatory framework that supports sustainable battery collection programs, following the example of global corporations such as Redwood Materials, Li-Cycle, and BYD.</div>
+    <div class="column translation"><span class="column-label">中文</span>为了应对这一监管转变，现代和SK等韩国领先企业正在效仿Redwood Materials、Li-Cycle和比亚迪等全球企业的榜样，积极倡导建立支持可持续电池收集计划的相关监管框架。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S028" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S028">p.2 · S028</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>This study utilized a choice experiment to examine consumer preferences for retired EV battery collection programs. The experiment considered six key attributes: return method, program operator, obligatory contract, information provision, battery usage period, and reward.</div>
+    <div class="column translation"><span class="column-label">中文</span>这项研究利用选择实验来调查消费者对退役电动汽车电池收集计划的偏好。 实验考虑了六个关键属性：归还方式、程序运营商、义务合同、信息提供、电池使用期限和奖励。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S029" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S029">p.2 · S029</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>The theoretical background supporting the selection of these attributes (Table 1) outlined as follows: (1) Most previous studies focused on a pricing attribute, such as costs or rewards for waste collection.</div>
+    <div class="column translation"><span class="column-label">中文</span>支持选择这些属性的理论背景（表1）概述如下：（1）大多数先前的研究都集中在定价属性上，例如废物收集的成本或奖励。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S030" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S030">p.2 · S030</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Several studies showed that consumers tend to prefer the option with lower costs (Jin et al., 2006; Nakatani et al., 2008; Czajkowski et al., 2017, 2019; Ko et al., 2020), while other studies incorporated pricing as the compensation (Yuan and Yabe, 2015; Arain et al., 2020) and both subsidy and fee (Rai et al., 2019) for waste collection.</div>
+    <div class="column translation"><span class="column-label">中文</span>多项研究表明，消费者倾向于选择成本较低的选择（Jin 等，2006；Nakatani 等，2008；Czajkowski 等，2017、2019；Ko 等，2020），而其他研究则将定价作为补偿（Yuan 和 Yabe，2015；Arain 等，2020）以及补贴和补贴。 废物收集费（Rai et al., 2019）。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S031" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S031">p.2 · S031</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>(2) Collection methods were one of the important attributes in previous studies. For example, consumers preferred door-to-door collection services over self-service options in the mobile phone waste collection (Qu et al., 2019).</div>
+    <div class="column translation"><span class="column-label">中文</span>(2)收集方法是以往研究的重要属性之一。 例如，在手机垃圾收集中，消费者更喜欢上门收集服务，而不是自助服务（Qu et al., 2019）。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S032" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S032">p.2 · S032</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>This is because a pickup service can affect the accessibility to disposal and the convenience level of waste collection (Chi et al., 2014; Arain et al., 2020). (3) Operators of collection programs can influence not only efficiency of recycling and reuse (Wang et al., 2023b) but also consumer preferences for the programs.</div>
+    <div class="column translation"><span class="column-label">中文</span>这是因为收集服务会影响处置的可及性和废物收集的便利程度（Chi et al., 2014；Arain et al., 2020）。 (3) 收集计划的运营商不仅可以影响效果 回收和再利用的效率（Wang 等人，2023b）以及消费者对这些计划的偏好。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S033" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S033">p.2 · S033</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Qu et al. (2019) categorized collectors into public, private, and self-employed entities, further distinguishing between qualified and non-qualified collectors. Their findings indicated that consumers prefer public and qualified private collectors to other types of collectors.</div>
+    <div class="column translation"><span class="column-label">中文</span>曲等人。 （2019）将收藏家分为公共、私营和个体经营实体，进一步区分合格和不合格的收藏家。 他们的研究结果表明，与其他类型的收藏家相比，消费者更喜欢公共和合格的私人收藏家。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S034" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S034">p.2 · S034</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>(4) Institutional signals are institutional or governmental decisions that guide people to understand socially normative actions (Huber et al., 2018). Previous research argued that institutional signals can have conflicting effects on consumer pro-environmental behavior.</div>
+    <div class="column translation"><span class="column-label">中文</span>（4）制度信号是引导人们理解社会规范行为的制度或政府决策（Huber等，2018）。 先前的研究认为，制度 信号可能会对消费者的环保行为产生相互矛盾的影响。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S035" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S035">p.2 · S035</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>While highlighting the importance of particular problems may enhance social acceptance, such signals can also discourage voluntary participation because the government is taking an obligatory active role (Dodds et al., 2008).</div>
+    <div class="column translation"><span class="column-label">中文</span>虽然强调特定问题的重要性可能会提高社会接受度，但此类信号也会阻碍自愿参与，因为政府必须发挥积极作用（Dodds 等，2008）。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S036" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S036">p.2 · S036</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>As a notable example, Huber et al. (2018) showed that institutional signals, such as the obligatory requirement regarding carbon emissions, can positively influence consumer pro-environmental behavior when the costs are low.</div>
+    <div class="column translation"><span class="column-label">中文</span>作为一个著名的例子，Huber 等人。 （2018）表明，制度信号，例如有关碳排放的强制性要求，可以在成本较低时对消费者的环保行为产生积极影响。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S037" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S037">p.2 · S037</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>The current study anticipates that consumer preferences can be affected by the presence of an obligatory contract requiring them to return their retired EV batteries. (5) Consumers&#x27; knowledge about waste and collection</div>
+    <div class="column translation"><span class="column-label">中文</span>目前的研究预计，消费者的偏好可能会受到要求归还退役电动汽车电池的强制性合同的影响。 (5)消费者垃圾及收集知识</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S038" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S038">p.2 · S038</a>
+    <span class="confidence-high">high confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>methods is known to influence their preferences for collection programs.</div>
+    <div class="column translation"><span class="column-label">中文</span>众所周知，方法会影响他们对收集计划的偏好。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S039" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S039">p.2 · S039</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Arain et al. (2020) demonstrated that a lack of consumer knowledge regarding e-waste disposal and recycling locations is significant in e-waste collection. (6) Collection frequency is another frequently examined factor in the literature (Karousakis and Birol, 2008; Yuan and Yabe, 2015; Czajkowski et al., 2017; Almazán-Casali et al., 2019; Ko et al., 2020).</div>
+    <div class="column translation"><span class="column-label">中文</span>阿兰等人。 （2020）表明，消费者缺乏有关电子废物处理和回收地点的知识在电子废物收集中非常重要。 (6) 收集频率是文献中另一个经常检查的因素（Karousakis 和 Birol，2008；Yuan 和 Yabe，2015；Czajkowski 等，2017；Almazán-Casali 等，2019；Ko 等，2020）。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S040" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S040">p.2 · S040</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Meanwhile, previous research has explored other attributes (Table 1), such as noise reduction (Jin et al., 2006), charging methods (Sakata, 2007; Massarutto et al., 2019), packaging characteristics (Klaiman et al., 2017), life expectancy loss (Nakatani et al., 2008), landfill capacity (Nakatani et al., 2008), air pollution (Pek and Jamal, 2011), time required for recycling (Klaiman et al., 2017), distance from a collection site (Pek and Jamal, 2011; Rai et al., 2019), compensation modes (Qu et al., 2019), and installation of a sign to highlight the recycling application (Ouvrard et al., 2020).</div>
+    <div class="column translation"><span class="column-label">中文</span>同时，之前的研究还探索了其他属性（表1），例如降噪（Jin等人，2006）、充电方法（Sakata，2007；Massarutto等人，2019）、包装特性 （Klaiman 等人，2017 年）、预期寿命损失（Nakatani 等人，2008 年）、垃圾填埋场容量（Nakatani 等人，2008 年）、空气污染（Pek 和 Jamal， 2011）、回收所需时间（Klaiman 等人，2017）、距离 收集地点（Pek 和 Jamal，2011；Rai 等人，2019）、补偿模式（Qu 等人，2019）以及安装标志以突出回收应用（Ouvrard 等人，2020）。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S041" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S041">p.2 · S041</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>This study is notable as one of the first to propose strategies for designing efficient retired EV battery collection programs. Given the limited existing research on this topic, the current study not only provides theoretical contributions but also establishes a meaningful foundation for future research.</div>
+    <div class="column translation"><span class="column-label">中文</span>这项研究是最早提出设计高效退役电动汽车电池收集计划策略的研究之一。 鉴于该主题的现有研究有限，当前的研究不仅提供了理论贡献，而且为未来的研究奠定了有意义的基础。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S042" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S042">p.2 · S042</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>The results offer practical insights for companies seeking to develop business models centered on retired EV batteries, particularly by identifying the key factors that influence consumer preference structures.</div>
+    <div class="column translation"><span class="column-label">中文</span>研究结果为寻求开发以退役电动汽车电池为中心的商业模式的公司提供了实用的见解，特别是通过确定影响消费者偏好结构的关键因素。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S043" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S043">p.2 · S043</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>This study also enhances understanding of how program attributes affect consumer utility, providing guidance on cost-reduction strategies and ways to promote consumer participation.</div>
+    <div class="column translation"><span class="column-label">中文</span>这项研究也增进了了解 计划属性如何影响消费者效用，为降低成本策略和促进消费者参与的方法提供指导。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S044" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S044">p.2 · S044</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>By addressing these factors, this study contributes to the development of more effective and sustainable collection programs that align with both economic and environmental objectives.</div>
+    <div class="column translation"><span class="column-label">中文</span>通过解决这些因素，本研究有助于制定更有效和可持续的收集计划，以符合经济和环境目标。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S045" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S045">p.2 · S045</a>
+    <span class="confidence-high">high confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>2. Methodology</div>
+    <div class="column translation"><span class="column-label">中文</span>2. 方法论</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S046" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S046">p.2 · S046</a>
+    <span class="confidence-high">high confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>2.1. Survey design</div>
+    <div class="column translation"><span class="column-label">中文</span>2.1.调查设计</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S047" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S047">p.2 · S047</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>This study conducted pilot and main surveys online in July and August 2023, respectively, with the support of a survey company. Prior to the pilot survey, the study ensured that the public could understand EV battery collection, recycling, and reuse and subsequently revised the questionnaire.</div>
+    <div class="column translation"><span class="column-label">中文</span>本研究在调查公司的支持下分别于2023年7月和2023年8月在网上进行了试点调查和主要调查。 在试点调查之前，该研究确保公众能够了解电动汽车电池的收集、回收和再利用，并随后修订了调查问卷。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S048" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S048">p.2 · S048</a>
+    <span class="confidence-high">high confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Before the main survey, the study reviewed estimation</div>
+    <div class="column translation"><span class="column-label">中文</span>在主要调查之前，研究回顾了估计</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S049" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S049">p.2 · S049</a>
+    <span class="confidence-high">high confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>results from the pilot survey data and refined the questionnaire again. In</div>
+    <div class="column translation"><span class="column-label">中文</span>根据试点调查数据，再次细化问卷。在</div>
+  </div>
+</article>
+
+</section><section class="page-section" id="page-3">
+<h2 class="page-heading">Page 3</h2>
+
+<article class="reading-block" id="S050" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S050">p.3 · S050</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>the main survey, the survey company reviewed respondents&#x27; answers and excluded inconsistent responses to mitigate bias and enhance the reliability of the survey. The questionnaire provided information on EV battery collection, recycling, and reuse, as well as a detailed explanation of the attributes and levels of battery collection programs (see Appendix A).</div>
+    <div class="column translation"><span class="column-label">中文</span>在主要调查中，调查公司审查了受访者的回答并排除了不一致的回答，以减少偏见并提高调查的可靠性。 调查问卷提供了有关电动汽车电池收集、回收和再利用的信息，以及电池收集计划的属性和级别的详细说明（见附录A）。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S051" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S051">p.3 · S051</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Additionally, it provided information on the capacities and prices of new EV batteries to help respondents understand the rewards associated with battery collection programs, compare program attributes, and determine their choices.</div>
+    <div class="column translation"><span class="column-label">中文</span>此外，它还提供了有关新型电动汽车电池的容量和价格的信息，以帮助受访者了解与电动汽车电池相关的回报 电池收集方案，比较方案属性，并确定其选择。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S052" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S052">p.3 · S052</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>This study analyzed 800 samples obtained through Table 1 Key attributes in previous studies. Authors Country Samples Key attributes Jin et al. (2006) China 493 Cost, noise reduction Sakata (2007) Japan 500 Cost, charging method Karousakis and Birol (2008) U.K.</div>
+    <div class="column translation"><span class="column-label">中文</span>本研究分析了通过表1关键属性获得的800个样本。 作者 国家/地区 样本 关键属性 Jin 等人。 (2006) 中国 493 成本、降噪 Sakata (2007) 日本 500 成本、收费方法 Karousakis 和 Birol (2008) 英国</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S053" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S053">p.3 · S053</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>188 Cost, collecting frequency Nakatani et al.</div>
+    <div class="column translation"><span class="column-label">中文</span>188 成本、收集频率 Nakatani 等人。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S054" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S054">p.3 · S054</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>(2008) Japan 434 Cost, loss of life expectancy, landfill capacity Pek and Jamal (2011) Malaysia 873 Cost, distance, air pollution Chi et al. (2014) China 430 Cost, convenience level Yuan and Yabe (2015) China 394 Reward, collecting frequency Czajkowski et al.</div>
+    <div class="column translation"><span class="column-label">中文</span>(2008) 日本 434 成本、预期寿命损失、垃圾填埋场容量 Pek 和 Jamal (2011) 马来西亚 873 成本、距离、空气污染 Chi 等人。 (2014) 中国 430 成本、便利水平 Yuan 和 Yabe (2015) 中国 394 奖励、收集频率 Czajkowski 等人。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S055" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S055">p.3 · S055</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>(2017) Poland 418 Cost, collecting frequency Klaiman et al. (2017) US 1500 Time required to recycle, packaging characteristic Almazán-Casali et al. (2019) Liberia 246 Cost, collecting frequency Czajkowski et al.</div>
+    <div class="column translation"><span class="column-label">中文</span>(2017) 波兰 418 成本、收集频率 Klaiman 等人。 (2017) US 1500 回收所需时间、包装特征 Almazán-Casali 等人。 (2019) 利比里亚 246 成本、收集频率 Czajkowski 等人。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S056" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S056">p.3 · S056</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>(2019) Poland 1853 Cost, collecting frequency Massarutto et al. (2019) Italy 1010 Cost, collecting frequency, charging method Qu et al. (2019) China 197 Cost, pickup service, program operator, compensation mode Rai et al. (2019) Nepal 420 Subsidy and price, collecting frequency, distance Arain et al. (2020) US 1560 Reward, distance, pickup service, consumers&#x27; knowledge Ko et al. (2020) South Korea</div>
+    <div class="column translation"><span class="column-label">中文</span>(2019) 波兰 1853 成本、收集频率 Massarutto 等人。 (2019) 意大利 1010 费用、收集频率、收费方式 Qu 等。 (2019) 中国 197 成本、接送服务、节目运营商、补偿模式 Rai 等。 (2019) 尼泊尔 420 补贴和价格、收集频率、距离 Arain 等人。 (2020) US 1560 奖励、距离、接送服务、消费者知识 Ko 等。 (2020) 韩国</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S057" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S057">p.3 · S057</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>550 Cost, collecting frequency</div>
+    <div class="column translation"><span class="column-label">中文</span>550 成本、收集频率</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S058" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S058">p.3 · S058</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Ouvrard et al. (2020) France 896 Cost, installation of a sign to highlight the recycling application H. Lee and J. Kim Journal of Environmental Management 380 (2025) 124853 the survey company to explain consumer preferences for battery collection programs.</div>
+    <div class="column translation"><span class="column-label">中文</span>乌弗拉德等人。 (2020) 法国 896 成本，安装标志以突出回收应用 H. 李和 J. Kim环境管理杂志380（2025）124853调查公司解释了消费者对电池收集计划的偏好。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S059" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S059">p.3 · S059</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>According to the sample and population statistics in Table 2, the sample reflects the characteristics of the population. The sample statistics were calculated based on the survey results, while the population statistics were derived from the data provided by Statistics Korea (2024).</div>
+    <div class="column translation"><span class="column-label">中文</span>根据表2的样本和总体统计，样本反映了总体的特征。 样本统计是根据调查结果计算的，人口统计是根据统计局提供的数据得出的 韩国（2024）。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S060" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S060">p.3 · S060</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>This study considered six attributes describing battery collection programs (Table 3), with more detailed explanations provided in Appendix A. Using these attributes, 768 sets of battery collection programs were generated, from which 16 orthogonal alternatives were selected.</div>
+    <div class="column translation"><span class="column-label">中文</span>本研究考虑了描述电池收集计划的六个属性（表 3），附录 A 中提供了更详细的解释。 利用这些属性，生成了 768 组电池收集程序，并从中选择了 16 个正交方案。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S061" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S061">p.3 · S061</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>The questionnaire asked respondents to determine their preferred program between two alternatives in eight choice cards (see Appendix A). For example, respondents who chose the first battery collection program in Fig. 1 preferred to visit a designated location, choose a battery recycling company, return their batteries after four years of use, and receive KRW 1000/kWh (USD 0.741/kWh) without an obligatory contract and with access both types of information.</div>
+    <div class="column translation"><span class="column-label">中文</span>调查问卷要求受访者在八张选择卡中的两个选项之间确定他们的首选方案（参见附录 A）。 例如，选择图1中第一个电池回收项目的受访者更愿意前往指定地点， 选择一家电池回收公司，在使用四年后归还电池，无需签订强制性合同即可获得 1000 韩元/千瓦时（0.741 美元/千瓦时）的费用，并且可以访问两种类型的信息。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S062" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S062">p.3 · S062</a>
+    <span class="confidence-high">high confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>2.2. Mixed logit model</div>
+    <div class="column translation"><span class="column-label">中文</span>2.2.混合logit模型</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S063" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S063">p.3 · S063</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>This study estimated Equation (1) based on a mixed logit model (Train, 2009). Equation (1) indicated respondent n&#x27;s utility (U jt n ) when this respondent preferred a j th alternative from a t th choice card.</div>
+    <div class="column translation"><span class="column-label">中文</span>本研究基于混合 Logit 模型估计方程 (1)（Train，2009）。 等式(1)表示当受访者从第t张选择卡中选择第j个选项时，受访者n的效用(U jt n )。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S064" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S064">p.3 · S064</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>The utility consisted of an explainable part (V jt n ) with program attributes (X jt n ) and an error term (εjt n ). As shown in a normal distribution of Equation (2), coefficient vector βn&#x27;s mean and deviation are b and σ, respectively.</div>
+    <div class="column translation"><span class="column-label">中文</span>该实用程序由具有程序属性 (X jt n ) 的可解释部分 (V jt n ) 和错误项 (εjt n ) 组成。 如式(2)的正态分布所示，系数向量βn的均值和偏差分别为b和σ。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S065" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S065">p.3 · S065</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Ujt n = Vjt n + εjt n = βʹ nXjt n + εjt n (1) βn ∼ N ( b, σ2 ) (2) This study reformulated Equation (1) as Equation (3) by incorporating program attributes. The reward was coded as a continuous variable, while the other attributes were treated as dummy variables.</div>
+    <div class="column translation"><span class="column-label">中文</span>Ujt n = Vjt n + εjt n = βʹ nXjt n + εjt n (1) βn ∼ N ( b, σ2 ) (2) 本研究通过结合程序属性将方程（1）重新表述为方程（3）。 奖励被编码为连续变量，而其他属性被视为虚拟变量。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S066" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S066">p.3 · S066</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Equation (4) represented the marginal willingness to accept (MWTA) for the attributes. MWTA, which indicated the compensation required for excluding specific attributes from battery collection programs, was calculated based on the coefficients of the reward and other attributes.</div>
+    <div class="column translation"><span class="column-label">中文</span>方程（4）代表属性的边际接受意愿（MWTA）。 MWTA表示从电池回收计划中排除特定属性所需的补偿，是根据奖励和其他属性的系数计算的。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S067" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S067">p.3 · S067</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>For example, the MWTA for a pickup service represented the compensation respondents received when they decided to visit a designated location instead of using a pickup service.</div>
+    <div class="column translation"><span class="column-label">中文</span>例如，接送服务的 MWTA 代表受访者决定访问指定地点而不使用接送服务时收到的补偿。</div>
+  </div>
+</article>
+
+</section><section class="page-section" id="page-4">
+<h2 class="page-heading">Page 4</h2>
+
+<article class="reading-block" id="S068" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S068">p.4 · S068</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>U = β11X11 + ∑ k β2kX2k + β31X31 + ∑ k β4kX4k + ∑ k β5kX5k + β61X61 + ε (3) U: Utility βik: Attribute coefficient X11: If a pickup service is provided, 1; otherwise, 0 X21: If a program operator is a governmental agency, 1; otherwise, 0 X22: If a program operator is an EV company, 1; otherwise, 0 X31: If a contract is obligatory, 1; otherwise, 0 X41: If program information is provided, 1; otherwise, 0 X42: If emissions reduction information is provided, 1; otherwise, 0 X43: If program and emissions reduction information is provided, 1; otherwise, 0 X51: If the period of use is between 4 and 8 years, 1; otherwise, 0 X52: If the period of use is between 8 and 12 years, 1; otherwise, 0 X53: If the period of use exceeds 12 years, 1; otherwise, 0 X61: Reward (KRW/kWh) MWTAik = − βik β61 (4)</div>
+    <div class="column translation"><span class="column-label">中文</span>U = β11X11 + Σ k β2kX2k + β31X31 + Σ k β4kX4k + Σ k β5kX5k + β61X61 + ε (3) U：效用 βik：属性系数 X11：若提供接送服务，为 1； X21：如果项目运营方是政府机构，则为1；否则为0。 X22：如果程序运营商是电动汽车公司，则为1；否则为0。否则，0 X31：如果合同是强制性的，则为 1；否则，为 0。否则，0 X41：如果提供节目信息，则为1； X42：若提供减排信息，则为1；否则为0。 X43：如果提供了计划和减排信息，则为 1；否则为 0否则，0 X51：如果使用期限在4年至8年之间，则为1；否则，0 X52：如果使用期限在8年至12年之间，则为1；否则，0 X53：如果使用期限超过12年，则为1；否则，0 X61：奖励（KRW/kWh） MWTAik = − βik β61 (4)</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S069" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S069">p.4 · S069</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>3. Results and discussion</div>
+    <div class="column translation"><span class="column-label">中文</span>3 结果与讨论</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S070" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S070">p.4 · S070</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>This study estimated respondents&#x27; preferences for battery collection program attributes using a mixed logit model (Table 4). All attribute coefficients were statistically significant, excluding those related to program operators.</div>
+    <div class="column translation"><span class="column-label">中文</span>本研究使用混合 Logit 模型估计了受访者对电池收集计划属性的偏好（表 4）。 除与节目运营商相关的属性系数外，所有属性系数均具有统计显着性。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S071" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S071">p.4 · S071</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Unlike previous studies, which generally showed that consumers prefer governmental and public agencies as program operators due to their trust in such programs (Qu et al., 2019), respondents in this study did not exhibit a clear preference for a specific program operator.</div>
+    <div class="column translation"><span class="column-label">中文</span>以往的研究普遍表明，消费者由于对此类项目的信任而更喜欢政府和公共机构作为项目运营商（Qu et al., 2019），而本研究中的受访者并未表现出对特定项目运营商的明确偏好。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S072" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S072">p.4 · S072</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>However, as noted by Bikash and Ichihashi (2022),</div>
+    <div class="column translation"><span class="column-label">中文</span>然而，正如 Bikash 和 Ichihashi (2022) 所指出的，</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S073" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S073">p.4 · S073</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Table 2 Sample and population statistics.</div>
+    <div class="column translation"><span class="column-label">中文</span>表 2 样本和总体统计数据。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S074" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S074">p.4 · S074</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Age Gender Sample Population Age Gender Sample Population 20s Male 10% 10% 60s (60–65) Male 7% 7% ​ Female 9% 9% ​ Female 7% 7% 30s Male 10% 10% All ages Male 51% 51% ​ Female 9% 9% ​ Female 49% 49% 40s Male 12% 12% Total 100% 100% ​ Female 12% 11% ​ ​ ​ ​ 50s Male 13% 12% ​ ​ ​ ​ ​ Female 12% 12% ​ ​ ​ ​ Note: The total sample size is 800.</div>
+    <div class="column translation"><span class="column-label">中文</span>年龄 性别 样本人口 年龄 性别 样本人口 20 多岁男性 10% 10% 60 多岁 (60–65) 男性 7% 7% ​ 女性 9% 9% ​ 女性 7% 7% 30多岁男性 10% 10% 所有年龄段 男性 51% 51% ​女性 9% 9% ​女性 49% 49% 40多岁 男性 12% 12% 合计 100% 100% ​ 女性 12% 11% ​ ​ ​ 50多岁男性 13% 12% ​ ​ ​ ​ 女性 12% 12% ​ ​ ​ 注：样本总数为800。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S075" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S075">p.4 · S075</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>The population statistics are based on Statistics Korea (2024).</div>
+    <div class="column translation"><span class="column-label">中文</span>人口统计数据基于韩国统计局（2024 年）。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S076" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S076">p.4 · S076</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Table 3 Attributes of battery collection programs.</div>
+    <div class="column translation"><span class="column-label">中文</span>表3 电池收集方案的属性。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S077" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S077">p.4 · S077</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Attribute Description Attribute levels Return method Consumers can either visit a designated location to return EV batteries or request a free pickup service to the program operator Visiting a designated location Pickup service Program operator Battery collection programs can be operated by a governmental agency, an EV company, or a battery recycling company Governmental agency EV company Battery recycling company Obligatory contract Consumers can sign obligatory contracts to return their EV batteries upon purchasing EVs Without obligatory contract With obligatory contract Information provision Program information refers to details on battery recycling, reuse, and the life cycle history of consumers&#x27; batteries Emissions reduction information refers to the potential emissions reductions achieved through battery recycling and reuse Without information</div>
+    <div class="column translation"><span class="column-label">中文</span>属性 说明 属性级别 归还方式 消费者可以前往指定地点归还电动汽车电池，也可以向项目运营方请求免费取件服务 前往指定地点取件服务 项目运营方 电池回收项目可以由政府机构、电动汽车公司或电池运营商运营 回收公司 政府机构 电动汽车公司 电池回收公司 强制合同 消费者在购买电动汽车时可以签署强制合同退回电动汽车电池 无强制合同 有强制合同 信息提供 计划信息是指电池回收、再利用以及消费者电池生命周期历史的详细信息 减排信息是指通过电池回收和再利用实现的潜在减排量 无信息</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S078" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S078">p.4 · S078</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Program information Emissions reduction information Program and emissions reduction information Battery usage period Consumers can choose the timing of their battery returns Period 〈 4 years 4 years ≤ Period 〈8 years 8 years ≤ Period 〈12 years Period ≥ 12 years Reward Consumers are rewarded for returning their EV batteries KRW 1000/kWh (USD 0.714/kWh) KRW 2000/kWh (USD 1.429/kWh) KRW 3000/kWh (USD 2.143/kWh) KRW 4000/kWh (USD 2.857/kWh) Note: USD 1 = KRW 1400 (KEB Hana Bank, 2024).</div>
+    <div class="column translation"><span class="column-label">中文</span>计划信息 减排信息 计划和减排信息 电池使用期限 消费者可以选择电池回收时间 期限 〈 4 年 4年≤期间&lt;8 年 8年≤期间&lt;12 年 期限 ≥ 12 年 奖励 消费者因归还电动汽车电池而获得 1000 韩元/千瓦时的奖励（美元 0.714/千瓦时） 2000 韩元/千瓦时（美元 1.429/千瓦时） 3000 韩元/千瓦时（美元 2.143/千瓦时） 4000 韩元/千瓦时（美元 2.857/千瓦时） 注：1 美元 = 1400 韩元（KEB 韩亚银行，2024 年）。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S079" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S079">p.4 · S079</a>
+    <span class="confidence-medium">medium confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Lee and J. Kim Journal of Environmental Management 380 (2025) 124853 consumers may not have a distinct preference for public and private agencies. This could present an opportunity for companies planning to enter the retired EV battery business, although profits of the programs are influenced by operators (Sun et al., 2022).</div>
+    <div class="column translation"><span class="column-label">中文</span>李和 J. Kim Journal of Environmental Management 380 (2025) 124853 消费者可能对公共和私人机构没有明显的偏好。 这可能为计划进入退役电动汽车电池业务的公司提供机会，尽管该项目的利润受到运营商的影响（Sun et al., 2022）。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S080" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S080">p.4 · S080</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Respondents were more likely to choose battery collection programs that offer a pickup service. This result is consistent with previous studies, which have shown that door-to-door (Qu et al., 2019) and pickup (Arain et al., 2020) services play a crucial role in collecting and recycling e-waste.</div>
+    <div class="column translation"><span class="column-label">中文</span>受访者更有可能选择提供接送服务的电池收集计划。 这一结果与之前的研究结果一致，之前的研究表明，上门服务（Qu et al., 2019）和取货服务（Arain et al., 2020）在电子垃圾的收集和回收中发挥着至关重要的作用。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S081" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S081">p.4 · S081</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>The results indicated that respondents are willing to accept lower rewards (KRW 799/kWh) if programs provide a pickup service. Program operators may consider implementing a pickup service to encourage consumer participation in battery collection programs; however, they need to evaluate additional profits from offering the service, as the service incurs extra costs.</div>
+    <div class="column translation"><span class="column-label">中文</span>结果表明，如果项目提供接送服务，受访者愿意接受较低的奖励（799 韩元/kWh）。 计划运营商可以考虑实施接送服务，以鼓励消费者参与电池收集计划；然而，他们需要评估提供服务带来的额外利润，因为服务会产生额外成本。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S082" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S082">p.4 · S082</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>In evaluating trade-offs between service provision and profitability from increased participation, program operators can employ marginal willingness to accept (MWTA) for a pickup service.</div>
+    <div class="column translation"><span class="column-label">中文</span>在评估服务提供与增加参与带来的盈利能力之间的权衡时，项目运营商可以采用边际接受意愿 (MWTA) 来获取接送服务。</div>
+  </div>
+</article>
+
+</section><section class="page-section" id="page-5">
+<h2 class="page-heading">Page 5</h2>
+
+<article class="reading-block" id="S083" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S083">p.5 · S083</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>The coefficient for offering an obligatory contract was also significant and positive, indicating that respondents tend to prefer battery collection programs that include such contract.</div>
+    <div class="column translation"><span class="column-label">中文</span>提供强制性合同的系数也显着且为正，表明受访者倾向于更喜欢包含此类合同的电池收集计划。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S084" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S084">p.5 · S084</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Although respondents have the option to decide whether to return their EV batteries to a program operator at the end of EV use, they were still willing to sign an obligatory contract at the time of purchase.</div>
+    <div class="column translation"><span class="column-label">中文</span>尽管受访者可以选择在电动汽车使用结束时决定是否将电动汽车电池退还给项目运营商，但他们仍然愿意在购买时签署强制性合同。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S085" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S085">p.5 · S085</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>This suggests that the utility of receiving rewards is larger than the disutility of losing the flexibility to choose whether to return retired EV batteries. Moreover, this result aligns with the findings of Huber et al. (2018) in that consumers are willing to accept restrictions on their behavior and act in a pro-environmental manner when the costs are low.</div>
+    <div class="column translation"><span class="column-label">中文</span>这表明，获得奖励的效用大于失去选择是否归还退役电动汽车电池的灵活性的负效用。 而且， 这一结果与 Huber 等人的研究结果一致。 （2018）的观点是，当成本较低时，消费者愿意接受对其行为的限制并以有利于环境的方式行事。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S086" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S086">p.5 · S086</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Therefore, program operators can enhance battery collection rates and increase program profitability by introducing an obligatory contract at the point of EV purchase. The estimation results also indicated that respondents are sensitive to the information provided by program operators.</div>
+    <div class="column translation"><span class="column-label">中文</span>因此，项目运营商可以通过在购买电动汽车时引入强制性合同来提高电池收集率并提高项目盈利能力。 估算结果还表明，受访者对节目运营商提供的信息很敏感。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S087" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S087">p.5 · S087</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Information on program and emissions reduction positively influenced respondents&#x27; choices of battery collection programs. Providing both types of information was more effective in encouraging consumer participation in battery collection programs, although its effect was smaller than the sum of the effects of each type of information individually.</div>
+    <div class="column translation"><span class="column-label">中文</span>有关计划和减排的信息对受访者对电池收集计划的选择产生了积极影响。 提供两种类型的信息在鼓励消费者参与电池收集计划方面更有效，尽管其效果小于每种类型信息单独效果的总和。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S088" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S088">p.5 · S088</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>The MWTA for both types of information (KRW 908/kWh) was higher than the MWTA of a pickup service (KRW 799/kWh), suggesting that providing comprehensive information is more effective in promoting consumer participation than offering a pickup service.</div>
+    <div class="column translation"><span class="column-label">中文</span>两种信息的 MWTA（908 韩元/kWh）均高于 MWTA 接送服务（799韩元/千瓦时），这表明提供全面的信息比提供接送服务更能有效地促进消费者参与。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S089" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S089">p.5 · S089</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Additionally, as noted by Arain et al. (2020), consumers&#x27; knowledge of recycling, reuse, and programs can enhance their participation in such programs. Respondents were more likely to prefer returning their EV batteries after more than four years of use rather than after less than four years.</div>
+    <div class="column translation"><span class="column-label">中文</span>此外，正如 Arain 等人指出的。 （2020），消费者对回收、再利用和计划的了解可以增强他们对此类计划的参与。 受访者更愿意在使用超过四年而不是少于四年后退回电动汽车电池。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S090" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S090">p.5 · S090</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Their preference for the battery usage period followed the order of after 8–12 years, 4–8 years, and more than 12 years. Given that predicting battery quantities can influence recycling capacity plans (Du et al., 2024), this information allows program operators to estimate the timing and volume of battery collection and develop effective recycling and reuse plans.</div>
+    <div class="column translation"><span class="column-label">中文</span>他们对电池使用时间的偏好遵循以下顺序： 8-12年、4-8年、12年以上。鉴于预测 电池数量会影响回收能力计划（Du 等人， 2024），该信息允许程序运营商估计时间 和电池收集量，并制定有效的回收和再利用计划。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S091" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S091">p.5 · S091</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>According to the estimation results, rewards had a positive effect on respondents&#x27; participation in battery collection programs. The coefficient for rewards was 0.0003, indicating an increase in utility for each additional KRW 1/kWh provided as a reward.</div>
+    <div class="column translation"><span class="column-label">中文</span>根据估算结果，奖励对受访者参与电池回收计划有积极影响。 奖励系数为0.0003，表示每增加1韩元/千瓦时的奖励，效用就会增加。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S092" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S092">p.5 · S092</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>This study investigated potential savings in rewards through the implementation of a pickup service and compared respondents&#x27; choice probabilities between programs with and without a pickup service (Table 5).</div>
+    <div class="column translation"><span class="column-label">中文</span>本研究调查了通过实施接送服务可能节省的奖励，并比较了受访者在有和没有接送服务的项目之间的选择概率（表 5）。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S093" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S093">p.5 · S093</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>This scenario analysis was designed based on previous studies (Ko et al., 2020). This study assumed identical attribute levels for the Fig. 1. Choice card.</div>
+    <div class="column translation"><span class="column-label">中文</span>该情景分析是根据之前的研究设计的（Ko et al., 2020）。 本研究假设图 1 具有相同的属性水平。 选择卡。</div>
+  </div>
+</article>
+
+
+<section class="figure-card" id="F001" data-search-block>
+  <h3>Figure 1 · 该情景分析是根据之前的研究设计的（Ko et al., 2020）。 本研究假设图 1 具有相同的属性水平。 选择卡。</h3>
+  <img class="figure-image" loading="lazy" src="assets/fig_001_p004.png"
+       alt="Figure 1 from Lee–Kim：促进消费者参与退役电池回收">
+  <div class="caption-pair">
+    <p><strong>Original caption</strong><br>Fig. 1. Choice card.</p>
+    <p><strong>中文图注</strong><br>该情景分析是根据之前的研究设计的（Ko et al., 2020）。 本研究假设图 1 具有相同的属性水平。 选择卡。</p>
+  </div>
+  <div class="figure-meta">p.4 · approximate-object-bounded</div>
+</section>
+
+
+<section class="figure-card" id="T001" data-search-block>
+  <h3>Table 1 · 该情景分析是根据之前的研究设计的（Ko et al., 2020）。 本研究假设图 1 具有相同的属性水平。 选择卡。</h3>
+  <img class="figure-image" loading="lazy" src="assets/table_001_p002.png"
+       alt="Table 1 from Lee–Kim：促进消费者参与退役电池回收">
+  <div class="caption-pair">
+    <p><strong>Original caption</strong><br>Table 1 dation for future research. The results offer practical insights for</p>
+    <p><strong>中文图注</strong><br>该情景分析是根据之前的研究设计的（Ko et al., 2020）。 本研究假设图 1 具有相同的属性水平。 选择卡。</p>
+  </div>
+  <div class="figure-meta">p.2 · approximate-object-bounded</div>
+</section>
+
+
+<article class="reading-block" id="S094" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S094">p.5 · S094</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Table 4 Estimation results of a mixed logit model.</div>
+    <div class="column translation"><span class="column-label">中文</span>表4 混合logit模型的估计结果。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S095" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S095">p.5 · S095</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Attribute Mean of β p-value Median MWTA Pickup service 0.5690*** &lt;0.001 -KRW 799/kWh (-USD 0.571/kWh) Governmental agency − 0.0930 0.195 – EV company − 0.0571 0.355 – With obligatory contract 0.0948* 0.097 -KRW 134/kWh (-USD 0.096/kWh) Program information 0.3471*** &lt;0.001 -KRW 603/kWh (-USD 0.431/kWh) Emissions reduction information 0.3576*** &lt;0.001 -KRW 626/kWh (-USD 0.447/kWh) Program and emissions reduction information 0.5228*** &lt;0.001 -KRW 908/kWh (-USD 0.649/kWh) 4 years ≤ Period 〈8 years 0.7624*** &lt;0.001 -KRW 1331/kWh (-USD 0.951/kWh) 8 years ≤ Period 〈12 years 0.8410*** &lt;0.001 -KRW 1455/kWh (-USD 1.039/kWh) Period ≥ 12 years 0.4180*** &lt;0.001 -KRW 466/kWh (-USD</div>
+    <div class="column translation"><span class="column-label">中文</span>属性 β p 值的平均值 MWTA 接送服务中位数 0.5690*** &lt;0.001 -KRW 799/kWh (-USD 0.571/千瓦时） 政府机构 − 0.0930 0.195 – 电动汽车公司 − 0.0571 0.355 – 有强制性合同 0.0948* 0.097 -134 韩元/kWh (-USD 0.096/千瓦时） 计划信息 0.3471*** &lt;0.001 -KRW 603/kWh (-USD 0.431/千瓦时） 减排信息 0.3576*** &lt;0.001 -626 韩元/千瓦时（-美元 0.447/千瓦时） 计划和减排信息 0.5228*** &lt;0.001 -908 韩元/千瓦时（-美元 0.649/千瓦时） 4年≤期间&lt;8年0.7624*** &lt;0.001 -1331韩元/kWh （-0.951 美元/千瓦时） 8年≤期间&lt;12年0.8410*** &lt;0.001 -1455韩元/kWh (-USD 1.039/kWh) 期限 ≥ 12 年 0.4180*** &lt;0.001 -KRW 466/kWh (-USD</div>
+  </div>
+</article>
+
+</section><section class="page-section" id="page-6">
+<h2 class="page-heading">Page 6</h2>
+
+<article class="reading-block" id="S096" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S096">p.6 · S096</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>0.333/kWh) Reward 0.0003*** &lt;0.001 – Number of observations: 12,800 Log-likelihood: 3965.6689 Note: *** Significant at the 1% level, * Significant at the 10% level. USD 1 = KRW 1400 (KEB Hana Bank, 2024).</div>
+    <div class="column translation"><span class="column-label">中文</span>0.333/千瓦时） 奖励 0.0003*** &lt;0.001 – 观测值数量：12,800 对数似然：3965.6689 注：*** 在 1% 水平上显着，* 在 10% 水平上显着。 1 美元 = 1400 韩元（KEB 韩亚银行，2024 年）。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S097" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S097">p.6 · S097</a>
+    <span class="confidence-medium">medium confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Lee and J. Kim Journal of Environmental Management 380 (2025) 124853 obligatory contract, information provision, and battery usage period in both programs, but excluded the effects of program operators due to their insignificant coefficients.</div>
+    <div class="column translation"><span class="column-label">中文</span>李和 J. Kim Journal of Environmental Management 380 (2025) 124853 两个项目中的强制性合同、信息提供和电池使用期限，但排除了项目运营商的影响，因为其系数不显着。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S098" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S098">p.6 · S098</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>A fixed reward of KRW 4000/kWh was assumed for the program without a pickup service. By contrast, for the programs with a pickup service, the reward was assumed to decrease from KRW 4000/kWh to KRW 0/kWh to analyze potential savings in rewards through the implementation of a pickup service.</div>
+    <div class="column translation"><span class="column-label">中文</span>对于没有接送服务的项目，假定固定奖励为 4000 韩元/千瓦时。 相比之下，对于提供接送服务的项目，假设奖励从 4000 韩元/kWh 减少到 0 韩元/kWh，以分析通过实施接送服务可能节省的奖励。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S099" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S099">p.6 · S099</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Additionally, this study accounted for uncertainty in respondents&#x27; preferences for a pickup service and considered scenarios in which a pickup service was either more or less preferred compared to Table 4.</div>
+    <div class="column translation"><span class="column-label">中文</span>另外， 这项研究考虑了受访者对取件服务偏好的不确定性，并考虑了与表 4 相比更喜欢或不太喜欢取件服务的场景。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S100" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S100">p.6 · S100</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>In both scenarios, the estimated coefficient was assumed to represent the upper and lower bounds of the 95% confidence interval, respectively. When the reward in both programs was KRW 4000/kWh in the reference scenario, 63% of respondents preferred the program with a pickup service (Fig. 2).</div>
+    <div class="column translation"><span class="column-label">中文</span>在这两种情况下，假设估计系数分别代表 95% 置信区间的上限和下限。 在参考场景中，当两个项目的奖励均为 4000 韩元/kWh 时，63% 的受访者更喜欢带有接送服务的项目（图 2）。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S101" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S101">p.6 · S101</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>However, the probability of choosing the program with a pickup service decreased as the reward was reduced. When the reward for the program with a pickup service was KRW 2000/kWh, its choice probability was identical to that of the program offering KRW 4000/kWh without a pickup service. This suggests that, in this scenario analysis, operators can save KRW 2000/kWh per consumer by providing a pickup service despite incurring additional costs to offer a pickup service.</div>
+    <div class="column translation"><span class="column-label">中文</span>然而，随着奖励的减少，选择有接机服务的项目的概率也随之降低。 当带接送服务的方案奖励为2000韩元/kWh时，其选择概率与提供韩元的方案相同 4000/kWh，无接送服务。这表明，在这种情况下 据分析，尽管提供接送服务会产生额外成本，但运营商通过提供接送服务可以为每位消费者节省 2000 韩元/千瓦时。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S102" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S102">p.6 · S102</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>This study assumed scenarios in which a pickup service was either more or less preferred, as the preference for its convenience may change over time (Fig. 2). When a pickup service was preferred more than in the reference scenario, operators could offer lower rewards in the program with a pickup service while maintaining the same consumer preference as the KRW 4000/kWh program without a pickup service.</div>
+    <div class="column translation"><span class="column-label">中文</span>本研究假设了接送服务或多或少受到青睐的场景，因为对其便利性的偏好可能会随着时间的推移而发生变化（图 2）。 当接送服务比参考场景更受欢迎时，运营商可以在带有接送服务的计划中提供较低的奖励，同时保持与不带接送服务的 4000 韩元/kWh 计划相同的消费者偏好。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S103" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S103">p.6 · S103</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>In other words, in the more preferred scenario, operators could reduce the reward by KRW 300/kWh compared to the reference scenario. Conversely, when consumers preferred the convenience of a pickup service less, operators need to offer KRW 500/kWh more than in the reference scenario.</div>
+    <div class="column translation"><span class="column-label">中文</span>在其他方面 也就是说，在更优选的场景中，运营商可以比参考场景减少 300 韩元/kWh 的奖励。 相反，当消费者不太喜欢接送服务的便利性时，运营商需要比参考场景多提供 500 韩元/kWh。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S104" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S104">p.6 · S104</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Operators may consider implementing a pickup service to encourage consumer participation in battery collection programs or, alternatively, offer higher rewards without a pickup service.</div>
+    <div class="column translation"><span class="column-label">中文</span>运营商可以考虑实施接送服务，以鼓励消费者参与电池收集计划，或者在没有接送服务的情况下提供更高的奖励。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S105" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S105">p.6 · S105</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Therefore, the scenario</div>
+    <div class="column translation"><span class="column-label">中文</span>因此，场景</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S106" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S106">p.6 · S106</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>results provide insights into the trade-offs between offering a pickup</div>
+    <div class="column translation"><span class="column-label">中文</span>结果提供了对提供皮卡之间的权衡的见解</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S107" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S107">p.6 · S107</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>service and increasing rewards. According to the results, the value of a pickup service was approximately KRW 2000/kWh per consumer. Based on these results, operators can determine whether to incur additional costs to provide a pickup service or to offer higher rewards without one.</div>
+    <div class="column translation"><span class="column-label">中文</span>服务并增加奖励。 根据结果，每位消费者的接送服务价值约为 2000 韩元/千瓦时。 根据这些结果，运营商可以决定是否需要承担额外费用来提供接送服务，或者在没有接送服务的情况下提供更高的奖励。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S108" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S108">p.6 · S108</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Furthermore, since the trade-offs were found to depend on the value consumers place on a pickup service, operators need to understand consumer preferences for convenience to minimize rewards while maximizing program profitability.</div>
+    <div class="column translation"><span class="column-label">中文</span>此外，由于发现权衡取决于消费者对接送服务的价值，运营商需要了解消费者对便利性的偏好，以最大限度地减少奖励，同时最大限度地提高计划的盈利能力。</div>
+  </div>
+</article>
+
+</section><section class="page-section" id="page-7">
+<h2 class="page-heading">Page 7</h2>
+
+<article class="reading-block" id="S109" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S109">p.7 · S109</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>This study also analyzed potential savings in rewards through Table 5 Scenarios for analyzing consumers&#x27; sensitivity to pickup service. Scenario Pickup service availability With a pickup service Visiting a designated location Preference for a pickup service More preferred Reference Less preferred More preferred Reference Less preferred Mean of β11 (Mean of the coefficient for a pickup service) 0.6786 0.5690 0.4593 0.6786 0.5690 0.4593 Return method Pickup service Visiting a designated location Program operator Coefficients were insignificant Coefficients were insignificant Obligatory contract With obligatory contract With obligatory contract Information provision Program and emissions reduction information Program and emissions reduction information Battery usage period 8 years ≤ Period &lt; 12 years 8 years ≤ Period &lt; 12 years Reward KRW 4000/kWh KRW 4000/kWh KRW 3500/kWh KRW 3000/kWh KRW 2500/kWh KRW 2000/kWh KRW 1500/kWh KRW 1000/kWh KRW 500/kWh KRW 0/kWh Note: The 95% confidence interval for the pickup service coefficient is [0.4593,0.6786].</div>
+    <div class="column translation"><span class="column-label">中文</span>本研究还通过表 5 场景分析了消费者对接送服务的敏感性，分析了潜在的奖励节省。 场景 是否有接送服务 有接送服务 到访指定地点 优先选择接送服务 更优先 参考 次优先 较优先 参考 次优先 β11 均值（接送服务系数均值） 0.6786 0.5690 0.4593 0.6786 0.5690 0.4593 返回方式 接送服务 到指定地点 程序运营商 系数不显着 系数为微不足道的 义务合同 具有义务合同 具有义务合同 信息提供 计划及减排信息 计划及减排信息 电池使用期限 8年≤期限&lt;12年 8年≤期限&lt;12年 奖励 4000韩元/kWh 4000韩元/kWh 3500韩元/kWh 3000韩元/kWh 2500韩元/kWh 2000韩元/kWh 1500韩元/kWh 1000 韩元/kWh 500 韩元/kWh 0 韩元/kWh 注：接送服务系数的 95% 置信区间为 [0.4593,0.6786]。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S110" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S110">p.7 · S110</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>The standard error of the pickup service coefficient is 0.0559. Fig. 2. Choice probabilities for the programs with and without a pickup service. Lee and J. Kim Journal of Environmental Management 380 (2025) 124853 information provision (Table 6).</div>
+    <div class="column translation"><span class="column-label">中文</span>接送服务系数的标准误差为0.0559。 图 2. 有和没有接送服务的项目的选择概率。 李和 J. 金环境管理学报380(2025)124853信息提供（表6）。</div>
+  </div>
+</article>
+
+
+<section class="figure-card" id="F002" data-search-block>
+  <h3>Figure 2 · 接送服务系数的标准误差为0.0559。 图 2. 有和没有接送服务的项目的选择概率。 李和 J. 金环境管理学报380(2025)124853信息提供（表6）。</h3>
+  <img class="figure-image" loading="lazy" src="assets/fig_002_p005.png"
+       alt="Figure 2 from Lee–Kim：促进消费者参与退役电池回收">
+  <div class="caption-pair">
+    <p><strong>Original caption</strong><br>Fig. 2. Choice probabilities for the programs with and without a pickup service.</p>
+    <p><strong>中文图注</strong><br>接送服务系数的标准误差为0.0559。 图 2. 有和没有接送服务的项目的选择概率。 李和 J. 金环境管理学报380(2025)124853信息提供（表6）。</p>
+  </div>
+  <div class="figure-meta">p.5 · approximate-object-bounded</div>
+</section>
+
+
+<article class="reading-block" id="S111" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S111">p.7 · S111</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>In scenarios with and without information, all attribute levels were assumed to be identical except for the information attribute. The reward in the program without information was fixed at KRW 4000/kWh, while the rewards in programs with information were assumed to decrease from KRW 4000/kWh to KRW 0/ kWh.</div>
+    <div class="column translation"><span class="column-label">中文</span>在有信息和没有信息的场景中，除了信息属性之外，所有属性级别都被假定为相同。 无信息项目的奖励固定为 4000 韩元/kWh，而有信息项目的奖励则假设从 4000 韩元/kWh 减少到 0 韩元/kWh。 千瓦时。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S112" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S112">p.7 · S112</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Moreover, this study considered uncertain scenarios in which information was either more or less preferred and assumed that the estimated coefficient represented the upper and lower bounds of the 95% confidence interval, respectively.</div>
+    <div class="column translation"><span class="column-label">中文</span>此外，本研究考虑了不确定的情况，其中信息或多或少是首选，并假设估计系数分别代表 95% 置信区间的上限和下限。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S113" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S113">p.7 · S113</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Since operators can reduce rewards by providing information, consumers have identical preferences for programs with and without information at a reward level of KRW 2300/kWh (Fig. 3).</div>
+    <div class="column translation"><span class="column-label">中文</span>由于运营商可以通过提供信息来减少奖励，因此消费者对有信息和无信息的节目的偏好相同，奖励水平为 2300 韩元/kWh（图 3）。</div>
+  </div>
+</article>
+
+
+<section class="figure-card" id="F003" data-search-block>
+  <h3>Figure 3 · 由于运营商可以通过提供信息来减少奖励，因此消费者对有信息和无信息的节目的偏好相同，奖励水平为 2300 韩元/kWh（图 3）。</h3>
+  <img class="figure-image" loading="lazy" src="assets/fig_003_p006.png"
+       alt="Figure 3 from Lee–Kim：促进消费者参与退役电池回收">
+  <div class="caption-pair">
+    <p><strong>Original caption</strong><br>Fig. 3. Choice probabilities for the programs with and without information.</p>
+    <p><strong>中文图注</strong><br>由于运营商可以通过提供信息来减少奖励，因此消费者对有信息和无信息的节目的偏好相同，奖励水平为 2300 韩元/kWh（图 3）。</p>
+  </div>
+  <div class="figure-meta">p.6 · approximate-object-bounded</div>
+</section>
+
+
+<article class="reading-block" id="S114" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S114">p.7 · S114</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>In other words, operators can save KRW 1700/kWh per consumer, despite the need to collect and provide information. Additionally, given the uncertainty in consumer preferences for information, the reward level at which consumers equally prefer programs with and without information may vary.</div>
+    <div class="column translation"><span class="column-label">中文</span>换句话说，尽管需要收集和提供信息，但运营商可以为每个消费者节省 1700 韩元/kWh。 此外，考虑到消费者对信息偏好的不确定性，消费者同样喜欢包含和不包含信息的节目的奖励水平可能会有所不同。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S115" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S115">p.7 · S115</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>While operators save additional KRW 500/kWh in the more preferred scenario, they need to offer KRW 500/kWh more in the less preferred scenario. Information may be more attractive to program operators because it is less costly than a pickup service.</div>
+    <div class="column translation"><span class="column-label">中文</span>虽然运营商在更喜欢的场景中可以额外节省 500 韩元/kWh，但在不太喜欢的场景中需要多提供 500 韩元/kWh。 信息可能对节目运营商更有吸引力，因为它比接送服务成本更低。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S116" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S116">p.7 · S116</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>In other words, providing the information that consumers need can be an efficient strategy to encourage consumer participation with minimal expenditure. However, as shown in Fig. 3, since the reward levels required by consumers are sensitive to information provision, operators need to understand the structure of consumer preferences for information and the specific types of information they require.</div>
+    <div class="column translation"><span class="column-label">中文</span>换句话说，提供消费者所需的信息可能是一种以最少的支出鼓励消费者参与的有效策略。 然而，如图3所示，由于消费者要求的奖励水平对信息提供很敏感，因此运营商需要了解 消费者对信息的偏好以及他们需要的特定类型的信息。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S117" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S117">p.7 · S117</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Although this study considered program and emissions reduction information, consumers may need other types of information to participate in the programs, such as recycling and reuse safety and corporate social responsibility.</div>
+    <div class="column translation"><span class="column-label">中文</span>尽管这项研究考虑了计划和减排信息，但消费者可能需要其他类型的信息来参与计划，例如回收和再利用安全以及企业社会责任。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S118" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S118">p.7 · S118</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>In particular, given that consumers are increasingly sensitive to pro-environmental behavior, providing environmental information beyond just emissions reduction, such as resource conservation, can help encourage their participation.</div>
+    <div class="column translation"><span class="column-label">中文</span>特别是，鉴于消费者对环保行为越来越敏感，提供减排以外的环境信息（例如资源保护）可以帮助鼓励他们的参与。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S119" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S119">p.7 · S119</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>4. Conclusion</div>
+    <div class="column translation"><span class="column-label">中文</span>4. 结论</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S120" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S120">p.7 · S120</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>This study examined consumer preferences for EV battery collection programs and the factors influencing their participation. The programs were described using six attributes: return method, program operator, obligatory contract, information provision, battery usage period, and reward.</div>
+    <div class="column translation"><span class="column-label">中文</span>这项研究调查了消费者对电动汽车电池收集计划的偏好以及影响他们参与的因素。 程序使用六个属性进行描述：归还方式、程序运营商、义务合同、信息提供、电池使用期限和奖励。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S121" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S121">p.7 · S121</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>According to the results, respondents preferred to return EV batteries after 8–12 years of use to programs that offered a pickup service, information, and higher rewards.</div>
+    <div class="column translation"><span class="column-label">中文</span>结果显示，受访者更愿意在使用 8 至 12 年后将电动汽车电池退回到提供接送服务、信息和更高奖励的计划中。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S122" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S122">p.7 · S122</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Respondents wanted to receive information on both program and emissions reduction, but showed no</div>
+    <div class="column translation"><span class="column-label">中文</span>受访者希望获得有关计划和减排的信息，但表示没有</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S123" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S123">p.7 · S123</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Table 6 Scenarios for analyzing consumers&#x27; sensitivity to information provision.</div>
+    <div class="column translation"><span class="column-label">中文</span>表6 分析消费者对信息提供敏感度的场景。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S124" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S124">p.7 · S124</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Scenario Information availability With program and emissions reduction information Without program and emissions reduction information Preference for information provision More preferred Reference Less preferred More preferred Reference Less preferred Mean of β43 (Mean of the coefficient for both information) 0.6860 0.5228 0.3597 0.6860 0.5228 0.3597 Return method Pickup service Pickup service Program operator Coefficients were insignificant Coefficients were insignificant Obligatory contract With obligatory contract With obligatory contract Information provision Program and emissions reduction information Without information Battery usage period 8 years ≤ Period &lt; 12 years 8 years ≤ Period &lt; 12 years Reward KRW 4000/kWh KRW 4000/kWh KRW 3500/kWh KRW 3000/kWh KRW 2500/kWh KRW 2000/kWh KRW 1500/kWh KRW 1000/kWh KRW 500/kWh KRW 0/kWh Note: The 95% confidence interval for the both-information coefficient is [0.3597,0.6860].</div>
+    <div class="column translation"><span class="column-label">中文</span>情景 信息可获得性 有计划和减排信息 无计划和减排信息 优先提供信息 更优先 参考 不太优先 更优先 参考 不太优先 β43 平均值（两种信息的系数平均值） 0.6860 0.5228 0.3597 0.6860 0.5228 0.3597 返回方式 接送服务 接送服务 项目运营商 系数不显着 系数不显着 义务合同 有义务合同 有义务合同 信息提供 计划及减排信息 无信息 电池使用年限 8年≤使用期限&lt;12年 8年≤使用期限&lt;12年 奖励 4000韩元/kWh 4000韩元/kWh 3500/kWh 3000/kWh 2500/kWh 2000/kWh 1500/kWh 韩元1000/kWh 韩元 500/kWh 韩元 0/kWh 注：双信息系数的 95% 置信区间为 [0.3597,0.6860]。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S125" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S125">p.7 · S125</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>The standard error for the both-information coefficient is 0.0832. Fig. 3. Choice probabilities for the programs with and without information. Lee and J. Kim Journal of Environmental Management 380 (2025) 124853 preference for program operators.</div>
+    <div class="column translation"><span class="column-label">中文</span>双信息系数的标准误差为 0.0832。 图 3. 有信息和无信息的程序的选择概率。 李和 J. Kim 环境管理杂志 380 (2025) 124853 对项目运营商的偏好。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S126" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S126">p.7 · S126</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Although returning retired EV batteries to local governments was mandatory in South Korea, consumers can now handle these batteries independently following the abolition of the regulation (Ministries of the South Korean Government, 2024).</div>
+    <div class="column translation"><span class="column-label">中文</span>尽管在韩国，将报废的电动汽车电池归还给地方政府是强制性的，但在该法规废除后，消费者现在可以独立处理这些电池（韩国政府部委，2024 年）。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S127" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S127">p.7 · S127</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>This implies that the processes of battery collection, recycling, and reuse are independently determined by the battery market. Therefore, designing strategies to promote EV battery collection is essential, as collection must occur before profits can be generated from battery recycling and reuse.</div>
+    <div class="column translation"><span class="column-label">中文</span>这意味着电池收集、回收和再利用的过程由电池市场独立决定。 因此，设计促进电动汽车电池收集的策略至关重要，因为收集必须先进行，然后才能从电池回收和再利用中产生利润。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S128" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S128">p.7 · S128</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Moreover, the efficient collection of retired EV batteries will become increasingly important with the growing number of EVs on the road and the rising focus on life-cycle battery management.</div>
+    <div class="column translation"><span class="column-label">中文</span>此外，高效的 随着道路上电动汽车数量的不断增加以及对电池生命周期管理的日益关注，收集退役电动汽车电池将变得越来越重要。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S129" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S129">p.7 · S129</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>This study contributes to promoting EV battery collection in a market-driven environment where the success of battery recycling and reuse depends on market dynamics. The specific contributions of this study are summarized as follows.</div>
+    <div class="column translation"><span class="column-label">中文</span>这项研究有助于在市场驱动的环境中促进电动汽车电池的收集，其中电池回收和再利用的成功取决于市场动态。 本研究的具体贡献总结如下。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S130" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S130">p.7 · S130</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>First, the findings of this study assist companies considering EV battery collection in designing effective battery collection programs. The signs of estimated coefficients provide fundamental insights into consumer preferences and key factors influencing participation.</div>
+    <div class="column translation"><span class="column-label">中文</span>首先，这项研究的结果有助于考虑电动汽车电池收集的公司设计有效的电池收集计划。 估计系数的符号提供了对消费者偏好和影响参与的关键因素的基本见解。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S131" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S131">p.7 · S131</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Based on these insights, companies can determine whether to offer additional services, contracts, or information. Second, companies can develop strategies to reduce program costs and promote consumer participation.</div>
+    <div class="column translation"><span class="column-label">中文</span>根据这些见解，公司可以决定是否提供额外的服务、合同或信息。 其次，公司可以制定战略来降低计划成本并促进消费者参与。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S132" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S132">p.7 · S132</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Since MWTA helps companies understand trade-offs between rewards and other attributes, they can calculate the savings in rewards instead of providing additional services, such as a pickup service or information provision.</div>
+    <div class="column translation"><span class="column-label">中文</span>自从 MWTA 帮助公司了解奖励和其他属性之间的权衡，他们可以计算奖励的节省，而不是提供额外的服务，例如接送服务或信息提供。</div>
+  </div>
+</article>
+
+</section><section class="page-section" id="page-8">
+<h2 class="page-heading">Page 8</h2>
+
+<article class="reading-block" id="S133" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S133">p.8 · S133</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Third, the uncertainty analyses in this study suggests that companies need to focus on consumer sensitivity to a pickup service and information provision. While the results indicate that consumers prefer these services, their preferences may change over time.</div>
+    <div class="column translation"><span class="column-label">中文</span>第三，本研究中的不确定性分析表明，企业需要关注消费者对取货服务和信息提供的敏感性。 虽然结果表明消费者更喜欢这些服务，但他们的偏好可能会随着时间而改变。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S134" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S134">p.8 · S134</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Since changes in consumer preferences can influence both the rewards they receive and companies&#x27; profitability, companies should understand these preference structures and closely monitor consumer sensitivity to convenience and the information provided by programs.</div>
+    <div class="column translation"><span class="column-label">中文</span>由于消费者偏好的变化会影响他们收到的奖励和 为了提高公司的盈利能力，公司应该了解这些偏好结构，并密切监控消费者对便利性和计划提供的信息的敏感度。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S135" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S135">p.8 · S135</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>In particular, providing environmental information can encourage consumer participation at minimal additional cost if companies understand the types of information consumers seek.</div>
+    <div class="column translation"><span class="column-label">中文</span>特别是，如果公司了解消费者寻求的信息类型，提供环境信息可以以最小的额外成本鼓励消费者参与。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S136" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S136">p.8 · S136</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Fourth, the findings of this study also assist companies in forecasting program trends. They can predict consumers&#x27; return timing, the number of collected EV batteries, and reward costs.</div>
+    <div class="column translation"><span class="column-label">中文</span>第四，本研究的结果还有助于企业预测项目趋势。 他们可以预测消费者的返回时间、收集的电动汽车电池的数量以及奖励成本。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S137" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S137">p.8 · S137</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>In particular, if companies sign obligatory contracts, forecasting the number of collected EV batteries becomes easier. Although this study examined consumer preferences for battery collection programs, it did not focus on how individual consumer characteristics influence these preferences.</div>
+    <div class="column translation"><span class="column-label">中文</span>在 特别是，如果公司签署强制性合同，预测收集的电动汽车电池的数量就会变得更容易。 尽管这项研究调查了消费者对电池收集计划的偏好，但它并没有关注个人消费者特征如何影响这些偏好。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S138" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S138">p.8 · S138</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Future research can enhance the comprehensiveness of collection strategies by estimating the effects of these characteristics and tailoring programs to different consumer segments.</div>
+    <div class="column translation"><span class="column-label">中文</span>未来的研究可以通过评估这些特征的影响并针对不同的消费者群体定制计划来增强收集策略的全面性。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S139" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S139">p.8 · S139</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Additionally, consumers&#x27; MWTA may vary depending on their familiarity with the programs and background knowledge. For instance, as consumers&#x27; awareness of the programs and their need to improve environmental quality increase, their willingness to participate in such programs may also rise.</div>
+    <div class="column translation"><span class="column-label">中文</span>此外，消费者的 MWTA 可能会有所不同，具体取决于他们的 熟悉程序和背景知识。 例如，随着消费者对这些项目的认识和改善环境质量的需求的增加，他们参与此类项目的意愿也可能会增加。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S140" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S140">p.8 · S140</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Furthermore, applying these findings to other countries requires caution, as this study focused on South Korean consumers. This is particularly relevant in e-waste management, where developed and developing countries exhibit significant differences in regulatory frameworks, governance, and financial support (Kosai et al., 2022). Further studies should consider these contextual differences when designing and implementing collection programs.</div>
+    <div class="column translation"><span class="column-label">中文</span>此外，将这些发现应用于其他国家需要谨慎，因为这项研究主要针对韩国消费者。 这在电子废物管理中尤其重要，发达国家和发展中国家在监管框架、治理和财政支持方面表现出显着差异（Kosai 等人， 2022）。进一步的研究应该考虑这些背景差异 在设计和实施收集计划时。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S141" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S141">p.8 · S141</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>CRediT authorship contribution statement Hwarang Lee: Writing – original draft, Methodology, Investigation, Formal analysis, Data curation, Conceptualization. Jongdae Kim: Writing – original draft, Validation, Investigation, Data curation, Conceptualization.</div>
+    <div class="column translation"><span class="column-label">中文</span>CRediT 作者贡献声明 Hwarang Lee：写作 - 初稿、方法论、调查、形式分析、数据管理、概念化。 Jongdae Kim：写作——初稿、验证、调查、数据管理、概念化。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S142" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S142">p.8 · S142</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Declaration of competing interest The authors declare that they have no known competing financial interests or personal relationships that could have appeared to influence the work reported in this paper.</div>
+    <div class="column translation"><span class="column-label">中文</span>竞争利益声明 作者声明，他们没有已知的可能影响本文报告工作的竞争经济利益或个人关系。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S143" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S143">p.8 · S143</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Acknowledgments This work was conducted under the framework of Research and Development Program of the Korea Institute of Energy Research (KIER) (C2-2443-01).</div>
+    <div class="column translation"><span class="column-label">中文</span>致谢 这项工作是在韩国能源研究所 (KIER) (C2-2443-01) 的研究和开发计划框架下进行的。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S144" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S144">p.8 · S144</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Appendix A.</div>
+    <div class="column translation"><span class="column-label">中文</span>附录 A。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S145" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S145">p.8 · S145</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Supplementary data Supplementary data to this article can be found online at https://doi. org/10.1016/j.jenvman.2025.124853.</div>
+    <div class="column translation"><span class="column-label">中文</span>补充数据 本文的补充数据可以在线找到：https://doi。 org/10.1016/j.jenvman.2025.124853。</div>
+  </div>
+</article>
+
+
+<article class="reading-block" id="S146" data-search-block>
+  <div class="block-head">
+    <a class="anchor-link" href="#S146">p.8 · S146</a>
+    <span class="confidence-low">low confidence</span>
+  </div>
+  <div class="pair">
+    <div class="column original"><span class="column-label">Original</span>Data availability Data will be made available on request.</div>
+    <div class="column translation"><span class="column-label">中文</span>数据可用性 数据将根据要求提供。</div>
+  </div>
+</article>
+
+</section>
+    </div>
+  </main>
+</div>
+<button class="icon-btn to-top" id="toTop" aria-label="回到顶部">↑</button>
+<dialog class="lightbox" id="lightbox">
+  <button class="icon-btn" id="closeLightbox" aria-label="关闭">关闭</button>
+  <img id="lightboxImage" alt="">
+</dialog>
+<script>
+(() => {
+  const root = document.documentElement;
+  const body = document.body;
+  const key = body.dataset.paperKey;
+  const $ = (s, p=document) => p.querySelector(s);
+  const $$ = (s, p=document) => [...p.querySelectorAll(s)];
+  const storedTheme = localStorage.getItem('nr-theme') || 'system';
+  const resolveTheme = value => value === 'system'
+    ? (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+    : value;
+  let themeMode = storedTheme;
+  const applyTheme = () => {
+    root.dataset.theme = resolveTheme(themeMode);
+    $('#themeButton').textContent = themeMode === 'system' ? '◐ 系统' : themeMode === 'dark' ? '☾ 深色' : '☀ 浅色';
+  };
+  applyTheme();
+  $('#themeButton').addEventListener('click', () => {
+    themeMode = themeMode === 'system' ? 'light' : themeMode === 'light' ? 'dark' : 'system';
+    localStorage.setItem('nr-theme', themeMode);
+    applyTheme();
+  });
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyTheme);
+
+  const fontRange = $('#fontRange');
+  const splitRange = $('#splitRange');
+  fontRange.value = localStorage.getItem('nr-font') || 17;
+  splitRange.value = localStorage.getItem('nr-split') || 50;
+  const applySizing = () => {
+    root.style.setProperty('--font-size', `${fontRange.value}px`);
+    root.style.setProperty('--split', `${splitRange.value}%`);
+  };
+  applySizing();
+  fontRange.addEventListener('input', () => {
+    localStorage.setItem('nr-font', fontRange.value);
+    applySizing();
+  });
+  splitRange.addEventListener('input', () => {
+    localStorage.setItem('nr-split', splitRange.value);
+    applySizing();
+  });
+
+  const viewButtons = $$('.view-button');
+  const setView = value => {
+    body.dataset.view = value;
+    localStorage.setItem('nr-view', value);
+    viewButtons.forEach(button => button.classList.toggle('active', button.dataset.view === value));
+  };
+  viewButtons.forEach(button => button.addEventListener('click', () => setView(button.dataset.view)));
+  setView(localStorage.getItem('nr-view') || 'bilingual');
+
+  $('#menuButton').addEventListener('click', () => body.classList.toggle('sidebar-open'));
+  $$('.page-nav a').forEach(link => link.addEventListener('click', () => body.classList.remove('sidebar-open')));
+
+  const search = $('#searchInput');
+  const status = $('#searchStatus');
+  const blocks = $$('.reading-block, .figure-card');
+  const pages = $$('.page-section');
+  const empty = $('#emptySearch');
+  let searchTimer;
+  const runSearch = () => {
+    const query = search.value.trim().toLocaleLowerCase();
+    let visible = 0;
+    blocks.forEach(block => {
+      const hit = !query || block.textContent.toLocaleLowerCase().includes(query);
+      block.classList.toggle('search-hidden', !hit);
+      block.classList.toggle('search-hit', !!query && hit);
+      if (hit) visible++;
+    });
+    pages.forEach(page => {
+      const any = !!page.querySelector('.reading-block:not(.search-hidden), .figure-card:not(.search-hidden)');
+      page.classList.toggle('search-hidden', !any);
+    });
+    empty.classList.toggle('show', visible === 0);
+    status.textContent = query ? `找到 ${visible} 个内容块` : '';
+  };
+  search.addEventListener('input', () => {
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(runSearch, 100);
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === '/' && document.activeElement !== search) {
+      event.preventDefault();
+      search.focus();
+    }
+    if (event.key === 'Escape') {
+      search.value = '';
+      runSearch();
+      body.classList.remove('sidebar-open');
+    }
+  });
+
+  const progress = $('#progressBar');
+  const topButton = $('#toTop');
+  const storageKey = `nr-progress-${key}`;
+  let saveTimer;
+  const onScroll = () => {
+    const max = Math.max(1, document.documentElement.scrollHeight - innerHeight);
+    const ratio = Math.min(1, Math.max(0, scrollY / max));
+    progress.style.width = `${ratio * 100}%`;
+    topButton.classList.toggle('show', scrollY > 700);
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(() => localStorage.setItem(storageKey, String(scrollY)), 180);
+  };
+  addEventListener('scroll', onScroll, { passive: true });
+  addEventListener('load', () => {
+    const saved = Number(localStorage.getItem(storageKey) || 0);
+    if (!location.hash && saved > 200) scrollTo(0, saved);
+    onScroll();
+  });
+  topButton.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      $$('.page-nav a').forEach(link => link.classList.toggle('active', link.hash === `#${entry.target.id}`));
+    });
+  }, { rootMargin: '-15% 0px -75% 0px' });
+  pages.forEach(page => observer.observe(page));
+
+  const dialog = $('#lightbox');
+  const dialogImage = $('#lightboxImage');
+  $$('.figure-image').forEach(image => image.addEventListener('click', () => {
+    dialogImage.src = image.src;
+    dialogImage.alt = image.alt;
+    dialog.showModal();
+  }));
+  $('#closeLightbox').addEventListener('click', () => dialog.close());
+  dialog.addEventListener('click', event => {
+    if (event.target === dialog) dialog.close();
+  });
+})();
+</script>
+</body>
+</html>

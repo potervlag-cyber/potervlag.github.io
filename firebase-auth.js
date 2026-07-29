@@ -44,7 +44,7 @@ function setFormBusy(isBusy) {
     emailInput.disabled = isBusy;
     passwordInput.disabled = isBusy;
     submitButton.disabled = isBusy;
-    submitButton.textContent = isBusy ? "正在验证…" : "进入空间";
+    submitButton.textContent = isBusy ? "正在验证…" : "登录并进入文献库";
 }
 
 function showLogin(message = "") {
@@ -63,13 +63,9 @@ function showLogin(message = "") {
 }
 
 function unlockSite(user) {
-    document.body.classList.remove("auth-pending", "auth-locked");
-    gate.hidden = true;
-    protectedContent.hidden = false;
-    protectedContent.inert = false;
-    protectedContent.setAttribute("aria-hidden", "false");
     userEmail.textContent = user.email || "内部账号";
     setFormBusy(false);
+    window.location.replace(new URL("nature-reader/", window.location.href).href);
 }
 
 function describeLoginError(error) {
