@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Potervlag 的个人博客，记录编程学习与日常生活。">
     <title>我的静态博客空间</title>
     
-    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked@15.0.12/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js"></script>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-    <script src="firebase-config.js"></script>
     <style>
         /* 1. 基础设置：背景设为透明，让视频透出来 */
         body, html { 
@@ -23,256 +24,16 @@
         }
         * { box-sizing: border-box; }
         [hidden] { display: none !important; }
-
-        /* Firebase 内部账号登录门禁 */
-        body.auth-pending,
-        body.auth-locked {
-            min-height: 100vh;
-            overflow: hidden;
-            background: #09111f;
-        }
-
-        .auth-gate {
-            position: fixed;
-            inset: 0;
-            z-index: 10000;
-            display: grid;
-            place-items: center;
-            min-height: 100dvh;
-            padding: 24px;
-            overflow-y: auto;
-            color: #eaf2ff;
-            background:
-                linear-gradient(135deg, rgba(5, 12, 25, 0.9), rgba(9, 24, 43, 0.72)),
-                url("bg-poster.jpg") center / cover no-repeat;
-        }
-
-        .auth-gate::before {
-            content: "";
+        .sr-only {
             position: absolute;
-            inset: 0;
-            pointer-events: none;
-            background:
-                radial-gradient(circle at 18% 20%, rgba(52, 152, 219, 0.28), transparent 36%),
-                radial-gradient(circle at 82% 78%, rgba(151, 71, 255, 0.2), transparent 34%);
-        }
-
-        .auth-card {
-            position: relative;
-            width: min(100%, 420px);
-            padding: clamp(28px, 5vw, 42px);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            border-radius: 24px;
-            background: rgba(9, 18, 34, 0.78);
-            box-shadow: 0 28px 80px rgba(0, 0, 0, 0.42);
-            backdrop-filter: blur(22px);
-            -webkit-backdrop-filter: blur(22px);
-        }
-
-        .auth-brand {
-            display: flex;
-            align-items: center;
-            gap: 13px;
-            margin-bottom: 30px;
-        }
-
-        .auth-brand-mark {
-            display: grid;
-            place-items: center;
-            width: 46px;
-            height: 46px;
-            border-radius: 14px;
-            color: #fff;
-            font-size: 1.25rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #42a5f5, #7c4dff);
-            box-shadow: 0 10px 26px rgba(66, 165, 245, 0.3);
-        }
-
-        .auth-brand-copy strong,
-        .auth-brand-copy span {
-            display: block;
-        }
-
-        .auth-brand-copy strong {
-            font-size: 1rem;
-            letter-spacing: 0.02em;
-        }
-
-        .auth-brand-copy span {
-            margin-top: 3px;
-            color: #9fb0c9;
-            font-size: 0.78rem;
-        }
-
-        .auth-card h1 {
-            margin: 0;
-            font-size: clamp(1.8rem, 5vw, 2.35rem);
-            line-height: 1.18;
-            letter-spacing: -0.03em;
-        }
-
-        .auth-description {
-            margin: 12px 0 28px;
-            color: #aebdd2;
-            font-size: 0.94rem;
-            line-height: 1.7;
-        }
-
-        .auth-form {
-            display: grid;
-            gap: 18px;
-        }
-
-        .auth-field {
-            display: grid;
-            gap: 8px;
-        }
-
-        .auth-field label {
-            color: #c9d6e8;
-            font-size: 0.82rem;
-            font-weight: 700;
-        }
-
-        .auth-field input {
-            width: 100%;
-            min-height: 50px;
-            padding: 0 15px;
-            border: 1px solid rgba(255, 255, 255, 0.14);
-            border-radius: 12px;
-            outline: none;
-            color: #fff;
-            font: inherit;
-            background: rgba(255, 255, 255, 0.065);
-            transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
-        }
-
-        .auth-field input::placeholder {
-            color: #72829a;
-        }
-
-        .auth-field input:focus {
-            border-color: #55adf4;
-            background: rgba(255, 255, 255, 0.09);
-            box-shadow: 0 0 0 4px rgba(66, 165, 245, 0.14);
-        }
-
-        .auth-submit {
-            min-height: 50px;
-            margin-top: 2px;
-            border: 0;
-            border-radius: 12px;
-            color: #fff;
-            font: inherit;
-            font-weight: 800;
-            cursor: pointer;
-            background: linear-gradient(135deg, #168de2, #7556ef);
-            box-shadow: 0 12px 28px rgba(24, 141, 226, 0.25);
-            transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
-        }
-
-        .auth-submit:hover:not(:disabled) {
-            transform: translateY(-2px);
-            box-shadow: 0 16px 34px rgba(24, 141, 226, 0.32);
-        }
-
-        .auth-submit:disabled {
-            cursor: wait;
-            opacity: 0.68;
-        }
-
-        .auth-error {
-            min-height: 20px;
-            margin: -6px 0 0;
-            color: #ff9fa6;
-            font-size: 0.83rem;
-            line-height: 1.45;
-        }
-
-        .auth-notice {
-            display: flex;
-            align-items: flex-start;
-            gap: 9px;
-            margin: 24px 0 0;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #8494aa;
-            font-size: 0.78rem;
-            line-height: 1.55;
-        }
-
-        .auth-notice::before {
-            content: "●";
-            color: #4caf88;
-            font-size: 0.65rem;
-            transform: translateY(3px);
-        }
-
-        .auth-checking {
-            display: grid;
-            justify-items: center;
-            gap: 18px;
-            padding: 20px 0 8px;
-            color: #aebdd2;
-            text-align: center;
-        }
-
-        .auth-spinner {
-            width: 36px;
-            height: 36px;
-            border: 3px solid rgba(255, 255, 255, 0.15);
-            border-top-color: #55adf4;
-            border-radius: 50%;
-            animation: auth-spin 0.8s linear infinite;
-        }
-
-        @keyframes auth-spin {
-            to { transform: rotate(360deg); }
-        }
-
-        .auth-account {
-            display: inline-flex;
-            align-items: center;
-            gap: 9px;
-            margin-left: 18px;
-            color: #fff;
-            font-size: 0.8rem;
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
-        }
-
-        .auth-account-email {
-            max-width: 180px;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
             overflow: hidden;
-            text-overflow: ellipsis;
+            clip: rect(0, 0, 0, 0);
             white-space: nowrap;
-        }
-
-        .auth-signout {
-            padding: 6px 11px;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            border-radius: 999px;
-            color: inherit;
-            font: inherit;
-            font-weight: 700;
-            cursor: pointer;
-            background: rgba(0, 0, 0, 0.12);
-        }
-
-        body.no-video-mode .auth-account {
-            color: #2c3e50;
-            text-shadow: none;
-        }
-
-        body.no-video-mode .auth-signout {
-            border-color: rgba(44, 62, 80, 0.35);
-        }
-
-        @media (max-width: 680px) {
-            .auth-gate { padding: 14px; }
-            .auth-card { border-radius: 20px; }
-            .auth-account-email { display: none; }
-            .auth-account { margin-left: 6px; }
+            border: 0;
         }
 
         /* 2. 视频背景样式 (全屏铺满完美版) */
@@ -364,9 +125,7 @@
 
         body.intro-mode .top-nav,
         body.intro-mode .layout-container,
-        body.intro-mode .settings-modal,
-        body.intro-mode .private-chat-modal,
-        body.intro-mode .private-chat-viewer {
+        body.intro-mode .settings-modal {
             display: none !important;
         }
 
@@ -477,18 +236,7 @@
 
         /* 6. 标签云 (透明化处理) */
         .category-list { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 8px; }
-        .category-list li { 
-            padding: 4px 10px; 
-            background-color: transparent; /* 标签背景透明 */
-            color: #3498db; 
-            border: 1px solid rgba(52, 152, 219, 0.6); /* 保留稍明显的蓝色边框 */
-            border-radius: 4px; font-size: 0.85em; font-weight: 600; 
-            cursor: pointer; transition: all 0.2s ease;
-            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8); /* 增加文字发光 */
-        }
-        .category-list li:hover, .category-list li.active { 
-            background-color: #3498db; color: white; text-shadow: none; 
-        }
+        .category-list li { color: #3498db; }
 
         /* 7. 右侧主内容区 */
         .main-content { width: 80%; }
@@ -532,14 +280,14 @@
             box-shadow: 4px 12px 24px rgba(0, 168, 255, 0.2); /* 给卡片右侧增加一点蓝色的环境光 */
         }        
         /* 文章标题和正文：加深字体并加上细微白底阴影保护可读性 */
-        .post-title { font-size: 1.6em; margin: 0 0 10px 0; color: #000; font-weight: 600; cursor: pointer; transition: color 0.2s; text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8); }
+        .post-title { font-size: 1.6em; margin: 0 0 10px 0; color: #000; font-weight: 600; transition: color 0.2s; text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8); }
         .post-title:hover { color: #3498db; }
         .post-meta { color: #444; font-size: 0.85em; margin-bottom: 15px; font-weight: 500;  }
         .post-tag { background: rgba(52, 152, 219, 0.1); border: 1px solid #3498db; color: #3498db; padding: 2px 8px; border-radius: 4px; font-size: 0.8em; margin-right: 10px; }
         .post-excerpt { line-height: 1.7; color: #000; margin-bottom: 15px; font-weight: 500;  }
         .read-more { color: #3498db; text-decoration: none; font-weight: bold; cursor: pointer; }
 
-        .btn-back { background: #34495e; color: white; border: none; padding: 8px 16px; cursor: pointer; border-radius: 4px; margin-bottom: 20px; }
+        .btn-back { background: #34495e; color: white; border: none; padding: 8px 16px; cursor: pointer; border-radius: 4px; margin-bottom: 20px; text-decoration: none; }
         .post-detail-content { line-height: 1.8; color: #222; font-size: 1.05em; white-space: pre-wrap; font-weight: 500; text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8); }
         .post-detail-content [id] { scroll-margin-top: 80px; }
 
@@ -601,7 +349,8 @@
         /* 关闭按钮 */
         .close-btn { 
             position: absolute; top: 15px; right: 20px; font-size: 1.8em; 
-            cursor: pointer; color: #333; transition: color 0.2s; 
+            border: 0; line-height: 1; cursor: pointer; color: #333;
+            background: transparent; transition: color 0.2s;
         }
         .close-btn:hover { color: #e74c3c; }
         
@@ -614,6 +363,7 @@
         .switch { position: relative; display: inline-block; width: 46px; height: 24px; }
         .switch input { opacity: 0; width: 0; height: 0; }
         .slider { position: absolute; cursor: pointer; top: 0; left: 0; right: 0; bottom: 0; background-color: #ccc; transition: .3s; border-radius: 24px; }
+        .switch input:focus-visible + .slider { box-shadow: 0 0 0 3px rgba(0, 168, 255, 0.35); }
         .slider:before { position: absolute; content: ""; height: 18px; width: 18px; left: 3px; bottom: 3px; background-color: white; transition: .3s; border-radius: 50%; box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
         input:checked + .slider { background-color: #00a8ff; } /* 开启时的亮蓝色 */
         input:checked + .slider:before { transform: translateX(22px); }
@@ -922,8 +672,9 @@
             }
 
             /* 👇 确保导航栏里的所有链接（首页、归档等）也变成黑色 */
-            .top-nav a, 
-            .top-nav .nav-logo {
+            .top-nav a,
+            .top-nav .nav-logo,
+            .top-nav .nav-settings-button {
                 color: #000000 !important;
                 opacity: 1 !important; /* 确保没有透明度干扰 */
             }
@@ -946,7 +697,10 @@
             /* 2. 把你的详情页，以及首页（假设叫 homeView）都变成独立滚动区 */
             /* ⚠️ 注意：如果你首页的 id 不叫 homeView，请把它改成你真实的 id */
             #detailView,
-            #listView { 
+            #listView,
+            #archiveView,
+            #statsView,
+            #aboutView {
                 height: calc(100vh - 70px); /* 减去顶部导航栏的高度 */
                 margin-top: 15px;           /* 往下推，躲开导航栏 */
                 overflow-y: auto;           /* 核心：内容多了自动出滚动条 */
@@ -956,441 +710,115 @@
 
             /* 🌟 美化这两个盒子的内部滚动条 */
             #detailView::-webkit-scrollbar,
-            #listView::-webkit-scrollbar {
+            #listView::-webkit-scrollbar,
+            #archiveView::-webkit-scrollbar,
+            #statsView::-webkit-scrollbar,
+            #aboutView::-webkit-scrollbar {
                 width: 8px; 
             }
             #detailView::-webkit-scrollbar-track,
-            #listView::-webkit-scrollbar-track {
+            #listView::-webkit-scrollbar-track,
+            #archiveView::-webkit-scrollbar-track,
+            #statsView::-webkit-scrollbar-track,
+            #aboutView::-webkit-scrollbar-track {
                 background: transparent; 
             }
             #detailView::-webkit-scrollbar-thumb,
-            #listView::-webkit-scrollbar-thumb {
+            #listView::-webkit-scrollbar-thumb,
+            #archiveView::-webkit-scrollbar-thumb,
+            #statsView::-webkit-scrollbar-thumb,
+            #aboutView::-webkit-scrollbar-thumb {
                 background: rgba(0, 0, 0, 0.15); 
                 border-radius: 10px;
             }
             #detailView::-webkit-scrollbar-thumb:hover,
-            #listView::-webkit-scrollbar-thumb:hover {
+            #listView::-webkit-scrollbar-thumb:hover,
+            #archiveView::-webkit-scrollbar-thumb:hover,
+            #statsView::-webkit-scrollbar-thumb:hover,
+            #aboutView::-webkit-scrollbar-thumb:hover {
                 background: rgba(0, 168, 255, 0.5); 
             }
         }
-        .private-chat-modal {
-            position: fixed;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(17, 24, 39, 0.46);
-            backdrop-filter: blur(6px);
-            -webkit-backdrop-filter: blur(6px);
-            z-index: 10000;
-            padding: 18px;
-        }
-        .private-chat-panel {
-            width: min(92vw, 760px);
-            height: min(86vh, 720px);
-            background: rgba(255, 255, 255, 0.9);
-            border: 1px solid rgba(255, 255, 255, 0.7);
-            border-radius: 8px;
-            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.24);
-            position: relative;
-            padding: 22px;
-            color: #111827;
-        }
-        .private-chat-panel.auth-mode {
-            width: min(92vw, 400px);
-            height: auto;
-        }
-        .private-chat-close {
-            position: absolute;
-            top: 12px;
-            right: 14px;
-            width: 32px;
-            height: 32px;
-            border: none;
-            background: transparent;
-            color: #374151;
-            font-size: 1.6em;
-            line-height: 1;
-            cursor: pointer;
-        }
-        .private-chat-close:hover { color: #ef4444; }
-        .private-chat-auth,
-        .private-chat-room {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-        .private-chat-auth {
-            gap: 12px;
-            justify-content: center;
-        }
-        .private-chat-title {
-            margin: 0 38px 6px 0;
-            font-size: 1.35em;
-            color: #111827;
-            text-shadow: none;
-        }
-        .private-chat-subtitle {
-            margin: 0 0 8px 0;
-            color: #4b5563;
-            line-height: 1.6;
-            font-size: 0.92em;
-        }
-        .private-chat-field {
-            width: 100%;
-            border: 1px solid rgba(17, 24, 39, 0.16);
-            border-radius: 6px;
-            padding: 11px 12px;
+        .category-list button {
+            border: 0;
+            padding: 8px 14px;
+            border-radius: 18px;
+            color: inherit;
             font: inherit;
-            background: rgba(255, 255, 255, 0.78);
-            color: #111827;
+            font-weight: 600;
+            cursor: pointer;
+            background: transparent;
+        }
+        .category-list button:hover,
+        .category-list button:focus-visible,
+        .category-list button[aria-pressed="true"] {
+            color: #fff;
+            background: rgba(52, 152, 219, 0.9);
             outline: none;
         }
-        .private-chat-field:focus {
-            border-color: #00a8ff;
-            box-shadow: 0 0 0 3px rgba(0, 168, 255, 0.14);
-        }
-        .private-chat-primary {
-            border: none;
-            border-radius: 6px;
-            background: #00a8ff;
-            color: #fff;
-            font-weight: 800;
-            padding: 11px 16px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-        .private-chat-primary:hover { background: #0097e6; }
-        .private-chat-primary:disabled {
-            cursor: not-allowed;
-            opacity: 0.65;
-        }
-        .private-chat-error {
-            min-height: 20px;
-            margin: 0;
-            color: #dc2626;
-            font-size: 0.9em;
-        }
-        .private-chat-header {
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            gap: 14px;
-            padding-right: 38px;
-            border-bottom: 1px dashed rgba(17, 24, 39, 0.18);
-            padding-bottom: 12px;
-        }
-        .private-chat-status {
-            margin-top: 4px;
-            color: #64748b;
-            font-size: 0.86em;
-        }
-        .private-chat-name {
-            width: 150px;
-            flex: 0 0 auto;
-        }
-        .private-chat-messages {
-            flex: 1;
-            min-height: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            overflow-y: auto;
-            padding: 16px 4px;
-        }
-        .private-chat-empty {
-            margin: auto;
-            color: #64748b;
-            text-align: center;
-            line-height: 1.7;
-        }
-        .private-chat-message {
-            width: fit-content;
-            max-width: 74%;
-            align-self: flex-start;
-            background: rgba(243, 244, 246, 0.95);
-            border: 1px solid rgba(17, 24, 39, 0.08);
-            border-left: 4px solid #94a3b8;
-            border-radius: 8px;
-            padding: 10px 12px;
-            word-break: break-word;
-        }
-        .private-chat-message.own {
-            align-self: flex-end;
-            background: rgba(232, 247, 255, 0.95);
-            border-left-color: #00a8ff;
-        }
-        .private-chat-meta {
-            color: #64748b;
-            font-size: 0.78em;
-            margin-bottom: 5px;
-        }
-        .private-chat-text {
-            white-space: pre-wrap;
-            line-height: 1.55;
-            color: #111827;
-        }
-        .private-chat-content {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        .private-chat-image-button {
-            display: block;
-            width: min(280px, 100%);
-            padding: 0;
-            border: none;
-            background: transparent;
-            cursor: zoom-in;
-            text-align: left;
-        }
-        .private-chat-image {
-            display: block;
-            width: 100%;
-            max-height: 240px;
-            object-fit: cover;
-            border-radius: 6px;
-            border: 1px solid rgba(17, 24, 39, 0.1);
-            background: rgba(255, 255, 255, 0.85);
-        }
-        .private-chat-file-card {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            min-width: min(300px, 100%);
-            padding: 9px 10px;
-            border: 1px solid rgba(17, 24, 39, 0.1);
-            border-radius: 6px;
-            background: rgba(255, 255, 255, 0.72);
-        }
-        .private-chat-file-icon {
-            width: 36px;
-            height: 36px;
-            flex: 0 0 auto;
-            display: grid;
-            place-items: center;
-            border-radius: 6px;
-            background: rgba(0, 168, 255, 0.14);
-            color: #0369a1;
-            font-weight: 800;
-            font-size: 0.78em;
-        }
-        .private-chat-file-info {
-            min-width: 0;
-            flex: 1;
-        }
-        .private-chat-file-name {
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            color: #111827;
-            font-weight: 700;
-        }
-        .private-chat-file-size {
-            margin-top: 2px;
-            color: #64748b;
-            font-size: 0.78em;
-        }
-        .private-chat-file-download {
-            color: #0284c7;
-            font-weight: 800;
+        .post-title a {
+            color: inherit;
             text-decoration: none;
-            white-space: nowrap;
         }
-        .private-chat-file-download:hover {
-            text-decoration: underline;
+        .post-title a:hover,
+        .post-title a:focus-visible {
+            color: #3498db;
+            outline: 2px solid currentColor;
+            outline-offset: 3px;
         }
-        .private-chat-compose {
-            display: grid;
-            grid-template-columns: auto minmax(0, 1fr) auto;
-            align-items: end;
-            gap: 10px;
-            border-top: 1px dashed rgba(17, 24, 39, 0.18);
-            padding-top: 12px;
-        }
-        .private-chat-file-input {
-            display: none;
-        }
-        .private-chat-attach-button {
-            width: 46px;
-            height: 46px;
-            border: 1px solid rgba(17, 24, 39, 0.16);
-            border-radius: 6px;
-            background: rgba(255, 255, 255, 0.78);
-            color: #0369a1;
-            font-size: 1.6em;
-            line-height: 1;
+        .nav-settings-button {
+            margin-left: 20px;
+            border: 0;
+            padding: 4px 6px;
+            color: inherit;
+            font: inherit;
+            font-weight: 600;
             cursor: pointer;
-            transition: all 0.2s ease;
+            background: transparent;
         }
-        .private-chat-attach-button:hover {
-            border-color: #00a8ff;
-            background: rgba(224, 242, 254, 0.86);
+        .nav-settings-button:focus-visible {
+            outline: 2px solid currentColor;
+            outline-offset: 3px;
         }
-        .private-chat-attach-button:disabled {
-            cursor: not-allowed;
-            opacity: 0.65;
-        }
-        .private-chat-input-area {
-            min-width: 0;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        .private-chat-compose textarea {
-            min-height: 46px;
-            max-height: 120px;
-            resize: vertical;
-        }
-        .private-chat-attachment-preview {
-            display: none;
-            align-items: center;
-            gap: 8px;
-            min-height: 34px;
-            padding: 7px 8px;
-            border: 1px dashed rgba(14, 116, 144, 0.34);
-            border-radius: 6px;
-            background: rgba(236, 254, 255, 0.76);
-            color: #0f172a;
-            font-size: 0.86em;
-        }
-        .private-chat-attachment-preview.visible {
-            display: flex;
-        }
-        .private-chat-preview-name {
-            min-width: 0;
-            flex: 1;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-        .private-chat-preview-remove {
-            width: 24px;
-            height: 24px;
-            border: none;
-            border-radius: 50%;
-            background: rgba(15, 23, 42, 0.08);
-            color: #475569;
-            line-height: 1;
-            cursor: pointer;
-        }
-        .private-chat-preview-remove:hover {
-            background: rgba(239, 68, 68, 0.12);
-            color: #dc2626;
-        }
-        .private-chat-viewer {
-            position: fixed;
-            inset: 0;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 10001;
-            padding: 24px;
-            background: rgba(15, 23, 42, 0.86);
-        }
-        .private-chat-viewer.visible {
-            display: flex;
-        }
-        .private-chat-viewer img {
-            max-width: min(96vw, 1100px);
-            max-height: 84vh;
-            object-fit: contain;
+        .hidden-library-entry {
+            display: block;
+            margin-top: 18px;
+            padding: 12px 16px;
+            border: 1px dashed rgba(0, 168, 255, 0.55);
             border-radius: 8px;
-            background: #fff;
-            box-shadow: 0 18px 60px rgba(0, 0, 0, 0.42);
-        }
-        .private-chat-viewer-close {
-            position: fixed;
-            top: 18px;
-            right: 20px;
-            width: 40px;
-            height: 40px;
-            border: none;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.16);
-            color: #fff;
-            font-size: 1.8em;
-            line-height: 1;
-            cursor: pointer;
-        }
-        .private-chat-viewer-caption {
-            position: fixed;
-            left: 24px;
-            right: 24px;
-            bottom: 18px;
-            color: rgba(255, 255, 255, 0.86);
+            color: #006da4;
+            font-weight: 800;
             text-align: center;
-            font-size: 0.92em;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
+            text-decoration: none;
+            background: rgba(0, 168, 255, 0.08);
         }
-
-        @media screen and (max-width: 768px) {
-            .private-chat-panel {
-                width: 94vw;
-                height: 88dvh;
-                padding: 18px;
-            }
-            .private-chat-header,
-            .private-chat-compose {
-                flex-direction: column;
-            }
-            .private-chat-compose {
-                grid-template-columns: 46px 1fr;
-            }
-            .private-chat-compose .private-chat-primary {
-                grid-column: 1 / -1;
-            }
-            .private-chat-name {
-                width: 100%;
-            }
-            .private-chat-message {
-                max-width: 88%;
+        .hidden-library-entry:hover,
+        .hidden-library-entry:focus-visible {
+            background: rgba(0, 168, 255, 0.16);
+            outline: 2px solid #00a8ff;
+            outline-offset: 2px;
+        }
+        .settings-status {
+            min-height: 1.4em;
+            margin: 12px 0 0;
+            color: #08785f;
+            font-size: 0.82rem;
+            text-align: center;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                scroll-behavior: auto !important;
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
             }
         }
-	
    </style>
 </head>
 <body class="intro-mode">
-    <section id="authGate" class="auth-gate" aria-labelledby="authTitle" aria-describedby="authDescription" hidden>
-        <div class="auth-card">
-            <div class="auth-brand">
-                <div class="auth-brand-mark" aria-hidden="true">P</div>
-                <div class="auth-brand-copy">
-                    <strong>Potervlag Space</strong>
-                    <span>INTERNAL ACCESS</span>
-                </div>
-            </div>
+    <div id="siteContent">
 
-            <h1 id="authTitle">欢迎回来</h1>
-            <p id="authDescription" class="auth-description">这是内部访问空间，请使用已分配的账号登录。</p>
-
-            <div id="authChecking" class="auth-checking" role="status">
-                <span class="auth-spinner" aria-hidden="true"></span>
-                <span id="authCheckingText">正在检查登录状态…</span>
-            </div>
-
-            <form id="authForm" class="auth-form" hidden novalidate>
-                <div class="auth-field">
-                    <label for="authEmail">内部邮箱</label>
-                    <input id="authEmail" name="email" type="email" inputmode="email" autocomplete="username" placeholder="name@example.com" required>
-                </div>
-                <div class="auth-field">
-                    <label for="authPassword">密码</label>
-                    <input id="authPassword" name="password" type="password" autocomplete="current-password" placeholder="请输入密码" required>
-                </div>
-                <p id="authError" class="auth-error" role="alert" aria-live="polite"></p>
-                <button id="authSubmit" class="auth-submit" type="submit">进入空间</button>
-            </form>
-
-            <p class="auth-notice">仅限内部账号。账号由管理员统一创建，本页面不提供注册入口。</p>
-        </div>
-    </section>
-
-    <div id="protectedContent" class="protected-content" aria-hidden="false">
-
-<video autoplay loop muted playsinline poster="bg-poster.jpg" class="video-background" onclick="enterBlogExperience()" title="点击进入">
+<video autoplay loop muted playsinline poster="bg-poster.jpg" class="video-background" role="button" tabindex="0" aria-label="进入博客" title="点击进入">
         <source src="blog-background.mp4" type="video/mp4">
     </video>
     <div class="intro-title">
@@ -1401,15 +829,11 @@
     <nav class="top-nav">
         <div class="nav-logo">My Blog</div>
         <div class="nav-links">
-            <a href="#" onclick="switchPage('home')">首页</a>
-            <a href="#" onclick="switchPage('archive')">归档</a>
-            <a href="#" onclick="switchPage('stats')">统计</a>
-            <a href="#" onclick="switchPage('about')">关于</a>
-	    <a href="javascript:void(0);" onclick="openSettings()" style="margin-left: 20px;">⚙️ 设置</a>
-            <span class="auth-account" hidden>
-                <span id="authUserEmail" class="auth-account-email"></span>
-                <button id="authSignOut" class="auth-signout" type="button">退出登录</button>
-            </span>
+            <a href="blog.html" data-view="home">首页</a>
+            <a href="blog.html?view=archive" data-view="archive">归档</a>
+            <a href="blog.html?view=stats" data-view="stats">统计</a>
+            <a href="blog.html?view=about" data-view="about">关于</a>
+            <button class="nav-settings-button" type="button" id="openSettingsButton">⚙️ 设置</button>
         </div>
     </nav>
     <div class="layout-container">
@@ -1423,14 +847,7 @@
 
             <div class="side-card nav-card">
                 <h3>分类导航</h3>
-                <ul class="category-list" id="categoryMenu">
-                    <li class="active" data-cat="全部内容">全部</li>
-                    <li data-cat="读书">读书</li>
-                    <li data-cat="游戏">游戏</li>
-                    <li data-cat="日常">日常</li>
-                    <li data-cat="Markdown">Markdown</li>
-		    <li data-cat="HTML基础">HTML基础</li>
-                </ul>
+                <ul class="category-list" id="categoryMenu" aria-label="文章分类"></ul>
             </div>
             
         </aside>
@@ -1440,7 +857,7 @@
             <div id="listView"></div>
             
             <div id="detailView" style="display: none;">
-                <button class="btn-back" onclick="switchPage('home')">← 返回列表</button>
+                <a class="btn-back" href="blog.html" id="backToList">← 返回列表</a>
                 <div class="post-card">
                     <h1 id="detailTitle" class="post-title" style="margin-top:0;"></h1>
                     <div class="post-meta"><span id="detailTag" class="post-tag"></span><span id="detailDate"></span></div>
@@ -1482,1071 +899,27 @@
         </main>
     </div>
 
-	<script src="data.js"></script>   
-	
-    <script>
-        let currentCategory = '全部内容';
-        let currentPostId = null;  // 👇 新加这行：记录当前打开的文章 ID
-        const PRIVATE_CHAT_CONFIG = {
-            databaseUrl: "", // 填入 Firebase Realtime Database URL 后即可跨设备同步
-            roomId: "potervlag-private-chat",
-            passwordHash: "2873a10ae5c07c881a511163f8a8ad97c289a6d88bce09af6315786c1a5c1271",
-            unlockStorageKey: "potervlagPrivateChatUnlockedV1",
-            messagesStorageKey: "potervlagPrivateChatMessagesV1",
-            outboxStorageKey: "potervlagPrivateChatOutboxV1",
-            nicknameStorageKey: "potervlagPrivateChatNicknameV1",
-            clientStorageKey: "potervlagPrivateChatClientV1",
-            pollMs: 4000,
-            attachmentMaxBytes: 1024 * 1024
-        };
-        const DEVICE_SETTINGS_CONFIG = {
-            hoverStorageKey: "potervlagSettingHoverEffectsV1"
-        };
-        let privateChatUnlockCount = 0;
-        let privateChatLastTapAt = 0;
-        let privateChatKey = null;
-        let privateChatMessages = [];
-        let privateChatPollingTimer = null;
-        let privateChatRenderId = 0;
-        let privateChatRenderedSignature = null;
-        let privateChatSelectedAttachment = null;
-        let privateChatAttachmentReading = false;
-
-        // 渲染首页列表
-        function renderList() {
-            const container = document.getElementById('listView');
-            container.innerHTML = '';
-            const filtered = currentCategory === '全部内容' ? blogPosts : blogPosts.filter(p => p.category === currentCategory);
-            
-           filtered.forEach(post => {
-                // 直接使用你在 data.js 里写的 summary。如果没写，就显示默认文字。
-                const safeExcerpt = post.summary ? post.summary : "点击阅读全文...";
-                
-                // ... 接下来继续你原来的代码，把 safeExcerpt 塞进你的卡片 HTML 里 ...
-                const card = document.createElement('div');
-                card.className = 'post-card';
-                card.innerHTML = `
-                    <h2 class="post-title" onclick="showDetail(${post.id})">${post.title}</h2>
-                    <div class="post-meta"><span class="post-tag">${post.category}</span>发布于：${post.date}</div>
-                    <div class="post-excerpt">${safeExcerpt}</div>
-                    <a class="read-more" onclick="showDetail(${post.id})">阅读全文 →</a>
-                `;
-                container.appendChild(card);
-            });
-        }
-
-        // 顶部导航页面切换
-        function switchPage(pageId) {
-            const views = ['listView', 'detailView', 'archiveView', 'statsView', 'aboutView'];
-            views.forEach(v => document.getElementById(v).style.display = 'none');
-            
-            if(document.getElementById(pageId + 'View')) {
-                document.getElementById(pageId + 'View').style.display = 'block';
-            } else {
-                document.getElementById('listView').style.display = 'block';
-            }
-            
-            if(pageId === 'home') renderList();
-            if(pageId === 'stats') document.getElementById('statTotal').innerText = blogPosts.length;
-            if(pageId === 'archive') {
-                const list = document.getElementById('archiveList');
-                list.innerHTML = blogPosts.map(p => `<div><span style="color: #666; margin-right: 15px;">${p.date}</span> <a href="#" onclick="showDetail(${p.id})" style="color: #111; text-decoration: none; border-bottom: 1px dashed #ccc;">${p.title}</a></div>`).join('');
-            }
-        }
-
-        function slugifyHeadingText(text) {
-            return text
-                .trim()
-                .toLowerCase()
-                .replace(/[^\w\s\u3400-\u9fff\u3040-\u30ff\uac00-\ud7af-]/g, '')
-                .replace(/\s+/g, '-')
-                .replace(/-+/g, '-')
-                .replace(/^-|-$/g, '');
-        }
-
-        function assignPostHeadingAnchors(container) {
-            const usedIds = new Map();
-
-            container.querySelectorAll('h1, h2, h3, h4, h5, h6').forEach((heading, index) => {
-                const baseId = slugifyHeadingText(heading.textContent) || `section-${index + 1}`;
-                const count = usedIds.get(baseId) || 0;
-                const headingId = count === 0 ? baseId : `${baseId}-${count}`;
-                usedIds.set(baseId, count + 1);
-
-                if (!heading.id) {
-                    heading.id = headingId;
-                }
-
-                heading.dataset.generatedAnchor = headingId;
-            });
-        }
-
-        function decodeAnchorId(anchorId) {
-            try {
-                return decodeURIComponent(anchorId);
-            } catch (error) {
-                return anchorId;
-            }
-        }
-
-        function findPostAnchorTarget(container, anchorId) {
-            const decodedId = decodeAnchorId(anchorId);
-            const byId = Array.from(container.querySelectorAll('[id]')).find(element => element.id === decodedId);
-
-            if (byId) return byId;
-
-            return Array.from(container.querySelectorAll('h1, h2, h3, h4, h5, h6')).find(heading => {
-                return heading.dataset.generatedAnchor === decodedId || slugifyHeadingText(heading.textContent) === decodedId;
-            });
-        }
-
-        function setupPostAnchorNavigation(container) {
-            if (container.dataset.anchorNavigationReady === '1') return;
-            container.dataset.anchorNavigationReady = '1';
-
-            container.addEventListener('click', event => {
-                const link = event.target.closest('a[href^="#"]');
-                if (!link || !container.contains(link)) return;
-
-                const rawHash = link.getAttribute('href').slice(1);
-                if (!rawHash) return;
-
-                const target = findPostAnchorTarget(container, rawHash);
-                if (!target) return;
-
-                event.preventDefault();
-                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-                const decodedHash = decodeAnchorId(rawHash);
-                history.replaceState(null, '', `${location.pathname}${location.search}#${encodeURIComponent(decodedHash)}`);
-            });
-        }
-
-	// --- 点击打开文章详情 (动态拉取 Markdown 版) ---
-        
-       // --- 带有追踪器的终极版 showDetail ---
-        async function showDetail(postId) {
-            console.log("🚦 1. 成功收到点击指令！传进来的 ID 是:", postId);
-
-            // 增强版查找：不管 id 是数字还是字符串，都能找到
-            const post = blogPosts.find(p => p.id == postId);
-            console.log("🚦 2. 根据 ID 找到的文章数据是:", post);
-
-            if (!post) {
-                console.error("❌ 拦截警告：在 data.js 里没找到这篇文章，我强行下班了！");
-                return;
-            }
-
-            document.getElementById('detailTitle').innerText = post.title;
-            document.getElementById('detailDate').innerText = post.date;
-            document.getElementById('detailTag').innerText = post.category;
-
-            const contentBox = document.getElementById('detailContent');
-            contentBox.innerHTML = '<p style="text-align:center; color:#999; padding: 50px;">正在加载文章...</p>';
-
-            console.log("🚦 3. 数据没问题，准备切换界面显示详情！");
-            
-            // ✅ 注意这里：一定只能是 'detail'，绝对不能带 View！
-            switchPage('detail'); 
-            
-            currentPostId = postId;
-            loadComments();
-
-            try {
-                console.log("🚦 4. 界面切换成功，开始去拉取 Markdown 文件:", post.fileUrl);
-                const response = await fetch(post.fileUrl);
-                
-                if (!response.ok) {
-                    throw new Error("找不到文件！状态码: " + response.status);
-                }
-
-                const mdText = await response.text();
-                console.log("🚦 5. 文件拉取成功！总字数:", mdText.length);
-
-                contentBox.innerHTML = marked.parse(mdText);
-                assignPostHeadingAnchors(contentBox);
-                setupPostAnchorNavigation(contentBox);
-                
-                // 👇 新增：唤醒 KaTeX，让它扫描正文盒子里的公式
-                renderMathInElement(contentBox, {
-                    delimiters: [
-                        {left: '$$', right: '$$', display: true}, // 识别双美元符号：独立整行大公式
-                        {left: '$', right: '$', display: false}   // 识别单美元符号：夹在文字中间的小公式
-                    ],
-                    throwOnError: false // 如果公式代码写错了，只显示红字，不让整个网页崩溃
-                });
-
-                console.log("✅ 6. 完美撒花！Markdown 和 LaTeX 公式全部渲染完毕！");
-
-            } catch (error) {
-                console.error("❌ 拉取文件时发生意外:", error);
-                contentBox.innerHTML = '<p style="text-align:center; color:red; padding: 50px;">⚠️ 文章加载失败，请检查网络或路径。</p>';
-            }
-        }
-        // --- 设置面板相关逻辑 ---
-
-        // 打开与关闭面板
-        function openSettings() {
-            document.getElementById('settingsModal').style.display = 'flex';
-        }
-        function closeSettings() { document.getElementById('settingsModal').style.display = 'none'; }
-
-        function readDeviceSetting(key, fallback) {
-            const value = localStorage.getItem(key);
-            if (value === null) return fallback;
-            return value === '1';
-        }
-
-        function writeDeviceSetting(key, enabled) {
-            localStorage.setItem(key, enabled ? '1' : '0');
-        }
-
-        function initializeDeviceSettings() {
-            const hoverToggle = document.getElementById('hoverToggle');
-
-            if (hoverToggle) {
-                hoverToggle.checked = readDeviceSetting(DEVICE_SETTINGS_CONFIG.hoverStorageKey, true);
-                toggleHoverEffects(false);
-            }
-        }
-
-        function enterBlogExperience() {
-            document.body.classList.remove('intro-mode');
-            enableReadingMode();
-        }
-
-        function enableReadingMode() {
-            const video = document.querySelector('.video-background');
-            if (video) {
-                video.style.display = 'none';
-                video.pause(); 
-            }
-            document.body.classList.add('no-video-mode');    // 🎬 进入无视频阅读模式
-        }
-
-        function toggleReadingMode() {
-            enableReadingMode();
-        }
-
-        // 设置开关：控制悬停浮起动效
-        function toggleHoverEffects(shouldSave = true) {
-            const toggle = document.getElementById('hoverToggle');
-            if (!toggle) return;
-            if (shouldSave) {
-                writeDeviceSetting(DEVICE_SETTINGS_CONFIG.hoverStorageKey, toggle.checked);
-                registerPrivateChatUnlockTap();
-            }
-
-            if (toggle.checked) {
-                document.body.classList.remove('disable-hover'); // 移除禁用类，恢复动效
-            } else {
-                document.body.classList.add('disable-hover'); // 添加禁用类，强制取消动效
-            }
-        }
-
-        function getPrivateChatDbUrl() {
-            return (
-                PRIVATE_CHAT_CONFIG.databaseUrl ||
-                window.POTERVLAG_FIREBASE_CONFIG?.databaseURL ||
-                ''
-            ).trim().replace(/\/$/, '');
-        }
-
-        function getPrivateChatRoomPath() {
-            return PRIVATE_CHAT_CONFIG.roomId.replace(/[.#$\[\]\/]/g, '-');
-        }
-
-        function getPrivateChatMessagesUrl() {
-            return `${getPrivateChatDbUrl()}/privateChat/${getPrivateChatRoomPath()}/messages`;
-        }
-
-        function readPrivateChatArray(key) {
-            try {
-                const value = localStorage.getItem(key);
-                const parsed = value ? JSON.parse(value) : [];
-                return Array.isArray(parsed) ? parsed : [];
-            } catch (error) {
-                console.warn('私聊缓存读取失败:', error);
-                return [];
-            }
-        }
-
-        function writePrivateChatArray(key, value) {
-            localStorage.setItem(key, JSON.stringify(value));
-        }
-
-        function bytesToHex(buffer) {
-            return Array.from(new Uint8Array(buffer))
-                .map(byte => byte.toString(16).padStart(2, '0'))
-                .join('');
-        }
-
-        function hexToBytes(hex) {
-            const bytes = new Uint8Array(hex.length / 2);
-            for (let i = 0; i < bytes.length; i++) {
-                bytes[i] = parseInt(hex.slice(i * 2, i * 2 + 2), 16);
-            }
-            return bytes;
-        }
-
-        function bytesToBase64(bytes) {
-            let binary = '';
-            bytes.forEach(byte => binary += String.fromCharCode(byte));
-            return btoa(binary);
-        }
-
-        function base64ToBytes(value) {
-            const binary = atob(value);
-            const bytes = new Uint8Array(binary.length);
-            for (let i = 0; i < binary.length; i++) {
-                bytes[i] = binary.charCodeAt(i);
-            }
-            return bytes;
-        }
-
-        async function sha256Text(text) {
-            const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
-            return bytesToHex(digest);
-        }
-
-        async function createPrivateChatKey(hashHex) {
-            return crypto.subtle.importKey('raw', hexToBytes(hashHex), 'AES-GCM', false, ['encrypt', 'decrypt']);
-        }
-
-        async function encryptPrivateChatText(text) {
-            const iv = crypto.getRandomValues(new Uint8Array(12));
-            const encoded = new TextEncoder().encode(text);
-            const encrypted = await crypto.subtle.encrypt({ name: 'AES-GCM', iv }, privateChatKey, encoded);
-            return `${bytesToBase64(iv)}.${bytesToBase64(new Uint8Array(encrypted))}`;
-        }
-
-        async function decryptPrivateChatText(payload) {
-            const [ivText, encryptedText] = String(payload || '').split('.');
-            if (!ivText || !encryptedText) return '[消息格式无法识别]';
-            try {
-                const decrypted = await crypto.subtle.decrypt(
-                    { name: 'AES-GCM', iv: base64ToBytes(ivText) },
-                    privateChatKey,
-                    base64ToBytes(encryptedText)
-                );
-                return new TextDecoder().decode(decrypted);
-            } catch (error) {
-                return '[密码不匹配，无法解密这条消息]';
-            }
-        }
-
-        async function encryptPrivateChatPayload(payload) {
-            return encryptPrivateChatText(JSON.stringify({
-                kind: 'private-chat-message',
-                version: 2,
-                ...payload
-            }));
-        }
-
-        async function decryptPrivateChatPayload(payload) {
-            const text = await decryptPrivateChatText(payload);
-
-            try {
-                const parsed = JSON.parse(text);
-                if (parsed && parsed.kind === 'private-chat-message') {
-                    return {
-                        text: typeof parsed.text === 'string' ? parsed.text : '',
-                        attachment: parsed.attachment || null
-                    };
-                }
-            } catch (error) {
-                // 旧消息是纯文本密文，解析失败时按文本消息展示。
-            }
-
-            return { text, attachment: null };
-        }
-
-        function getPrivateChatClientId() {
-            let clientId = localStorage.getItem(PRIVATE_CHAT_CONFIG.clientStorageKey);
-            if (!clientId) {
-                clientId = `client-${Date.now()}-${Math.random().toString(16).slice(2)}`;
-                localStorage.setItem(PRIVATE_CHAT_CONFIG.clientStorageKey, clientId);
-            }
-            return clientId;
-        }
-
-        function createPrivateChatMessageId() {
-            const randomBytes = crypto.getRandomValues(new Uint8Array(8));
-            return `${Date.now()}-${bytesToHex(randomBytes)}`;
-        }
-
-        function mergePrivateChatMessages(...messageLists) {
-            const byId = new Map();
-            messageLists.flat().forEach(message => {
-                if (message && message.id) byId.set(message.id, message);
-            });
-            return Array.from(byId.values()).sort((a, b) => (a.createdAt || 0) - (b.createdAt || 0));
-        }
-
-        function getPrivateChatMessageSignature(messageList) {
-            return [...messageList]
-                .sort((a, b) => (a.createdAt || 0) - (b.createdAt || 0))
-                .map(message => `${message.id}:${message.createdAt || 0}`)
-                .join('|');
-        }
-
-        function isPrivateChatUnlocked() {
-            return localStorage.getItem(PRIVATE_CHAT_CONFIG.unlockStorageKey) === '1';
-        }
-
-        function registerPrivateChatUnlockTap() {
-            const now = Date.now();
-            privateChatUnlockCount = now - privateChatLastTapAt < 1800 ? privateChatUnlockCount + 1 : 1;
-            privateChatLastTapAt = now;
-
-            if (privateChatUnlockCount >= 8) {
-                privateChatUnlockCount = 0;
-                localStorage.setItem(PRIVATE_CHAT_CONFIG.unlockStorageKey, '1');
-                openPrivateChatGate();
-            }
-        }
-
-        function openPrivateChatGate() {
-            if (!isPrivateChatUnlocked()) return;
-
-            closeSettings();
-            const modal = document.getElementById('privateChatModal');
-            const panel = document.getElementById('privateChatPanel');
-            const loginView = document.getElementById('chatLoginView');
-            const roomView = document.getElementById('chatRoomView');
-            const passwordInput = document.getElementById('privateChatPassword');
-            const hasKey = Boolean(privateChatKey);
-
-            modal.style.display = 'flex';
-            panel.classList.toggle('auth-mode', !hasKey);
-            loginView.style.display = hasKey ? 'none' : 'flex';
-            roomView.style.display = hasKey ? 'flex' : 'none';
-            document.getElementById('privateChatLoginError').innerText = '';
-
-            if (hasKey) {
-                initializePrivateChatRoom();
-            } else {
-                passwordInput.value = '';
-                setTimeout(() => passwordInput.focus(), 80);
-            }
-        }
-
-        function closePrivateChat() {
-            document.getElementById('privateChatModal').style.display = 'none';
-        }
-
-        function setPrivateChatStatus(text) {
-            const status = document.getElementById('privateChatStatus');
-            if (status && status.innerText !== text) status.innerText = text;
-        }
-
-        function updatePrivateChatNickname() {
-            const input = document.getElementById('privateChatNickname');
-            const nickname = input.value.trim() || '我';
-            localStorage.setItem(PRIVATE_CHAT_CONFIG.nicknameStorageKey, nickname);
-        }
-
-        function getPrivateChatNickname() {
-            return localStorage.getItem(PRIVATE_CHAT_CONFIG.nicknameStorageKey) || '我';
-        }
-
-        function formatPrivateChatFileSize(size) {
-            const value = Number(size) || 0;
-            if (value >= 1024 * 1024) return `${(value / 1024 / 1024).toFixed(1)} MB`;
-            if (value >= 1024) return `${Math.ceil(value / 1024)} KB`;
-            return `${value} B`;
-        }
-
-        function inferPrivateChatImageType(fileName) {
-            const extension = String(fileName || '').split('.').pop().toLowerCase();
-            const imageTypes = {
-                avif: 'image/avif',
-                bmp: 'image/bmp',
-                gif: 'image/gif',
-                jpg: 'image/jpeg',
-                jpeg: 'image/jpeg',
-                png: 'image/png',
-                svg: 'image/svg+xml',
-                webp: 'image/webp'
-            };
-            return imageTypes[extension] || '';
-        }
-
-        function normalizePrivateChatDataUrl(dataUrl, mimeType) {
-            if (!mimeType || !dataUrl.startsWith('data:')) return dataUrl;
-            return dataUrl
-                .replace(/^data:;/, `data:${mimeType};`)
-                .replace(/^data:application\/octet-stream;/, `data:${mimeType};`);
-        }
-
-        function createPrivateChatTextElement(text) {
-            const body = document.createElement('div');
-            body.className = 'private-chat-text';
-            body.innerText = text;
-            return body;
-        }
-
-        function createPrivateChatAttachmentElement(attachment) {
-            const safeName = attachment.name || '附件';
-            const safeType = attachment.type || '';
-            const dataUrl = attachment.dataUrl || '';
-            const isImage = (attachment.isImage || safeType.startsWith('image/')) && dataUrl.startsWith('data:image/');
-
-            if (isImage) {
-                const content = document.createElement('div');
-                content.className = 'private-chat-content';
-
-                const imageButton = document.createElement('button');
-                imageButton.type = 'button';
-                imageButton.className = 'private-chat-image-button';
-                imageButton.title = safeName;
-                imageButton.onclick = () => openPrivateChatImage(dataUrl, safeName);
-
-                const image = document.createElement('img');
-                image.className = 'private-chat-image';
-                image.src = dataUrl;
-                image.alt = safeName;
-                image.loading = 'lazy';
-
-                imageButton.appendChild(image);
-                content.appendChild(imageButton);
-                content.appendChild(createPrivateChatFileCard(attachment, true));
-                return content;
-            }
-
-            return createPrivateChatFileCard(attachment, false);
-        }
-
-        function createPrivateChatFileCard(attachment, compact) {
-            const safeName = attachment.name || '附件';
-            const card = document.createElement('div');
-            card.className = 'private-chat-file-card';
-
-            const icon = document.createElement('div');
-            icon.className = 'private-chat-file-icon';
-            icon.innerText = (attachment.isImage || String(attachment.type || '').startsWith('image/')) ? 'IMG' : 'FILE';
-
-            const info = document.createElement('div');
-            info.className = 'private-chat-file-info';
-
-            const name = document.createElement('div');
-            name.className = 'private-chat-file-name';
-            name.innerText = safeName;
-
-            const size = document.createElement('div');
-            size.className = 'private-chat-file-size';
-            size.innerText = formatPrivateChatFileSize(attachment.size);
-
-            const download = document.createElement('a');
-            download.className = 'private-chat-file-download';
-            download.href = attachment.dataUrl || '#';
-            download.download = safeName;
-            download.innerText = compact ? '保存' : '下载';
-
-            info.appendChild(name);
-            info.appendChild(size);
-            card.appendChild(icon);
-            card.appendChild(info);
-            card.appendChild(download);
-            return card;
-        }
-
-        function createPrivateChatMessageBody(payload) {
-            const content = document.createElement('div');
-            content.className = 'private-chat-content';
-
-            if (payload.text) {
-                content.appendChild(createPrivateChatTextElement(payload.text));
-            }
-
-            if (payload.attachment) {
-                content.appendChild(createPrivateChatAttachmentElement(payload.attachment));
-            }
-
-            if (!payload.text && !payload.attachment) {
-                content.appendChild(createPrivateChatTextElement('[空消息]'));
-            }
-
-            return content;
-        }
-
-        function clearPrivateChatAttachment() {
-            privateChatSelectedAttachment = null;
-            privateChatAttachmentReading = false;
-
-            const input = document.getElementById('privateChatAttachmentInput');
-            const preview = document.getElementById('privateChatAttachmentPreview');
-            const name = document.getElementById('privateChatAttachmentName');
-
-            if (input) input.value = '';
-            if (preview) preview.classList.remove('visible');
-            if (name) name.innerText = '';
-        }
-
-        function renderPrivateChatAttachmentPreview() {
-            const preview = document.getElementById('privateChatAttachmentPreview');
-            const name = document.getElementById('privateChatAttachmentName');
-            if (!preview || !name) return;
-
-            if (!privateChatSelectedAttachment) {
-                preview.classList.remove('visible');
-                name.innerText = '';
-                return;
-            }
-
-            name.innerText = `${privateChatSelectedAttachment.name} · ${formatPrivateChatFileSize(privateChatSelectedAttachment.size)}`;
-            preview.classList.add('visible');
-        }
-
-        function handlePrivateChatAttachmentChange(event) {
-            const file = event.target.files && event.target.files[0];
-            if (!file) return;
-
-            if (file.size > PRIVATE_CHAT_CONFIG.attachmentMaxBytes) {
-                clearPrivateChatAttachment();
-                setPrivateChatStatus(`附件不能超过 ${formatPrivateChatFileSize(PRIVATE_CHAT_CONFIG.attachmentMaxBytes)}。`);
-                return;
-            }
-
-            privateChatAttachmentReading = true;
-            setPrivateChatStatus('正在读取附件...');
-
-            const reader = new FileReader();
-            reader.onload = () => {
-                const fallbackType = inferPrivateChatImageType(file.name);
-                const fileType = file.type || fallbackType || 'application/octet-stream';
-                privateChatSelectedAttachment = {
-                    name: file.name || '附件',
-                    type: fileType,
-                    size: file.size,
-                    dataUrl: normalizePrivateChatDataUrl(String(reader.result || ''), fileType),
-                    isImage: fileType.startsWith('image/')
-                };
-                privateChatAttachmentReading = false;
-                renderPrivateChatAttachmentPreview();
-                setPrivateChatStatus('附件已添加');
-            };
-            reader.onerror = () => {
-                privateChatAttachmentReading = false;
-                clearPrivateChatAttachment();
-                setPrivateChatStatus('附件读取失败，请重新选择。');
-            };
-            reader.readAsDataURL(file);
-        }
-
-        function openPrivateChatImage(src, name) {
-            const viewer = document.getElementById('privateChatImageViewer');
-            const image = document.getElementById('privateChatViewerImage');
-            const caption = document.getElementById('privateChatViewerCaption');
-            if (!viewer || !image) return;
-
-            image.src = src;
-            image.alt = name || '图片附件';
-            if (caption) caption.innerText = name || '图片附件';
-            viewer.classList.add('visible');
-            viewer.setAttribute('aria-hidden', 'false');
-        }
-
-        function closePrivateChatImage() {
-            const viewer = document.getElementById('privateChatImageViewer');
-            const image = document.getElementById('privateChatViewerImage');
-            if (!viewer) return;
-
-            viewer.classList.remove('visible');
-            viewer.setAttribute('aria-hidden', 'true');
-            if (image) image.src = '';
-        }
-
-        function handlePrivateChatViewerClick(event) {
-            if (event.target && event.target.id === 'privateChatImageViewer') {
-                closePrivateChatImage();
-            }
-        }
-
-        async function enterPrivateChat() {
-            const errorBox = document.getElementById('privateChatLoginError');
-            const passwordInput = document.getElementById('privateChatPassword');
-            const password = passwordInput.value;
-
-            if (!window.crypto || !crypto.subtle) {
-                errorBox.innerText = '当前浏览器不支持加密能力，请使用 HTTPS 页面打开。';
-                return;
-            }
-
-            if (!password) {
-                errorBox.innerText = '请输入密码。';
-                return;
-            }
-
-            const hash = await sha256Text(password);
-            if (hash !== PRIVATE_CHAT_CONFIG.passwordHash.toLowerCase()) {
-                errorBox.innerText = '密码不正确。';
-                passwordInput.select();
-                return;
-            }
-
-            privateChatKey = await createPrivateChatKey(hash);
-            document.getElementById('privateChatPanel').classList.remove('auth-mode');
-            document.getElementById('chatLoginView').style.display = 'none';
-            document.getElementById('chatRoomView').style.display = 'flex';
-            await initializePrivateChatRoom();
-        }
-
-        function handlePrivateChatPasswordKey(event) {
-            if (event.key === 'Enter') enterPrivateChat();
-        }
-
-        async function initializePrivateChatRoom() {
-            document.getElementById('privateChatNickname').value = getPrivateChatNickname();
-            privateChatMessages = readPrivateChatArray(PRIVATE_CHAT_CONFIG.messagesStorageKey);
-            await renderPrivateChatMessages();
-            await syncPrivateChatMessages(true);
-
-            if (!privateChatPollingTimer) {
-                privateChatPollingTimer = setInterval(syncPrivateChatMessages, PRIVATE_CHAT_CONFIG.pollMs);
-            }
-        }
-
-        async function renderPrivateChatMessages(force = false) {
-            const list = document.getElementById('privateChatMessages');
-            const messages = [...privateChatMessages].sort((a, b) => (a.createdAt || 0) - (b.createdAt || 0));
-            const signature = getPrivateChatMessageSignature(messages);
-            if (!force && signature === privateChatRenderedSignature) return;
-
-            const renderId = ++privateChatRenderId;
-            privateChatRenderedSignature = signature;
-            list.innerHTML = '';
-
-            if (!messages.length) {
-                const empty = document.createElement('div');
-                empty.className = 'private-chat-empty';
-                empty.innerText = '还没有聊天记录。';
-                list.appendChild(empty);
-                return;
-            }
-
-            for (const message of messages) {
-                const payload = await decryptPrivateChatPayload(message.body);
-                if (renderId !== privateChatRenderId) return;
-
-                const item = document.createElement('div');
-                item.className = `private-chat-message${message.clientId === getPrivateChatClientId() ? ' own' : ''}`;
-
-                const meta = document.createElement('div');
-                meta.className = 'private-chat-meta';
-                meta.innerText = `${message.author || '匿名'} · ${formatPrivateChatTime(message.createdAt)}`;
-
-                item.appendChild(meta);
-                item.appendChild(createPrivateChatMessageBody(payload));
-                list.appendChild(item);
-            }
-
-            list.scrollTop = list.scrollHeight;
-        }
-
-        function formatPrivateChatTime(timestamp) {
-            if (!timestamp) return '';
-            return new Intl.DateTimeFormat('zh-CN', {
-                month: '2-digit',
-                day: '2-digit',
-                hour: '2-digit',
-                minute: '2-digit'
-            }).format(new Date(timestamp));
-        }
-
-        async function sendPrivateChatMessage() {
-            const input = document.getElementById('privateChatInput');
-            const sendButton = document.getElementById('privateChatSendButton');
-            const attachButton = document.getElementById('privateChatAttachButton');
-            const text = input.value.trim();
-            const attachment = privateChatSelectedAttachment;
-            if (privateChatAttachmentReading) {
-                setPrivateChatStatus('附件还在读取中...');
-                return;
-            }
-            if ((!text && !attachment) || !privateChatKey) return;
-
-            sendButton.disabled = true;
-            if (attachButton) attachButton.disabled = true;
-            updatePrivateChatNickname();
-
-            try {
-                const message = {
-                    id: createPrivateChatMessageId(),
-                    body: await encryptPrivateChatPayload({ text, attachment }),
-                    author: getPrivateChatNickname(),
-                    clientId: getPrivateChatClientId(),
-                    createdAt: Date.now()
-                };
-
-                privateChatMessages = mergePrivateChatMessages(privateChatMessages, [message]);
-                writePrivateChatArray(PRIVATE_CHAT_CONFIG.messagesStorageKey, privateChatMessages);
-                input.value = '';
-                clearPrivateChatAttachment();
-                await renderPrivateChatMessages();
-
-                try {
-                    await uploadPrivateChatMessage(message);
-                    setPrivateChatStatus(getPrivateChatDbUrl() ? '已同步' : '已保存在当前设备');
-                } catch (error) {
-                    queuePrivateChatOutbox(message);
-                    setPrivateChatStatus('网络暂时不可用，消息已排队。');
-                }
-            } catch (error) {
-                console.warn('私聊发送失败:', error);
-                setPrivateChatStatus('发送失败，请缩小附件或稍后重试。');
-            } finally {
-                sendButton.disabled = false;
-                if (attachButton) attachButton.disabled = false;
-                input.focus();
-            }
-        }
-
-        function handlePrivateChatInputKey(event) {
-            if (event.key === 'Enter' && !event.shiftKey) {
-                event.preventDefault();
-                sendPrivateChatMessage();
-            }
-        }
-
-        async function uploadPrivateChatMessage(message) {
-            const dbUrl = getPrivateChatDbUrl();
-            if (!dbUrl) return;
-
-            const authorizedUrl = await window.getAuthorizedFirebaseUrl(`${getPrivateChatMessagesUrl()}/${message.id}.json`);
-            const response = await fetch(authorizedUrl, {
-                method: 'PUT',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(message)
-            });
-
-            if (!response.ok) throw new Error(`同步失败: ${response.status}`);
-        }
-
-        function queuePrivateChatOutbox(message) {
-            const outbox = mergePrivateChatMessages(
-                readPrivateChatArray(PRIVATE_CHAT_CONFIG.outboxStorageKey),
-                [message]
-            );
-            writePrivateChatArray(PRIVATE_CHAT_CONFIG.outboxStorageKey, outbox);
-        }
-
-        async function flushPrivateChatOutbox() {
-            const outbox = readPrivateChatArray(PRIVATE_CHAT_CONFIG.outboxStorageKey);
-            if (!outbox.length || !getPrivateChatDbUrl()) return;
-
-            const remaining = [];
-            for (const message of outbox) {
-                try {
-                    await uploadPrivateChatMessage(message);
-                } catch (error) {
-                    remaining.push(message);
-                }
-            }
-            writePrivateChatArray(PRIVATE_CHAT_CONFIG.outboxStorageKey, remaining);
-        }
-
-        async function syncPrivateChatMessages(showProgress = false) {
-            if (!privateChatKey) return;
-
-            const dbUrl = getPrivateChatDbUrl();
-            if (!dbUrl) {
-                setPrivateChatStatus('当前为本机保存：填入 Firebase URL 后可跨设备同步。');
-                return;
-            }
-
-            try {
-                if (showProgress === true) setPrivateChatStatus('同步中...');
-                await flushPrivateChatOutbox();
-
-                const authorizedUrl = await window.getAuthorizedFirebaseUrl(`${getPrivateChatMessagesUrl()}.json`);
-                const response = await fetch(authorizedUrl, { cache: 'no-store' });
-                if (!response.ok) throw new Error(`读取失败: ${response.status}`);
-
-                const data = await response.json();
-                const cloudMessages = data ? Object.values(data) : [];
-                const mergedMessages = mergePrivateChatMessages(privateChatMessages, cloudMessages);
-                const hasMessageChanges = getPrivateChatMessageSignature(mergedMessages) !== getPrivateChatMessageSignature(privateChatMessages);
-                privateChatMessages = mergedMessages;
-
-                if (hasMessageChanges) {
-                    writePrivateChatArray(PRIVATE_CHAT_CONFIG.messagesStorageKey, privateChatMessages);
-                    await renderPrivateChatMessages();
-                }
-
-                const outbox = readPrivateChatArray(PRIVATE_CHAT_CONFIG.outboxStorageKey);
-                setPrivateChatStatus(outbox.length ? '部分消息等待同步' : '已同步');
-            } catch (error) {
-                console.warn('私聊同步失败:', error);
-                setPrivateChatStatus('同步失败，稍后会自动重试。');
-            }
-        }
-
-        window.addEventListener('online', syncPrivateChatMessages);
-        window.addEventListener('keydown', event => {
-            if (event.key === 'Escape') closePrivateChatImage();
-        });
-
-        // 初始化加载
-        window.onload = () => {
-            initializeDeviceSettings();
-            renderList();
-        };
-        // --- 分类标签点击功能 (带控制台追踪版) ---
-        const categoryMenu = document.getElementById('categoryMenu');
-        
-        if (categoryMenu) {
-            categoryMenu.addEventListener('click', (e) => {
-                // 如果点到的不是 <li> 标签，就不管它
-                if (e.target.tagName !== 'LI') return;
-
-                console.log("🏷️ 1. 成功点到标签！当前点击的是:", e.target.innerText);
-
-                // 1. 扒掉所有标签的高亮外套 (移除 active 类)
-                document.querySelectorAll('.category-list li').forEach(li => li.classList.remove('active'));
-                
-                // 2. 给当前点击的这个标签穿上高亮外套
-                e.target.classList.add('active');
-                
-                // 3. 拿到它身上藏着的分类名字
-                currentCategory = e.target.getAttribute('data-cat');
-                console.log("🏷️ 2. 准备筛选的分类是:", currentCategory);
-                
-                // 4. 切回首页，并触发 renderList 重新洗牌画卡片！
-                switchPage('home'); 
-                console.log("✅ 3. 首页卡片已经重新洗牌完毕！");
-            });
-        } else {
-            console.error("❌ 致命错误：HTML 里找不到 id 叫 categoryMenu 的盒子！");
-        }
-	// --- 全新升级的 Giscus 云端评论系统加载器 ---
-        function loadComments() {
-            const commentBox = document.getElementById('commentList');
-            
-            // 1. 每次打开新文章，先清空上一个文章的评论
-            commentBox.innerHTML = ''; 
-
-            // 2. 用 JS 凭空创造一个 script 标签
-            const script = document.createElement('script');
-            script.src = "https://giscus.app/client.js";
-            
-            // 👇👇👇【警告：请把下面这 4 行换成你自己的信息！】👇👇👇
-            script.setAttribute("data-repo", "你的GitHub用户名/你的仓库名"); 
-            script.setAttribute("data-repo-id", "你刚才获取的_repo_id"); 
-            script.setAttribute("data-category", "Announcements"); // 或者 General，看你选的什么
-            script.setAttribute("data-category-id", "你刚才获取的_category_id"); 
-            // 👆👆👆--------------------------------------👆👆👆
-
-            // 核心魔法：使用文章的唯一 ID 来区分不同文章的评论区
-            script.setAttribute("data-category", "Comments"); 
-            script.setAttribute("data-category-id","DIC_kwDOSDTRHc4C7kiM");
-            script.setAttribute("data-mapping", "specific");
-            script.setAttribute("data-repo","potervlag-cyber/potervlag.github.io");
-            script.setAttribute("data-repo-id","R_kgDOSDTRHQ");
-            script.setAttribute("data-term", currentPostId); 
-            
-            script.setAttribute("data-strict", "0");
-            script.setAttribute("data-reactions-enabled", "1");
-            script.setAttribute("data-emit-metadata", "0");
-            script.setAttribute("data-input-position", "top"); // 输入框放上面
-            script.setAttribute("data-theme", "light");        // 你的博客偏浅色，选 light 最配
-            script.setAttribute("data-lang", "zh-CN");
-            script.crossOrigin = "anonymous";
-            script.async = true;
-
-            // 3. 把填好信息的 script 标签塞进网页里，召唤 Giscus！
-            commentBox.appendChild(script);
-        }
-	// --- 沉浸式导航栏逻辑 (针对 .top-nav 定制版) ---
-        
-        document.addEventListener('DOMContentLoaded', () => {
-            let lastScrollY = window.scrollY; 
-            
-            // 👇 这里已经精确匹配了你的 HTML 类名
-            const navBar = document.querySelector('.top-nav'); 
-
-            if (!navBar) {
-                console.error("🚨 警告：JavaScript 没找到导航栏！");
-                return;
-            }
-
-            window.addEventListener('scroll', () => {
-                const currentScrollY = window.scrollY; 
-
-                // 下滑超过 80px 隐藏
-                if (currentScrollY > lastScrollY && currentScrollY > 80) {
-                    navBar.classList.add('nav-hidden'); 
-                } 
-                // 上滑立刻显示
-                else if (currentScrollY < lastScrollY) {
-                    navBar.classList.remove('nav-hidden'); 
-                }
-
-                lastScrollY = currentScrollY;
-            });
-        });
-    </script>
-	<div id="privateChatModal" class="private-chat-modal" style="display: none;">
-        <div id="privateChatPanel" class="private-chat-panel auth-mode">
-            <button type="button" class="private-chat-close" onclick="closePrivateChat()" aria-label="关闭">×</button>
-
-            <div id="chatLoginView" class="private-chat-auth">
-                <h2 class="private-chat-title">一对一私聊</h2>
-                <p class="private-chat-subtitle">输入密码后进入，消息会用密码加密保存。</p>
-                <input id="privateChatPassword" class="private-chat-field" type="password" placeholder="请输入密码" autocomplete="current-password" onkeydown="handlePrivateChatPasswordKey(event)">
-                <button type="button" class="private-chat-primary" onclick="enterPrivateChat()">进入聊天</button>
-                <p id="privateChatLoginError" class="private-chat-error"></p>
-            </div>
-
-            <div id="chatRoomView" class="private-chat-room" style="display: none;">
-                <div class="private-chat-header">
-                    <div>
-                        <h2 class="private-chat-title">一对一私聊</h2>
-                        <div id="privateChatStatus" class="private-chat-status">准备同步...</div>
-                    </div>
-                    <input id="privateChatNickname" class="private-chat-field private-chat-name" type="text" maxlength="16" placeholder="你的昵称" oninput="updatePrivateChatNickname()">
-                </div>
-
-                <div id="privateChatMessages" class="private-chat-messages"></div>
-
-                <div class="private-chat-compose">
-                    <input id="privateChatAttachmentInput" class="private-chat-file-input" type="file" onchange="handlePrivateChatAttachmentChange(event)">
-                    <button id="privateChatAttachButton" type="button" class="private-chat-attach-button" onclick="document.getElementById('privateChatAttachmentInput').click()" aria-label="添加图片或文件" title="添加图片或文件">＋</button>
-                    <div class="private-chat-input-area">
-                        <textarea id="privateChatInput" class="private-chat-field" placeholder="写点什么..." onkeydown="handlePrivateChatInputKey(event)"></textarea>
-                        <div id="privateChatAttachmentPreview" class="private-chat-attachment-preview">
-                            <span id="privateChatAttachmentName" class="private-chat-preview-name"></span>
-                            <button type="button" class="private-chat-preview-remove" onclick="clearPrivateChatAttachment()" aria-label="移除附件">×</button>
-                        </div>
-                    </div>
-                    <button id="privateChatSendButton" type="button" class="private-chat-primary" onclick="sendPrivateChatMessage()">发送</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="privateChatImageViewer" class="private-chat-viewer" role="dialog" aria-modal="true" aria-hidden="true" onclick="handlePrivateChatViewerClick(event)">
-        <button type="button" class="private-chat-viewer-close" onclick="closePrivateChatImage()" aria-label="关闭图片">×</button>
-        <img id="privateChatViewerImage" alt="">
-        <div id="privateChatViewerCaption" class="private-chat-viewer-caption"></div>
-    </div>
-
-	<div id="settingsModal" class="settings-modal" style="display: none;">
+	<div id="settingsModal" class="settings-modal" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
         <div class="settings-content">
-            <span class="close-btn" onclick="closeSettings()">&times;</span>
-            <h2 style="margin-top:0; color:#000; text-shadow:1px 1px 2px rgba(255,255,255,0.8);">⚙️ 偏好设置</h2>
+            <button class="close-btn" id="closeSettingsButton" type="button" aria-label="关闭设置">&times;</button>
+            <h2 id="settingsTitle" style="margin-top:0; color:#000; text-shadow:1px 1px 2px rgba(255,255,255,0.8);">⚙️ 偏好设置</h2>
             <hr style="border:0; border-top:1px dashed rgba(0,0,0,0.2); margin:15px 0;">
 
             <div class="setting-item">
                 <span>✨ 卡片悬停浮起</span>
                 <label class="switch">
-                    <input type="checkbox" id="hoverToggle" checked onchange="toggleHoverEffects()">
+                    <span class="sr-only">切换卡片悬停效果</span>
+                    <input type="checkbox" id="hoverToggle" checked>
                     <span class="slider round"></span>
                 </label>
             </div>
-            <p style="font-size: 0.8em; color: #666; margin-top: 25px; text-align: center;">设置仅在当前浏览器生效</p>
+            <a id="hiddenLibraryEntry" class="hidden-library-entry" href="nature-reader/" hidden>进入隐藏文献库 →</a>
+            <p id="settingsStatus" class="settings-status" aria-live="polite"></p>
+            <p style="font-size: 0.8em; color: #666; margin-top: 12px; text-align: center;">设置仅在当前浏览器生效</p>
         </div>
     </div>
     </div>
+    <script src="data.js"></script>
+    <script src="blog-app.js"></script>
 </body>
 </html>
